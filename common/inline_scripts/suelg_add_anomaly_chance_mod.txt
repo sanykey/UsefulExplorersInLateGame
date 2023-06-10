@@ -1,0 +1,3 @@
+set_variable = { which = suelg_anomaly_chance_tmp value = suelg_anomaly_chance }
+multiply_variable = { which = suelg_anomaly_chance_tmp value = $VAL$ }
+change_variable = { which = suelg_anomaly_chance value = suelg_anomaly_chance_tmp }

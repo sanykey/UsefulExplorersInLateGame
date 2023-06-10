@@ -1,0 +1,3 @@
+﻿l_russian:
+ SUELG_ANOMALY_DETECTED_TITLE:0 "Аномалия"
+ SUELG_ANOMALY_DETECTED_MESSAGE:0 "Флотилия $SHIP|Y$ обнаружила §HАномалию§! на планете $PLANET|Y$"

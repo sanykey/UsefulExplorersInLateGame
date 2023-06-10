@@ -1,0 +1,5 @@
+on_fleet_enter_orbit = {
+	events = {
+		suelg_deep_scan.1
+	}
+}

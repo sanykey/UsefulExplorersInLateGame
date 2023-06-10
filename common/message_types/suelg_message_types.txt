@@ -1,0 +1,11 @@
+message_type = {
+	key = "SUELG_ANOMALY_DETECTED"
+	icon = "GFX_message_anomaly"
+	icon_frame = 1
+	name = "SUELG_ANOMALY_DETECTED_TITLE"
+	sound = advisor_notification_discovery_detected
+	sound_is_advisor = yes
+	ping = "arrow_notification_yellow"
+
+	category = science
+}

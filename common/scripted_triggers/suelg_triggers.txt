@@ -1,0 +1,25 @@
+can_have_volatile_motes_deposits = {
+	can_have_volatile_motes_deposit = yes
+}
+
+can_have_alloy_deposits = {
+	is_planet_class = pc_asteroid
+	is_planet_class = pc_molten
+}
+
+suelg_can_have_orbital_deposits = {
+	OR = {
+		can_have_mineral_deposits = yes
+		can_have_energy_deposits = yes
+		can_have_society_deposits = yes
+		can_have_minor_physics_deposits = yes
+		can_have_physics_deposits = yes
+		can_have_minor_engineering_deposits = yes
+		can_have_engineering_deposits = yes
+		can_have_trade_deposits = yes
+		can_have_volatile_motes_deposit = yes
+		can_have_rare_crystals_deposits = yes
+		can_have_exotic_gases_deposits = yes
+		can_have_alloy_deposits = yes
+	}
+}

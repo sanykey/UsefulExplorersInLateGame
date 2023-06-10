@@ -1,0 +1,7 @@
+if = {
+	limit = { can_have_$RES$_deposits = yes }
+	set_variable = { which = suelg_$RES$_weight value = @suelg_spawn_$RES$_weight }
+	change_variable = { which = suelg_sum_weight value = @suelg_spawn_$RES$_weight }
+} else = {
+	set_variable = { which = suelg_$RES$_weight value = 0 }
+}

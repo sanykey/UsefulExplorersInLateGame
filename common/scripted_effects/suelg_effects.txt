@@ -1,0 +1,10 @@
+suelg_random_profit = {
+	random_list = { 
+		$resource$ = { set_planet_flag = suelg_resource_profit } 
+		$science$ = { set_planet_flag = suelg_science_profit } 
+		$anomaly$ = { set_planet_flag = suelg_anomaly_profit } 
+		$rare_resource$ = { set_planet_flag = suelg_rare_resource_profit } 
+		$digsite$ = { set_planet_flag = suelg_digsite_profit } 
+		$nothing$ = { set_planet_flag = suelg_nothing_profit } 
+	}
+}

@@ -1,0 +1,6 @@
+if = {
+	limit = { has_trait = $TRAIT$ }
+	from = {
+		change_variable = { which = suelg_anomaly_chance value = $VAL$ }
+	}
+}
