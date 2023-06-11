@@ -23,3 +23,18 @@ suelg_can_have_orbital_deposits = {
 		can_have_alloy_deposits = yes
 	}
 }
+
+suelg_can_be_scanned = {
+	NOT = {
+		OR = {
+			is_planet_class = pc_ringworld_habitable
+			is_planet_class = pc_ringworld_habitable_damaged
+			is_planet_class = pc_ringworld_tech
+			is_planet_class = pc_ringworld_tech_damaged
+			is_planet_class = pc_ringworld_seam
+			is_planet_class = pc_ringworld_seam_damaged
+			is_planet_class = pc_habitat
+		}
+	}
+}
+

@@ -1,10 +1,21 @@
-suelg_random_profit = {
-	random_list = { 
-		$resource$ = { set_planet_flag = suelg_resource_profit } 
-		$science$ = { set_planet_flag = suelg_science_profit } 
-		$anomaly$ = { set_planet_flag = suelg_anomaly_profit } 
-		$rare_resource$ = { set_planet_flag = suelg_rare_resource_profit } 
-		$digsite$ = { set_planet_flag = suelg_digsite_profit } 
-		$nothing$ = { set_planet_flag = suelg_nothing_profit } 
+suelg_update_complete_scan_mod = {
+	remove_modifier = suelg_deep_scanned_1
+	remove_modifier = suelg_deep_scanned_2
+	remove_modifier = suelg_deep_scanned_3
+	remove_modifier = suelg_deep_scanned_4
+	remove_modifier = suelg_deep_scanned_5
+	remove_modifier = suelg_deep_scanned_6
+	remove_modifier = suelg_deep_scanned_7
+	remove_modifier = suelg_deep_scanned_8
+	remove_modifier = suelg_deep_scanned_9
+	remove_modifier = suelg_deep_scanned_10
+	remove_modifier = suelg_deep_scanned_11
+	remove_modifier = suelg_deep_scanned_12
+	remove_modifier = suelg_deep_scanned_13
+	remove_modifier = suelg_deep_scanned_14
+	remove_modifier = suelg_deep_scanned_15
+	add_modifier = {
+		modifier = suelg_deep_scanned_1
+		days = -1
 	}
 }

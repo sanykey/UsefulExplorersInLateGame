@@ -1,0 +1,14 @@
+# picture = GFX_F_event_001
+location = yes
+# icon = "gfx/interface/icons/situation_log/situation_log_f.dds"
+timelimit = -1
+
+event_scope = ship_event
+requirements = {
+	shipclass_science_ship = 1
+	leader = scientist
+}
+
+on_success = {
+	ship_event = { id = suelg_deep_scan.2 }
+}

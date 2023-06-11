@@ -3,3 +3,9 @@ on_fleet_enter_orbit = {
 		suelg_deep_scan.1
 	}
 }
+
+on_tech_increased = {
+	events = {
+		suelg_deep_scan.9
+	}
+}

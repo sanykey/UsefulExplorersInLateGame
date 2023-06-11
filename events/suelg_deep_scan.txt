@@ -40,40 +40,23 @@ fleet_event = {
 
     immediate = {
 		# log = ">> RUN EVENT - FROM: [from.GetName] THIS: [This.GetName]"
+		this = {
+			owner = {
+				save_event_target_as = t_owner
+			}
+		}
 
 		from = {
 			solar_system = {
 				if = {
-					limit = {
-						exists = owner
-						OR = {
-							is_variable_set = no
-							check_variable = { which = suelg_scanned_lvl value < 1 }
+					limit = {								
+						event_target:t_owner = {
+							check_variable = { which = suelg_max_scan_level value > 0 }
 						}
 					}
 
-					set_variable = { which = suelg_scanned_lvl value = 1 }
-
-					every_system_planet = {
-						if = {
-							limit = {								
-								NOR = {
-									is_planet_class = pc_ringworld_habitable
-									is_planet_class = pc_ringworld_habitable_damaged
-									is_planet_class = pc_ringworld_tech
-									is_planet_class = pc_ringworld_tech_damaged
-									is_planet_class = pc_ringworld_seam
-									is_planet_class = pc_ringworld_seam_damaged
-									is_planet_class = pc_habitat
-								}
-							}
-							enable_special_project = {
-								name = "suelg_deep_scan_1_special_project"
-								location = this
-								owner = root
-							}
-						}
-					}
+					system_event = { id = suelg_deep_scan.10 } # Reset system projects and init vars
+					system_event = { id = suelg_deep_scan.11 } # Create Deep Scan Projects for system
 				}
 			}
 		}
@@ -91,7 +74,6 @@ ship_event = {
 
     immediate = {
 		# log = ">> PROJECT COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
-
 		save_event_target_as = t_ship
 
 		leader = {
@@ -99,14 +81,15 @@ ship_event = {
 			owner = {
 				save_event_target_as = t_owner
 			}
-
 		}
 		fromfrom = {
 			save_event_target_as = t_planet
-
+			set_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
+			set_planet_flag = has_completed_project
 			planet_event = { id = suelg_deep_scan.5 } # Calculate the chance for an orbital deposit to spawn 
 			planet_event = { id = suelg_deep_scan.3 } # Calculate the chance for an Archaeological site to spawn 
 			planet_event = { id = suelg_deep_scan.4 } # Calculate the chance for an anomaly to spawn 
+			planet_event = { id = suelg_deep_scan.8 } # Complete scan
 		}
     }
 }
@@ -181,6 +164,7 @@ planet_event = {
 			limit = {
 				check_variable = { which = suelg_dice value <= suelg_anomaly_chance }
 				has_anomaly = no
+				is_preventing_anomaly = no
 			}
 			# log = ">> SPAWN ANOMALY!"
 			
@@ -218,7 +202,7 @@ planet_event = {
 	}
 
     immediate = {
-		log = ">> CHECK DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+		# log = ">> CHECK DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 
 		set_variable = { which = suelg_sum_weight value = 0 }
 
@@ -258,7 +242,7 @@ planet_event = {
 		multiply_variable = { which = suelg_sub_with_null_weight value = 100 }
 
 		set_variable_to_random_value = { which = suelg_res_dice min = 0 max = suelg_sub_with_null_weight rounded = no }
-		log = ">> ROLL RES DICE: [This.suelg_res_dice] SUCCESS: [This.suelg_sum_weight]  ALL: [This.suelg_sub_with_null_weight]"
+		# log = ">> ROLL RES DICE: [This.suelg_res_dice] SUCCESS: [This.suelg_sum_weight]  ALL: [This.suelg_sub_with_null_weight]"
 		if = {
 			limit = {
 				check_variable = { which = suelg_res_dice value <= suelg_sum_weight }
@@ -279,7 +263,7 @@ planet_event = {
 			create_message = {
 				type = SUELG_ANOMALY_DETECTED
 				localization = SUELG_ANOMALY_DETECTED_MESSAGE
-				days = 15
+				days = @suelg_notification_days
 				target = event_target:t_planet
 				variable = {
 					type = name
@@ -317,6 +301,27 @@ planet_event = {
 		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "rare_crystals" DEP = "d_rare_crystals_1" }
 		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "exotic_gases" DEP = "d_exotic_gases_1" }
 
+		# debug
+		# if = {
+		# 	limit = { 
+		# 		has_megastructure = yes
+		# 	}
+		# 	log = ">> HAS MEGASTRUCTURE"
+		# 	random_megastructure = {
+		# 		limit = { is_megastructure_type = habitat_0 }
+		# 		log = ">> HAS HABITAT"
+		# 	}
+		# }
+	}
+}
+
+# Complete scan
+planet_event = {
+    id = suelg_deep_scan.8
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
 		clear_variable = suelg_mineral_weight
 		clear_variable = suelg_energy_weight
 		clear_variable = suelg_trade_weight
@@ -330,7 +335,261 @@ planet_event = {
 		clear_variable = suelg_rare_crystals_weight
 		clear_variable = suelg_exotic_gases_weight
 
+		clear_variable = suelg_sum_weight
+		clear_variable = suelg_sub_with_null_weight
 		clear_variable = suelg_res_dice
+
 		remove_planet_flag = new_deposit_added
+
+		solar_system = {
+			if = {
+				limit = { NOT = { is_variable_set = suelg_sys_completed_scan_lvl } }
+				set_variable = { which = suelg_sys_completed_scan_lvl value = 0 }
+			}
+
+			# Checking if all planets have finished their scan projects
+			set_variable = { which = suelg_min_complete_lvl value = 100 }
+			every_system_planet = {
+				if = {
+					limit = {
+						suelg_can_be_scanned = yes
+						check_variable = { which = suelg_completed_scan_lvl value < prev.suelg_min_complete_lvl }
+					}
+					solar_system = {
+						set_variable = { which = suelg_min_complete_lvl value = prev.suelg_completed_scan_lvl }
+					}			
+				}
+			}
+
+			# Add scanned lvl modifier to stars
+			if = {
+				limit = { 
+					NOT = {
+						check_variable = { which = suelg_min_complete_lvl value = 100 }
+						check_variable = { which = suelg_min_complete_lvl value = suelg_sys_completed_scan_lvl }
+					}
+				}
+
+				set_variable = { which = suelg_sys_completed_scan_lvl value = suelg_min_complete_lvl }
+				every_system_planet = {
+					if = {
+						limit = { is_star = yes }
+						suelg_update_complete_scan_mod = yes # replace
+					}
+				}
+
+			}
+
+			event_target:t_owner = {
+				country_event = { id = suelg_deep_scan.9 } # Update scan level
+			}
+		}
+	}
+}
+
+# Update scan level
+country_event = {
+    id = suelg_deep_scan.9
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		if = { 
+			limit = {
+				NOT = {
+					is_variable_set = suelg_max_scan_level
+				}
+			}
+			set_variable = { which = suelg_max_scan_level value = 0 }
+		}
+
+		if = { 
+			limit = {
+				check_variable = { which = suelg_max_scan_level value < 3 }
+			}
+			if = {
+				limit = {
+					check_variable = { which = suelg_max_scan_level value = 0 }
+					has_technology = tech_sensors_2
+				}
+				set_variable = { which = suelg_max_scan_level value = 1 }
+				set_country_flag = suelg_has_updated_scan_level
+			} else_if = {
+				limit = {
+					check_variable = { which = suelg_max_scan_level value = 1 }
+					has_technology = tech_sensors_3
+				}
+				set_variable = { which = suelg_max_scan_level value = 2 }
+				set_country_flag = suelg_has_updated_scan_level
+			} else_if = {
+				limit = {
+					check_variable = { which = suelg_max_scan_level value = 2 }
+					has_technology = tech_sensors_4
+				}
+				set_variable = { which = suelg_max_scan_level value = 3 }
+				set_country_flag = suelg_has_updated_scan_level
+			}
+		} else_if = {
+			limit = {
+				check_variable = { which = suelg_max_scan_level value < @suelg_max_possible_scan_lvl }
+			}
+			set_variable = { which = suelg_scanned_sys_count value = 0 }
+			every_system_within_border = {
+				limit = { 
+					check_variable = { which = suelg_sys_completed_scan_lvl value >= prev.suelg_max_scan_level }
+				}
+				prev = {
+					change_variable = { which = suelg_scanned_sys_count value = 1 }
+				}
+			}
+
+			if = {
+				limit = { controlled_systems < 1 }
+				set_variable = { which = suelg_controlled_systems value = 1 }
+			} else = {
+				set_variable = { which = suelg_controlled_systems value = trigger:controlled_systems }
+			}
+	
+			set_variable = { which = suelg_scanned_sys_percent value = suelg_scanned_sys_count }
+			divide_variable = { which = suelg_scanned_sys_percent value = suelg_controlled_systems }
+	
+			if = {
+				limit = {
+					OR = {
+						check_variable = { which = suelg_scanned_sys_count value > @suelg_upgrade_scanned_systems_num }
+						check_variable = { which = suelg_scanned_sys_percent value >= @suelg_upgrade_scanned_systems_percent }
+					}
+				}
+				change_variable = { which = suelg_max_scan_level value = 1 }
+				set_country_flag = suelg_has_updated_scan_level
+			}
+	
+			clear_variable = suelg_scanned_sys_count
+			clear_variable = suelg_scanned_sys_percent
+			clear_variable = suelg_controlled_systems
+		}
+
+		if = {
+			limit = { has_country_flag = suelg_has_updated_scan_level }
+			remove_country_flag = suelg_has_updated_scan_level
+			create_message = {
+				type = SUELG_SENSORS_IMPROVED
+				localization = SUELG_SENSORS_IMPROVED_MESSAGE
+				days = @suelg_notification_days
+				target = this.capital_scope
+				variable = {
+					type = variable
+					varname = suelg_max_scan_level
+					localization = LVL
+					scope = this
+				}
+			}
+		}
+		
+	}
+}
+
+# Reset system projects and init vars
+system_event = {
+    id = suelg_deep_scan.10
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		every_system_planet = {
+			if = { # init planet variables
+				limit = { 
+					OR = {
+						NOT = { is_variable_set = suelg_completed_scan_lvl }
+						NOT = { is_variable_set = suelg_started_scan_lvl }
+					}
+					
+				}
+				set_variable = { which = suelg_completed_scan_lvl value = 0 }
+				set_variable = { which = suelg_started_scan_lvl value = 0 }
+			}
+
+			if = {
+				limit = {								
+					suelg_can_be_scanned = yes
+					check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
+				}
+
+				save_event_target_as = reset_planet_t
+				
+				# todo: figure out how to make it work. Science ships may not be orbiting a planet when they are researching a project on it
+				# random_fleet_in_orbit = {
+				# 	limit = {
+				# 		exists = leader
+				# 		leader = {
+				# 			leader_class = scientist
+				# 			# is_researching_special_project = suelg_deep_scan_SP_1 # add other projects
+				# 		}
+				# 	}
+
+				# 	event_target:reset_planet_t = {
+				# 		log = ">> DONT REMOVE THAT PLANET: [this.GetName]"
+				# 		set_planet_flag = suelg_has_researcher
+				# 	}
+				# }
+
+				if = {
+					limit = {
+						NOT = { has_planet_flag = suelg_has_researcher }
+					}
+					set_variable = { which = suelg_started_scan_lvl value = suelg_completed_scan_lvl }
+
+					solar_system = {
+						owner = {
+							# event_target:reset_planet_t = {
+							# 	log = ">> REMOVE PROJECT. PLANET: [this.GetName]"
+							# }
+							
+							abort_special_project = { type = suelg_deep_scan_SP_1 location = event_target:reset_planet_t }
+						}
+					}
+					
+					remove_planet_flag = suelg_has_researcher
+				}
+			}
+		}
+	}
+}
+
+# Create Deep Scan Projects for system
+system_event = {
+    id = suelg_deep_scan.11
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		every_system_planet = {
+			if = {
+				limit = {								
+					suelg_can_be_scanned = yes
+					check_variable = { which = suelg_completed_scan_lvl value < event_target:t_owner.suelg_max_scan_level }
+					check_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
+				}
+
+				change_variable = { which = suelg_started_scan_lvl value = 1 }
+				log = ">> CREATE PROJECT. PLANET: [This.GetName] LVL: [This.suelg_started_scan_lvl]"
+
+				inline_script = { script = suelg_create_project LVL = 1 }
+				inline_script = { script = suelg_create_project LVL = 2 }
+				inline_script = { script = suelg_create_project LVL = 3 }
+				inline_script = { script = suelg_create_project LVL = 4 }
+				inline_script = { script = suelg_create_project LVL = 5 }
+				inline_script = { script = suelg_create_project LVL = 6 }
+				inline_script = { script = suelg_create_project LVL = 7 }
+				inline_script = { script = suelg_create_project LVL = 8 }
+				inline_script = { script = suelg_create_project LVL = 9 }
+				inline_script = { script = suelg_create_project LVL = 10 }
+				inline_script = { script = suelg_create_project LVL = 11 }
+				inline_script = { script = suelg_create_project LVL = 12 }
+				inline_script = { script = suelg_create_project LVL = 13 }
+				inline_script = { script = suelg_create_project LVL = 14 }
+				inline_script = { script = suelg_create_project LVL = 15 }
+			}
+		}
 	}
 }

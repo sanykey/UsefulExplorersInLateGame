@@ -24,3 +24,9 @@
 @suelg_spawn_volatile_motes_weight = 2
 @suelg_spawn_rare_crystals_weight = 2
 @suelg_spawn_exotic_gases_weight = 2
+
+@suelg_max_possible_scan_lvl = 15 # don't set more than 15
+@suelg_upgrade_scanned_systems_num = 15
+@suelg_upgrade_scanned_systems_percent = 0.8 # use fractional values here (0.01 = 1%)
+
+@suelg_notification_days = 30

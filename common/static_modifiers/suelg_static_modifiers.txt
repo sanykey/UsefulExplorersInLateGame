@@ -1,0 +1,59 @@
+suelg_deep_scanned_1 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_2 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_3 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_4 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_5 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_6 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_7 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_8 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_9 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_10 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_11 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_12 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_13 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_14 = {
+	icon = mod_planet_stability_add
+}
+
+suelg_deep_scanned_15 = {
+	icon = mod_planet_stability_add
+}

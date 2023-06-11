@@ -1,3 +1,6 @@
 ﻿l_russian:
  SUELG_ANOMALY_DETECTED_TITLE:0 "Аномалия"
  SUELG_ANOMALY_DETECTED_MESSAGE:0 "Флотилия $SHIP|Y$ обнаружила §HАномалию§! на планете $PLANET|Y$"
+
+ SUELG_SENSORS_IMPROVED_TITLE:0 "Сенсоры ГС улучшены"
+ SUELG_SENSORS_IMPROVED_MESSAGE:0 "Сенсоры глубокого сканирования на всех научных кораблях были улучшены до $LVL|H$ уровня. Теперь вы можете проводить более глубокое сканирование планет."
