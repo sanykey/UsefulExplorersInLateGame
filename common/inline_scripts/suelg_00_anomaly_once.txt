@@ -1,0 +1,89 @@
+0 = { # max_once = yes
+	modifier = {
+		add = 3
+		is_asteroid = yes
+		has_any_strategic_resource = no
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = collision_asteroid_category }
+}
+0 = { # max_once = yes
+	modifier = {
+		add = 3
+		is_asteroid = yes
+		num_minerals > 0
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = station_asteroid_category }
+}
+0 = { # max_once = yes
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = life_asteroid_category }
+}
+0 = { # max_once = yes
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+		has_any_strategic_resource = no
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = moon_gasgiant_category }
+}
+0 = { # max_once = yes
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = life_gasgiant_category }
+}
+0 = { # max_once_global = yes
+	modifier = {
+		add = 1
+		is_planet_class = pc_gas_giant
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = signal_gasgiant_category }
+}
+0 = { # max_once_global = yes
+	modifier = {
+		add = 0.1
+		colonizable_planet = yes
+		years_passed > 10
+	}
+	modifier = {
+		factor = 3
+		is_planet_class = pc_relic
+	}
+	modifier = {
+		factor = 0
+		OR = {
+			from.owner = { is_gestalt = yes }
+			is_artificial = yes
+		}
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = the_lonely_bot_category }
+}
+0 = { # max_once_global = yes
+	modifier = {
+		add = 0.1
+		from.leader = {
+			species = {
+				NOT = { has_trait = trait_aquatic }
+			}
+		}
+	}
+	modifier = {
+		add = 0.3
+			from.leader = {
+				species = { has_trait = trait_aquatic }
+			}
+		}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = on_solar_sails_cat }
+}

@@ -162,15 +162,17 @@ planet_event = {
 		# log = ">> ROLL ANOMALY DICE: [This.suelg_dice] CHANCE: [This.suelg_anomaly_chance]"
 		if = {
 			limit = {
-				check_variable = { which = suelg_dice value <= suelg_anomaly_chance }
-				has_anomaly = no
+				# todo: conmmented for debug:
+				# check_variable = { which = suelg_dice value <= suelg_anomaly_chance }
+				# has_anomaly = no
 				is_preventing_anomaly = no
 			}
-			# log = ">> SPAWN ANOMALY!"
 			
 			# debug example:
-			set_planet_flag = planet_has_new_anomaly
-			add_anomaly = { category = DIMENSIONAL_POCKET_CAT }
+			# add_anomaly = { category = DIMENSIONAL_POCKET_CAT }
+
+			log = ">> BEFORE SPAWN ANOMALY! THIS: [This.GetName]"
+			suelg_spawn_00_anomaly = yes
 
 			if = {
 				limit = { has_anomaly = yes } 

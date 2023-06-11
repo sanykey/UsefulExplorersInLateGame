@@ -1,0 +1,7 @@
+suelg_spawn_00_anomaly = {
+	random_list = {
+		0.001 = {}
+		inline_script = suelg_00_anomaly
+		inline_script = suelg_01_anomaly
+	}
+}

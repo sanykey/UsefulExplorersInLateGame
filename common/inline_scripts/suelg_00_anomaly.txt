@@ -1,0 +1,290 @@
+0 = { 
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = crashed_ship_asteroid_category }
+}
+0 = { 
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = origin_asteroid_category }
+}
+0 = { 
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = debris_asteroid_category }
+}
+0 = { 
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = emissions_asteroid_category }
+}
+0 = { 
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = hatch_asteroid_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = object_gasgiant_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = storms_gasgiant_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = aerostat_gasgiant_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = cargo_gasgiant_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = debris_gasgiant_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = impact_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = energy_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = signal_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+	}
+	modifier = {
+		factor = 0
+		is_moon = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = asteroid_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 2
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = solar_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_toxic
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = life_toxic_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_frozen
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = life_frozen_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		OR = {
+			is_planet_class = pc_barren
+			is_planet_class = pc_barren_cold
+		}
+		has_any_strategic_resource = no
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = life_barren_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+		num_minerals > 0
+		exists = space_owner
+		space_owner = { is_same_value = from.owner }
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = station_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = battle_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 1
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = shipyard_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_toxic
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = inhabited_toxic_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = writing_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+		has_any_strategic_resource = no
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = beacon_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = mountain_uninhabitable_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		uninhabitable_regular_planet = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = object_uninhabitable_category }
+} 
+
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = ship_gasgiant_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_planet_class = pc_gas_giant
+		is_moon = no
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = terminal_gasgiant_category }
+}
+0 = {
+	modifier = {
+		add = 0.1
+		OR = {
+			is_planet_class = pc_barren
+			is_planet_class = pc_barren_cold
+			is_asteroid = yes
+		}
+		has_any_strategic_resource = no
+	}
+	modifier = {
+		factor = 0
+		OR = {
+			has_deposit_for = shipclass_mining_station
+			has_deposit_for = shipclass_research_station
+		}
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = living_metal_category }
+}
+0 = {
+	modifier = {
+		add = 30
+		is_planet_class = pc_barren
+		has_global_flag = fumongus_spawned
+		closest_system = {
+			limit = {
+				has_star_flag = fumongus_system
+			}
+			min_steps = 1
+			max_steps = 12
+		}
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = fungal_emitters_category }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = lost_soul_cat }
+}
+0 = {
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = on_crashed_ship_cat }
+}

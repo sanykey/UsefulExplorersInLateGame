@@ -1,0 +1,44 @@
+0 = { # max_once = yes
+	modifier = {
+		add = 3
+		is_asteroid = yes
+		OR = {
+			any_system = {
+				OR = {
+					has_star_flag = com_sol
+					has_star_flag = nuked_sol
+				}
+			}
+			any_country = {
+				OR = {
+					has_country_flag = human_1
+					has_country_flag = humans_early_space_age
+				}
+			}
+		}
+		FROM = {
+			owner = {
+				NOR = {
+					has_country_flag = found_voyager
+					has_country_flag = found_pioneer
+				}
+			}
+		}
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = AST_DEBRIS_FIELD_1_CAT }
+}
+0 = { # max_once_global = yes
+	modifier = {
+		add = 3
+		is_planet_class = pc_barren
+	}
+	modifier = {
+		factor = 0
+		from.owner = {
+			has_ethic = ethic_gestalt_consciousness
+		}
+	}
+	set_planet_flag = suelg_planet_has_new_anomaly
+	add_anomaly = { category = BARR_BASE_CAT }
+}
