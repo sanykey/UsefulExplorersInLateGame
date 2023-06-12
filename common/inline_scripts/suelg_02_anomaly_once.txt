@@ -1,0 +1,66 @@
+
+0 = { # max_once = yes
+	modifier = {
+			add = 3
+			is_planet_class = pc_desert
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DES_BURIED_CAT" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_desert
+				is_planet_class = pc_arid
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "SUN_RAYS_CAT" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 3
+			is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "VENDING_MACHINE_CAT" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 2
+			OR = {
+				is_planet_class = pc_frozen
+				is_planet_class = pc_barren
+				is_planet_class = pc_barren_cold
+				is_planet_class = pc_toxic
+				is_planet_class = pc_broken
+				is_planet_class = pc_gas_giant
+				is_planet_class = pc_molten
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "SINGING_PLANET_CAT" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 1
+			is_planet_class = pc_frozen
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DATA_DIAMOND_CAT" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 1
+			is_star = no
+			NOT = {
+				is_planet_class = pc_gas_giant
+			}
+			from.owner = {
+				is_ai = no
+				is_mechanical_empire = no # No machine intelligence or robot empire because they are already immortal 
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "INTEMPORAL_ORB_CAT" }
+}

@@ -1,40 +1,11 @@
+# https://regex101.com/r/9rsscY/1
+
 0 = { 
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = AST_WAVELENGTHS_1_CAT }
-}
-0 = { # max_once = yes
-	modifier = {
-		add = 3
-		is_asteroid = yes
-		OR = {
-			any_system = {
-				OR = {
-					has_star_flag = com_sol
-					has_star_flag = nuked_sol
-				}
-			}
-			any_country = {
-				OR = {
-					has_country_flag = human_1
-					has_country_flag = humans_early_space_age
-				}
-			}
-		}
-		FROM = {
-			owner = {
-				NOR = {
-					has_country_flag = found_voyager
-					has_country_flag = found_pioneer
-				}
-			}
-		}
-	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = AST_DEBRIS_FIELD_1_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "AST_WAVELENGTHS_1_CAT" }
 }
 0 = {
 	modifier = {
@@ -66,8 +37,7 @@
 			}
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = HBL_LUSH_PLANET_1_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "HBL_LUSH_PLANET_1_CAT" }
 }
 0 = {
 	modifier = {
@@ -80,8 +50,7 @@
 			is_planet_class = pc_gas_giant
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = UHB_ANCIENT_RUINS_1_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "UHB_ANCIENT_RUINS_1_CAT" }
 }
 0 = {
 	modifier = {
@@ -99,8 +68,7 @@
 			has_authority = auth_machine_intelligence
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = GEN_PLAYGROUND_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_PLAYGROUND_CAT" }
 }
 0 = {
 	modifier = {
@@ -127,16 +95,14 @@
 			}
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = AST_SHRINE_1_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "AST_SHRINE_1_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		habitable_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = HBL_MUSIC_1_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "HBL_MUSIC_1_CAT" }
 }
 0 = {
 	modifier = {
@@ -148,16 +114,14 @@
 			}
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = GAS_ZRO_ICE_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "GAS_ZRO_ICE_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = AST_ILLICIT_DARK_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "AST_ILLICIT_DARK_CAT" }
 }
 0 = {
 	modifier = {
@@ -170,8 +134,7 @@
 			has_ethic = ethic_gestalt_consciousness
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = TOX_PURPLE_RAIN_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "TOX_PURPLE_RAIN_CAT" }
 }
 0 = {
 	modifier = {
@@ -191,30 +154,14 @@
 			has_ethic = ethic_gestalt_consciousness
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = FROZ_BASE_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "FROZ_BASE_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_tropical
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = TROP_PETS_CAT }
-}
-0 = { # max_once_global = yes
-	modifier = {
-		add = 3
-		is_planet_class = pc_barren
-	}
-	modifier = {
-		factor = 0
-		from.owner = {
-			has_ethic = ethic_gestalt_consciousness
-		}
-	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = BARR_BASE_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "TROP_PETS_CAT" }
 }
 0 = {
 	modifier = {
@@ -238,40 +185,35 @@
 			is_planet_class = pc_molten
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = PROJ_MOON_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "PROJ_MOON_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_ocean
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = SEA_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "SEA_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_molten
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = MOLTEN_BASE_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "MOLTEN_BASE_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		habitable_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = LEVELED_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "LEVELED_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = DIMENSIONAL_POCKET_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "DIMENSIONAL_POCKET_CAT" }
 }
 0 = {
 	modifier = {
@@ -282,8 +224,7 @@
 			is_planet_class = pc_ocean
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = HAB_CORN_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "HAB_CORN_CAT" }
 }
 0 = {
 	modifier = {
@@ -294,8 +235,7 @@
 			is_planet_class = pc_arid
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = HAB_MAT_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "HAB_MAT_CAT" }
 }
 0 = {
 	modifier = {
@@ -309,8 +249,7 @@
 			is_planet_class = pc_nuked
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = ATM_ANOMALY_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "ATM_ANOMALY_CAT" }
 }
 0 = {
 	modifier = {
@@ -319,8 +258,7 @@
 		planet_size < 26
 		planet_size > 9
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = FRBR_GRIMACING_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "FRBR_GRIMACING_CAT" }
 }
 0 = {
 	modifier = {
@@ -337,32 +275,28 @@
 			}
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = FROZ_ILLUMINATED_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "FROZ_ILLUMINATED_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = GAS_CLOUDY_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "GAS_CLOUDY_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gaia
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = GAIA_MOVE_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "GAIA_MOVE_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_frozen
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = FROZ_BOX_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "FROZ_BOX_CAT" }
 }
 0 = {
 	modifier = {
@@ -373,56 +307,49 @@
 			is_planet_class = pc_tundra
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = CONT_SIGNS_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "CONT_SIGNS_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_arctic
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = FROZ_BASE2_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "FROZ_BASE2_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = AST_CRATER_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "AST_CRATER_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_barren
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = BAR_COLONY_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "BAR_COLONY_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_toxic
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = TOX_MAT_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "TOX_MAT_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = AST_CLUSTER_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "AST_CLUSTER_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gaia
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = GAEA_CHECKERED_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "GAEA_CHECKERED_CAT" }
 }
 0 = {
 	modifier = {
@@ -432,24 +359,21 @@
 			is_planet_class = pc_arid
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = GEN_ABANDONED_SHIP_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_ABANDONED_SHIP_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_desert
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = GEN_DESERT_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_DESERT_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_toxic
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = TOX_STRUCTURES_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "TOX_STRUCTURES_CAT" }
 }
 0 = {
 	modifier = {
@@ -465,16 +389,14 @@
 			}
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = TROP_WOODS_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "TROP_WOODS_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_star_class = sc_black_hole
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = HOLE_RADIATION_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "HOLE_RADIATION_CAT" }
 }
 0 = {
 	modifier = {
@@ -494,8 +416,7 @@
 			}
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = UHB_BUOY_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "UHB_BUOY_CAT" }
 }
 0 = {
 	modifier = {
@@ -505,6 +426,5 @@
 			is_planet_class = pc_continental
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = GAIA_RECORD_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "GAIA_RECORD_CAT" }
 }

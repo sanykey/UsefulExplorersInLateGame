@@ -1,106 +1,95 @@
+# https://regex101.com/r/9rsscY/1
+
 0 = { 
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = crashed_ship_asteroid_category }
-}
-0 = { 
-	modifier = {
-		add = 3
-		is_asteroid = yes
-	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = origin_asteroid_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "crashed_ship_asteroid_category" }
 }
 0 = { 
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = debris_asteroid_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "origin_asteroid_category" }
 }
 0 = { 
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = emissions_asteroid_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "debris_asteroid_category" }
 }
 0 = { 
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = hatch_asteroid_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "emissions_asteroid_category" }
+}
+0 = { 
+	modifier = {
+		add = 3
+		is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "hatch_asteroid_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = object_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "object_gasgiant_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = storms_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "storms_gasgiant_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = aerostat_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "aerostat_gasgiant_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = cargo_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "cargo_gasgiant_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = debris_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "debris_gasgiant_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = impact_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "impact_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = energy_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "energy_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = signal_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "signal_uninhabitable_category" }
 }
 0 = {
 	modifier = {
@@ -111,32 +100,28 @@
 		factor = 0
 		is_moon = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = asteroid_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "asteroid_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 2
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = solar_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "solar_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_toxic
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = life_toxic_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "life_toxic_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_frozen
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = life_frozen_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "life_frozen_category" }
 }
 0 = {
 	modifier = {
@@ -147,8 +132,7 @@
 		}
 		has_any_strategic_resource = no
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = life_barren_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "life_barren_category" }
 }
 0 = {
 	modifier = {
@@ -158,40 +142,35 @@
 		exists = space_owner
 		space_owner = { is_same_value = from.owner }
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = station_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "station_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = battle_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "battle_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 1
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = shipyard_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "shipyard_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_toxic
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = inhabited_toxic_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "inhabited_toxic_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = writing_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "writing_uninhabitable_category" }
 }
 0 = {
 	modifier = {
@@ -199,24 +178,21 @@
 		uninhabitable_regular_planet = yes
 		has_any_strategic_resource = no
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = beacon_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "beacon_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = mountain_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "mountain_uninhabitable_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		uninhabitable_regular_planet = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = object_uninhabitable_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "object_uninhabitable_category" }
 } 
 
 0 = {
@@ -224,8 +200,7 @@
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = ship_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "ship_gasgiant_category" }
 }
 0 = {
 	modifier = {
@@ -233,8 +208,7 @@
 		is_planet_class = pc_gas_giant
 		is_moon = no
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = terminal_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "terminal_gasgiant_category" }
 }
 0 = {
 	modifier = {
@@ -253,8 +227,7 @@
 			has_deposit_for = shipclass_research_station
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = living_metal_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "living_metal_category" }
 }
 0 = {
 	modifier = {
@@ -269,22 +242,19 @@
 			max_steps = 12
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = fungal_emitters_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "fungal_emitters_category" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = lost_soul_cat }
+	inline_script = { script = suelg_spawn_anomaly CAT = "lost_soul_cat" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = on_crashed_ship_cat }
+	inline_script = { script = suelg_spawn_anomaly CAT = "on_crashed_ship_cat" }
 }

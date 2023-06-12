@@ -1,0 +1,20 @@
+0 = { # max_once_global = yes
+	modifier = {
+			add = 2
+			is_planet_class = pc_ocean
+			from.owner = {
+				NOT = {
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "SEA_CRYSTAL_CAT" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 0.6
+			has_ancrel = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "ANCREL_RUBRICATOR_CAT" }
+}

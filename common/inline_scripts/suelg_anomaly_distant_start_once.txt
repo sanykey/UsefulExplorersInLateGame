@@ -1,0 +1,299 @@
+0 = { # max_once = yes
+	modifier = {
+			add = 1
+			has_distar = yes
+			OR = {
+				is_planet_class = pc_barren_cold
+				is_planet_class = pc_frozen
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_NANO_CAT" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 100 #Intentional, as it competes with other is_star anomalies
+			has_distar = yes
+			is_star = yes
+			solar_system = {
+				any_system_megastructure = {
+					is_megastructure_type = gateway_ruined
+				}
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_FLOW_CAT" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 1
+			is_star = yes
+			OR = {
+				is_star_class = sc_neutron_star
+				is_star_class = sc_pulsar
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_TIME_CAT" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 1
+			has_distar = yes
+			is_planet_class = "pc_toxic"
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_WARFORM_CAT" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 10
+			has_distar = yes
+			habitable_planet = yes
+			OR = {
+				has_deposit = d_dangerous_wildlife_blocker
+				has_planet_modifier = pm_dangerous_wildlife
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_BRAINSLUG_CAT" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 1
+			has_distar = yes
+			habitable_planet = yes
+			NOT = { exists = owner }
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_ZONE_CAT" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 1
+			has_distar = yes
+			is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_PUZZLE_CAT" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 1
+			has_distar = yes
+			OR = {
+				is_planet_class = pc_barren_cold
+				is_planet_class = pc_frozen
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_NANOCITY_CAT" }
+}
+
+0 = { # max_once = yes
+	modifier = { #Normal chance to spawn if player has completed chain
+			add = 1
+			is_planet_class = pc_gas_giant
+			from.owner = {
+				has_completed_event_chain_counter = {
+					event_chain = l_cluster_chain
+					counter = clues
+				}
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DISTAR_MEDGAS_CAT" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 0.35
+			has_distar = yes
+			is_planet_class = pc_gas_giant
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "debris_gasgiant_category_temp" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 4 # added in system initializer
+			has_distar = yes
+			solar_system = { has_star_flag = big_rip_system }
+
+			from.owner = {
+				NOT = {
+					has_global_flag = l_cluster_opened
+					has_completed_event_chain_counter = {
+						event_chain = l_cluster_chain
+						counter = clues
+					}
+				}
+				has_event_chain = l_cluster_chain
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "abandoned_outpost_category" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 3
+			has_distar = yes
+			is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "ast_debris_field_1_cat_2" }
+}
+
+0 = { # max_once = yes
+	modifier = {
+			add = 3
+			NOR = {
+				has_deposit_for = shipclass_research_station
+				has_deposit_for = shipclass_mining_station
+			}
+			solar_system = {
+				any_system_planet = {
+					OR = {
+						AND = {
+							exists = owner
+							owner = { is_primitive = yes }
+							NOT = { is_planet_class = pc_ringworld_habitable }
+						}
+						AND = {
+							habitable_planet = yes
+							is_colony = no
+							is_under_colonization = no
+						}
+					}
+				}
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "atomic_clock_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 3
+			has_distar = yes
+			is_planet_class = pc_gaia
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "gaia_planet_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 3
+			has_distar = yes
+			habitable_planet = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "corrupt_data_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 0.1
+			has_distar = yes
+			is_star = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "irregular_energy_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 3
+			has_distar = yes
+			OR = {
+				is_planet_class = pc_toxic
+				is_planet_class = pc_nuked
+				is_planet_class = pc_barren
+				is_planet_class = pc_barren_cold
+			}
+			NOT = { has_planet_flag = nuked_planet_anomalies_disabled }
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "tomb_world_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 3
+			has_distar = yes
+			habitable_planet = yes
+			NOT = { has_modifier = dangerous_wildlife }
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "alien_life_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 3
+			has_distar = yes
+			is_moon = yes
+			habitable_planet = no
+			NOR = {
+				has_deposit_for = shipclass_research_station
+				has_deposit_for = shipclass_mining_station
+			}
+			solar_system = {
+				any_system_planet = {
+					habitable_planet = yes
+					has_moon = yes
+					any_moon = {
+						is_same_value = prevprevprev
+					}
+				}
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "moon_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 3
+			has_distar = yes
+			is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "stolen_ship_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 3
+			has_distar = yes
+			is_star = no
+			from.owner = {
+				NOT = {
+					has_global_flag = l_cluster_opened
+					has_completed_event_chain_counter = {
+						event_chain = l_cluster_chain
+						counter = clues
+					}
+				}
+				has_event_chain = l_cluster_chain
+			}
+			solar_system = {
+				any_system_megastructure = {
+					OR = {
+						is_megastructure_type = gateway_ruined
+						is_megastructure_type = gateway_restored
+						is_megastructure_type = gateway_final
+						is_megastructure_type = lgate_base
+					}
+				}
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "transmitter_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 2
+			is_planet_class = pc_toxic
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "disco_impossible_organism_cat" }
+}
+
+0 = { # max_once_global = yes
+	modifier = {
+			add = 2
+			is_asteroid = yes
+			has_any_strategic_resource = no
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "disco_stranded_scientist_cat" }
+}

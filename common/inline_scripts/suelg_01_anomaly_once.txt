@@ -25,8 +25,7 @@
 			}
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = AST_DEBRIS_FIELD_1_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "AST_DEBRIS_FIELD_1_CAT" }
 }
 0 = { # max_once_global = yes
 	modifier = {
@@ -39,6 +38,5 @@
 			has_ethic = ethic_gestalt_consciousness
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = BARR_BASE_CAT }
+	inline_script = { script = suelg_spawn_anomaly CAT = "BARR_BASE_CAT" }
 }

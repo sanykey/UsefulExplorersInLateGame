@@ -4,8 +4,7 @@
 		is_asteroid = yes
 		has_any_strategic_resource = no
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = collision_asteroid_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "collision_asteroid_category" }
 }
 0 = { # max_once = yes
 	modifier = {
@@ -13,16 +12,14 @@
 		is_asteroid = yes
 		num_minerals > 0
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = station_asteroid_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "station_asteroid_category" }
 }
 0 = { # max_once = yes
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = life_asteroid_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "life_asteroid_category" }
 }
 0 = { # max_once = yes
 	modifier = {
@@ -30,24 +27,21 @@
 		is_planet_class = pc_gas_giant
 		has_any_strategic_resource = no
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = moon_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "moon_gasgiant_category" }
 }
 0 = { # max_once = yes
 	modifier = {
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = life_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "life_gasgiant_category" }
 }
 0 = { # max_once_global = yes
 	modifier = {
 		add = 1
 		is_planet_class = pc_gas_giant
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = signal_gasgiant_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "signal_gasgiant_category" }
 }
 0 = { # max_once_global = yes
 	modifier = {
@@ -66,8 +60,7 @@
 			is_artificial = yes
 		}
 	}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = the_lonely_bot_category }
+	inline_script = { script = suelg_spawn_anomaly CAT = "the_lonely_bot_category" }
 }
 0 = { # max_once_global = yes
 	modifier = {
@@ -84,6 +77,5 @@
 				species = { has_trait = trait_aquatic }
 			}
 		}
-	set_planet_flag = suelg_planet_has_new_anomaly
-	add_anomaly = { category = on_solar_sails_cat }
+	inline_script = { script = suelg_spawn_anomaly CAT = "on_solar_sails_cat" }
 }

@@ -167,21 +167,8 @@ planet_event = {
 				# has_anomaly = no
 				is_preventing_anomaly = no
 			}
-			
-			# debug example:
-			# add_anomaly = { category = DIMENSIONAL_POCKET_CAT }
-
-			log = ">> BEFORE SPAWN ANOMALY! THIS: [This.GetName]"
-			suelg_spawn_00_anomaly = yes
-
-			if = {
-				limit = { has_anomaly = yes } 
-
-				planet_event = { id = suelg_deep_scan.6 } # Add anomaly Notification
-				event_target:t_leader = {
-					set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
-				}
-			}
+						
+			planet_event = { id = suelg_deep_scan.12 } # Spawn planet anomaly
 		} else = {
 			event_target:t_leader = {
 				change_variable = { which = suelg_l_anomaly_add_chance value = @suelg_leaders_spawn_anomaly_add_chance }
@@ -592,6 +579,32 @@ system_event = {
 				inline_script = { script = suelg_create_project LVL = 14 }
 				inline_script = { script = suelg_create_project LVL = 15 }
 			}
+		}
+	}
+}
+
+# Spawn planet anomaly
+planet_event = {
+    id = suelg_deep_scan.12
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		log = ">> BEFORE SPAWN ANOMALY! THIS: [This.GetName]"
+		suelg_spawn_00_anomaly = yes
+
+		if = {
+			limit = {
+				has_anomaly = yes
+				has_planet_flag = suelg_planet_has_new_anomaly
+			} 
+
+			planet_event = { id = suelg_deep_scan.6 } # Add anomaly Notification
+		
+			event_target:t_leader = {
+				set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
+			}
+			remove_planet_flag = suelg_planet_has_new_anomaly
 		}
 	}
 }

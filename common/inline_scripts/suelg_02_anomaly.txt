@@ -1,0 +1,189 @@
+0 = {
+	modifier = {
+			add = 3
+			is_planet_class = pc_tropical
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "TROP_BIOLOGY_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "AST_MINING_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_tundra
+				is_planet_class = pc_barren_cold
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_DERELICT_SHIP_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			OR = {
+				is_asteroid = yes
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_LOST_CARGO_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_tundra
+				is_planet_class = pc_nuked
+				is_planet_class = pc_toxic
+			}
+			NOT = { has_planet_flag = nuked_planet_anomalies_disabled }
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_OLD_WAR_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_ocean
+			}
+			from.owner = {
+				NOR = {
+					has_policy_flag = interference_not_allowed
+					has_ethic = ethic_gestalt_consciousness
+				}
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "WAT_PLANET_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_frozen
+				is_planet_class = pc_barren_cold
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "COLD_RESEARCH_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 1
+			OR = {
+				is_planet_class = pc_k_star
+				is_planet_class = pc_m_star
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "SUN_TEAPOT_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "AST_GEAR_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_planet_class = pc_tropical
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "TROP_CONDITIONS_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_planet_class = pc_arid
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "ARID_SENSOR_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_planet_class = pc_continental
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "CON_BIOLOGY_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_planet_class = pc_toxic
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "TOX_PLANET_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_planet_class = pc_desert
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "DES_PLANET_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 1
+			is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_MYSTICAL_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			OR = {
+				is_planet_class = pc_nuked
+			}
+			NOT = { has_planet_flag = nuked_planet_anomalies_disabled }
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "NUKE_PLANET_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_planet_class = pc_arid
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "ARID_PLANET_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 1
+			OR = {
+				is_planet_class = pc_k_star
+				is_planet_class = pc_m_star
+			}
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "STAR_RESONANCE_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_asteroid = yes
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "TEMPORAL_PRISM_CAT" }
+}
+
+0 = {
+	modifier = {
+			add = 3
+			is_planet_class = pc_frozen
+	}
+	inline_script = { script = suelg_spawn_anomaly CAT = "FROZEN_SPRINGS_CAT" }
+}
