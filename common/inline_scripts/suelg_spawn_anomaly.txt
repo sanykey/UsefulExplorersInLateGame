@@ -1,4 +1,3 @@
-log = ">> SPAWN ANOMALY. THIS: [This.GetName] NAME: $CAT$"
-set_planet_flag = suelg_planet_has_new_anomaly
-add_anomaly = { category = $CAT$ }
-
+# set_planet_flag = suelg_planet_has_new_anomaly
+add_anomaly = { category = "$CAT$" }
+log = ">> SPAWN ANOMALY. THIS: [This.GetName] FROM: [From.GetName] NAME: $CAT$"

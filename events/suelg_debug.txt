@@ -1,0 +1,122 @@
+namespace = suelg_debug
+
+# # build starbase in system
+# planet_event = {
+#     id = suelg_debug.1
+#     hide_window = yes
+#     is_triggered_only = yes
+
+# 	immediate = {
+# 		random_playable_country = {
+# 			limit = {
+# 				is_ai = no
+# 				prev = {
+# 					NOT = { has_planet_flag = test }
+# 				}
+# 			}
+# 			save_event_target_as = t_owner
+# 		}
+
+# 		solar_system = {
+# 			create_starbase = {
+# 				size = starbase_outpost
+# 				owner = event_target:t_owner
+# 			}
+# 		}
+# 	}
+# }
+
+# build starbase near capital
+event = {
+    id = suelg_debug.1
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				is_scope_type = country
+			}
+			save_event_target_as = t_owner
+			capital_scope.solar_system = {
+				closest_system = {
+					min_steps = 1
+					use_bypasses = no
+					limit = {
+						has_owner = no
+					}
+					create_starbase = {
+						size = starbase_outpost
+						owner = event_target:t_owner
+					}
+				}
+			}
+
+		} else_if = {
+			limit = {
+				OR = {
+					is_scope_type = ship
+					is_scope_type = fleet
+				}
+				exists = owner
+			}
+			owner = {
+				save_event_target_as = t_owner
+			}
+			closest_system = {
+				min_steps = 0
+				use_bypasses = no
+				limit = {
+					has_owner = no
+				}
+				create_starbase = {
+					size = starbase_outpost
+					owner = event_target:t_owner
+				}
+			}
+		} else_if = {
+			limit = {
+				is_scope_type = planet
+			}
+			random_playable_country = {
+				limit = {
+					is_ai = no
+				}
+				save_event_target_as = t_owner
+			}
+			solar_system = {
+				closest_system = {
+					min_steps = 0
+					use_bypasses = no
+					limit = {
+						has_owner = no
+					}
+					create_starbase = {
+						size = starbase_outpost
+						owner = event_target:t_owner
+					}
+				}
+			}
+		} else = {
+			random_playable_country = {
+				limit = {
+					is_ai = no
+				}
+				save_event_target_as = t_owner
+				capital_scope.solar_system = {
+					closest_system = {
+						min_steps = 1
+						use_bypasses = no
+						limit = {
+							has_owner = no
+						}
+						create_starbase = {
+							size = starbase_outpost
+							owner = event_target:t_owner
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,71 @@
+namespace = suelg_auto_creator
+
+# Search systems and create project for ships and capital system
+country_event = {
+    id = suelg_auto_creator.1
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+        suelg_count_scanning_systems = yes
+        suelg_count_avaliable_explorers = yes
+
+        if = {
+            limit = {
+                check_variable = { which = suelg_available_explorers value > suelg_started_sys_scans }
+            }
+            suelg_add_scan_project_near_capital = yes
+            suelg_add_scan_projects_per_ship = yes
+        }
+        suelg_clear_auto_creator_vars = yes
+	}
+}
+
+# Create scan projects near ship for AI
+ship_event = {
+    id = suelg_auto_creator.2
+    hide_window = yes
+    is_triggered_only = yes
+
+	trigger = {
+        is_in_combat = no
+        exists = leader
+        exists = owner
+        leader = {
+            leader_class = scientist
+        }
+	}
+
+	immediate = {
+        owner = {
+            save_event_target_as = t_owner
+            suelg_count_scanning_systems = yes
+            suelg_count_avaliable_explorers = yes
+        }
+
+        if = {
+            limit = { suelg_can_create_scan_projects_near_ship = yes }
+            suelg_add_scan_projects_near_ship = yes
+        }
+
+		event_target:t_owner = {
+			suelg_clear_auto_creator_vars = yes
+		}
+	}
+}
+
+# on_bi_yearly_pulse
+event = {
+	id = suelg_auto_creator.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_playable_country = {
+			# limit = {
+                # is_ai = yes
+			# }
+			country_event = { id = suelg_auto_creator.1 }
+		}
+	}
+}

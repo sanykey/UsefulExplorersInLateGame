@@ -24,6 +24,7 @@ suelg_can_have_orbital_deposits = {
 	}
 }
 
+# this = planet scope
 suelg_can_be_scanned = {
 	NOT = {
 		OR = {
@@ -38,3 +39,38 @@ suelg_can_be_scanned = {
 	}
 }
 
+# this = system scope
+suelg_can_add_scan_project_system = {
+	has_owner = yes
+	is_owned_by = event_target:t_owner
+	OR = {
+		NOT = { is_variable_set = suelg_min_complete_lvl }
+		owner = {
+			check_variable = { which = suelg_max_scan_level value > prev.suelg_min_complete_lvl }
+		}
+	}
+}
+
+# this = system scope
+suelg_is_not_scanning_system = {
+	NOT = {
+		has_star_flag = suelg_has_scan_projects
+	}
+}
+
+# this = ship scope
+suelg_can_create_scan_projects_near_ship = {
+	owner = {
+		check_variable = { which = suelg_available_explorers value > suelg_started_sys_scans }
+	}
+	is_in_combat = no
+	exists = leader
+	leader = {
+		leader_class = scientist
+	}
+	exists = owner
+	is_inside_border = owner
+	NOT = {
+		has_fleet_order = research_discovery_order
+	}
+}

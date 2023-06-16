@@ -9,3 +9,9 @@ on_tech_increased = {
 		suelg_deep_scan.9
 	}
 }
+
+on_five_year_pulse = {
+	events = {
+		suelg_auto_creator.1
+	}
+}

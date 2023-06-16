@@ -1,0 +1,102 @@
+
+# This = Planet scope
+suelg_init_planet_vars = {
+	if = { # init planet vars
+		limit = {
+			NOT = { is_variable_set = suelg_started_scan_lvl }
+		}
+		set_variable = { which = suelg_started_scan_lvl value = 0 }
+		set_variable = { which = suelg_completed_scan_lvl value = 0 }
+	}
+}
+
+# This = System scope
+suelg_create_system_scan_projects = {
+	owner = {
+		save_event_target_as = t_owner
+	}
+
+	every_system_planet = {
+		suelg_init_planet_vars = yes
+
+		if = {
+			limit = {								
+				suelg_can_be_scanned = yes
+				check_variable = { which = suelg_completed_scan_lvl value < event_target:t_owner.suelg_max_scan_level }
+				check_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
+			}
+
+			change_variable = { which = suelg_started_scan_lvl value = 1 }
+			# log = ">> CREATE PROJECT. PLANET: [This.GetName] LVL: [This.suelg_started_scan_lvl]"
+
+			inline_script = { script = suelg_create_project LVL = 1 }
+			inline_script = { script = suelg_create_project LVL = 2 }
+			inline_script = { script = suelg_create_project LVL = 3 }
+			inline_script = { script = suelg_create_project LVL = 4 }
+			inline_script = { script = suelg_create_project LVL = 5 }
+			inline_script = { script = suelg_create_project LVL = 6 }
+			inline_script = { script = suelg_create_project LVL = 7 }
+			inline_script = { script = suelg_create_project LVL = 8 }
+			inline_script = { script = suelg_create_project LVL = 9 }
+			inline_script = { script = suelg_create_project LVL = 10 }
+			inline_script = { script = suelg_create_project LVL = 11 }
+			inline_script = { script = suelg_create_project LVL = 12 }
+			inline_script = { script = suelg_create_project LVL = 13 }
+			inline_script = { script = suelg_create_project LVL = 14 }
+			inline_script = { script = suelg_create_project LVL = 15 }
+			prev = {
+				set_star_flag = suelg_has_scan_projects
+			}
+		}
+	}
+}
+
+suelg_reset_system_projects = {
+	remove_star_flag = suelg_has_scan_projects
+	every_system_planet = {
+		suelg_init_planet_vars = yes
+		if = {
+			limit = {								
+				suelg_can_be_scanned = yes
+				check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
+			}
+
+			save_event_target_as = reset_planet_t
+			
+			# todo: figure out how to make it work. Science ships may not be orbiting a planet when they are researching a project on it
+			# random_fleet_in_orbit = {
+			# 	limit = {
+			# 		exists = leader
+			# 		leader = {
+			# 			leader_class = scientist
+			# 			# is_researching_special_project = suelg_deep_scan_SP_1 # add other projects
+			# 		}
+			# 	}
+
+			# 	event_target:reset_planet_t = {
+			# 		log = ">> DONT REMOVE THAT PLANET: [this.GetName]"
+			# 		set_planet_flag = suelg_has_researcher
+			# 	}
+			# }
+
+			if = {
+				limit = {
+					NOT = { has_planet_flag = suelg_has_researcher }
+				}
+				set_variable = { which = suelg_started_scan_lvl value = suelg_completed_scan_lvl }
+
+				solar_system = {
+					owner = {
+						# event_target:reset_planet_t = {
+						# 	log = ">> REMOVE PROJECT. PLANET: [this.GetName]"
+						# }
+						
+						abort_special_project = { type = suelg_deep_scan_SP_1 location = event_target:reset_planet_t }
+					}
+				}
+				
+				remove_planet_flag = suelg_has_researcher
+			}
+		}
+	}
+}

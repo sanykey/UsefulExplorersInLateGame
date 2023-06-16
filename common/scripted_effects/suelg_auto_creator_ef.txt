@@ -1,0 +1,90 @@
+# this: country
+suelg_count_scanning_systems = {
+	set_variable = { which = suelg_started_sys_scans value = 0 }
+	every_system_within_border = {
+		limit = { 
+			has_star_flag = suelg_has_scan_projects
+		}
+		prev = {
+			change_variable = { which = suelg_started_sys_scans value = 1 }
+		}
+	}    
+}
+
+# this: country
+suelg_count_avaliable_explorers = {
+	set_variable = { which = suelg_available_explorers value = 0 }
+	every_owned_ship = {
+		limit = {
+			exists = leader
+			leader = {
+				leader_class = scientist
+			}
+		}
+		owner = {
+			change_variable = { which = suelg_available_explorers value = 1 }
+		}
+	}
+}
+
+# this: country
+suelg_add_scan_project_near_capital = {
+	save_event_target_as = t_owner
+
+	capital_scope.solar_system = {
+		if = { 
+			limit = {
+				suelg_can_add_scan_project_system = yes
+				suelg_is_not_scanning_system = yes
+			}
+			suelg_create_system_scan_projects = yes
+			prev = {
+				change_variable = { which = suelg_started_sys_scans value = 1 }
+			}
+		} else = {
+			closest_system = {
+				min_steps = 1
+				use_bypasses = yes
+				limit = {
+					suelg_can_add_scan_project_system = yes
+					suelg_is_not_scanning_system = yes
+				}
+				suelg_create_system_scan_projects = yes
+				prev = {
+					change_variable = { which = suelg_started_sys_scans value = 1 }
+				}
+			}
+		}
+	}
+}
+
+# this = ship scope
+suelg_add_scan_projects_per_ship = {
+	every_owned_ship = {
+		limit = { suelg_can_create_scan_projects_near_ship = yes }
+		suelg_add_scan_projects_near_ship = yes
+	}
+}
+
+# this = ship scope
+suelg_add_scan_projects_near_ship = {
+	closest_system = {
+		min_steps = 0
+		use_bypasses = yes
+		limit = {
+			suelg_can_add_scan_project_system = yes
+			suelg_is_not_scanning_system = yes
+		}
+		suelg_create_system_scan_projects = yes
+
+		event_target:t_owner = {
+			change_variable = { which = suelg_started_sys_scans value = 1 }
+		}
+	}
+}
+
+# this = county scope
+suelg_clear_auto_creator_vars = {
+	clear_variable = suelg_available_explorers
+	clear_variable = suelg_started_sys_scans
+}

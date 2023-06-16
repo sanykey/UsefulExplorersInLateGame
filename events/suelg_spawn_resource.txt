@@ -1,0 +1,127 @@
+namespace = suelg_spawn_resource
+
+# Calculate the chance for an orbital deposit to spawn 
+planet_event = {
+    id = suelg_spawn_resource.1
+    hide_window = yes
+    is_triggered_only = yes
+
+	trigger = {
+		suelg_can_have_orbital_deposits = yes
+	}
+
+    immediate = {
+		# log = ">> CHECK DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+
+		set_variable = { which = suelg_sum_weight value = 0 }
+
+		# calculate basic weights and sum of succeful resource weight
+		inline_script = { script = suelg_set_base_res_weights RES = "mineral" }
+		inline_script = { script = suelg_set_base_res_weights RES = "energy" }
+		inline_script = { script = suelg_set_base_res_weights RES = "trade" }
+		inline_script = { script = suelg_set_base_res_weights RES = "alloy" }
+
+		inline_script = { script = suelg_set_base_res_weights RES = "physics" }
+		inline_script = { script = suelg_set_base_res_weights RES = "society" }
+		inline_script = { script = suelg_set_base_res_weights RES = "engineering" }
+
+		inline_script = { script = suelg_set_base_res_weights RES = "volatile_motes" }
+		inline_script = { script = suelg_set_base_res_weights RES = "rare_crystals" }
+		inline_script = { script = suelg_set_base_res_weights RES = "exotic_gases" }
+
+		if = {
+			limit = { can_have_minor_engineering_deposits = yes }
+			if = {
+				limit = { check_variable = { which = suelg_engineering_weight value = 0 } }
+				change_variable = { which = suelg_sum_weight value = @suelg_spawn_engineering_weight }
+			}
+			set_variable = { which = suelg_engineering_weight value = @suelg_spawn_engineering_weight }
+		}
+		if = {
+			limit = { can_have_minor_physics_deposits = yes }
+			if = {
+				limit = { check_variable = { which = suelg_physics_weight value = 0 } }
+				change_variable = { which = suelg_sum_weight value = @suelg_spawn_engineering_weight }
+			}
+			set_variable = { which = suelg_physics_weight value = @suelg_spawn_physics_weight }
+		}
+
+		set_variable = { which = suelg_sub_with_null_weight value = suelg_sum_weight }
+		divide_variable = { which = suelg_sub_with_null_weight value = @suelg_spawn_resource_chance }
+		multiply_variable = { which = suelg_sub_with_null_weight value = 100 }
+
+		set_variable_to_random_value = { which = suelg_res_dice min = 0 max = suelg_sub_with_null_weight rounded = no }
+		# log = ">> ROLL RES DICE: [This.suelg_res_dice] SUCCESS: [This.suelg_sum_weight]  ALL: [This.suelg_sub_with_null_weight]"
+		if = {
+			limit = {
+				check_variable = { which = suelg_res_dice value <= suelg_sum_weight }
+			}
+			planet_event = { id = suelg_spawn_resource.2 } # Spawn resource deposit
+		}
+    }
+}
+
+# Spawn resource deposit
+planet_event = {
+    id = suelg_spawn_resource.2
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		log = ">> TRYING SPAWN RES. DICE: [This.suelg_res_dice]"
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "mineral" DEP = "d_minerals_1" }
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "energy" DEP = "d_engineering_1" }
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "trade" DEP = "d_trade_value_1" }
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "alloy" DEP = "d_alloys_1" }
+
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "physics" DEP = "d_physics_1" }
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "society" DEP = "d_society_1" }
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "engineering" DEP = "d_engineering_1" }
+
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "volatile_motes" DEP = "d_volatile_motes_1" }
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "rare_crystals" DEP = "d_rare_crystals_1" }
+		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "exotic_gases" DEP = "d_exotic_gases_1" }
+
+		# debug
+		# if = {
+		# 	limit = { 
+		# 		has_megastructure = yes
+		# 	}
+		# 	log = ">> HAS MEGASTRUCTURE"
+		# 	random_megastructure = {
+		# 		limit = { is_megastructure_type = habitat_0 }
+		# 		log = ">> HAS HABITAT"
+		# 	}
+		# }
+
+		planet_event = { id = suelg_spawn_resource.3 } # Clear planet variables 
+	}
+}
+
+# Clear planet variables 
+planet_event = {
+    id = suelg_spawn_resource.3
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		clear_variable = suelg_mineral_weight
+		clear_variable = suelg_energy_weight
+		clear_variable = suelg_trade_weight
+		clear_variable = suelg_alloy_weight
+
+		clear_variable = suelg_physics_weight
+		clear_variable = suelg_society_weight
+		clear_variable = suelg_engineering_weight
+
+		clear_variable = suelg_volatile_motes_weight
+		clear_variable = suelg_rare_crystals_weight
+		clear_variable = suelg_exotic_gases_weight
+
+		clear_variable = suelg_sum_weight
+		clear_variable = suelg_sub_with_null_weight
+		clear_variable = suelg_res_dice
+
+		remove_planet_flag = new_deposit_added
+	}
+}

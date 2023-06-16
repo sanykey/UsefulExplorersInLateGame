@@ -55,8 +55,8 @@ fleet_event = {
 						}
 					}
 
-					system_event = { id = suelg_deep_scan.10 } # Reset system projects and init vars
-					system_event = { id = suelg_deep_scan.11 } # Create Deep Scan Projects for system
+					suelg_reset_system_projects = yes
+					suelg_create_system_scan_projects = yes
 				}
 			}
 		}
@@ -86,15 +86,15 @@ ship_event = {
 			save_event_target_as = t_planet
 			set_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
 			set_planet_flag = has_completed_project
-			planet_event = { id = suelg_deep_scan.5 } # Calculate the chance for an orbital deposit to spawn 
+			planet_event = { id = suelg_spawn_resource.1 } # Calculate the chance for an orbital deposit to spawn 
 			planet_event = { id = suelg_deep_scan.3 } # Calculate the chance for an Archaeological site to spawn 
-			planet_event = { id = suelg_deep_scan.4 } # Calculate the chance for an anomaly to spawn 
+			planet_event = { id = suelg_spawn_anomaly.1 } # Calculate the chance for an anomaly to spawn 
 			planet_event = { id = suelg_deep_scan.8 } # Complete scan
 		}
     }
 }
 
-# Calculate the chance for an Archaeological site to spawn 
+# Calculate the chance for an Archaeological site to spawn and spawn
 planet_event = {
     id = suelg_deep_scan.3
     hide_window = yes
@@ -124,186 +124,6 @@ planet_event = {
     }
 }
 
-# Calculate the chance for an anomaly to spawn 
-planet_event = {
-    id = suelg_deep_scan.4
-    hide_window = yes
-    is_triggered_only = yes
-
-    immediate = {
-		# log = ">> CHECK ANOMALY. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
-		set_variable = { which = suelg_anomaly_chance value = @suelg_spawn_anomaly_basic_chance }
-
-		# Calculate additional modificator from leader
-		if = {
-			limit = { 
-				event_target:t_leader = {
-					is_variable_set = suelg_l_anomaly_add_chance
-				}
-			}
-			change_variable = { which = suelg_anomaly_chance value = event_target:t_leader.suelg_l_anomaly_add_chance }
-		} else = {
-			event_target:t_leader = {
-				set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
-			}
-		}
-
-		# Calculate additional modificators from owner
-		if = {
-			limit = {
-				event_target:t_owner = {
-					has_edict = map_the_stars
-				}
-			}
-			inline_script = { script = suelg_add_anomaly_chance_mod VAL = @suelg_map_the_start_edict_mod }
-		}
-
-		set_variable_to_random_value = { which = suelg_dice min = 0 max = 100 rounded = no }
-		# log = ">> ROLL ANOMALY DICE: [This.suelg_dice] CHANCE: [This.suelg_anomaly_chance]"
-		if = {
-			limit = {
-				# todo: conmmented for debug:
-				# check_variable = { which = suelg_dice value <= suelg_anomaly_chance }
-				# has_anomaly = no
-				is_preventing_anomaly = no
-			}
-						
-			planet_event = { id = suelg_deep_scan.12 } # Spawn planet anomaly
-		} else = {
-			event_target:t_leader = {
-				change_variable = { which = suelg_l_anomaly_add_chance value = @suelg_leaders_spawn_anomaly_add_chance }
-			}
-		}
-		
-		clear_variable = suelg_dice
-		clear_variable = suelg_anomaly_chance
-    }
-}
-
-# Calculate the chance for an orbital deposit to spawn 
-planet_event = {
-    id = suelg_deep_scan.5
-    hide_window = yes
-    is_triggered_only = yes
-
-	trigger = {
-		suelg_can_have_orbital_deposits = yes
-	}
-
-    immediate = {
-		# log = ">> CHECK DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
-
-		set_variable = { which = suelg_sum_weight value = 0 }
-
-		# calculate basic weights and sum of succeful resource weight
-		inline_script = { script = suelg_set_base_res_weights RES = "mineral" }
-		inline_script = { script = suelg_set_base_res_weights RES = "energy" }
-		inline_script = { script = suelg_set_base_res_weights RES = "trade" }
-		inline_script = { script = suelg_set_base_res_weights RES = "alloy" }
-
-		inline_script = { script = suelg_set_base_res_weights RES = "physics" }
-		inline_script = { script = suelg_set_base_res_weights RES = "society" }
-		inline_script = { script = suelg_set_base_res_weights RES = "engineering" }
-
-		inline_script = { script = suelg_set_base_res_weights RES = "volatile_motes" }
-		inline_script = { script = suelg_set_base_res_weights RES = "rare_crystals" }
-		inline_script = { script = suelg_set_base_res_weights RES = "exotic_gases" }
-
-		if = {
-			limit = { can_have_minor_engineering_deposits = yes }
-			if = {
-				limit = { check_variable = { which = suelg_engineering_weight value = 0 } }
-				change_variable = { which = suelg_sum_weight value = @suelg_spawn_engineering_weight }
-			}
-			set_variable = { which = suelg_engineering_weight value = @suelg_spawn_engineering_weight }
-		}
-		if = {
-			limit = { can_have_minor_physics_deposits = yes }
-			if = {
-				limit = { check_variable = { which = suelg_physics_weight value = 0 } }
-				change_variable = { which = suelg_sum_weight value = @suelg_spawn_engineering_weight }
-			}
-			set_variable = { which = suelg_physics_weight value = @suelg_spawn_physics_weight }
-		}
-
-		set_variable = { which = suelg_sub_with_null_weight value = suelg_sum_weight }
-		divide_variable = { which = suelg_sub_with_null_weight value = @suelg_spawn_resource_chance }
-		multiply_variable = { which = suelg_sub_with_null_weight value = 100 }
-
-		set_variable_to_random_value = { which = suelg_res_dice min = 0 max = suelg_sub_with_null_weight rounded = no }
-		# log = ">> ROLL RES DICE: [This.suelg_res_dice] SUCCESS: [This.suelg_sum_weight]  ALL: [This.suelg_sub_with_null_weight]"
-		if = {
-			limit = {
-				check_variable = { which = suelg_res_dice value <= suelg_sum_weight }
-			}
-			planet_event = { id = suelg_deep_scan.7 } # Spawn resource deposit
-		}
-    }
-}
-
-# Add anomaly Notification
-planet_event = {
-    id = suelg_deep_scan.6
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate = {
-		event_target:t_ship = { # can't create message for in planet scope without owner
-			create_message = {
-				type = SUELG_ANOMALY_DETECTED
-				localization = SUELG_ANOMALY_DETECTED_MESSAGE
-				days = @suelg_notification_days
-				target = event_target:t_planet
-				variable = {
-					type = name
-					localization = SHIP
-					scope = this
-				}
-				variable = {
-					type = name
-					localization = PLANET
-					scope = event_target:t_planet
-				}
-			}
-		}
-	}
-}
-
-# Spawn resource deposit
-planet_event = {
-    id = suelg_deep_scan.7
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate = {
-		log = ">> TRYING SPAWN RES. DICE: [This.suelg_res_dice]"
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "mineral" DEP = "d_minerals_1" }
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "energy" DEP = "d_engineering_1" }
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "trade" DEP = "d_trade_value_1" }
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "alloy" DEP = "d_alloys_1" }
-
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "physics" DEP = "d_physics_1" }
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "society" DEP = "d_society_1" }
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "engineering" DEP = "d_engineering_1" }
-
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "volatile_motes" DEP = "d_volatile_motes_1" }
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "rare_crystals" DEP = "d_rare_crystals_1" }
-		inline_script = { script = suelg_check_n_add_res_o_deposit RES = "exotic_gases" DEP = "d_exotic_gases_1" }
-
-		# debug
-		# if = {
-		# 	limit = { 
-		# 		has_megastructure = yes
-		# 	}
-		# 	log = ">> HAS MEGASTRUCTURE"
-		# 	random_megastructure = {
-		# 		limit = { is_megastructure_type = habitat_0 }
-		# 		log = ">> HAS HABITAT"
-		# 	}
-		# }
-	}
-}
-
 # Complete scan
 planet_event = {
     id = suelg_deep_scan.8
@@ -311,26 +131,10 @@ planet_event = {
     is_triggered_only = yes
 
 	immediate = {
-		clear_variable = suelg_mineral_weight
-		clear_variable = suelg_energy_weight
-		clear_variable = suelg_trade_weight
-		clear_variable = suelg_alloy_weight
-
-		clear_variable = suelg_physics_weight
-		clear_variable = suelg_society_weight
-		clear_variable = suelg_engineering_weight
-
-		clear_variable = suelg_volatile_motes_weight
-		clear_variable = suelg_rare_crystals_weight
-		clear_variable = suelg_exotic_gases_weight
-
-		clear_variable = suelg_sum_weight
-		clear_variable = suelg_sub_with_null_weight
-		clear_variable = suelg_res_dice
-
-		remove_planet_flag = new_deposit_added
-
 		solar_system = {
+			remove_star_flag = suelg_has_scan_projects
+
+			# init system vars
 			if = {
 				limit = { NOT = { is_variable_set = suelg_sys_completed_scan_lvl } }
 				set_variable = { which = suelg_sys_completed_scan_lvl value = 0 }
@@ -348,6 +152,31 @@ planet_event = {
 						set_variable = { which = suelg_min_complete_lvl value = prev.suelg_completed_scan_lvl }
 					}			
 				}
+
+				if = {
+					limit = {
+						solar_system = {
+							NOT = {
+								has_star_flag = suelg_has_scan_projects
+							}
+						}	
+						suelg_can_be_scanned = yes
+						check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
+					}
+					solar_system = {
+						set_star_flag = suelg_has_scan_projects
+					}	
+				}
+			}
+
+			if = {
+				limit = {
+					# todo: condition: ai = yes
+					NOT = { has_star_flag = suelg_has_scan_projects }
+				}
+				event_target:t_ship = {
+					ship_event = { id = suelg_auto_creator.2 } # Create scan projects near ship for AI
+				}
 			}
 
 			# Add scanned lvl modifier to stars
@@ -363,7 +192,7 @@ planet_event = {
 				every_system_planet = {
 					if = {
 						limit = { is_star = yes }
-						suelg_update_complete_scan_mod = yes # replace
+						suelg_update_complete_scan_mod = yes # todo: replace
 					}
 				}
 
@@ -459,6 +288,7 @@ country_event = {
 		}
 
 		if = {
+			# todo: no AI condition
 			limit = { has_country_flag = suelg_has_updated_scan_level }
 			remove_country_flag = suelg_has_updated_scan_level
 			create_message = {
@@ -473,138 +303,6 @@ country_event = {
 					scope = this
 				}
 			}
-		}
-		
-	}
-}
-
-# Reset system projects and init vars
-system_event = {
-    id = suelg_deep_scan.10
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate = {
-		every_system_planet = {
-			if = { # init planet variables
-				limit = { 
-					OR = {
-						NOT = { is_variable_set = suelg_completed_scan_lvl }
-						NOT = { is_variable_set = suelg_started_scan_lvl }
-					}
-					
-				}
-				set_variable = { which = suelg_completed_scan_lvl value = 0 }
-				set_variable = { which = suelg_started_scan_lvl value = 0 }
-			}
-
-			if = {
-				limit = {								
-					suelg_can_be_scanned = yes
-					check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
-				}
-
-				save_event_target_as = reset_planet_t
-				
-				# todo: figure out how to make it work. Science ships may not be orbiting a planet when they are researching a project on it
-				# random_fleet_in_orbit = {
-				# 	limit = {
-				# 		exists = leader
-				# 		leader = {
-				# 			leader_class = scientist
-				# 			# is_researching_special_project = suelg_deep_scan_SP_1 # add other projects
-				# 		}
-				# 	}
-
-				# 	event_target:reset_planet_t = {
-				# 		log = ">> DONT REMOVE THAT PLANET: [this.GetName]"
-				# 		set_planet_flag = suelg_has_researcher
-				# 	}
-				# }
-
-				if = {
-					limit = {
-						NOT = { has_planet_flag = suelg_has_researcher }
-					}
-					set_variable = { which = suelg_started_scan_lvl value = suelg_completed_scan_lvl }
-
-					solar_system = {
-						owner = {
-							# event_target:reset_planet_t = {
-							# 	log = ">> REMOVE PROJECT. PLANET: [this.GetName]"
-							# }
-							
-							abort_special_project = { type = suelg_deep_scan_SP_1 location = event_target:reset_planet_t }
-						}
-					}
-					
-					remove_planet_flag = suelg_has_researcher
-				}
-			}
-		}
-	}
-}
-
-# Create Deep Scan Projects for system
-system_event = {
-    id = suelg_deep_scan.11
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate = {
-		every_system_planet = {
-			if = {
-				limit = {								
-					suelg_can_be_scanned = yes
-					check_variable = { which = suelg_completed_scan_lvl value < event_target:t_owner.suelg_max_scan_level }
-					check_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
-				}
-
-				change_variable = { which = suelg_started_scan_lvl value = 1 }
-				log = ">> CREATE PROJECT. PLANET: [This.GetName] LVL: [This.suelg_started_scan_lvl]"
-
-				inline_script = { script = suelg_create_project LVL = 1 }
-				inline_script = { script = suelg_create_project LVL = 2 }
-				inline_script = { script = suelg_create_project LVL = 3 }
-				inline_script = { script = suelg_create_project LVL = 4 }
-				inline_script = { script = suelg_create_project LVL = 5 }
-				inline_script = { script = suelg_create_project LVL = 6 }
-				inline_script = { script = suelg_create_project LVL = 7 }
-				inline_script = { script = suelg_create_project LVL = 8 }
-				inline_script = { script = suelg_create_project LVL = 9 }
-				inline_script = { script = suelg_create_project LVL = 10 }
-				inline_script = { script = suelg_create_project LVL = 11 }
-				inline_script = { script = suelg_create_project LVL = 12 }
-				inline_script = { script = suelg_create_project LVL = 13 }
-				inline_script = { script = suelg_create_project LVL = 14 }
-				inline_script = { script = suelg_create_project LVL = 15 }
-			}
-		}
-	}
-}
-
-# Spawn planet anomaly
-planet_event = {
-    id = suelg_deep_scan.12
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate = {
-		log = ">> BEFORE SPAWN ANOMALY! THIS: [This.GetName]"
-		suelg_spawn_00_anomaly = yes
-
-		if = {
-			limit = {
-				has_anomaly = yes
-				has_planet_flag = suelg_planet_has_new_anomaly
-			} 
-
-			planet_event = { id = suelg_deep_scan.6 } # Add anomaly Notification
-		
-			event_target:t_leader = {
-				set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
-			}
-			remove_planet_flag = suelg_planet_has_new_anomaly
 		}
 	}
 }

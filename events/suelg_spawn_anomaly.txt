@@ -1,0 +1,84 @@
+namespace = suelg_spawn_anomaly
+
+# Calculate the chance for an anomaly to spawn 
+planet_event = {
+    id = suelg_spawn_anomaly.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+		# log = ">> CHECK ANOMALY. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+		set_variable = { which = suelg_anomaly_chance value = @suelg_spawn_anomaly_basic_chance }
+
+		# Calculate additional modificator from leader
+		if = {
+			limit = { 
+				event_target:t_leader = {
+					is_variable_set = suelg_l_anomaly_add_chance
+				}
+			}
+			change_variable = { which = suelg_anomaly_chance value = event_target:t_leader.suelg_l_anomaly_add_chance }
+		} else = {
+			event_target:t_leader = {
+				set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
+			}
+		}
+
+		# Calculate additional modificators from owner
+		if = {
+			limit = {
+				event_target:t_owner = {
+					has_edict = map_the_stars
+				}
+			}
+			inline_script = { script = suelg_add_anomaly_chance_mod VAL = @suelg_map_the_start_edict_mod }
+		}
+
+		set_variable_to_random_value = { which = suelg_dice min = 0 max = 100 rounded = no }
+		# log = ">> ROLL ANOMALY DICE: [This.suelg_dice] CHANCE: [This.suelg_anomaly_chance]"
+		if = {
+			limit = {
+				# todo: commented for debug
+				# check_variable = { which = suelg_dice value <= suelg_anomaly_chance }
+				has_anomaly = no
+				is_preventing_anomaly = no
+			}
+						
+			planet_event = { id = suelg_spawn_anomaly.2 scopes = { from = event_target:t_ship } } # Spawn planet anomaly
+		} else = {
+			event_target:t_leader = {
+				change_variable = { which = suelg_l_anomaly_add_chance value = @suelg_leaders_spawn_anomaly_add_chance }
+			}
+		}
+		
+		clear_variable = suelg_dice
+		clear_variable = suelg_anomaly_chance
+    }
+}
+
+# Spawn planet anomaly
+# From = ship scope
+planet_event = {
+    id = suelg_spawn_anomaly.2
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		log = ">> BEFORE SPAWN ANOMALY! THIS: [This.GetName] FROM: [From.GetName]"
+		suelg_spawn_random_anomaly = yes # todo fix?
+
+		if = {
+			limit = {
+				has_anomaly = yes
+				has_planet_flag = suelg_planet_has_new_anomaly
+			} 
+			from = {
+				add_anomaly_notification = yes
+				leader = {
+					set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
+				}
+			}
+			remove_planet_flag = suelg_planet_has_new_anomaly
+		}
+	}
+}
