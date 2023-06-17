@@ -1,0 +1,8 @@
+if = {
+	limit = {
+		leader = {
+			has_trait = $T$
+		}
+	}
+	multiply_variable = { which = suelg_survey_speed_mod value = $F$ }
+}

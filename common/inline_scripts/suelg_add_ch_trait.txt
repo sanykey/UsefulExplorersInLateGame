@@ -1,8 +1,0 @@
-if = {
-	limit = {
-		event_target:t_leader = {
-			has_trait = $T$
-		}
-	}
-	change_variable = { which = $N$ value = $V$ }
-}

@@ -1,0 +1,8 @@
+if = {
+	limit = {
+		event_target:t_planet = {
+			check_variable = { which = suelg_started_scan_lvl value = $LVL$ }
+		}
+	}
+	set_variable = { which = suelg_survey_speed_mod value = @suelg_scan_sp_days_$LVL$ }
+}

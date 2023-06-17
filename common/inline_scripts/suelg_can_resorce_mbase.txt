@@ -1,0 +1,4 @@
+modifier = {
+	add = $ADD$
+	can_have_$RES$_deposits = yes
+}

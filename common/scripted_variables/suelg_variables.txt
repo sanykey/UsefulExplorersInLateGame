@@ -1,4 +1,20 @@
-@suelg_deep_scan_sp_days = 1
+@suelg_prescan_sp_days = 2
+
+@suelg_scan_sp_days_1 = 40
+@suelg_scan_sp_days_2 = 48
+@suelg_scan_sp_days_3 = 58
+@suelg_scan_sp_days_4 = 70
+@suelg_scan_sp_days_5 = 84
+@suelg_scan_sp_days_6 = 101
+@suelg_scan_sp_days_7 = 121
+@suelg_scan_sp_days_8 = 145
+@suelg_scan_sp_days_9 = 174
+@suelg_scan_sp_days_10 = 209
+@suelg_scan_sp_days_11 = 251
+@suelg_scan_sp_days_12 = 301
+@suelg_scan_sp_days_13 = 361
+@suelg_scan_sp_days_14 = 433
+@suelg_scan_sp_days_15 = 520
 
 @suelg_spawn_archaeological_site_chance = 0.5 # %
 

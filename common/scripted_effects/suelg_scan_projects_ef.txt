@@ -130,3 +130,103 @@ suelg_update_complete_scan_mod = {
 		inline_script = { script = add_complete_scan_mod LVL = 15 }
 	}
 }
+
+# this = ship scope
+suelg_get_sp_base_days = {
+	set_variable = { which = suelg_survey_speed_mod value = 1000 } # fallback
+
+	inline_script = { script = suelg_get_sp_base_days LVL = 1 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 2 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 3 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 4 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 5 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 6 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 7 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 8 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 9 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 10 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 11 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 12 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 13 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 14 }
+	inline_script = { script = suelg_get_sp_base_days LVL = 14 }
+}
+
+# this = ship scope
+suelg_add_survey_s_by_l_traits = {
+	inline_script = { script = suelg_add_survey_speed_f T = subclass_scientist_explorer F = 0.85 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_roamer F = 0.85 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_roamer_2 F = 0.65 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_custom_AI_assistant F = 0.9 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_sapient_AI_assistant F = 0.8 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_midas_touch F = 0.75 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_xeno_cataloger F = 0.65 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_curator F = 0.75 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_towel F = 0.58 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_scholarium_explorer F = 0.8 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_brainslug F = 0.9 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_psionic F = 0.75 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_chosen F = 0.5 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_composer_chosen F = 0.75 }
+	inline_script = { script = suelg_add_survey_speed_f T = gestalt_trait_scientist_mind_wipe_01 F = 1.2 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_neurotic F = 1.1 }
+	inline_script = { script = suelg_add_survey_speed_f T = leader_trait_neurotic_2 F = 1.3 }
+}
+
+suelg_add_survey_s_by_l_lvl = {
+	# per leader level. Each level +1%
+	leader = {
+		set_variable = { which = suelg_leader_lvl_bonus value = trigger:has_skill }
+		multiply_variable = { which = suelg_leader_lvl_bonus value = -0.01 }
+		change_variable = { which = suelg_leader_lvl_bonus value = 1 }
+	}
+	multiply_variable = { which = suelg_survey_speed_mod value = leader.suelg_leader_lvl_bonus }
+	leader = {
+		clear_variable = suelg_leader_lvl_bonus
+	}
+}
+
+suelg_add_survey_s_by_owner = {
+	# owner modifiers
+	if = {
+		limit = { owner = { has_agenda_selected = agenda_chart_the_unknown } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.75 }
+	}
+	if = {
+		limit = { owner = { has_modifier = agenda_chart_the_unknown_finish } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.75 }
+	}
+	if = {
+		limit = { owner = { has_modifier = paragon_death_to_the_stars } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.8 }
+	}
+	if = {
+		limit = { owner = { has_modifier = science_inspiration } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.2 }
+	}
+	if = {
+		limit = { owner = { has_edict = map_the_stars } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.75 }
+	}
+	if = {
+		limit = { owner = { has_civic = civic_eager_explorers } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.8 }
+	}
+	if = {
+		limit = { owner = { has_policy_flag = toxic_knights_questing } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.85 }
+	}
+	if = {
+		limit = { owner = { has_active_tradition = tr_discovery_to_boldly_go } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.65 }
+	}
+	if = {
+		limit = { owner = { has_technology = tech_automated_exploration } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.75 }
+	}
+	if = {
+		limit = { owner = { has_technology = tech_curator_lab } }
+		multiply_variable = { which = suelg_survey_speed_mod value = 0.67 }
+	}
+	# todo: add situation "paragon_origin_promise" modifier
+}
