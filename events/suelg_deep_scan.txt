@@ -43,6 +43,7 @@ fleet_event = {
 		this = {
 			owner = {
 				save_event_target_as = t_owner
+				suelg_init_country_vars = yes
 			}
 		}
 
@@ -131,6 +132,12 @@ planet_event = {
     is_triggered_only = yes
 
 	immediate = {
+		# prevent creating vanilla "has_completed_project" flag from scan projects
+		if = {
+			limit = { has_planet_flag = suelg_hasnt_completed_project }
+			remove_planet_flag = has_completed_project
+		}
+
 		solar_system = {
 			remove_star_flag = suelg_has_scan_projects
 
@@ -175,7 +182,12 @@ planet_event = {
 					NOT = { has_star_flag = suelg_has_scan_projects }
 				}
 				event_target:t_ship = {
-					ship_event = { id = suelg_auto_creator.2 } # Create scan projects near ship for AI
+					if = {
+						limit = { 
+							owner = { is_ai = yes }
+						}
+						ship_event = { id = suelg_auto_creator.2 } # Create scan projects near ship for AI
+					}
 				}
 			}
 
@@ -212,14 +224,7 @@ country_event = {
     is_triggered_only = yes
 
 	immediate = {
-		if = { 
-			limit = {
-				NOT = {
-					is_variable_set = suelg_max_scan_level
-				}
-			}
-			set_variable = { which = suelg_max_scan_level value = 0 }
-		}
+		suelg_init_country_vars = yes
 
 		if = { 
 			limit = {
@@ -288,21 +293,71 @@ country_event = {
 		}
 
 		if = {
-			# todo: no AI condition
-			limit = { has_country_flag = suelg_has_updated_scan_level }
-			remove_country_flag = suelg_has_updated_scan_level
-			create_message = {
-				type = SUELG_SENSORS_IMPROVED
-				localization = SUELG_SENSORS_IMPROVED_MESSAGE
-				days = @suelg_notification_days
-				target = this.capital_scope
-				variable = {
-					type = variable
-					varname = suelg_max_scan_level
-					localization = LVL
-					scope = this
+			limit = {
+				has_country_flag = suelg_has_updated_scan_level
+			}
+
+			if = {
+				limit = { is_ai = no }
+				create_message = {
+					type = SUELG_SENSORS_IMPROVED
+					localization = SUELG_SENSORS_IMPROVED_MESSAGE
+					days = @suelg_notification_days
+					target = this.capital_scope
+					variable = {
+						type = variable
+						varname = suelg_max_scan_level
+						localization = LVL
+						scope = this
+					}
 				}
+				#todo: debug (remove next line):
+				country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
+			} else = {
+				country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
 			}
 		}
+		remove_country_flag = suelg_has_updated_scan_level
 	}
+}
+
+
+# on_system_occupied
+# THIS = System: system being occupied
+# FROMFROM = Country: Original owner of the system
+system_event = {
+    id = suelg_deep_scan.10
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		FROMFROM = {
+			save_event_target_as = t_owner
+		}
+
+		suelg_reset_system_projects = yes
+
+		event_target:t_owner = {
+			if = {
+				limit = { is_ai = yes }
+				country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
+			}
+		}
+	} 
+}
+
+# on_system_lost
+# FromFrom = country (new owner)
+# This = country (previous owner)
+country_event = {
+    id = suelg_deep_scan.11
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = t_owner
+		from = {
+			suelg_reset_system_projects = yes
+		}
+	} 
 }

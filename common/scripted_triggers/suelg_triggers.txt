@@ -60,15 +60,15 @@ suelg_is_not_scanning_system = {
 
 # this = ship scope
 suelg_can_create_scan_projects_near_ship = {
-	owner = {
-		check_variable = { which = suelg_available_explorers value > suelg_started_sys_scans }
-	}
 	is_in_combat = no
 	exists = leader
 	leader = {
 		leader_class = scientist
 	}
 	exists = owner
+	owner = {
+		check_variable = { which = suelg_available_explorers value > suelg_started_sys_scans }
+	}
 	is_inside_border = owner
 	NOT = {
 		has_fleet_order = research_discovery_order

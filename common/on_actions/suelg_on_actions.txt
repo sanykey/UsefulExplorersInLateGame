@@ -10,8 +10,29 @@ on_tech_increased = {
 	}
 }
 
-on_five_year_pulse = {
+
+# on_bi_yearly_pulse
+# on_five_year_pulse
+on_bi_yearly_pulse = {
 	events = {
-		suelg_auto_creator.1
+		suelg_auto_creator.3
+	}
+}
+
+# THIS = System: system being occupied
+# FROM = Country: Conqueror of the system
+# FROMFROM = Country: Original owner of the system
+on_system_occupied = {
+	events = {
+		suelg_deep_scan.10
+	}
+}
+
+# From = system
+# FromFrom = country (new owner)
+# This = country (previous owner)
+on_system_lost = {
+	events = {
+		suelg_deep_scan.11
 	}
 }

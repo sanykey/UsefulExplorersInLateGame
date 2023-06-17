@@ -1,12 +1,14 @@
 namespace = suelg_auto_creator
 
-# Search systems and create project for ships and capital system
+# Search systems and create projects for AI's ships and capital system
 country_event = {
     id = suelg_auto_creator.1
     hide_window = yes
     is_triggered_only = yes
 
 	immediate = {
+        save_event_target_as = t_owner
+        suelg_init_country_vars = yes
         suelg_count_scanning_systems = yes
         suelg_count_avaliable_explorers = yes
 
@@ -14,6 +16,7 @@ country_event = {
             limit = {
                 check_variable = { which = suelg_available_explorers value > suelg_started_sys_scans }
             }
+            # log = "ADD AUTO PROJECTS - explorers: [this.suelg_available_explorers] Systems: [this.suelg_started_sys_scans]"
             suelg_add_scan_project_near_capital = yes
             suelg_add_scan_projects_per_ship = yes
         }
@@ -62,9 +65,9 @@ event = {
 
 	immediate = {
 		every_playable_country = {
-			# limit = {
-                # is_ai = yes
-			# }
+			limit = {
+                is_ai = yes
+			}
 			country_event = { id = suelg_auto_creator.1 }
 		}
 	}

@@ -1,3 +1,14 @@
+# This = country scope
+suelg_init_country_vars = {
+	if = { 
+		limit = {
+			NOT = {
+				is_variable_set = suelg_max_scan_level
+			}
+		}
+		set_variable = { which = suelg_max_scan_level value = 0 }
+	}
+}
 
 # This = Planet scope
 suelg_init_planet_vars = {
@@ -51,6 +62,7 @@ suelg_create_system_scan_projects = {
 	}
 }
 
+# this = system scope
 suelg_reset_system_projects = {
 	remove_star_flag = suelg_has_scan_projects
 	every_system_planet = {
@@ -62,22 +74,6 @@ suelg_reset_system_projects = {
 			}
 
 			save_event_target_as = reset_planet_t
-			
-			# todo: figure out how to make it work. Science ships may not be orbiting a planet when they are researching a project on it
-			# random_fleet_in_orbit = {
-			# 	limit = {
-			# 		exists = leader
-			# 		leader = {
-			# 			leader_class = scientist
-			# 			# is_researching_special_project = suelg_deep_scan_SP_1 # add other projects
-			# 		}
-			# 	}
-
-			# 	event_target:reset_planet_t = {
-			# 		log = ">> DONT REMOVE THAT PLANET: [this.GetName]"
-			# 		set_planet_flag = suelg_has_researcher
-			# 	}
-			# }
 
 			if = {
 				limit = {
@@ -85,18 +81,52 @@ suelg_reset_system_projects = {
 				}
 				set_variable = { which = suelg_started_scan_lvl value = suelg_completed_scan_lvl }
 
-				solar_system = {
-					owner = {
-						# event_target:reset_planet_t = {
-						# 	log = ">> REMOVE PROJECT. PLANET: [this.GetName]"
-						# }
-						
-						abort_special_project = { type = suelg_deep_scan_SP_1 location = event_target:reset_planet_t }
-					}
+				# log = ">> REMOVE PROJECT. PLANET: [this.GetName]"
+				event_target:t_owner = {
+					abort_special_project = { type = suelg_deep_scan_SP_1 location = event_target:reset_planet_t }
 				}
 				
 				remove_planet_flag = suelg_has_researcher
+				remove_planet_flag = suelg_hasnt_completed_project
 			}
 		}
+	}
+}
+
+# this = planes scope
+suelg_update_complete_scan_mod = {
+	remove_modifier = suelg_deep_scanned_1
+	remove_modifier = suelg_deep_scanned_2
+	remove_modifier = suelg_deep_scanned_3
+	remove_modifier = suelg_deep_scanned_4
+	remove_modifier = suelg_deep_scanned_5
+	remove_modifier = suelg_deep_scanned_6
+	remove_modifier = suelg_deep_scanned_7
+	remove_modifier = suelg_deep_scanned_8
+	remove_modifier = suelg_deep_scanned_9
+	remove_modifier = suelg_deep_scanned_10
+	remove_modifier = suelg_deep_scanned_11
+	remove_modifier = suelg_deep_scanned_12
+	remove_modifier = suelg_deep_scanned_13
+	remove_modifier = suelg_deep_scanned_14
+	remove_modifier = suelg_deep_scanned_15
+
+	save_event_target_as = t_mod_star
+	solar_system = {
+		inline_script = { script = add_complete_scan_mod LVL = 1 }
+		inline_script = { script = add_complete_scan_mod LVL = 2 }
+		inline_script = { script = add_complete_scan_mod LVL = 3 }
+		inline_script = { script = add_complete_scan_mod LVL = 4 }
+		inline_script = { script = add_complete_scan_mod LVL = 5 }
+		inline_script = { script = add_complete_scan_mod LVL = 6 }
+		inline_script = { script = add_complete_scan_mod LVL = 7 }
+		inline_script = { script = add_complete_scan_mod LVL = 8 }
+		inline_script = { script = add_complete_scan_mod LVL = 9 }
+		inline_script = { script = add_complete_scan_mod LVL = 10 }
+		inline_script = { script = add_complete_scan_mod LVL = 11 }
+		inline_script = { script = add_complete_scan_mod LVL = 12 }
+		inline_script = { script = add_complete_scan_mod LVL = 13 }
+		inline_script = { script = add_complete_scan_mod LVL = 14 }
+		inline_script = { script = add_complete_scan_mod LVL = 15 }
 	}
 }

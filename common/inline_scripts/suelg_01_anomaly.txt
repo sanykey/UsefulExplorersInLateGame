@@ -5,7 +5,7 @@
 		add = 3
 		is_asteroid = yes
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "AST_WAVELENGTHS_1_CAT" }
+	suelg_spawn_anomaly = { CAT = "AST_WAVELENGTHS_1_CAT" }
 }
 0 = {
 	modifier = {
@@ -37,7 +37,7 @@
 			}
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "HBL_LUSH_PLANET_1_CAT" }
+	suelg_spawn_anomaly = { CAT = "HBL_LUSH_PLANET_1_CAT" }
 }
 0 = {
 	modifier = {
@@ -50,7 +50,7 @@
 			is_planet_class = pc_gas_giant
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "UHB_ANCIENT_RUINS_1_CAT" }
+	suelg_spawn_anomaly = { CAT = "UHB_ANCIENT_RUINS_1_CAT" }
 }
 0 = {
 	modifier = {
@@ -68,7 +68,7 @@
 			has_authority = auth_machine_intelligence
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_PLAYGROUND_CAT" }
+	suelg_spawn_anomaly = { CAT = "GEN_PLAYGROUND_CAT" }
 }
 0 = {
 	modifier = {
@@ -95,14 +95,14 @@
 			}
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "AST_SHRINE_1_CAT" }
+	suelg_spawn_anomaly = { CAT = "AST_SHRINE_1_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		habitable_planet = yes
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "HBL_MUSIC_1_CAT" }
+	suelg_spawn_anomaly = { CAT = "HBL_MUSIC_1_CAT" }
 }
 0 = {
 	modifier = {
@@ -114,14 +114,14 @@
 			}
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "GAS_ZRO_ICE_CAT" }
+	suelg_spawn_anomaly = { CAT = "GAS_ZRO_ICE_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "AST_ILLICIT_DARK_CAT" }
+	suelg_spawn_anomaly = { CAT = "AST_ILLICIT_DARK_CAT" }
 }
 0 = {
 	modifier = {
@@ -134,7 +134,7 @@
 			has_ethic = ethic_gestalt_consciousness
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "TOX_PURPLE_RAIN_CAT" }
+	suelg_spawn_anomaly = { CAT = "TOX_PURPLE_RAIN_CAT" }
 }
 0 = {
 	modifier = {
@@ -154,14 +154,14 @@
 			has_ethic = ethic_gestalt_consciousness
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "FROZ_BASE_CAT" }
+	suelg_spawn_anomaly = { CAT = "FROZ_BASE_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_tropical
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "TROP_PETS_CAT" }
+	suelg_spawn_anomaly = { CAT = "TROP_PETS_CAT" }
 }
 0 = {
 	modifier = {
@@ -185,35 +185,35 @@
 			is_planet_class = pc_molten
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "PROJ_MOON_CAT" }
+	suelg_spawn_anomaly = { CAT = "PROJ_MOON_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_ocean
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "SEA_CAT" }
+	suelg_spawn_anomaly = { CAT = "SEA_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_molten
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "MOLTEN_BASE_CAT" }
+	suelg_spawn_anomaly = { CAT = "MOLTEN_BASE_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		habitable_planet = yes
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "LEVELED_CAT" }
+	suelg_spawn_anomaly = { CAT = "LEVELED_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "DIMENSIONAL_POCKET_CAT" }
+	suelg_spawn_anomaly = { CAT = "DIMENSIONAL_POCKET_CAT" }
 }
 0 = {
 	modifier = {
@@ -224,7 +224,7 @@
 			is_planet_class = pc_ocean
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "HAB_CORN_CAT" }
+	suelg_spawn_anomaly = { CAT = "HAB_CORN_CAT" }
 }
 0 = {
 	modifier = {
@@ -235,7 +235,7 @@
 			is_planet_class = pc_arid
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "HAB_MAT_CAT" }
+	suelg_spawn_anomaly = { CAT = "HAB_MAT_CAT" }
 }
 0 = {
 	modifier = {
@@ -249,7 +249,7 @@
 			is_planet_class = pc_nuked
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "ATM_ANOMALY_CAT" }
+	suelg_spawn_anomaly = { CAT = "ATM_ANOMALY_CAT" }
 }
 0 = {
 	modifier = {
@@ -258,7 +258,7 @@
 		planet_size < 26
 		planet_size > 9
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "FRBR_GRIMACING_CAT" }
+	suelg_spawn_anomaly = { CAT = "FRBR_GRIMACING_CAT" }
 }
 0 = {
 	modifier = {
@@ -275,28 +275,28 @@
 			}
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "FROZ_ILLUMINATED_CAT" }
+	suelg_spawn_anomaly = { CAT = "FROZ_ILLUMINATED_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gas_giant
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "GAS_CLOUDY_CAT" }
+	suelg_spawn_anomaly = { CAT = "GAS_CLOUDY_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gaia
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "GAIA_MOVE_CAT" }
+	suelg_spawn_anomaly = { CAT = "GAIA_MOVE_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_frozen
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "FROZ_BOX_CAT" }
+	suelg_spawn_anomaly = { CAT = "FROZ_BOX_CAT" }
 }
 0 = {
 	modifier = {
@@ -307,49 +307,49 @@
 			is_planet_class = pc_tundra
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "CONT_SIGNS_CAT" }
+	suelg_spawn_anomaly = { CAT = "CONT_SIGNS_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_arctic
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "FROZ_BASE2_CAT" }
+	suelg_spawn_anomaly = { CAT = "FROZ_BASE2_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "AST_CRATER_CAT" }
+	suelg_spawn_anomaly = { CAT = "AST_CRATER_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_barren
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "BAR_COLONY_CAT" }
+	suelg_spawn_anomaly = { CAT = "BAR_COLONY_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_toxic
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "TOX_MAT_CAT" }
+	suelg_spawn_anomaly = { CAT = "TOX_MAT_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_asteroid = yes
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "AST_CLUSTER_CAT" }
+	suelg_spawn_anomaly = { CAT = "AST_CLUSTER_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_gaia
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "GAEA_CHECKERED_CAT" }
+	suelg_spawn_anomaly = { CAT = "GAEA_CHECKERED_CAT" }
 }
 0 = {
 	modifier = {
@@ -359,21 +359,21 @@
 			is_planet_class = pc_arid
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_ABANDONED_SHIP_CAT" }
+	suelg_spawn_anomaly = { CAT = "GEN_ABANDONED_SHIP_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_desert
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "GEN_DESERT_CAT" }
+	suelg_spawn_anomaly = { CAT = "GEN_DESERT_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_planet_class = pc_toxic
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "TOX_STRUCTURES_CAT" }
+	suelg_spawn_anomaly = { CAT = "TOX_STRUCTURES_CAT" }
 }
 0 = {
 	modifier = {
@@ -389,14 +389,14 @@
 			}
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "TROP_WOODS_CAT" }
+	suelg_spawn_anomaly = { CAT = "TROP_WOODS_CAT" }
 }
 0 = {
 	modifier = {
 		add = 3
 		is_star_class = sc_black_hole
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "HOLE_RADIATION_CAT" }
+	suelg_spawn_anomaly = { CAT = "HOLE_RADIATION_CAT" }
 }
 0 = {
 	modifier = {
@@ -416,7 +416,7 @@
 			}
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "UHB_BUOY_CAT" }
+	suelg_spawn_anomaly = { CAT = "UHB_BUOY_CAT" }
 }
 0 = {
 	modifier = {
@@ -426,5 +426,5 @@
 			is_planet_class = pc_continental
 		}
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "GAIA_RECORD_CAT" }
+	suelg_spawn_anomaly = { CAT = "GAIA_RECORD_CAT" }
 }

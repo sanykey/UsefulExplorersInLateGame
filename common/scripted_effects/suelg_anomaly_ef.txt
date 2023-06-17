@@ -1,0 +1,41 @@
+# this = planet scope
+# from = ship scope
+suelg_spawn_random_anomaly = {
+	random_list = {
+		inline_script = suelg_00_anomaly
+		inline_script = suelg_01_anomaly
+		inline_script = suelg_02_anomaly
+		inline_script = suelg_anomaly_red_rel
+		inline_script = suelg_anomaly_distant_start
+		0.001 = {}
+	}
+}
+
+# this = planet scope
+# from = ship scope
+suelg_spawn_anomaly = {
+	this = {
+		add_anomaly = { category = "$CAT$" target = from.owner }
+		log = ">> SPAWN ANOMALY. THIS: [This.GetName] FROM: [From.GetName] NAME: $CAT$"
+	}
+}
+
+# this = ship scope
+add_anomaly_notification = {
+	create_message = {
+		type = SUELG_ANOMALY_DETECTED
+		localization = SUELG_ANOMALY_DETECTED_MESSAGE
+		days = @suelg_notification_days
+		target = prev
+		variable = {
+			type = name
+			localization = SHIP
+			scope = this
+		}
+		variable = {
+			type = name
+			localization = PLANET
+			scope = prev
+		}
+	}
+}

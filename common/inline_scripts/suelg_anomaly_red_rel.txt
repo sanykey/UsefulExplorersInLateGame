@@ -9,5 +9,5 @@
 			NOT = { from.owner = { has_ethic = ethic_gestalt_consciousness } }
 			NOT = { years_passed = 300 } # year minus 600 must be pre-1900
 	}
-	inline_script = { script = suelg_spawn_anomaly CAT = "strange_signal_category" }
+	suelg_spawn_anomaly = { CAT = "strange_signal_category" }
 }

@@ -1,0 +1,21 @@
+# This = planet scope
+suelg_clear_spawn_res_planet_vars = {
+	clear_variable = suelg_mineral_weight
+	clear_variable = suelg_energy_weight
+	clear_variable = suelg_trade_weight
+	clear_variable = suelg_alloy_weight
+
+	clear_variable = suelg_physics_weight
+	clear_variable = suelg_society_weight
+	clear_variable = suelg_engineering_weight
+
+	clear_variable = suelg_volatile_motes_weight
+	clear_variable = suelg_rare_crystals_weight
+	clear_variable = suelg_exotic_gases_weight
+
+	clear_variable = suelg_sum_weight
+	clear_variable = suelg_sub_with_null_weight
+	clear_variable = suelg_res_dice
+
+	remove_planet_flag = new_deposit_added
+}
