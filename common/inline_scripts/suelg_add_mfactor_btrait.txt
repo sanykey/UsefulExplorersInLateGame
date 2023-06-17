@@ -1,0 +1,6 @@
+modifier = {
+	factor = $F$
+	event_target:t_leader = {
+		has_trait = $T$
+	}
+}

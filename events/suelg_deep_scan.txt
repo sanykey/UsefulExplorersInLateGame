@@ -88,40 +88,10 @@ ship_event = {
 			set_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
 			set_planet_flag = has_completed_project
 			planet_event = { id = suelg_spawn_resource.1 } # Calculate the chance for an orbital deposit to spawn 
-			planet_event = { id = suelg_deep_scan.3 } # Calculate the chance for an Archaeological site to spawn 
+			planet_event = { id = suelg_spawn_archeology.1 } # Calculate the chance for an Archaeological site and spawn 
 			planet_event = { id = suelg_spawn_anomaly.1 } # Calculate the chance for an anomaly to spawn 
 			planet_event = { id = suelg_deep_scan.8 } # Complete scan
 		}
-    }
-}
-
-# Calculate the chance for an Archaeological site to spawn and spawn
-planet_event = {
-    id = suelg_deep_scan.3
-    hide_window = yes
-    is_triggered_only = yes
-
-    immediate = {
-		set_variable = { which = suelg_digsite_chance value = @suelg_spawn_archaeological_site_chance }
-		inline_script = { script = suelg_add_ch_trait N = suelg_digsite_chance T = leader_trait_archaeologist V = 0.1 }
-		inline_script = { script = suelg_add_ch_trait N = suelg_digsite_chance T = leader_trait_archaeologist_2 V = 0.2 }
-		inline_script = { script = suelg_add_ch_trait N = suelg_digsite_chance T = leader_trait_collective_wisdom V = 0.05 }
-		inline_script = { script = suelg_add_ch_trait N = suelg_digsite_chance T = leader_trait_collective_wisdom_2 V = 0.1 }
-		inline_script = { script = suelg_add_ch_trait N = suelg_digsite_chance T = leader_trait_collective_wisdom_3 V = 0.15 }
-		inline_script = { script = suelg_add_ch_trait N = suelg_digsite_chance T = leader_trait_frontier_adventurer V = 0.1 }
-
-		set_variable_to_random_value = { which = suelg_dice min = 0 max = 100 rounded = no }
-
-		# log = ">> ROLL Archaeological site. DICE: [This.suelg_dice] CHANCE: [This.suelg_digsite_chance]"
-		if = {
-			limit = {
-				check_variable = { which = suelg_dice value <= suelg_digsite_chance }
-			}
-			create_archaeological_site = random
-		}
-		
-		clear_variable = suelg_dice
-		clear_variable = suelg_digsite_chance
     }
 }
 
@@ -137,6 +107,7 @@ planet_event = {
 			limit = { has_planet_flag = suelg_hasnt_completed_project }
 			remove_planet_flag = has_completed_project
 		}
+		remove_planet_flag = suelg_hasnt_completed_project
 
 		solar_system = {
 			remove_star_flag = suelg_has_scan_projects

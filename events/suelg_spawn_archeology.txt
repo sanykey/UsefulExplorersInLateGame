@@ -1,0 +1,25 @@
+namespace = suelg_spawn_archeology
+
+# Calculate the chance for an Archaeological site and spawn
+planet_event = {
+    id = suelg_spawn_archeology.1
+    hide_window = yes
+    is_triggered_only = yes
+
+    immediate = {
+		random_list = {
+			0.1 = { # 1.25 (1.25%) is vanilla chance
+				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 1.1 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_archaeologist F = 1.1 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_archaeologist_2 F = 1.2 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_collective_wisdom F = 1.05 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_collective_wisdom_2 F = 1.1 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_collective_wisdom_3 F = 1.15 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_frontier_adventurer F = 1.1 }
+
+				create_archaeological_site = random
+			}
+			100 = {}
+		}
+    }
+}

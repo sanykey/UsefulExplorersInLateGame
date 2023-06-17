@@ -8,51 +8,50 @@ planet_event = {
 
     immediate = {
 		# log = ">> CHECK ANOMALY. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
-		set_variable = { which = suelg_anomaly_chance value = @suelg_spawn_anomaly_basic_chance }
-
-		# Calculate additional modificator from leader
-		if = {
-			limit = { 
-				event_target:t_leader = {
-					is_variable_set = suelg_l_anomaly_add_chance
+		# init additional leader chance
+		event_target:t_leader = {
+			if = {
+				limit = { 
+					NOT = { is_variable_set = suelg_l_anomaly_add_chance }
 				}
-			}
-			change_variable = { which = suelg_anomaly_chance value = event_target:t_leader.suelg_l_anomaly_add_chance }
-		} else = {
-			event_target:t_leader = {
 				set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
 			}
 		}
 
-		# Calculate additional modificators from owner
-		if = {
-			limit = {
-				event_target:t_owner = {
-					has_edict = map_the_stars
+		random_list = {
+			1 = { # 5 (5%) is vanilla chance
+				modifier = {
+					add = event_target:t_leader.suelg_l_anomaly_add_chance
+				}
+				modifier = {
+					factor = 0
+					OR = {
+						has_anomaly = yes
+						is_preventing_anomaly = yes
+					}
+				}
+				modifier = {
+					factor = 1.1
+					event_target:t_owner = {
+						has_edict = map_the_stars
+					}
+				}
+				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 1.1 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_meticulous F = 1.1 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_meticulous_2 F = 1.15 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector_3 F = 1.25 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant_3 F = 1.25 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_insightful_3 F = 1.25 }
+				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_scholarium_observer F = 1.05 }
+
+				planet_event = { id = suelg_spawn_anomaly.2 scopes = { from = event_target:t_ship } } # Spawn planet anomaly
+			}
+			100 = {
+				event_target:t_leader = {
+					change_variable = { which = suelg_l_anomaly_add_chance value = 0.1 }
 				}
 			}
-			inline_script = { script = suelg_add_anomaly_chance_mod VAL = @suelg_map_the_start_edict_mod }
 		}
-
-		set_variable_to_random_value = { which = suelg_dice min = 0 max = 100 rounded = no }
-		# log = ">> ROLL ANOMALY DICE: [This.suelg_dice] CHANCE: [This.suelg_anomaly_chance]"
-		if = {
-			limit = {
-				# todo: commented for debug
-				# check_variable = { which = suelg_dice value <= suelg_anomaly_chance }
-				has_anomaly = no
-				is_preventing_anomaly = no
-			}
-						
-			planet_event = { id = suelg_spawn_anomaly.2 scopes = { from = event_target:t_ship } } # Spawn planet anomaly
-		} else = {
-			event_target:t_leader = {
-				change_variable = { which = suelg_l_anomaly_add_chance value = @suelg_leaders_spawn_anomaly_add_chance }
-			}
-		}
-		
-		clear_variable = suelg_dice
-		clear_variable = suelg_anomaly_chance
     }
 }
 
@@ -64,8 +63,8 @@ planet_event = {
     is_triggered_only = yes
 
 	immediate = {
-		log = ">> BEFORE SPAWN ANOMALY! THIS: [This.GetName] FROM: [From.GetName]"
-		suelg_spawn_random_anomaly = yes # todo fix?
+		# log = ">> BEFORE SPAWN ANOMALY! THIS: [This.GetName] FROM: [From.GetName]"
+		suelg_spawn_random_anomaly = yes
 
 		if = {
 			limit = {
