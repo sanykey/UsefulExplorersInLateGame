@@ -1,0 +1,129 @@
+# this = ship scope
+suelg_get_base_sp_days = {
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 1 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 2 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 3 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 4 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 5 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 6 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 7 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 8 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 9 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 10 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 11 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 12 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 13 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 14 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 15 }
+}
+
+# this = ship scope
+suelg_calculate_survey_speed_factor = {
+	set_variable = { which = suelg_survey_speed value = 0 }
+	
+	# per leader level. Each level +1%
+	leader = {
+		save_event_target_as = t_leader
+		set_variable = { which = suelg_test value = 1 }
+		set_variable = { which = suelg_leader_lvl_bonus value = this.trigger:has_skill }
+		multiply_variable = { which = suelg_leader_lvl_bonus value = 0.1 }
+		# log = ">> +SurveySpeed BY LEVEL, MOD: [this.suelg_leader_lvl_bonus]"
+	}
+
+	change_variable = { which = suelg_survey_speed value =  event_target:t_leader.suelg_leader_lvl_bonus }
+	event_target:t_leader = {
+		clear_variable = suelg_leader_lvl_bonus
+	}
+
+	# todo: fix
+	# ship modifiers
+	# if = { 
+	# 	limit = { has_modifier = slowed_science_ships }
+	# 	log = ">> +SurveySpeed BY SHIP, slowed_science_ships, MOD: -0.5, THIS: [this.GetName]"
+	# 	subtract_variable  = { which = suelg_survey_speed value = 0.5 }
+	# }
+	# if = { 
+	# 	limit = { has_modifier = ship_survey_boost }
+	# 	log = ">> +SurveySpeed BY SHIP, ship_survey_boost, MOD: 0.15, THIS: [this.GetName]"
+	# 	change_variable = { which = suelg_survey_speed value = 0.15 }
+	# }
+
+	# owner modifiers
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_agenda_selected N = agenda_chart_the_unknown F = 0.25 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_modifier N = agenda_chart_the_unknown_finish F = 1 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_modifier N = paragon_death_to_the_stars F = 0.2 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_modifier N = science_inspiration F = 0.2 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_edict N = map_the_stars F = 0.25 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_civic N = civic_eager_explorers F = 0.2 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_policy_flag N = toxic_knights_questing F = 0.15 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_active_tradition N = tr_discovery_to_boldly_go F = 0.35 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_technology N = tech_automated_exploration F = 0.25 }
+	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_technology N = tech_curator_lab F = 0.33 }
+
+	# by leader traits
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = subclass_scientist_explorer F = 0.1 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_roamer F = 0.15 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_roamer_2 F = 0.35 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_custom_AI_assistant F = 0.1 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_sapient_AI_assistant F = 0.2 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_midas_touch F = 0.25 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_xeno_cataloger F = 0.35 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_curator F = 0.25 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_towel F = 0.42 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_scholarium_explorer F = 0.2 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_brainslug F = 0.1 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_psionic F = 0.25 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_chosen F = 0.5 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_composer_chosen F = 0.25 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = gestalt_trait_scientist_mind_wipe_01 F = -0.2 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic F = -0.1 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic_2 F = -0.3 }
+}
+
+
+# suelg_remain_or_complete_sp = {
+# 	log = ">> INNER SP CHECK. DAYS: [This.suelg_actual_sp_days]"
+# 	if = {
+# 		limit = {
+# 			check_variable = { which = suelg_actual_sp_days value < 10 }
+# 		}
+# 		event_target:t_owner = {
+# 			log = ">> INNER SP CHECK. TRIGGER COMPLETE PROJECT"
+# 			complete_special_project = { type = suelg_deep_scan_SP_1 location = event_target:t_planet }
+# 		}
+# 	} else = {
+# 		log = ">> INNER SP CHECK. RUN NEXT TRY AFTER DAYS: [this.suelg_actual_sp_days]"
+# 		ship_event = {
+# 			id = suelg_deep_scan.14
+# 			days = @suelg_sp_check_days
+# 			scopes = { from = event_target:t_planet }
+# 		} # Complete the project after the time calculated by a ship survey speed modifiers
+# 	}
+# }
+
+
+
+# [[NEXT_RUN]
+# 	subtract_variable = { which = suelg_actual_sp_days value = @suelg_sp_check_days }
+# 	log = ">> SUBSTRACT"
+# ]
+
+suelg_remain_or_complete_sp = {
+	if = {
+		limit = {
+			check_variable = { which = suelg_actual_sp_days value < 10 }
+		}
+		clear_variable = suelg_actual_sp_days
+		event_target:t_planet = {
+			log = ">> TRIGGER COMPLETE PROJECT EVENT"
+			planet_event = { id = suelg_scan_progress.4 days = 2 }
+		}
+	} else = {
+		log = ">> TRIGGER NEXT CHECK"
+		ship_event = {
+			id = suelg_scan_progress.3
+			days = @suelg_sp_check_days
+			scopes = { from = event_target:t_planet }
+		} # Complete the project after the time calculated by a ship survey speed modifiers
+	}
+}

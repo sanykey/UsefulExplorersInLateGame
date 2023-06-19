@@ -1,6 +1,8 @@
 @suelg_prescan_sp_days = 2
+@suelg_sp_check_days = 15
 
-@suelg_scan_sp_days_1 = 40
+@suelg_scan_sp_days_1 = 100 # debug
+# @suelg_scan_sp_days_1 = 40
 @suelg_scan_sp_days_2 = 48
 @suelg_scan_sp_days_3 = 58
 @suelg_scan_sp_days_4 = 70

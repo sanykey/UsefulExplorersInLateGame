@@ -1,0 +1,125 @@
+namespace = suelg_scan_progress
+
+# Calculate days for SP
+# this = Ship scope
+# fromfrom = Planet scope
+# from = Ship scope
+# suelg_deep_scan_SP_{x} on_start
+ship_event = {
+    id = suelg_scan_progress.1
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		fromfrom = {
+			save_event_target_as = t_planet
+		}
+		
+		suelg_get_base_sp_days = yes # suelg_base_sp_days
+		suelg_calculate_survey_speed_factor = yes # suelg_survey_speed
+
+		change_variable = { which = suelg_survey_speed value = 1 }
+		set_variable = { which = suelg_actual_sp_days value = suelg_base_sp_days }
+		divide_variable = { which = suelg_actual_sp_days value = suelg_survey_speed }
+		floor_variable = suelg_actual_sp_days
+
+		log = ">> START PROJECT. CURRENT: [this.suelg_base_sp_days] ACTUAL: [this.suelg_actual_sp_days] SURVEY SP: [this.suelg_survey_speed]"
+		# suelg_remain_or_complete_sp = yes
+
+		clear_variable = suelg_base_sp_days
+		clear_variable = suelg_survey_speed
+	} 
+}
+
+
+# Calculate days for SP (Alternative way. Often on_start does not work)
+# this = event scope (ship or planet)
+# fromfrom = project creation scope (usually equals location)
+#suelg_deep_scan_SP_{x} on_progress_25
+ship_event = {
+    id = suelg_scan_progress.2
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		log = ">> PROGRESS PROJECT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+		fromfrom = {
+			save_event_target_as = t_planet
+		}
+		owner = {
+			save_event_target_as = t_owner
+		}
+	
+		suelg_get_base_sp_days = yes # suelg_base_sp_days
+		suelg_calculate_survey_speed_factor = yes # suelg_survey_speed
+	
+		change_variable = { which = suelg_survey_speed value = 1 }
+		set_variable = { which = suelg_actual_sp_days value = suelg_base_sp_days }
+		divide_variable = { which = suelg_actual_sp_days value = suelg_survey_speed }
+		floor_variable = suelg_actual_sp_days
+	
+		log = ">> PROGRESS PROJECT. BASE: [this.suelg_base_sp_days] ACTUAL: [this.suelg_actual_sp_days] SURVEY SP: [this.suelg_survey_speed]"
+		if = {
+			limit = {
+				NOT = { check_variable = { which = suelg_base_sp_days value = suelg_actual_sp_days }}
+			}
+	
+			set_variable = { which = suelg_past_sp_days value = suelg_base_sp_days }
+			multiply_variable = { which = suelg_past_sp_days value = 0.25 }
+			subtract_variable  = { which = suelg_actual_sp_days value = suelg_past_sp_days }
+			log = ">> PROGRESS PROJECT. PAST DAYS: [this.suelg_past_sp_days] REMAINING DAYS : [this.suelg_actual_sp_days]"
+
+			suelg_remain_or_complete_sp = yes
+		}
+	
+		clear_variable = suelg_base_sp_days
+		clear_variable = suelg_survey_speed
+	} 
+}
+
+# Check SP progress
+# this = ship
+# from = planet
+ship_event = {
+    id = suelg_scan_progress.3
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { 
+				is_variable_set = suelg_actual_sp_days
+			}
+			subtract_variable = { which = suelg_actual_sp_days value = @suelg_sp_check_days }
+			log = ">> CHECK SP PROGRESS. FROM: [from.GetName] THIS: [This.GetName] DAYS: [this.suelg_actual_sp_days]"
+	
+			from = {
+				save_event_target_as = t_planet
+			}
+			owner = {
+				save_event_target_as = t_owner
+			}
+	
+			suelg_remain_or_complete_sp = yes
+		}
+	} 
+}
+
+# Finish the project ahead of time because of the speed modifiers of the ship
+planet_event = {
+    id = suelg_scan_progress.4
+    hide_window = yes
+    is_triggered_only = yes
+
+	immediate = {
+		log = ">> TRY TO COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+
+		save_event_target_as = t_planet
+		solar_system = {
+			owner = {
+				save_event_target_as = t_owner
+				complete_special_project = { type = suelg_deep_scan_SP_1 location = event_target:t_planet }
+			}
+		}
+	} 
+}

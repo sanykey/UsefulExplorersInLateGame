@@ -1,0 +1,4 @@
+# ship modifier
+suelg_ship_speed_bust = {
+	ship_speed_mult = 0.01
+}

@@ -1,0 +1,10 @@
+# suelg_ef_add_survey_s_by_l_traits inline script
+if = {
+	limit = {
+		leader = {
+			has_trait = $T$
+		}
+	}
+	# log = ">> +SurveySpeed BY TRAIT: $T$, MOD: $F$, THIS: [This.GetName]"
+	change_variable = { which = suelg_survey_speed value = $F$ }
+}

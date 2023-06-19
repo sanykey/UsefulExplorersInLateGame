@@ -12,6 +12,9 @@ requirements = {
 on_success = {
 	ship_event = { id = suelg_deep_scan.2 }
 }
+on_start = {
+	ship_event = { id = suelg_scan_progress.1 }
+}
 on_progress_25 = {
-	ship_event = { id = suelg_deep_scan.14 }
+	ship_event = { id = suelg_scan_progress.2 }
 }

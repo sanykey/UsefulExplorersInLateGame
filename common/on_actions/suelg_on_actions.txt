@@ -36,3 +36,9 @@ on_system_lost = {
 		suelg_deep_scan.11
 	}
 }
+
+suelg_ship_complete_scan = {
+	events = {
+		suelg_scan_progress.4
+	}
+}

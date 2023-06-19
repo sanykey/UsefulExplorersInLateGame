@@ -82,7 +82,6 @@ ship_event = {
 			owner = {
 				save_event_target_as = t_owner
 			}
-			
 		}
 		fromfrom = {
 			save_event_target_as = t_planet
@@ -93,6 +92,19 @@ ship_event = {
 			planet_event = { id = suelg_spawn_anomaly.1 } # Calculate the chance for an anomaly to spawn 
 			planet_event = { id = suelg_deep_scan.8 } # Complete scan
 		}
+
+		# Temporarily accelerate the ship after completion of the project
+		suelg_calculate_survey_speed_factor = yes
+		multiply_variable = { which = suelg_survey_speed value = 100 }
+		remove_modifier = suelg_ship_speed_bust
+		add_modifier = {
+			modifier = suelg_ship_speed_bust
+			multiplier = this.suelg_survey_speed
+			days = 20
+		}
+		
+		clear_variable = suelg_survey_speed
+		clear_variable = suelg_actual_sp_days
     }
 }
 
@@ -334,69 +346,3 @@ country_event = {
 	} 
 }
 
-# Recalculate and recreate project by leader's survey speed
-#this = Ship scope
-#fromfrom = Planet scope
-#from = Ship scope
-#suelg_deep_scan_{X}_special_project on_start
-ship_event = {
-    id = suelg_deep_scan.12
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate = {
-		log = ">> START PROJECT :::"
-		fromfrom = {
-			save_event_target_as = t_planet
-		}
-
-		suelg_get_sp_base_days = yes
-		log = ">> START PROJECT. FROM: [from.GetName] THIS: [This.GetName] FROMFROM: [fromfrom.GetName] DAYS: [this.suelg_survey_speed_mod]"
-
-		
-
-
-
-		suelg_add_survey_s_by_l_lvl = yes
-		suelg_add_survey_s_by_owner = yes
-
-		# ship modifiers
-		if = { 
-			limit = { has_modifier = slowed_science_ships }
-			multiply_variable = { which = suelg_survey_speed_mod value = 1.5 }
-		}
-		if = { 
-			limit = { has_modifier = ship_survey_boost }
-			multiply_variable = { which = suelg_survey_speed_mod value = 0.85 }
-		}
-
-		suelg_add_survey_s_by_l_traits = yes
-	} 
-}
-
-# this = country (project owner)
-# from = event scope (planet or ship, MIGHT NOT EXIST)
-# fromfrom = project creation scope (usually equals location)
-#suelg_deep_scan_{X}_special_project on_cancel
-ship_event = {
-    id = suelg_deep_scan.13
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate = {
-		log = ">> CANCEL PROJECT. FROM: [from.GetName] THIS: [This.GetName] FROMFROM: [fromfrom.GetName]"
-		from = {
-			clear_variable = suelg_survey_speed_mod
-		}
-	}
-}
-
-ship_event = {
-    id = suelg_deep_scan.14
-    hide_window = yes
-    is_triggered_only = yes
-
-	immediate = {
-		log = ">> PROJECT PROGRESS. FROM: [from.GetName] THIS: [This.GetName] FROMFROM: [fromfrom.GetName]"
-	} 
-}
