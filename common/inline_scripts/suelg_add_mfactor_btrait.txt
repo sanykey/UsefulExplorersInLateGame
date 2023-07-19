@@ -1,5 +1,6 @@
 modifier = {
 	factor = $F$
+	exists = event_target:t_leader
 	event_target:t_leader = {
 		has_trait = $T$
 	}

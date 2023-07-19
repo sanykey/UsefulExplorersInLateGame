@@ -69,12 +69,12 @@ fleet_event = {
 #from = Ship scope
 #suelg_deep_scan_{X}_special_project on_success
 ship_event = {
-    id = suelg_deep_scan.2
-    hide_window = yes
-    is_triggered_only = yes
+	id = suelg_deep_scan.2
+	hide_window = yes
+	is_triggered_only = yes
 
-    immediate = {
-		log = ">> PROJECT COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+	immediate = {
+		# log = ">> ON SP COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 		save_event_target_as = t_ship
 
 		leader = {
@@ -82,30 +82,38 @@ ship_event = {
 			owner = {
 				save_event_target_as = t_owner
 			}
-		}
-		fromfrom = {
-			save_event_target_as = t_planet
-			set_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
-			set_planet_flag = has_completed_project
-			planet_event = { id = suelg_spawn_resource.1 } # Calculate the chance for an orbital deposit to spawn 
-			planet_event = { id = suelg_spawn_archeology.1 } # Calculate the chance for an Archaeological site and spawn 
-			planet_event = { id = suelg_spawn_anomaly.1 } # Calculate the chance for an anomaly to spawn 
-			planet_event = { id = suelg_deep_scan.8 } # Complete scan
+
+			add_experience = -120 # remove vanilla experience from project
 		}
 
-		# Temporarily accelerate the ship after completion of the project
-		suelg_calculate_survey_speed_factor = yes
-		multiply_variable = { which = suelg_survey_speed value = 100 }
-		remove_modifier = suelg_ship_speed_bust
-		add_modifier = {
-			modifier = suelg_ship_speed_bust
-			multiplier = this.suelg_survey_speed
-			days = 20
+		fromfrom = {
+			save_event_target_as = t_planet
+			planet_event = { id = suelg_deep_scan.3 } # Run Complete project effects
 		}
-		
-		clear_variable = suelg_survey_speed
-		clear_variable = suelg_actual_sp_days
-    }
+	}
+}
+
+# Run Complete project effects
+planet_event = {
+	id = suelg_deep_scan.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# log = ">> COMPLETE SP EFFECTS"
+
+		suelg_add_exp_for_leader = yes
+		set_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
+		set_planet_flag = has_completed_project # todo: wtf? fix
+		planet_event = { id = suelg_spawn_resource.1 } # Calculate the chance for an orbital deposit to spawn 
+		planet_event = { id = suelg_spawn_archeology.1 } # Calculate the chance for an Archaeological site and spawn 
+		planet_event = { id = suelg_spawn_anomaly.1 } # Calculate the chance for an anomaly to spawn 
+		planet_event = { id = suelg_deep_scan.8 } # Complete scan
+
+		event_target:t_ship = {
+			suelg_accelerate_ship_after_sp = yes
+		}
+	}
 }
 
 # Complete scan
@@ -277,9 +285,9 @@ country_event = {
 		}
 
 		if = {
-			limit = {
-				has_country_flag = suelg_has_updated_scan_level
-			}
+			limit = { has_country_flag = suelg_has_updated_scan_level }
+
+			suelg_update_country_scan_lvl_mod = yes
 
 			if = {
 				limit = { is_ai = no }
@@ -296,7 +304,7 @@ country_event = {
 					}
 				}
 				#todo: debug (remove next line):
-				country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
+				# country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
 			} else = {
 				country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
 			}

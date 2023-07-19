@@ -35,19 +35,6 @@ suelg_calculate_survey_speed_factor = {
 		clear_variable = suelg_leader_lvl_bonus
 	}
 
-	# todo: fix
-	# ship modifiers
-	# if = { 
-	# 	limit = { has_modifier = slowed_science_ships }
-	# 	log = ">> +SurveySpeed BY SHIP, slowed_science_ships, MOD: -0.5, THIS: [this.GetName]"
-	# 	subtract_variable  = { which = suelg_survey_speed value = 0.5 }
-	# }
-	# if = { 
-	# 	limit = { has_modifier = ship_survey_boost }
-	# 	log = ">> +SurveySpeed BY SHIP, ship_survey_boost, MOD: 0.15, THIS: [this.GetName]"
-	# 	change_variable = { which = suelg_survey_speed value = 0.15 }
-	# }
-
 	# owner modifiers
 	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_agenda_selected N = agenda_chart_the_unknown F = 0.25 }
 	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_modifier N = agenda_chart_the_unknown_finish F = 1 }
@@ -80,50 +67,55 @@ suelg_calculate_survey_speed_factor = {
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic_2 F = -0.3 }
 }
 
-
-# suelg_remain_or_complete_sp = {
-# 	log = ">> INNER SP CHECK. DAYS: [This.suelg_actual_sp_days]"
-# 	if = {
-# 		limit = {
-# 			check_variable = { which = suelg_actual_sp_days value < 10 }
-# 		}
-# 		event_target:t_owner = {
-# 			log = ">> INNER SP CHECK. TRIGGER COMPLETE PROJECT"
-# 			complete_special_project = { type = suelg_deep_scan_SP_1 location = event_target:t_planet }
-# 		}
-# 	} else = {
-# 		log = ">> INNER SP CHECK. RUN NEXT TRY AFTER DAYS: [this.suelg_actual_sp_days]"
-# 		ship_event = {
-# 			id = suelg_deep_scan.14
-# 			days = @suelg_sp_check_days
-# 			scopes = { from = event_target:t_planet }
-# 		} # Complete the project after the time calculated by a ship survey speed modifiers
-# 	}
-# }
-
-
-
-# [[NEXT_RUN]
-# 	subtract_variable = { which = suelg_actual_sp_days value = @suelg_sp_check_days }
-# 	log = ">> SUBSTRACT"
-# ]
-
+# this = ship scope
 suelg_remain_or_complete_sp = {
 	if = {
 		limit = {
-			check_variable = { which = suelg_actual_sp_days value < 10 }
+			check_variable = { which = suelg_actual_sp_days value < @suelg_sp_complete_remain_days }
 		}
 		clear_variable = suelg_actual_sp_days
-		event_target:t_planet = {
-			log = ">> TRIGGER COMPLETE PROJECT EVENT"
-			planet_event = { id = suelg_scan_progress.4 days = 2 }
-		}
-	} else = {
-		log = ">> TRIGGER NEXT CHECK"
 		ship_event = {
-			id = suelg_scan_progress.3
-			days = @suelg_sp_check_days
+			id = suelg_scan_progress.4
+			days = 1
 			scopes = { from = event_target:t_planet }
-		} # Complete the project after the time calculated by a ship survey speed modifiers
+		} # Finish the project ahead of time because of the speed modifiers of the ship
+
+	} else = {
+		if = {
+			inline_script = { script = suelg_ef_next_progress_ck N = 1 }
+		} else_if = {
+			inline_script = { script = suelg_ef_next_progress_ck N = 2 }
+		} else_if = {
+			inline_script = { script = suelg_ef_next_progress_ck N = 3 }
+		} else_if = {
+			inline_script = { script = suelg_ef_next_progress_ck N = 4 }
+		} else_if = {
+			inline_script = { script = suelg_ef_next_progress_ck N = 5 }
+		} else = {
+			# log = ">> NEXT PROGRESS CHECK, N: 6, DAYS: [this.suelg_actual_sp_days]"
+			ship_event = {
+				id = suelg_scan_progress.3
+				days = @suelg_sp_check_days_6
+				scopes = { from = event_target:t_planet }
+			} # Complete the project after the time calculated by a ship survey speed modifiers
+		}
+	}
+}
+
+# this = ship scope
+suelg_subtract_actual_sp_days = {
+	if = {
+		inline_script = { script = suelg_ef_subtract_actual_sp_days N = 1 }
+	} else_if = {
+		inline_script = { script = suelg_ef_subtract_actual_sp_days N = 2 }
+	} else_if = {
+		inline_script = { script = suelg_ef_subtract_actual_sp_days N = 3 }
+	} else_if = {
+		inline_script = { script = suelg_ef_subtract_actual_sp_days N = 4 }
+	} else_if = {
+		inline_script = { script = suelg_ef_subtract_actual_sp_days N = 5 }
+	} else = {
+		subtract_variable = { which = suelg_actual_sp_days value = @suelg_sp_check_days_6 }
+		# log = ">> Subtract sp days, N: 6, DAYS: [this.suelg_actual_sp_days]"
 	}
 }

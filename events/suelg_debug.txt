@@ -1,31 +1,5 @@
 namespace = suelg_debug
 
-# # build starbase in system
-# planet_event = {
-#     id = suelg_debug.1
-#     hide_window = yes
-#     is_triggered_only = yes
-
-# 	immediate = {
-# 		random_playable_country = {
-# 			limit = {
-# 				is_ai = no
-# 				prev = {
-# 					NOT = { has_planet_flag = test }
-# 				}
-# 			}
-# 			save_event_target_as = t_owner
-# 		}
-
-# 		solar_system = {
-# 			create_starbase = {
-# 				size = starbase_outpost
-# 				owner = event_target:t_owner
-# 			}
-# 		}
-# 	}
-# }
-
 # build starbase near capital
 event = {
     id = suelg_debug.1
@@ -102,6 +76,8 @@ event = {
 					is_ai = no
 				}
 				save_event_target_as = t_owner
+			}
+			event_target:t_owner = {
 				capital_scope.solar_system = {
 					closest_system = {
 						min_steps = 1
@@ -116,6 +92,28 @@ event = {
 					}
 				}
 			}
+		}
+	}
+}
+
+# upgrade max scan lvl
+event = {
+	id = suelg_debug.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# event = { id = suelg_debug.3 } # get player country
+		random_playable_country = {
+			limit = {
+				is_ai = no
+			}
+			save_event_target_as = t_owner
+		}
+
+		event_target:t_owner = {
+			suelg_init_country_vars = yes
+			suelg_upgrage_country_max_scan_lvl = yes
 		}
 	}
 }

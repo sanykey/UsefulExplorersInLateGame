@@ -1,3 +1,4 @@
+# suelg_ef_add_complete_scan_mod inline script
 if = {
 	limit = {
 		check_variable = { which = suelg_sys_completed_scan_lvl value = $LVL$ }

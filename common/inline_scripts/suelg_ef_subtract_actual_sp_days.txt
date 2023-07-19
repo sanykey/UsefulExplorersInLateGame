@@ -1,0 +1,6 @@
+limit = {
+	check_variable = { which = suelg_actual_sp_days value > @suelg_sp_check_days_$N$ }
+}
+
+subtract_variable = { which = suelg_actual_sp_days value = @suelg_sp_check_days_$N$ }
+# log = ">> Subtract sp days, N: $N$, DAYS: [this.suelg_actual_sp_days]"

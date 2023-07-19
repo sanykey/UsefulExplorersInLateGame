@@ -4,3 +4,11 @@
 
  SUELG_SENSORS_IMPROVED_TITLE:0 "Сенсоры ГС улучшены"
  SUELG_SENSORS_IMPROVED_MESSAGE:0 "Сенсоры глубокого сканирования на всех научных кораблях были улучшены до $LVL|H$ уровня. Теперь вы можете проводить более глубокое сканирование планет."
+
+ SUELG_RATE_RESOURCES_DISCOVERED_TITLE:0 "Обнаружены редкие ресурсы"
+ SUELG_RATE_RESOURCES_DISCOVERED_MESSAGE:0 "Глубокое сканирование планете $PLANET|Y$ обнаружило дополнительный источник редких ресурсов"
+
+ SUELG_NEW_HABITAT_DISTRICT_TITLE:0 "Новые районы для орбитального поселения"
+ SUELG_NEW_HABITAT_DISTRICT_energy_habitat:0 "Разведка орбиты орбитального поселения $HABITAT|Y$ успешно завершена. Теперь мы можем строить §Y$district_hab_energy_plural$§!."
+ SUELG_NEW_HABITAT_DISTRICT_mining_habitat:0 "Разведка орбиты орбитального поселения $HABITAT|Y$ успешно завершена. Теперь мы можем строить §Y$district_hab_mining_plural$§!."
+ SUELG_NEW_HABITAT_DISTRICT_research_habitat:0 "Разведка орбиты орбитального поселения $HABITAT|Y$ успешно завершена. Теперь мы можем строить §Y$district_hab_science_plural$§!."

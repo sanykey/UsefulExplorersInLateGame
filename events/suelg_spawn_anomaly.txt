@@ -70,6 +70,11 @@ planet_event = {
 			limit = {
 				has_anomaly = yes
 				has_planet_flag = suelg_planet_has_new_anomaly
+				from = {
+					owner = {
+						is_ai = no
+					}
+				}
 			} 
 			from = {
 				add_anomaly_notification = yes

@@ -1,3 +1,4 @@
+# suelg_ev_can_resorce_mbase inline script
 modifier = {
 	add = $ADD$
 	can_have_$RES$_deposits = yes

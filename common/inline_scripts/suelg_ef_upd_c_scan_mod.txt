@@ -1,0 +1,10 @@
+# suelg_ef_upd_c_scan_mod inline script
+if = {
+	limit = {
+		check_variable = { which = suelg_max_scan_level value = $LVL$ }
+	}
+	add_modifier = {
+		modifier = suelg_country_scan_lvl_$LVL$
+		days = -1
+	}
+}

@@ -1,0 +1,9 @@
+if = {
+	limit = {
+		check_variable = { which = suelg_started_scan_lvl value = $LVL$ }
+	}
+
+	event_target:t_leader = {
+		add_experience = @suelg_scan_leader_exp_$LVL$
+	}
+}

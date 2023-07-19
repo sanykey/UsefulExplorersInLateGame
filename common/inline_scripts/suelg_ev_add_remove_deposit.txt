@@ -1,0 +1,7 @@
+else_if = {
+	limit = {
+		has_deposit = $D$_$P$
+	}
+	remove_deposit = $D$_$P$
+	add_deposit = $D$_$N$
+}

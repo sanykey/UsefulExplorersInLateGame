@@ -1,0 +1,138 @@
+# this = planet scope
+suelg_get_habitat_in_orbit = {
+	save_event_target_as = t_planet
+
+	solar_system = {
+		random_system_planet = {
+			limit = {
+				is_planet_class = pc_habitat
+				orbit = {
+					is_same_value = event_target:t_planet
+				}
+			}
+			save_event_target_as = t_habitat
+		}
+	}
+}
+
+suelg_update_deposit_10 = {
+	if = {
+		limit = { has_deposit = $D$_1 }
+		remove_deposit = $D$_1
+		add_deposit = $D$_2
+	}
+	else_if = {
+		limit = { has_deposit = $D$_2 }
+		remove_deposit = $D$_2
+		add_deposit = $D$_3
+	}
+	else_if = {
+		limit = { has_deposit = $D$_3 }
+		remove_deposit = $D$_3
+		add_deposit = $D$_4
+	}
+	else_if = {
+		limit = { has_deposit = $D$_4 }
+		remove_deposit = $D$_4
+		add_deposit = $D$_5
+	}
+	else_if = {
+		limit = { has_deposit = $D$_5 }
+		remove_deposit = $D$_5
+		add_deposit = $D$_6
+	}
+	else_if = {
+		limit = { has_deposit = $D$_6 }
+		remove_deposit = $D$_6
+		add_deposit = $D$_7
+	}
+	else_if = {
+		limit = { has_deposit = $D$_7 }
+		remove_deposit = $D$_7
+		add_deposit = $D$_8
+	}
+	else_if = {
+		limit = { has_deposit = $D$_8 }
+		remove_deposit = $D$_8
+		add_deposit = $D$_9
+	}
+	else_if = {
+		limit = { has_deposit = $D$_9 }
+		remove_deposit = $D$_9
+		add_deposit = $D$_10
+	}
+	else = { add_deposit = $D$_1 }
+}
+
+suelg_update_deposit_5 = {
+	if = {
+		limit = { has_deposit = $D$_1 }
+		remove_deposit = $D$_1
+		add_deposit = $D$_2
+	}
+	else_if = {
+		limit = { has_deposit = $D$_2 }
+		remove_deposit = $D$_2
+		add_deposit = $D$_3
+	}
+	else_if = {
+		limit = { has_deposit = $D$_3 }
+		remove_deposit = $D$_3
+		add_deposit = $D$_4
+	}
+	else_if = {
+		limit = { has_deposit = $D$_4 }
+		remove_deposit = $D$_4
+		add_deposit = $D$_5
+	}
+	else = { add_deposit = $D$_1 }
+}
+
+suelg_update_deposit_3 = {
+	if = {
+		limit = { has_deposit = $D$_1 }
+		remove_deposit = $D$_1
+		add_deposit = $D$_2
+	}
+	else_if = {
+		limit = { has_deposit = $D$_2 }
+		remove_deposit = $D$_2
+		add_deposit = $D$_3
+	}
+	else = { add_deposit = $D$_1 }
+}
+
+# this = planet scope
+suelg_set_habitat_type = {
+	suelg_get_habitat_in_orbit = yes
+	if = {
+		limit = {
+			exists = event_target:t_habitat
+			NOT = { has_planet_flag = $TYPE$ }
+		}
+
+		solar_system = {
+			owner = {
+				if = {
+					limit = { is_ai = no }
+					create_message = {
+						type = SUELG_NEW_HABITAT_DISTRICT
+						localization = SUELG_NEW_HABITAT_DISTRICT_$TYPE$
+						days = @suelg_notification_days
+						target = event_target:t_habitat
+						variable = {
+							type = name
+							localization = HABITAT
+							scope = event_target:t_habitat
+						}
+					}
+				}
+			}
+		}
+
+
+		event_target:t_habitat = {
+			set_planet_flag = $TYPE$
+		}
+	}
+}
