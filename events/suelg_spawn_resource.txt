@@ -11,6 +11,10 @@ planet_event = {
 	}
 
 	immediate = {
+
+		# set_variable = { which = test value = value:suelg_advanced_survey_lvl_factor } # for debug
+		# log = ">> TEST FACTOR. VALUE: [this.test] THIS: [This.GetName]"
+
 		# log = ">> CHECK DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 		random_list = {
 			0 = {
@@ -108,8 +112,9 @@ planet_event = {
 				inline_script = { script = suelg_ev_can_resorce_mbase RES = "volatile_motes" ADD = 98 }
 				inline_script = { script = suelg_ev_can_resorce_mbase RES = "rare_crystals" ADD = 98 }
 				inline_script = { script = suelg_ev_can_resorce_mbase RES = "exotic_gases" ADD = 98 }
-
 				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 0.9 }
+
+				modifier = { factor = value:suelg_advanced_survey_lvl_factor }
 			}
 		}
 	}
@@ -164,7 +169,10 @@ planet_event = {
 			limit = { exists = event_target:t_habitat }
 			event_target:t_habitat = {
 				suelg_update_deposit_5 = { D = d_hab_alloy }
+				suelg_new_habitat_dep_message = { TYPE = d_hab_alloy }
 			}
+		} else = {
+			suelg_new_rare_dep_message = { TYPE = d_alloys }
 		}
 	}
 }
@@ -183,7 +191,10 @@ planet_event = {
 			limit = { exists = event_target:t_habitat }
 			event_target:t_habitat = {
 				suelg_update_deposit_5 = { D = d_hab_zro }
+				suelg_new_habitat_dep_message = { TYPE = d_hab_zro }
 			}
+		} else = {
+			suelg_new_rare_dep_message = { TYPE = d_zro_deposit }
 		}
 	}
 }
@@ -196,13 +207,15 @@ planet_event = {
 
 	immediate = {
 		suelg_update_deposit_3 = { D = d_dark_matter_deposit }
-
 		suelg_get_habitat_in_orbit = yes
 		if = {
 			limit = { exists = event_target:t_habitat }
 			event_target:t_habitat = {
 				suelg_update_deposit_3 = { D = d_hab_dark_matter }
+				suelg_new_habitat_dep_message = { TYPE = d_hab_dark_matter }
 			}
+		} else = {
+			suelg_new_rare_dep_message = { TYPE = d_dark_matter_deposit }
 		}
 	}
 }
@@ -257,7 +270,10 @@ planet_event = {
 			limit = { exists = event_target:t_habitat }
 			event_target:t_habitat = {
 				suelg_update_deposit_5 = { D = d_hab_mote }
+				suelg_new_habitat_dep_message = { TYPE = d_hab_mote }
 			}
+		} else = {
+			suelg_new_rare_dep_message = { TYPE = d_volatile_motes }
 		}
 	}
 }
@@ -276,7 +292,10 @@ planet_event = {
 			limit = { exists = event_target:t_habitat }
 			event_target:t_habitat = {
 				suelg_update_deposit_5 = { D = d_hab_crystal }
+				suelg_new_habitat_dep_message = { TYPE = d_hab_crystal }
 			}
+		} else = {
+			suelg_new_rare_dep_message = { TYPE = d_rare_crystals }
 		}
 	}
 }
@@ -295,7 +314,10 @@ planet_event = {
 			limit = { exists = event_target:t_habitat }
 			event_target:t_habitat = {
 				suelg_update_deposit_5 = { D = d_hab_gas }
+				suelg_new_habitat_dep_message = { TYPE = d_hab_gas }
 			}
+		} else = {
+			suelg_new_rare_dep_message = { TYPE = d_exotic_gases }
 		}
 	}
 }

@@ -1,0 +1,50 @@
+suelg_new_planetary_deposit_message = {
+	last_added_deposit = {
+		save_event_target_as = t_deposit
+	}
+
+	solar_system = {
+		owner = {
+			if = {
+				limit = { is_ai = no }
+				create_message = {
+					type = SUELG_NEW_PLANETARY_DEPOSIT
+					localization = SUELG_NEW_PLANETARY_DEPOSIT_MESSAGE
+					days = @suelg_notification_days
+					target = FROM
+					variable = {
+						type = name
+						localization = PLANET
+						scope = FROM
+					}
+					variable = {
+						type = name
+						localization = DEPOSIT
+						scope = event_target:t_deposit
+					}
+				}
+			}
+		}
+	}
+}
+
+suelg_increased_planetary_size_message = {
+	solar_system = {
+		owner = {
+			if = {
+				limit = { is_ai = no }
+				create_message = {
+					type = SUELG_INCREASED_PLANET_SIZE
+					localization = SUELG_INCREASED_PLANET_SIZE_MESSAGE
+					days = @suelg_notification_days
+					target = FROM
+					variable = {
+						type = name
+						localization = PLANET
+						scope = FROM
+					}
+				}
+			}
+		}
+	}
+}

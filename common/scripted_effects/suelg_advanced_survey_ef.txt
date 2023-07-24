@@ -1,0 +1,304 @@
+# This = country scope
+suelg_init_country_vars = {
+	if = { 
+		limit = {
+			NOT = {
+				is_variable_set = suelg_max_scan_level
+			}
+		}
+		set_variable = { which = suelg_max_scan_level value = 0 }
+	}
+}
+
+# This = Planet scope
+suelg_init_planet_vars = {
+	if = { # init planet vars
+		limit = {
+			NOT = { is_variable_set = suelg_started_scan_lvl }
+		}
+		set_variable = { which = suelg_started_scan_lvl value = 0 }
+		set_variable = { which = suelg_completed_scan_lvl value = 0 }
+	}
+}
+
+# This = System scope
+suelg_create_system_scan_projects = {
+	owner = {
+		save_event_target_as = t_owner
+	}
+
+	every_system_planet = {
+		suelg_init_planet_vars = yes
+
+		if = {
+			limit = {								
+				suelg_can_be_scanned = yes
+				check_variable = { which = suelg_completed_scan_lvl value < event_target:t_owner.suelg_max_scan_level }
+				check_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
+			}
+
+			change_variable = { which = suelg_started_scan_lvl value = 1 }
+			# log = ">> CREATE PROJECT. PLANET: [This.GetName] LVL: [This.suelg_started_scan_lvl]"
+
+			inline_script = { script = suelg_ef_create_project LVL = 1 }
+			inline_script = { script = suelg_ef_create_project LVL = 2 }
+			inline_script = { script = suelg_ef_create_project LVL = 3 }
+			inline_script = { script = suelg_ef_create_project LVL = 4 }
+			inline_script = { script = suelg_ef_create_project LVL = 5 }
+			inline_script = { script = suelg_ef_create_project LVL = 6 }
+			inline_script = { script = suelg_ef_create_project LVL = 7 }
+			inline_script = { script = suelg_ef_create_project LVL = 8 }
+			inline_script = { script = suelg_ef_create_project LVL = 9 }
+			inline_script = { script = suelg_ef_create_project LVL = 10 }
+			inline_script = { script = suelg_ef_create_project LVL = 11 }
+			inline_script = { script = suelg_ef_create_project LVL = 12 }
+			inline_script = { script = suelg_ef_create_project LVL = 13 }
+			inline_script = { script = suelg_ef_create_project LVL = 14 }
+			inline_script = { script = suelg_ef_create_project LVL = 15 }
+			prev = {
+				set_star_flag = suelg_has_scan_projects
+			}
+		}
+	}
+}
+
+abort_scan_project = {
+	abort_special_project = { type = suelg_advanced_survey_SP_1 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_2 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_3 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_4 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_5 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_6 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_7 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_8 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_9 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_10 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_11 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_12 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_13 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_14 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_15 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_16 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_17 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_18 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_19 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_20 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_21 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_22 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_23 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_24 location = event_target:t_planet }
+	abort_special_project = { type = suelg_advanced_survey_SP_25 location = event_target:t_planet }
+}
+
+# this = system scope
+suelg_reset_system_projects = {
+	remove_star_flag = suelg_has_scan_projects
+	every_system_planet = {
+		suelg_init_planet_vars = yes
+		if = {
+			limit = {								
+				suelg_can_be_scanned = yes
+				check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
+			}			
+
+			set_variable = { which = suelg_started_scan_lvl value = suelg_completed_scan_lvl }
+
+			# log = ">> REMOVE PROJECT. PLANET: [this.GetName]"
+			save_event_target_as = t_planet
+			event_target:t_owner = {
+				abort_scan_project = yes
+			}
+			
+			remove_planet_flag = suelg_hasnt_completed_project
+		}
+	}
+}
+
+# this = planes scope
+suelg_update_complete_scan_mod = {
+	remove_modifier = suelg_advanced_surveied_1
+	remove_modifier = suelg_advanced_surveied_2
+	remove_modifier = suelg_advanced_surveied_3
+	remove_modifier = suelg_advanced_surveied_4
+	remove_modifier = suelg_advanced_surveied_5
+	remove_modifier = suelg_advanced_surveied_6
+	remove_modifier = suelg_advanced_surveied_7
+	remove_modifier = suelg_advanced_surveied_8
+	remove_modifier = suelg_advanced_surveied_9
+	remove_modifier = suelg_advanced_surveied_10
+	remove_modifier = suelg_advanced_surveied_11
+	remove_modifier = suelg_advanced_surveied_12
+	remove_modifier = suelg_advanced_surveied_13
+	remove_modifier = suelg_advanced_surveied_14
+	remove_modifier = suelg_advanced_surveied_15
+	remove_modifier = suelg_advanced_surveied_16
+	remove_modifier = suelg_advanced_surveied_17
+	remove_modifier = suelg_advanced_surveied_18
+	remove_modifier = suelg_advanced_surveied_19
+	remove_modifier = suelg_advanced_surveied_20
+	remove_modifier = suelg_advanced_surveied_21
+	remove_modifier = suelg_advanced_surveied_22
+	remove_modifier = suelg_advanced_surveied_23
+	remove_modifier = suelg_advanced_surveied_24
+	remove_modifier = suelg_advanced_surveied_25
+
+	save_event_target_as = t_mod_star
+	solar_system = {
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 1 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 2 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 3 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 4 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 5 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 6 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 7 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 8 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 9 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 10 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 11 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 12 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 13 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 14 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 15 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 16 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 17 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 18 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 19 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 20 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 21 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 22 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 23 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 24 }
+		inline_script = { script = suelg_ef_add_complete_scan_mod LVL = 25 }
+	}
+}
+
+suelg_update_country_scan_lvl_mod = {
+	# log = ">> update country advanced survey level"
+	remove_modifier = suelg_country_advanced_survey_lvl_1
+	remove_modifier = suelg_country_advanced_survey_lvl_2
+	remove_modifier = suelg_country_advanced_survey_lvl_3
+	remove_modifier = suelg_country_advanced_survey_lvl_4
+	remove_modifier = suelg_country_advanced_survey_lvl_5
+	remove_modifier = suelg_country_advanced_survey_lvl_6
+	remove_modifier = suelg_country_advanced_survey_lvl_7
+	remove_modifier = suelg_country_advanced_survey_lvl_8
+	remove_modifier = suelg_country_advanced_survey_lvl_9
+	remove_modifier = suelg_country_advanced_survey_lvl_10
+	remove_modifier = suelg_country_advanced_survey_lvl_11
+	remove_modifier = suelg_country_advanced_survey_lvl_12
+	remove_modifier = suelg_country_advanced_survey_lvl_13
+	remove_modifier = suelg_country_advanced_survey_lvl_14
+	remove_modifier = suelg_country_advanced_survey_lvl_15
+	remove_modifier = suelg_country_advanced_survey_lvl_16
+	remove_modifier = suelg_country_advanced_survey_lvl_17
+	remove_modifier = suelg_country_advanced_survey_lvl_18
+	remove_modifier = suelg_country_advanced_survey_lvl_19
+	remove_modifier = suelg_country_advanced_survey_lvl_20
+	remove_modifier = suelg_country_advanced_survey_lvl_21
+	remove_modifier = suelg_country_advanced_survey_lvl_22
+	remove_modifier = suelg_country_advanced_survey_lvl_23
+	remove_modifier = suelg_country_advanced_survey_lvl_24
+	remove_modifier = suelg_country_advanced_survey_lvl_25
+
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 1 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 2 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 3 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 4 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 5 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 6 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 7 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 8 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 9 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 10 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 11 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 12 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 13 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 14 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 15 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 16 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 17 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 18 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 19 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 20 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 21 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 22 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 23 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 24 }
+	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 25 }
+}
+
+# this = planet
+suelg_add_exp_for_leader = {
+	if = {
+		limit = {
+			check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
+		}
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 1 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 2 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 3 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 4 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 5 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 6 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 7 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 8 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 9 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 10 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 11 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 12 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 13 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 14 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 15 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 16 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 17 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 18 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 19 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 20 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 21 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 22 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 23 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 24 }
+		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 25 }
+	}
+}
+
+# this = ship scope
+# Temporarily accelerate the ship after completion of the project
+suelg_accelerate_ship_after_sp = {
+	suelg_calculate_survey_speed_factor = yes
+
+	multiply_variable = { which = suelg_survey_speed value = 100 }
+	remove_modifier = suelg_ship_speed_bust
+	add_modifier = {
+		modifier = suelg_ship_speed_bust
+		multiplier = this.suelg_survey_speed
+		days = 20
+	}
+
+	clear_variable = suelg_survey_speed
+	clear_variable = suelg_actual_sp_days
+}
+
+# todo: refactor event suelg_advanced_survey.9
+# this = country scope
+suelg_upgrage_country_max_scan_lvl = {
+	change_variable = { which = suelg_max_scan_level value = 1 }
+	suelg_update_country_scan_lvl_mod = yes
+
+	if = {
+		limit = { is_ai = no }
+		create_message = {
+			type = SUELG_SENSORS_IMPROVED
+			localization = SUELG_SENSORS_IMPROVED_MESSAGE
+			days = @suelg_notification_days
+			target = this.capital_scope
+			variable = {
+				type = variable
+				varname = suelg_max_scan_level
+				localization = LVL
+				scope = this
+			}
+		}
+	} else = {
+		country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
+	}
+}

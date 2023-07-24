@@ -1,0 +1,8 @@
+# inline script suelg_tech_advanced_survey
+cost = 1
+area = physics
+tier = 1
+category = { computing }
+weight = 0
+# potential = { always = no }
+ai_weight = {}

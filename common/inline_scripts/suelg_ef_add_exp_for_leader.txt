@@ -4,6 +4,6 @@ if = {
 	}
 
 	event_target:t_leader = {
-		add_experience = @suelg_scan_leader_exp_$LVL$
+		add_experience = @suelg_advanced_survey_leader_exp_$LVL$
 	}
 }

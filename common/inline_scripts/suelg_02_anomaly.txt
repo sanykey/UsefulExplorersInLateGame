@@ -1,3 +1,5 @@
+# inline script suelg_02_anomaly
+
 0 = {
 	modifier = {
 			add = 3

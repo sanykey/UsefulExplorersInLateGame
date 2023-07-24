@@ -6,40 +6,9 @@
 @suelg_sp_check_days_5 = 50
 @suelg_sp_check_days_6 = 15
 
+# is used when checking the number of days remaining for a special Advanced Survey project.
+# 	If there are less than the specified number of days left, the project can be terminated:
 @suelg_sp_complete_remain_days = 10
-
-# @suelg_scan_sp_days_1 = 520 # debug
-@suelg_scan_sp_days_1 = 40
-@suelg_scan_sp_days_2 = 48
-@suelg_scan_sp_days_3 = 58
-@suelg_scan_sp_days_4 = 70
-@suelg_scan_sp_days_5 = 84
-@suelg_scan_sp_days_6 = 101
-@suelg_scan_sp_days_7 = 121
-@suelg_scan_sp_days_8 = 145
-@suelg_scan_sp_days_9 = 174
-@suelg_scan_sp_days_10 = 209
-@suelg_scan_sp_days_11 = 251
-@suelg_scan_sp_days_12 = 301
-@suelg_scan_sp_days_13 = 361
-@suelg_scan_sp_days_14 = 433
-@suelg_scan_sp_days_15 = 520
-
-@suelg_scan_leader_exp_1 = 20
-@suelg_scan_leader_exp_2 = 30
-@suelg_scan_leader_exp_3 = 40
-@suelg_scan_leader_exp_4 = 50
-@suelg_scan_leader_exp_5 = 60
-@suelg_scan_leader_exp_6 = 70
-@suelg_scan_leader_exp_7 = 80
-@suelg_scan_leader_exp_8 = 90
-@suelg_scan_leader_exp_9 = 100
-@suelg_scan_leader_exp_10 = 110
-@suelg_scan_leader_exp_11 = 120
-@suelg_scan_leader_exp_12 = 120
-@suelg_scan_leader_exp_13 = 130
-@suelg_scan_leader_exp_14 = 140
-@suelg_scan_leader_exp_15 = 150
 
 @suelg_spawn_archaeological_site_chance = 0.5 # %
 
@@ -71,3 +40,88 @@
 @suelg_upgrade_scanned_systems_percent = 0.8 # use fractional values here (0.01 = 1%)
 
 @suelg_notification_days = 30
+
+#####################################
+##### orbital deposit spawning	#####
+#####################################
+@suelg_advanced_survey_lvl_factor = 0.25 # 0.25% increase chance per Advanced survey SP level
+
+#######################################
+##### planetary deposit spawning	#####
+#######################################
+
+@suelg_planetary_deposit_chance_high = 16
+@suelg_planetary_deposit_chance_med = 8
+@suelg_planetary_deposit_chance_low = 4
+@suelg_planetary_deposit_chance_high_rare = 0.5
+@suelg_planetary_deposit_chance_mid_rare = 0.25
+@suelg_planetary_deposit_chance_low_rare = 0.1
+@suelg_deposit_chance_planet_type_bonus = 1.5
+
+
+#########################################################
+##### Complete Advanced survey Leader's experience	#####
+#########################################################
+# how much experience the leader receives for completing each level of the special project "Extended survey":
+@suelg_advanced_survey_leader_exp_1 = 20
+@suelg_advanced_survey_leader_exp_2 = 30
+@suelg_advanced_survey_leader_exp_3 = 40
+@suelg_advanced_survey_leader_exp_4 = 50
+@suelg_advanced_survey_leader_exp_5 = 60
+@suelg_advanced_survey_leader_exp_6 = 70
+@suelg_advanced_survey_leader_exp_7 = 80
+@suelg_advanced_survey_leader_exp_8 = 90
+@suelg_advanced_survey_leader_exp_9 = 100
+@suelg_advanced_survey_leader_exp_10 = 110
+@suelg_advanced_survey_leader_exp_11 = 120
+@suelg_advanced_survey_leader_exp_12 = 120
+@suelg_advanced_survey_leader_exp_13 = 130
+@suelg_advanced_survey_leader_exp_14 = 140
+@suelg_advanced_survey_leader_exp_15 = 150 # todo: fix after 15lvl
+@suelg_advanced_survey_leader_exp_16 = 150
+@suelg_advanced_survey_leader_exp_17 = 150
+@suelg_advanced_survey_leader_exp_18 = 150
+@suelg_advanced_survey_leader_exp_19 = 150
+@suelg_advanced_survey_leader_exp_20 = 150
+@suelg_advanced_survey_leader_exp_21 = 150
+@suelg_advanced_survey_leader_exp_22 = 150
+@suelg_advanced_survey_leader_exp_23 = 150
+@suelg_advanced_survey_leader_exp_24 = 150
+@suelg_advanced_survey_leader_exp_25 = 150
+
+#################################
+##### Advanced survey days	#####
+#################################
+# the number of days for each level of the special project "Extended survey":
+# @suelg_advanced_survey_sp_days_1 = 520 # debug
+@suelg_advanced_survey_sp_days_1 = 6 # debug
+@suelg_advanced_survey_sp_days_2 = 6 # debug
+@suelg_advanced_survey_sp_days_3 = 6 # debug
+@suelg_advanced_survey_sp_days_4 = 6 # debug
+@suelg_advanced_survey_sp_days_5 = 6 # debug
+@suelg_advanced_survey_sp_days_6 = 6 # debug
+# @suelg_advanced_survey_sp_days_1 = 40
+# @suelg_advanced_survey_sp_days_2 = 48
+# @suelg_advanced_survey_sp_days_3 = 58
+# @suelg_advanced_survey_sp_days_4 = 70
+# @suelg_advanced_survey_sp_days_5 = 84
+# @suelg_advanced_survey_sp_days_6 = 101
+@suelg_advanced_survey_sp_days_7 = 121
+@suelg_advanced_survey_sp_days_8 = 145
+@suelg_advanced_survey_sp_days_9 = 174
+@suelg_advanced_survey_sp_days_10 = 209
+@suelg_advanced_survey_sp_days_11 = 251
+@suelg_advanced_survey_sp_days_12 = 301
+@suelg_advanced_survey_sp_days_13 = 361
+@suelg_advanced_survey_sp_days_14 = 433
+@suelg_advanced_survey_sp_days_15 = 520 # todo: fix after 15lvl
+@suelg_advanced_survey_sp_days_16 = 520
+@suelg_advanced_survey_sp_days_17 = 520
+@suelg_advanced_survey_sp_days_18 = 520
+@suelg_advanced_survey_sp_days_19 = 520
+@suelg_advanced_survey_sp_days_20 = 520
+@suelg_advanced_survey_sp_days_21 = 520
+@suelg_advanced_survey_sp_days_22 = 520
+@suelg_advanced_survey_sp_days_23 = 520
+@suelg_advanced_survey_sp_days_24 = 520
+@suelg_advanced_survey_sp_days_25 = 520

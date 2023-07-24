@@ -1,0 +1,42 @@
+﻿l_english:
+ SUELG_ANOMALY_DETECTED_TITLE:0 "Аномалия"
+ SUELG_ANOMALY_DETECTED_MESSAGE:0 "Флотилия $SHIP|Y$ обнаружила §HАномалию§! на планете $PLANET|Y$"
+
+ SUELG_SENSORS_IMPROVED_TITLE:0 "Сенсоры ГС улучшены"
+ SUELG_SENSORS_IMPROVED_MESSAGE:0 "Сенсоры глубокого сканирования на всех научных кораблях были улучшены до $LVL|H$ уровня. Теперь вы можете проводить более глубокое сканирование планет."
+
+ SUELG_RATE_RESOURCES_DISCOVERED_TITLE:0 "Обнаружены редкие ресурсы"
+ SUELG_RATE_RESOURCES_DISCOVERED_MESSAGE:0 "Глубокое сканирование планете $PLANET|Y$ обнаружило дополнительный источник редких ресурсов"
+
+ SUELG_NEW_HABITAT_DISTRICT_TITLE:0 "Новые районы для орбитального поселения"
+ SUELG_NEW_HABITAT_DISTRICT_energy_habitat:0 "Разведка орбиты орбитального поселения $HABITAT|Y$ успешно завершена. Теперь мы можем строить §Y$district_hab_energy_plural$§!."
+ SUELG_NEW_HABITAT_DISTRICT_mining_habitat:0 "Разведка орбиты орбитального поселения $HABITAT|Y$ успешно завершена. Теперь мы можем строить §Y$district_hab_mining_plural$§!."
+ SUELG_NEW_HABITAT_DISTRICT_research_habitat:0 "Разведка орбиты орбитального поселения $HABITAT|Y$ успешно завершена. Теперь мы можем строить §Y$district_hab_science_plural$§!."
+
+ SUELG_NEW_HABITAT_DISTRICT_TITLE:0 "Обнаружены редкие ресурсы для орбитального поселения"
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_gas:0 "На орбите орбитального поселения $HABITAT|Y$ обнаружен новый источник ресурсов - £exotic_gases£ §Y$exotic_gases$§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_crystal:0 "На орбите орбитального поселения $HABITAT|Y$ обнаружен новый источник ресурсов - £rare_crystals£ §Y$rare_crystals$§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_mote:0 "На орбите орбитального поселения $HABITAT|Y$ обнаружен новый источник ресурсов - £volatile_motes£ §Y$volatile_motes$§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_zro:0 "На орбите орбитального поселения $HABITAT|Y$ обнаружен новый источник ресурсов - £zro£ §YZro§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_dark_matter:0 "На орбите орбитального поселения $HABITAT|Y$ обнаружен новый источник ресурсов - £sr_dark_matter£ §Y$sr_dark_matter$§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_alloy:0 "На орбите орбитального поселения $HABITAT|Y$ обнаружен новый источник ресурсов - £alloys£ §Y$alloys$§!."
+
+ SUELG_NEW_RARE_DEPOSIT_TITLE:0 "Обнаружены редкие ресурсы"
+ SUELG_NEW_RARE_DEPOSIT_d_exotic_gases:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £exotic_gases£ §Y$exotic_gases$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_rare_crystals:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £exotic_gases£ §Y$exotic_gases$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_volatile_motes:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £volatile_motes£ §Y$volatile_motes$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_zro_deposit:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £zro£ §YZro§!."
+ SUELG_NEW_RARE_DEPOSIT_d_dark_matter_deposit:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £sr_dark_matter£ §Y$sr_dark_matter$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_alloys:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £alloys£ §Y$alloys$§!."
+
+ SUELG_NEW_PLANETARY_DEPOSIT_TITLE:0 "Новый объект на планете" 
+ SUELG_NEW_PLANETARY_DEPOSIT_MESSAGE:0 "Расширенное изучение планеты $PLANET|Y$ обнаружило нечто новое: $DEPOSIT|Y$"
+
+ SUELG_INCREASED_PLANET_SIZE_TITLE:0 "Количество районов на планете увеличено" 
+ SUELG_INCREASED_PLANET_SIZE_MESSAGE:0 "Расширенное изучение планеты и перепланирование расположения районов на планете $PLANET|Y$ позволило нам найти новое пригодное для использования пространство. Добавлен дополнительный район"
+
+ suelg_districts_expansion:0 "Расширение территорий"
+ suelg_districts_expansion_desc:0 "Благодаря проведённым расширенным исследованиям планеты удалось оптимизированть инфраструктуру планеты и увеличить количество доступных районов"
+
+ suelg_ship_speed_bust:0 "Гравитационный транплин"
+ suelg_ship_speed_bust_desc:0 "После изучения планеты, научный корабль пользуется возможностью сделать резкое ускорение за счёт гравитацинного колодца планеты. Эффективность зависит от навыков лидера корабля."

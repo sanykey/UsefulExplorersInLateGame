@@ -3,7 +3,7 @@ limit = {
 }
 # log = ">> NEXT PROGRESS CHECK, N: $N$, DAYS: [this.suelg_actual_sp_days]"
 ship_event = {
-	id = suelg_scan_progress.3
+	id = suelg_advanced_survey_progress.3
 	days = @suelg_sp_check_days_$N$
 	scopes = { from = event_target:t_planet }
 } # Complete the project after the time calculated by a ship survey speed modifiers

@@ -6,7 +6,7 @@ planet_event = {
     hide_window = yes
     is_triggered_only = yes
 
-    immediate = {
+	immediate = {
 		random_list = {
 			1 = { # 12.5 (1.25%) is vanilla chance
 				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 1.1 }
@@ -21,5 +21,5 @@ planet_event = {
 			}
 			1000 = {}
 		}
-    }
+	}
 }

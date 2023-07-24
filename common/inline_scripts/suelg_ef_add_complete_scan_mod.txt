@@ -5,7 +5,7 @@ if = {
 	}
 	event_target:t_mod_star = {
 		add_modifier = {
-			modifier = suelg_deep_scanned_$LVL$
+			modifier = suelg_advanced_surveied_$LVL$
 			days = -1
 		}
 	}

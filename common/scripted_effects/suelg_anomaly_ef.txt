@@ -7,7 +7,7 @@ suelg_spawn_random_anomaly = {
 		inline_script = suelg_02_anomaly
 		inline_script = suelg_anomaly_red_rel
 		inline_script = suelg_anomaly_distant_start
-		0.001 = {}
+		0 = {}
 	}
 }
 

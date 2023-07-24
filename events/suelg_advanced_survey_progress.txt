@@ -1,19 +1,17 @@
-namespace = suelg_scan_progress
+namespace = suelg_advanced_survey_progress
 
 # Calculate days for SP
 # this = Ship scope
 # fromfrom = Planet scope
 # from = Ship scope
-# suelg_deep_scan_SP_{x} on_start
+# suelg_advanced_survey_SP_{x} on_start
 ship_event = {
-    id = suelg_scan_progress.1
+    id = suelg_advanced_survey_progress.1
     hide_window = yes
     is_triggered_only = yes
 
 	immediate = {
-		fromfrom = {
-			save_event_target_as = t_planet
-		}
+		fromfrom = { save_event_target_as = t_planet }
 		
 		suelg_get_base_sp_days = yes # suelg_base_sp_days
 		suelg_calculate_survey_speed_factor = yes # suelg_survey_speed
@@ -35,20 +33,16 @@ ship_event = {
 # Calculate days for SP (Alternative way. Often on_start does not work)
 # this = event scope (ship or planet)
 # fromfrom = project creation scope (usually equals location)
-#suelg_deep_scan_SP_{x} on_progress_25
+#suelg_advanced_survey_SP_{x} on_progress_25
 ship_event = {
-    id = suelg_scan_progress.2
+    id = suelg_advanced_survey_progress.2
     hide_window = yes
     is_triggered_only = yes
 
 	immediate = {
 		# log = ">> PROGRESS PROJECT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
-		fromfrom = {
-			save_event_target_as = t_planet
-		}
-		owner = {
-			save_event_target_as = t_owner
-		}
+		fromfrom = { save_event_target_as = t_planet }
+		owner = { save_event_target_as = t_owner }
 		save_event_target_as = t_ship
 	
 		suelg_get_base_sp_days = yes # suelg_base_sp_days
@@ -82,7 +76,7 @@ ship_event = {
 # this = ship
 # from = planet
 ship_event = {
-    id = suelg_scan_progress.3
+    id = suelg_advanced_survey_progress.3
     hide_window = yes
     is_triggered_only = yes
 
@@ -107,7 +101,7 @@ ship_event = {
 
 # Finish the scan ahead of time because of the speed modifiers of the ship
 ship_event = {
-	id = suelg_scan_progress.4
+	id = suelg_advanced_survey_progress.4
 	hide_window = yes
 	is_triggered_only = yes
 
@@ -144,8 +138,8 @@ ship_event = {
 						suelg_is_researching_any_scan_sp = yes
 					}
 				}
-				planet_event = { id = suelg_scan_progress.5 } # Abort completed project
-				planet_event = { id = suelg_deep_scan.3 } # Run Complete project effects
+				planet_event = { id = suelg_advanced_survey_progress.5 } # Abort completed project
+				planet_event = { id = suelg_advanced_survey.3 } # Run Complete project effects
 			}
 		}
 		clear_variable = suelg_actual_sp_days
@@ -154,7 +148,7 @@ ship_event = {
 
 # Abort completed project
 planet_event = {
-	id = suelg_scan_progress.5
+	id = suelg_advanced_survey_progress.5
 	hide_window = yes
 	is_triggered_only = yes
 

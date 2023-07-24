@@ -34,6 +34,33 @@ suelg_can_have_orbital_deposits = {
 	}
 }
 
+suelg_can_have_planet_deposits = {
+	OR = {
+		can_have_habitable_deposits = yes
+
+		is_planet_class = "pc_desert"
+		is_planet_class = "pc_savannah"
+		is_planet_class = "pc_arid"
+	
+		is_planet_class = "pc_tropical"
+		is_planet_class = "pc_continental"
+		is_planet_class = "pc_ocean"
+	
+		is_planet_class = "pc_tundra"
+		is_planet_class = "pc_arctic"
+		is_planet_class = "pc_alpine"
+	
+		is_planet_class = "pc_gaia"
+		is_planet_class = "pc_city"
+		is_planet_class = "pc_hive"
+		is_planet_class = "pc_machine"
+		is_planet_class = "pc_relic"
+		is_planet_class = "pc_ai"
+		is_planet_class = "pc_nuked"
+		# is_planet_class = "pc_barren"
+	}
+}
+
 # this = planet scope
 suelg_can_be_scanned = {
 	NOT = {
@@ -88,20 +115,30 @@ suelg_can_create_scan_projects_near_ship = {
 # this = leader scope
 suelg_is_researching_any_scan_sp = {
 	OR = {
-		is_researching_special_project = suelg_deep_scan_SP_1
-		is_researching_special_project = suelg_deep_scan_SP_2
-		is_researching_special_project = suelg_deep_scan_SP_3
-		is_researching_special_project = suelg_deep_scan_SP_4
-		is_researching_special_project = suelg_deep_scan_SP_5
-		is_researching_special_project = suelg_deep_scan_SP_6
-		is_researching_special_project = suelg_deep_scan_SP_7
-		is_researching_special_project = suelg_deep_scan_SP_8
-		is_researching_special_project = suelg_deep_scan_SP_9
-		is_researching_special_project = suelg_deep_scan_SP_10
-		is_researching_special_project = suelg_deep_scan_SP_11
-		is_researching_special_project = suelg_deep_scan_SP_12
-		is_researching_special_project = suelg_deep_scan_SP_13
-		is_researching_special_project = suelg_deep_scan_SP_14
-		is_researching_special_project = suelg_deep_scan_SP_15
+		is_researching_special_project = suelg_advanced_survey_SP_1
+		is_researching_special_project = suelg_advanced_survey_SP_2
+		is_researching_special_project = suelg_advanced_survey_SP_3
+		is_researching_special_project = suelg_advanced_survey_SP_4
+		is_researching_special_project = suelg_advanced_survey_SP_5
+		is_researching_special_project = suelg_advanced_survey_SP_6
+		is_researching_special_project = suelg_advanced_survey_SP_7
+		is_researching_special_project = suelg_advanced_survey_SP_8
+		is_researching_special_project = suelg_advanced_survey_SP_9
+		is_researching_special_project = suelg_advanced_survey_SP_10
+		is_researching_special_project = suelg_advanced_survey_SP_11
+		is_researching_special_project = suelg_advanced_survey_SP_12
+		is_researching_special_project = suelg_advanced_survey_SP_13
+		is_researching_special_project = suelg_advanced_survey_SP_14
+		is_researching_special_project = suelg_advanced_survey_SP_15
+		is_researching_special_project = suelg_advanced_survey_SP_16
+		is_researching_special_project = suelg_advanced_survey_SP_17
+		is_researching_special_project = suelg_advanced_survey_SP_18
+		is_researching_special_project = suelg_advanced_survey_SP_19
+		is_researching_special_project = suelg_advanced_survey_SP_20
+		is_researching_special_project = suelg_advanced_survey_SP_21
+		is_researching_special_project = suelg_advanced_survey_SP_22
+		is_researching_special_project = suelg_advanced_survey_SP_23
+		is_researching_special_project = suelg_advanced_survey_SP_24
+		is_researching_special_project = suelg_advanced_survey_SP_25
 	}
 }

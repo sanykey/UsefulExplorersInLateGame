@@ -5,5 +5,5 @@ if = {
 			check_variable = { which = suelg_started_scan_lvl value = $LVL$ }
 		}
 	}
-	set_variable = { which = suelg_base_sp_days value = @suelg_scan_sp_days_$LVL$ }
+	set_variable = { which = suelg_base_sp_days value = @suelg_advanced_survey_sp_days_$LVL$ }
 }

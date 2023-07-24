@@ -1,0 +1,27 @@
+suelg_tech_advanced_survey_1 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_2 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_3 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_4 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_5 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_6 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_7 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_8 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_9 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_10 = { inline_script = suelg_tech_advanced_survey }
+
+suelg_tech_advanced_survey_11 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_12 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_13 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_14 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_15 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_16 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_17 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_18 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_19 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_20 = { inline_script = suelg_tech_advanced_survey }
+
+suelg_tech_advanced_survey_21 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_22 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_23 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_24 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_25 = { inline_script = suelg_tech_advanced_survey }

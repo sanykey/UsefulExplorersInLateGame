@@ -1,0 +1,12 @@
+# for 25 level: (((25 * 0.25) - 100) * -1) / 100 = 0.9375 (or %6.25)
+suelg_advanced_survey_lvl_factor = {
+	add = event_target:t_owner.suelg_max_scan_level
+	mult = @suelg_advanced_survey_lvl_factor
+	subtract = 100
+	mult = -1
+	divide = 100
+} 
+
+suelg_planet_started_advanced_survey_lvl = {
+	add = event_target:t_planet.suelg_started_scan_lvl
+}

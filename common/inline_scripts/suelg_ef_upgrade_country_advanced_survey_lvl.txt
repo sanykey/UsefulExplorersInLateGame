@@ -1,0 +1,20 @@
+# suelg_ef_upgrade_country_advanced_survey_lvl inline script
+if = {
+	limit = {
+		check_variable = { which = suelg_max_scan_level value = $LVL$ }
+	}
+	add_modifier = {
+		modifier = suelg_country_advanced_survey_lvl_$LVL$
+		days = -1
+	}
+	# log = ">> give technology $LVL$"
+
+	if = {
+		limit = {
+			NOT = {
+				has_technology = suelg_tech_advanced_survey_$LVL$
+			}
+		}
+		give_technology = { tech = suelg_tech_advanced_survey_$LVL$ message = yes }
+	}
+}

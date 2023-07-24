@@ -1,7 +1,7 @@
 if = {
 	limit = { check_variable = { which = suelg_started_scan_lvl value = $LVL$ } }
 	enable_special_project = {
-		name = "suelg_deep_scan_SP_$LVL$"
+		name = "suelg_advanced_survey_SP_$LVL$"
 		location = this
 		owner = event_target:t_owner
 	}

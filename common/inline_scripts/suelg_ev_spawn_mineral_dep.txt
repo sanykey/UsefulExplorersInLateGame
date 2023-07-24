@@ -1,0 +1,117 @@
+# inline script suelg_ev_spawn_mineral_dep
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		OR = {
+			is_planet_class = pc_alpine
+			is_planet_class = pc_arctic
+			is_planet_class = pc_arid
+			is_planet_class = pc_continental
+			is_planet_class = pc_nuked
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_cold = yes
+	}
+
+	add_deposit = d_veiny_cliffs
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		OR = {
+			is_planet_class = pc_tropical
+			is_planet_class = pc_savannah
+			is_planet_class = pc_desert
+			is_planet_class = pc_ocean
+			is_planet_class = pc_tundra
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_cold = yes
+	}
+
+	add_deposit = d_mineral_fields
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_med
+		OR = {
+			is_planet_class = pc_continental
+			is_planet_class = pc_tropical
+			is_planet_class = pc_savannah
+			is_planet_class = pc_desert
+			is_planet_class = pc_gaia
+			is_planet_class = pc_relic
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_cold = yes
+	}
+
+	add_deposit = d_prosperous_mesa
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_med
+		OR = {
+			is_planet_class = pc_ocean
+			is_planet_class = pc_alpine
+			is_planet_class = pc_arctic
+			is_planet_class = pc_arid
+			is_planet_class = pc_tundra
+			is_planet_class = pc_nuked
+			is_planet_class = pc_gaia
+			is_planet_class = pc_relic
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_cold = yes
+	}
+
+	add_deposit = d_ore_rich_caverns
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_low
+		OR = {
+			is_planet_class = pc_continental
+			is_planet_class = pc_desert
+			is_planet_class = pc_alpine
+			is_planet_class = pc_arctic
+			is_planet_class = pc_arid
+			is_planet_class = pc_tundra
+			is_planet_class = pc_gaia
+			is_planet_class = pc_relic
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_cold = yes
+	}
+
+	add_deposit = d_rich_mountain
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_low
+		OR = {
+			is_planet_class = pc_ocean
+			is_planet_class = pc_tropical
+			is_planet_class = pc_savannah
+			is_planet_class = pc_nuked
+			is_planet_class = pc_gaia
+			is_planet_class = pc_relic
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_cold = yes
+	}
+
+	add_deposit = d_submerged_ore_veins
+}

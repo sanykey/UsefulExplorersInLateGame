@@ -10,11 +10,11 @@ requirements = {
 }
 
 on_success = {
-	ship_event = { id = suelg_deep_scan.2 }
+	ship_event = { id = suelg_advanced_survey.2 }
 }
 on_start = {
-	ship_event = { id = suelg_scan_progress.1 }
+	ship_event = { id = suelg_advanced_survey_progress.1 }
 }
 on_progress_25 = {
-	ship_event = { id = suelg_scan_progress.2 }
+	ship_event = { id = suelg_advanced_survey_progress.2 }
 }

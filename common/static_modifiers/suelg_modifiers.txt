@@ -2,3 +2,8 @@
 suelg_ship_speed_bust = {
 	ship_speed_mult = 0.01
 }
+
+suelg_districts_expansion = {
+	icon = "gfx/interface/icons/planet_modifiers/pm_hollow_planet.dds"
+	planet_max_districts_add = 1
+}

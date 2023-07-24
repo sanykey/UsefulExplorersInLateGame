@@ -9,3 +9,7 @@
  SUELG_NEW_HABITAT_DISTRICT_energy_habitat:0 "The orbit of $HABITAT|Y$ was successfully prospected, allowing construction of §Y$district_hab_energy_plural$§!."
  SUELG_NEW_HABITAT_DISTRICT_mining_habitat:0 "The orbit of $HABITAT|Y$ was successfully prospected, allowing construction of §Y$district_hab_mining_plural$§!."
  SUELG_NEW_HABITAT_DISTRICT_research_habitat:0 "The orbit of $HABITAT|Y$ was successfully prospected, allowing construction of §Y$district_hab_science_plural$§!."
+
+ SUELG_NEW_HABITAT_DISTRICT_TITLE:0 "Новый депозит для орбитального поселения"
+
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_gas:0 "Разведка орбиты орбитального поселения $HABITAT|Y$ успешно завершена. Доступен новый источник £exotic_gases£ §Y$exotic_gases$§!"

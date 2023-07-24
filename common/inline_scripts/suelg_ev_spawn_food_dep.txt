@@ -1,0 +1,242 @@
+# inline script suelg_ev_spawn_food_dep
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		OR = {
+			is_planet_class = pc_nuked
+			is_planet_class = pc_arctic
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+	modifier = {
+		factor = 0.33
+		is_planet_class = pc_nuked
+	}
+
+	add_deposit = d_lichen_fields
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		OR = {
+			is_planet_class = pc_arid
+			is_planet_class = pc_savannah
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_bountiful_plains
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		is_planet_class = pc_continental
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_rugged_woods
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		OR = {
+			is_planet_class = pc_ocean
+			is_planet_class = pc_tropical
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_green_hills
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		OR = {
+			is_planet_class = pc_alpine
+			is_planet_class = pc_tundra
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_forgiving_tundra
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		is_planet_class = pc_ocean
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_boggy_fens
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_high
+		is_planet_class = pc_desert
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_nutritious_mudland
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_med
+		OR = {
+			is_planet_class = pc_nuked
+			is_cold = yes
+		}
+	}
+	modifier = {
+		factor = 0.33
+		is_planet_class = pc_nuked
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_fungal_caves
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_med
+		OR = {
+			is_planet_class = pc_gaia
+			is_planet_class = pc_tropical
+			is_planet_class = pc_ocean
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_lush_jungle
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_med
+		OR = {
+			is_planet_class = pc_savannah
+			is_planet_class = pc_continental
+			is_planet_class = pc_gaia
+			is_planet_class = pc_arid
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_fertile_lands
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_med
+		OR = {
+			is_planet_class = pc_arid
+			is_planet_class = pc_desert
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_great_river
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_low
+		OR = {
+			is_planet_class = pc_continental
+			is_planet_class = pc_savannah
+			is_planet_class = pc_gaia
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_black_soil
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_low
+		OR = {
+			is_planet_class = pc_gaia
+			is_planet_class = pc_ocean
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_teeming_reef
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_low
+		OR = {
+			is_planet_class = pc_arid
+			is_planet_class = pc_desert
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_marvelous_oasis
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_low
+		OR = {
+			is_planet_class = pc_arid
+			is_planet_class = pc_desert
+			is_planet_class = pc_tropical
+		}
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_tropical_island
+}
+0 = {
+	modifier = {
+		add = @suelg_planetary_deposit_chance_low
+		is_cold = yes
+	}
+	modifier = {
+		factor = @suelg_deposit_chance_planet_type_bonus
+		is_wet = yes
+	}
+
+	add_deposit = d_fungal_forest
+}

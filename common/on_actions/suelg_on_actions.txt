@@ -1,12 +1,12 @@
 on_fleet_enter_orbit = {
 	events = {
-		suelg_deep_scan.1
+		suelg_advanced_survey.1
 	}
 }
 
 on_tech_increased = {
 	events = {
-		suelg_deep_scan.9
+		suelg_advanced_survey.9
 	}
 }
 
@@ -24,7 +24,7 @@ on_bi_yearly_pulse = {
 # FROMFROM = Country: Original owner of the system
 on_system_occupied = {
 	events = {
-		suelg_deep_scan.10
+		suelg_advanced_survey.10
 	}
 }
 
@@ -33,12 +33,12 @@ on_system_occupied = {
 # This = country (previous owner)
 on_system_lost = {
 	events = {
-		suelg_deep_scan.11
+		suelg_advanced_survey.11
 	}
 }
 
 suelg_ship_complete_scan = {
 	events = {
-		suelg_scan_progress.4
+		suelg_advanced_survey_progress.4
 	}
 }

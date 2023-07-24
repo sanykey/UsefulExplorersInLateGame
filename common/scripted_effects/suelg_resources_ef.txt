@@ -17,7 +17,7 @@ suelg_get_habitat_in_orbit = {
 
 suelg_update_deposit_10 = {
 	if = {
-		limit = { has_deposit = $D$_1 }
+		limit = {	has_deposit = $D$_1 }
 		remove_deposit = $D$_1
 		add_deposit = $D$_2
 	}
@@ -130,9 +130,51 @@ suelg_set_habitat_type = {
 			}
 		}
 
-
 		event_target:t_habitat = {
 			set_planet_flag = $TYPE$
+		}
+	}
+}
+
+# this = planet scope
+suelg_new_habitat_dep_message = {
+	solar_system = {
+		owner = {
+			if = {
+				limit = { is_ai = no }
+				create_message = {
+					type = SUELG_NEW_HABITAT_DISTRICT
+					localization = SUELG_NEW_HABITAT_DISTRICT_$TYPE$
+					days = @suelg_notification_days
+					target = event_target:t_habitat
+					variable = {
+						type = name
+						localization = HABITAT
+						scope = event_target:t_habitat
+					}
+				}
+			}
+		}
+	}
+}
+
+suelg_new_rare_dep_message = {
+	solar_system = {
+		owner = {
+			if = {
+				limit = { is_ai = no }
+				create_message = {
+					type = SUELG_NEW_RARE_DEPOSIT
+					localization = SUELG_NEW_RARE_DEPOSIT_$TYPE$
+					days = @suelg_notification_days
+					target = FROM
+					variable = {
+						type = name
+						localization = PLANET
+						scope = FROM
+					}
+				}
+			}
 		}
 	}
 }

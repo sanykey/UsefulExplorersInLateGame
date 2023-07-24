@@ -1,10 +1,10 @@
-namespace = suelg_deep_scan
+namespace = suelg_advanced_survey
 
 #From = Planet/starbase scope
 #This = Ship scope
 #on_fleet_enter_orbit
 fleet_event = {
-    id = suelg_deep_scan.1
+    id = suelg_advanced_survey.1
     hide_window = yes
     is_triggered_only = yes
 	trigger = {
@@ -67,14 +67,14 @@ fleet_event = {
 #this = Ship scope
 #fromfrom = Planet scope
 #from = Ship scope
-#suelg_deep_scan_{X}_special_project on_success
+#suelg_advanced_survey_{X}_special_project on_success
 ship_event = {
-	id = suelg_deep_scan.2
+	id = suelg_advanced_survey.2
 	hide_window = yes
 	is_triggered_only = yes
 
 	immediate = {
-		# log = ">> ON SP COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+		log = ">> ON SP COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 		save_event_target_as = t_ship
 
 		leader = {
@@ -88,19 +88,19 @@ ship_event = {
 
 		fromfrom = {
 			save_event_target_as = t_planet
-			planet_event = { id = suelg_deep_scan.3 } # Run Complete project effects
+			planet_event = { id = suelg_advanced_survey.3 } # Run Complete project effects
 		}
 	}
 }
 
 # Run Complete project effects
 planet_event = {
-	id = suelg_deep_scan.3
+	id = suelg_advanced_survey.3
 	hide_window = yes
 	is_triggered_only = yes
 
 	immediate = {
-		# log = ">> COMPLETE SP EFFECTS"
+		log = ">> COMPLETE SP EFFECTS"
 
 		suelg_add_exp_for_leader = yes
 		set_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
@@ -108,7 +108,8 @@ planet_event = {
 		planet_event = { id = suelg_spawn_resource.1 } # Calculate the chance for an orbital deposit to spawn 
 		planet_event = { id = suelg_spawn_archeology.1 } # Calculate the chance for an Archaeological site and spawn 
 		planet_event = { id = suelg_spawn_anomaly.1 } # Calculate the chance for an anomaly to spawn 
-		planet_event = { id = suelg_deep_scan.8 } # Complete scan
+		planet_event = { id = suelg_spawn_planetary_deposits.1 } # Calculate the chance for an planetary deposit spawn
+		planet_event = { id = suelg_advanced_survey.8 } # Complete scan
 
 		event_target:t_ship = {
 			suelg_accelerate_ship_after_sp = yes
@@ -118,7 +119,7 @@ planet_event = {
 
 # Complete scan
 planet_event = {
-    id = suelg_deep_scan.8
+    id = suelg_advanced_survey.8
     hide_window = yes
     is_triggered_only = yes
 
@@ -203,7 +204,7 @@ planet_event = {
 			}
 
 			event_target:t_owner = {
-				country_event = { id = suelg_deep_scan.9 } # Update scan level
+				country_event = { id = suelg_advanced_survey.9 } # Update scan level
 			}
 		}
 	}
@@ -211,11 +212,12 @@ planet_event = {
 
 # Update scan level
 country_event = {
-    id = suelg_deep_scan.9
+    id = suelg_advanced_survey.9
     hide_window = yes
     is_triggered_only = yes
 
 	immediate = {
+		# log = ">> Update scan level"
 		suelg_init_country_vars = yes
 
 		if = { 
@@ -287,25 +289,11 @@ country_event = {
 		if = {
 			limit = { has_country_flag = suelg_has_updated_scan_level }
 
+			
 			suelg_update_country_scan_lvl_mod = yes
 
 			if = {
-				limit = { is_ai = no }
-				create_message = {
-					type = SUELG_SENSORS_IMPROVED
-					localization = SUELG_SENSORS_IMPROVED_MESSAGE
-					days = @suelg_notification_days
-					target = this.capital_scope
-					variable = {
-						type = variable
-						varname = suelg_max_scan_level
-						localization = LVL
-						scope = this
-					}
-				}
-				#todo: debug (remove next line):
-				# country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
-			} else = {
+				limit = { is_ai = yes }
 				country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
 			}
 		}
@@ -318,7 +306,7 @@ country_event = {
 # THIS = System: system being occupied
 # FROMFROM = Country: Original owner of the system
 system_event = {
-    id = suelg_deep_scan.10
+    id = suelg_advanced_survey.10
     hide_window = yes
     is_triggered_only = yes
 
@@ -342,7 +330,7 @@ system_event = {
 # FromFrom = country (new owner)
 # This = country (previous owner)
 country_event = {
-    id = suelg_deep_scan.11
+    id = suelg_advanced_survey.11
     hide_window = yes
     is_triggered_only = yes
 

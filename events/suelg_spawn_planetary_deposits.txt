@@ -1,0 +1,83 @@
+namespace = suelg_spawn_planetary_deposits
+
+# Calculate the chance for an planetary deposit spawn
+planet_event = {
+	id = suelg_spawn_planetary_deposits.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		suelg_can_have_planet_deposits = yes
+	}
+
+	immediate = {
+		# log = ">> CHECK PLANETARY DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+		random_list = {
+			1 = {
+				# log = ">> NEW PLANETARY DEPOSIT "
+				planet_event = { id = suelg_spawn_planetary_deposits.2 }
+				suelg_new_planetary_deposit_message = yes
+
+				if = {
+					limit = {
+						NOT = { is_variable_set = suelg_planetary_deposits_added }
+					}
+					set_variable = { which = suelg_planetary_deposits_added value = 1 }
+				} else_if = {
+					limit = {
+						check_variable = { which = suelg_planetary_deposits_added value > 3 }
+					}
+					set_variable = { which = suelg_planetary_deposits_added value = 0 }
+					planet_event = { id = suelg_spawn_planetary_deposits.3 } # Increase planet max districts
+				} else = {
+					change_variable = { which = suelg_planetary_deposits_added value = 1 }
+				}
+			}
+			99 = {} # do nothing
+		}
+	}
+}
+
+# Spawn planetary deposit
+planet_event = {
+	id = suelg_spawn_planetary_deposits.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# log = ">> SPAWN PLANETARY DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+		random_list = {
+			inline_script = suelg_ev_spawn_energy_dep
+			inline_script = suelg_ev_spawn_mineral_dep
+			inline_script = suelg_ev_spawn_food_dep
+			inline_script = suelg_ev_spawn_rare_dep
+		}
+	}
+}
+
+# Increase planet max districts
+planet_event = {
+	id = suelg_spawn_planetary_deposits.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { is_variable_set = suelg_districts_expansion_lvl }
+			}
+			set_variable = { which = suelg_districts_expansion_lvl value = 1 }
+		} else = {
+			change_variable = { which = suelg_districts_expansion_lvl value = 1 }
+		}
+
+		# log = ">> Increase planet max districts. FROM: [from.GetName], THIS: [This.GetName], expansion_lvl: [This.suelg_districts_expansion_lvl]"
+
+		remove_modifier = suelg_districts_expansion
+		add_modifier = {
+			modifier = suelg_districts_expansion
+			multiplier = this.suelg_districts_expansion_lvl
+		}
+		suelg_increased_planetary_size_message = yes
+	}
+}
