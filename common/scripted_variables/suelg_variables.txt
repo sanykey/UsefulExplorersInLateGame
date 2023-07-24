@@ -35,7 +35,7 @@
 @suelg_spawn_rare_crystals_weight = 2
 @suelg_spawn_exotic_gases_weight = 2
 
-@suelg_max_possible_scan_lvl = 15 # don't set more than 15
+@suelg_max_possible_advanced_survey_lvl = 25 # don't set more than 25
 @suelg_upgrade_scanned_systems_num = 15
 @suelg_upgrade_scanned_systems_percent = 0.8 # use fractional values here (0.01 = 1%)
 
@@ -94,18 +94,18 @@
 #################################
 # the number of days for each level of the special project "Extended survey":
 # @suelg_advanced_survey_sp_days_1 = 520 # debug
-@suelg_advanced_survey_sp_days_1 = 6 # debug
-@suelg_advanced_survey_sp_days_2 = 6 # debug
-@suelg_advanced_survey_sp_days_3 = 6 # debug
-@suelg_advanced_survey_sp_days_4 = 6 # debug
-@suelg_advanced_survey_sp_days_5 = 6 # debug
-@suelg_advanced_survey_sp_days_6 = 6 # debug
-# @suelg_advanced_survey_sp_days_1 = 40
-# @suelg_advanced_survey_sp_days_2 = 48
-# @suelg_advanced_survey_sp_days_3 = 58
-# @suelg_advanced_survey_sp_days_4 = 70
-# @suelg_advanced_survey_sp_days_5 = 84
-# @suelg_advanced_survey_sp_days_6 = 101
+# @suelg_advanced_survey_sp_days_1 = 6 # debug
+# @suelg_advanced_survey_sp_days_2 = 6 # debug
+# @suelg_advanced_survey_sp_days_3 = 6 # debug
+# @suelg_advanced_survey_sp_days_4 = 6 # debug
+# @suelg_advanced_survey_sp_days_5 = 6 # debug
+# @suelg_advanced_survey_sp_days_6 = 6 # debug
+@suelg_advanced_survey_sp_days_1 = 40
+@suelg_advanced_survey_sp_days_2 = 48
+@suelg_advanced_survey_sp_days_3 = 58
+@suelg_advanced_survey_sp_days_4 = 70
+@suelg_advanced_survey_sp_days_5 = 84
+@suelg_advanced_survey_sp_days_6 = 101
 @suelg_advanced_survey_sp_days_7 = 121
 @suelg_advanced_survey_sp_days_8 = 145
 @suelg_advanced_survey_sp_days_9 = 174

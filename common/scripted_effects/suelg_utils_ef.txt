@@ -1,0 +1,81 @@
+suelg_call_indexed_ef = {
+	set_variable = { which = suelg_tmp_lvl value = $I$ }
+
+	if = { 
+		limit = { check_variable = { which = suelg_tmp_lvl value = 1 } }
+		$ef$ = { I = 1 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 2 } }
+		$ef$ = { I = 2 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 3 } }
+		$ef$ = { I = 3 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 4 } }
+		$ef$ = { I = 4 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 5 } }
+		$ef$ = { I = 5 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 6 } }
+		$ef$ = { I = 6 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 7 } }
+		$ef$ = { I = 7 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 8 } }
+		$ef$ = { I = 8 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 9 } }
+		$ef$ = { I = 9 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 10 } }
+		$ef$ = { I = 10 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 11 } }
+		$ef$ = { I = 11 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 12 } }
+		$ef$ = { I = 12 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 13 } }
+		$ef$ = { I = 13 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 14 } }
+		$ef$ = { I = 14 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 15 } }
+		$ef$ = { I = 15 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 16 } }
+		$ef$ = { I = 16 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 17 } }
+		$ef$ = { I = 17 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 18 } }
+		$ef$ = { I = 18 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 19 } }
+		$ef$ = { I = 19 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 20 } }
+		$ef$ = { I = 20 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 21 } }
+		$ef$ = { I = 21 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 22 } }
+		$ef$ = { I = 22 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 23 } }
+		$ef$ = { I = 23 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 24 } }
+		$ef$ = { I = 24 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	} else_if = {
+		limit = { check_variable = { which = suelg_tmp_lvl value = 25 } }
+		$ef$ = { I = 25 [[P1] P1 = $P1$ ] [[P2] P2 = $P2$ ] [[P3] P3 = $P3$ ] }
+	}
+	clear_variable = suelg_tmp_lvl
+}

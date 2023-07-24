@@ -12,8 +12,9 @@ ship_event = {
 
 	immediate = {
 		fromfrom = { save_event_target_as = t_planet }
-		
-		suelg_get_base_sp_days = yes # suelg_base_sp_days
+
+		suelg_call_indexed_ef = { ef = suelg_get_base_sp_days I = value:suelg_planet_started_c_lvl }
+
 		suelg_calculate_survey_speed_factor = yes # suelg_survey_speed
 
 		change_variable = { which = suelg_survey_speed value = 1 }
@@ -45,7 +46,11 @@ ship_event = {
 		owner = { save_event_target_as = t_owner }
 		save_event_target_as = t_ship
 	
-		suelg_get_base_sp_days = yes # suelg_base_sp_days
+		suelg_call_indexed_ef = {
+			ef = suelg_get_base_sp_days
+			I = value:suelg_planet_started_advanced_survey_lvl
+		}
+
 		suelg_calculate_survey_speed_factor = yes # suelg_survey_speed
 	
 		change_variable = { which = suelg_survey_speed value = 1 }

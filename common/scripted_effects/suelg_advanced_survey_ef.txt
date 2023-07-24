@@ -14,9 +14,9 @@ suelg_init_country_vars = {
 suelg_init_planet_vars = {
 	if = { # init planet vars
 		limit = {
-			NOT = { is_variable_set = suelg_started_scan_lvl }
+			NOT = { is_variable_set = suelg_started_advanced_survey_lvl }
 		}
-		set_variable = { which = suelg_started_scan_lvl value = 0 }
+		set_variable = { which = suelg_started_advanced_survey_lvl value = 0 }
 		set_variable = { which = suelg_completed_scan_lvl value = 0 }
 	}
 }
@@ -34,11 +34,11 @@ suelg_create_system_scan_projects = {
 			limit = {								
 				suelg_can_be_scanned = yes
 				check_variable = { which = suelg_completed_scan_lvl value < event_target:t_owner.suelg_max_scan_level }
-				check_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
+				check_variable = { which = suelg_completed_scan_lvl value = suelg_started_advanced_survey_lvl }
 			}
 
-			change_variable = { which = suelg_started_scan_lvl value = 1 }
-			# log = ">> CREATE PROJECT. PLANET: [This.GetName] LVL: [This.suelg_started_scan_lvl]"
+			change_variable = { which = suelg_started_advanced_survey_lvl value = 1 }
+			# log = ">> CREATE PROJECT. PLANET: [This.GetName] LVL: [This.suelg_started_advanced_survey_lvl]"
 
 			inline_script = { script = suelg_ef_create_project LVL = 1 }
 			inline_script = { script = suelg_ef_create_project LVL = 2 }
@@ -98,10 +98,10 @@ suelg_reset_system_projects = {
 		if = {
 			limit = {								
 				suelg_can_be_scanned = yes
-				check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
+				check_variable = { which = suelg_started_advanced_survey_lvl value > suelg_completed_scan_lvl }
 			}			
 
-			set_variable = { which = suelg_started_scan_lvl value = suelg_completed_scan_lvl }
+			set_variable = { which = suelg_started_advanced_survey_lvl value = suelg_completed_scan_lvl }
 
 			# log = ">> REMOVE PROJECT. PLANET: [this.GetName]"
 			save_event_target_as = t_planet
@@ -231,7 +231,7 @@ suelg_update_country_scan_lvl_mod = {
 suelg_add_exp_for_leader = {
 	if = {
 		limit = {
-			check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
+			check_variable = { which = suelg_started_advanced_survey_lvl value > suelg_completed_scan_lvl }
 		}
 		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 1 }
 		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 2 }

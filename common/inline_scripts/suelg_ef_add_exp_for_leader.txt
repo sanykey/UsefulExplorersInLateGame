@@ -1,6 +1,6 @@
 if = {
 	limit = {
-		check_variable = { which = suelg_started_scan_lvl value = $LVL$ }
+		check_variable = { which = suelg_started_advanced_survey_lvl value = $LVL$ }
 	}
 
 	event_target:t_leader = {

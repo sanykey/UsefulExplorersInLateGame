@@ -103,7 +103,7 @@ planet_event = {
 		log = ">> COMPLETE SP EFFECTS"
 
 		suelg_add_exp_for_leader = yes
-		set_variable = { which = suelg_completed_scan_lvl value = suelg_started_scan_lvl }
+		set_variable = { which = suelg_completed_scan_lvl value = suelg_started_advanced_survey_lvl }
 		set_planet_flag = has_completed_project # todo: wtf? fix
 		planet_event = { id = suelg_spawn_resource.1 } # Calculate the chance for an orbital deposit to spawn 
 		planet_event = { id = suelg_spawn_archeology.1 } # Calculate the chance for an Archaeological site and spawn 
@@ -161,7 +161,7 @@ planet_event = {
 							}
 						}	
 						suelg_can_be_scanned = yes
-						check_variable = { which = suelg_started_scan_lvl value > suelg_completed_scan_lvl }
+						check_variable = { which = suelg_started_advanced_survey_lvl value > suelg_completed_scan_lvl }
 					}
 					solar_system = {
 						set_star_flag = suelg_has_scan_projects
@@ -248,7 +248,7 @@ country_event = {
 			}
 		} else_if = {
 			limit = {
-				check_variable = { which = suelg_max_scan_level value < @suelg_max_possible_scan_lvl }
+				check_variable = { which = suelg_max_scan_level value < @suelg_max_possible_advanced_survey_lvl }
 			}
 			set_variable = { which = suelg_scanned_sys_count value = 0 }
 			every_system_within_border = {

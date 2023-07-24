@@ -1,5 +1,5 @@
 if = {
-	limit = { check_variable = { which = suelg_started_scan_lvl value = $LVL$ } }
+	limit = { check_variable = { which = suelg_started_advanced_survey_lvl value = $LVL$ } }
 	enable_special_project = {
 		name = "suelg_advanced_survey_SP_$LVL$"
 		location = this
