@@ -1,0 +1,10 @@
+# suelg_ef_get_base_sp_days inline script
+if = {
+	limit = {
+		event_target:t_planet = {
+			check_variable = { which = suelg_started_advanced_survey_lvl value = $LVL$ }
+		}
+	}
+	set_variable = { which = suelg_base_sp_days value = @suelg_advanced_survey_sp_days_$LVL$ }
+	log = "suelg_base_sp_days [this.suelg_base_sp_days], @suelg_advanced_survey_sp_days_$LVL$"
+}

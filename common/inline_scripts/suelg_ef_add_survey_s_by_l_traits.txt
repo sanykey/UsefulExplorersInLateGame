@@ -5,6 +5,6 @@ if = {
 			has_trait = $T$
 		}
 	}
-	# log = ">> +SurveySpeed BY TRAIT: $T$, MOD: $F$, THIS: [This.GetName]"
 	change_variable = { which = suelg_survey_speed value = $F$ }
+	# log = ">> +SurveySpeed BY TRAIT: [This.suelg_survey_speed] ,$T$, MOD: $F$, THIS: [This.GetName]"
 }

@@ -13,9 +13,8 @@ ship_event = {
 	immediate = {
 		fromfrom = { save_event_target_as = t_planet }
 
-		suelg_call_indexed_ef = { ef = suelg_get_base_sp_days I = value:suelg_planet_started_c_lvl }
-
-		suelg_calculate_survey_speed_factor = yes # suelg_survey_speed
+		suelg_get_base_sp_days = yes # set variable suelg_base_sp_days
+		suelg_calculate_survey_speed_factor = yes # set variable suelg_survey_speed
 
 		change_variable = { which = suelg_survey_speed value = 1 }
 		set_variable = { which = suelg_actual_sp_days value = suelg_base_sp_days }
@@ -46,17 +45,18 @@ ship_event = {
 		owner = { save_event_target_as = t_owner }
 		save_event_target_as = t_ship
 	
-		suelg_call_indexed_ef = {
-			ef = suelg_get_base_sp_days
-			I = value:suelg_planet_started_advanced_survey_lvl
-		}
-
-		suelg_calculate_survey_speed_factor = yes # suelg_survey_speed
+		suelg_get_base_sp_days = yes # set variable suelg_base_sp_days
+		# log = "BASE DAYS: [this.suelg_base_sp_days]"
+		suelg_calculate_survey_speed_factor = yes # set variable suelg_survey_speed
+		# log = "SURVEY SPEED: [this.suelg_survey_speed]"
+		
 	
 		change_variable = { which = suelg_survey_speed value = 1 }
 		set_variable = { which = suelg_actual_sp_days value = suelg_base_sp_days }
 		divide_variable = { which = suelg_actual_sp_days value = suelg_survey_speed }
 		floor_variable = suelg_actual_sp_days
+
+		# log = "ACTUAL DAYS: [this.suelg_actual_sp_days]"
 	
 		# log = ">> PROGRESS PROJECT. BASE: [this.suelg_base_sp_days] ACTUAL: [this.suelg_actual_sp_days] SURVEY SP: [this.suelg_survey_speed]"
 		if = {

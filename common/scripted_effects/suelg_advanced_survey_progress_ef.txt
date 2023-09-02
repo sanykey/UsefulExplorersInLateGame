@@ -1,6 +1,32 @@
 # this = ship scope
 suelg_get_base_sp_days = {
-	set_variable = { which = suelg_base_sp_days value = @suelg_advanced_survey_sp_days_$I$ }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 1 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 2 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 3 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 4 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 5 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 6 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 7 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 8 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 9 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 10 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 11 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 12 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 13 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 14 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 15 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 16 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 17 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 18 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 19 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 20 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 21 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 22 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 23 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 24 }
+	inline_script = { script = suelg_ef_get_base_sp_days LVL = 25 }
+
+	# suelg_get_base_sp_days_2 = { LVL = value:suelg_planet_started_advanced_survey_lvl }
 }
 
 # this = ship scope

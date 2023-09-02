@@ -40,6 +40,8 @@
 @suelg_upgrade_scanned_systems_percent = 0.8 # use fractional values here (0.01 = 1%)
 
 @suelg_notification_days = 30
+@sueld_ship_speed_boost_days = 20
+@suelg_exp_per_day = 0.4
 
 #####################################
 ##### orbital deposit spawning	#####
@@ -58,48 +60,10 @@
 @suelg_planetary_deposit_chance_low_rare = 0.1
 @suelg_deposit_chance_planet_type_bonus = 1.5
 
-
-#########################################################
-##### Complete Advanced survey Leader's experience	#####
-#########################################################
-# how much experience the leader receives for completing each level of the special project "Extended survey":
-@suelg_advanced_survey_leader_exp_1 = 20
-@suelg_advanced_survey_leader_exp_2 = 30
-@suelg_advanced_survey_leader_exp_3 = 40
-@suelg_advanced_survey_leader_exp_4 = 50
-@suelg_advanced_survey_leader_exp_5 = 60
-@suelg_advanced_survey_leader_exp_6 = 70
-@suelg_advanced_survey_leader_exp_7 = 80
-@suelg_advanced_survey_leader_exp_8 = 90
-@suelg_advanced_survey_leader_exp_9 = 100
-@suelg_advanced_survey_leader_exp_10 = 110
-@suelg_advanced_survey_leader_exp_11 = 120
-@suelg_advanced_survey_leader_exp_12 = 120
-@suelg_advanced_survey_leader_exp_13 = 130
-@suelg_advanced_survey_leader_exp_14 = 140
-@suelg_advanced_survey_leader_exp_15 = 150 # todo: fix after 15lvl
-@suelg_advanced_survey_leader_exp_16 = 150
-@suelg_advanced_survey_leader_exp_17 = 150
-@suelg_advanced_survey_leader_exp_18 = 150
-@suelg_advanced_survey_leader_exp_19 = 150
-@suelg_advanced_survey_leader_exp_20 = 150
-@suelg_advanced_survey_leader_exp_21 = 150
-@suelg_advanced_survey_leader_exp_22 = 150
-@suelg_advanced_survey_leader_exp_23 = 150
-@suelg_advanced_survey_leader_exp_24 = 150
-@suelg_advanced_survey_leader_exp_25 = 150
-
 #################################
 ##### Advanced survey days	#####
 #################################
-# the number of days for each level of the special project "Extended survey":
-# @suelg_advanced_survey_sp_days_1 = 520 # debug
-# @suelg_advanced_survey_sp_days_1 = 6 # debug
-# @suelg_advanced_survey_sp_days_2 = 6 # debug
-# @suelg_advanced_survey_sp_days_3 = 6 # debug
-# @suelg_advanced_survey_sp_days_4 = 6 # debug
-# @suelg_advanced_survey_sp_days_5 = 6 # debug
-# @suelg_advanced_survey_sp_days_6 = 6 # debug
+# the number of days for each level of the special project "Extended survey". +20% per level:
 @suelg_advanced_survey_sp_days_1 = 40
 @suelg_advanced_survey_sp_days_2 = 48
 @suelg_advanced_survey_sp_days_3 = 58
@@ -112,16 +76,16 @@
 @suelg_advanced_survey_sp_days_10 = 209
 @suelg_advanced_survey_sp_days_11 = 251
 @suelg_advanced_survey_sp_days_12 = 301
-@suelg_advanced_survey_sp_days_13 = 361
-@suelg_advanced_survey_sp_days_14 = 433
-@suelg_advanced_survey_sp_days_15 = 520 # todo: fix after 15lvl
-@suelg_advanced_survey_sp_days_16 = 520
-@suelg_advanced_survey_sp_days_17 = 520
-@suelg_advanced_survey_sp_days_18 = 520
-@suelg_advanced_survey_sp_days_19 = 520
-@suelg_advanced_survey_sp_days_20 = 520
-@suelg_advanced_survey_sp_days_21 = 520
-@suelg_advanced_survey_sp_days_22 = 520
-@suelg_advanced_survey_sp_days_23 = 520
-@suelg_advanced_survey_sp_days_24 = 520
-@suelg_advanced_survey_sp_days_25 = 520
+@suelg_advanced_survey_sp_days_13 = 361 
+@suelg_advanced_survey_sp_days_14 = 433 # add fixed +3 months (90 days) per level after that level
+@suelg_advanced_survey_sp_days_15 = 523 
+@suelg_advanced_survey_sp_days_16 = 613
+@suelg_advanced_survey_sp_days_17 = 703
+@suelg_advanced_survey_sp_days_18 = 793
+@suelg_advanced_survey_sp_days_19 = 883
+@suelg_advanced_survey_sp_days_20 = 973
+@suelg_advanced_survey_sp_days_21 = 1063
+@suelg_advanced_survey_sp_days_22 = 1153
+@suelg_advanced_survey_sp_days_23 = 1243
+@suelg_advanced_survey_sp_days_24 = 1333
+@suelg_advanced_survey_sp_days_25 = 1423
