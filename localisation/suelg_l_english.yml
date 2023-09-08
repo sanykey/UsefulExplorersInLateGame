@@ -2,9 +2,6 @@
  SUELG_ANOMALY_DETECTED_TITLE:0 "Anomaly"
  SUELG_ANOMALY_DETECTED_MESSAGE:0 "$SHIP|Y$ has found an §HAnomaly§! on $PLANET|Y$"
 
- SUELG_SENSORS_IMPROVED_TITLE:0 "DS Sensors improved"
- SUELG_SENSORS_IMPROVED_MESSAGE:0 "The deep-scan sensors on all science ships have been upgraded to level $LVL|H$. You can now perform a deeper scan of the planets."
-
  MESSAGE_HABITAT_PROSPECTED_TITLE:0 "New districts for habitat"
  SUELG_NEW_HABITAT_DISTRICT_energy_habitat:0 "The orbit of $HABITAT|Y$ was successfully prospected, allowing construction of §Y$district_hab_energy_plural$§!."
  SUELG_NEW_HABITAT_DISTRICT_mining_habitat:0 "The orbit of $HABITAT|Y$ was successfully prospected, allowing construction of §Y$district_hab_mining_plural$§!."

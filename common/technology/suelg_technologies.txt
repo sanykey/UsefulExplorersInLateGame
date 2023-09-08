@@ -1,27 +1,204 @@
-suelg_tech_advanced_survey_1 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_2 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_3 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_4 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_5 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_6 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_7 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_8 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_9 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_10 = { inline_script = suelg_tech_advanced_survey }
+suelg_tech_advanced_survey_1 = {
+	tier = 2
+	cost = @tier2cost1
+	weight = @tier2weight1
+	prerequisites = { "tech_sensors_3" }
 
-suelg_tech_advanced_survey_11 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_12 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_13 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_14 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_15 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_16 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_17 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_18 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_19 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_20 = { inline_script = suelg_tech_advanced_survey }
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_2 = {
+	tier = 2
+	cost = @tier2cost2
+	weight = @tier2weight1
+	prerequisites = { "suelg_tech_advanced_survey_1" }
 
-suelg_tech_advanced_survey_21 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_22 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_23 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_24 = { inline_script = suelg_tech_advanced_survey }
-suelg_tech_advanced_survey_25 = { inline_script = suelg_tech_advanced_survey }
+	inline_script = suelg_tech_advanced_survey
+}
+
+suelg_tech_advanced_survey_3 = {
+	tier = 3
+	cost = @tier3cost1
+	weight = @tier3weight1
+	prerequisites = { "suelg_tech_advanced_survey_2" }
+
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_4 = {
+	tier = 3
+	cost = @tier3cost2
+	weight = @tier3weight1
+	prerequisites = { "suelg_tech_advanced_survey_3" }
+
+	inline_script = suelg_tech_advanced_survey
+}
+
+suelg_tech_advanced_survey_5 = {
+	tier = 4
+	cost = @tier4cost1
+	weight = @tier4weight1
+	prerequisites = { "suelg_tech_advanced_survey_4" }
+
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_6 = {
+	tier = 4
+	cost = @tier4cost2
+	weight = @tier4weight1
+	prerequisites = { "suelg_tech_advanced_survey_5" }
+
+	inline_script = suelg_tech_advanced_survey
+}
+
+suelg_tech_advanced_survey_7 = {
+	tier = 5
+	cost = @tier5cost1
+	weight = @tier5weight1
+	prerequisites = { "suelg_tech_advanced_survey_6" }
+
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_8 = {
+	tier = 5
+	cost = @tier5cost2
+	weight = @tier5weight1
+	prerequisites = { "suelg_tech_advanced_survey_7" }
+
+	inline_script = suelg_tech_advanced_survey
+}
+
+suelg_tech_advanced_survey_9 = {
+	tier = 5
+	cost = 50000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_8" }
+
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_10 = {
+	tier = 5
+	cost = 55000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_9" }
+
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_11 = {
+	tier = 5
+	cost = 60000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_10" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_12 = {
+	tier = 5
+	cost = 65000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_11" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_13 = {
+	tier = 5
+	cost = 70000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_12" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_14 = {
+	tier = 5
+	cost = 75000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_13" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_15 = {
+	tier = 5
+	cost = 80000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_14" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_16 = {
+	tier = 5
+	cost = 85000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_15" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_17 = {
+	tier = 5
+	cost = 90000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_16" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_18 = {
+	tier = 5
+	cost = 95000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_17" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_19 = {
+	tier = 5
+	cost = 100000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_18" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_20 = {
+	tier = 5
+	cost = 105000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_19" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_21 = {
+	tier = 5
+	cost = 110000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_20" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_22 = {
+	tier = 5
+	cost = 115000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_21" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_23 = {
+	tier = 5
+	cost = 120000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_22" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_24 = {
+	tier = 5
+	cost = 125000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_23" }
+	
+	inline_script = suelg_tech_advanced_survey
+}
+suelg_tech_advanced_survey_25 = {
+	tier = 5
+	cost = 130000
+	weight = @repeatableTechWeight
+	prerequisites = { "suelg_tech_advanced_survey_24" }
+	
+	inline_script = suelg_tech_advanced_survey
+}

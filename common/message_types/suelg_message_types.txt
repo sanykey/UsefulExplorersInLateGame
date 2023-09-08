@@ -10,19 +10,6 @@ message_type = {
 	category = science
 }
 
-# todo: change icon and sound
-message_type = {
-	key = "SUELG_SENSORS_IMPROVED"
-	icon = "GFX_message_technology_researched"
-	icon_frame = 1
-	name = "SUELG_SENSORS_IMPROVED_TITLE"
-	sound = "advisor_notification_research_complete"
-	sound_is_advisor = yes
-	ping = "ping_notification_green"
-
-	category = science
-}
-
 message_type = {
 	key = "SUELG_RATE_RESOURCES_DISCOVERED"
 	icon = "GFX_message_technology_researched"

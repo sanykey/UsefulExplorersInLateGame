@@ -1,0 +1,8 @@
+# suelg_add_by_tShip inline script
+if = {
+	limit = {
+		event_target:t_ship = { $T$ = $N$ }
+	} # T - trigger, N - name
+	change_variable = { which = $V$ value = $M$ } # V - variable, M - modificator
+	# log = ">> add by ship: [This.$V$], $T$ = $N$, MOD: $M$, THIS: [This.GetName]"
+}

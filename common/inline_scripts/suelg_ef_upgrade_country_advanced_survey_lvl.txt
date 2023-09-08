@@ -1,20 +1,19 @@
 # suelg_ef_upgrade_country_advanced_survey_lvl inline script
-if = {
+else_if = {
 	limit = {
-		check_variable = { which = suelg_max_scan_level value = $LVL$ }
+		has_technology = suelg_tech_advanced_survey_$LVL$
+		check_variable = { which = suelg_max_scan_level value < $LVL$ }
 	}
+	set_variable = { which = suelg_max_scan_level value = $LVL$ }
+	
+	suelg_remove_country_mod = yes
 	add_modifier = {
 		modifier = suelg_country_advanced_survey_lvl_$LVL$
 		days = -1
 	}
-	# log = ">> give technology $LVL$"
 
 	if = {
-		limit = {
-			NOT = {
-				has_technology = suelg_tech_advanced_survey_$LVL$
-			}
-		}
-		give_technology = { tech = suelg_tech_advanced_survey_$LVL$ message = yes }
+		limit = { is_ai = yes }
+		country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
 	}
 }

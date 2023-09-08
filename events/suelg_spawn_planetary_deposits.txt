@@ -13,7 +13,11 @@ planet_event = {
 	immediate = {
 		# log = ">> CHECK PLANETARY DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 		random_list = {
-			1 = {
+			0 = {
+				modifier = {
+					add = @suelg_planetary_dep_spawn_base_weight
+				}
+
 				# log = ">> NEW PLANETARY DEPOSIT "
 				planet_event = { id = suelg_spawn_planetary_deposits.2 }
 				suelg_new_planetary_deposit_message = yes
@@ -25,7 +29,7 @@ planet_event = {
 					set_variable = { which = suelg_planetary_deposits_added value = 1 }
 				} else_if = {
 					limit = {
-						check_variable = { which = suelg_planetary_deposits_added value > 3 }
+						check_variable = { which = suelg_planetary_deposits_added value >= @suelg_planetary_size_by_every_deps }
 					}
 					set_variable = { which = suelg_planetary_deposits_added value = 0 }
 					planet_event = { id = suelg_spawn_planetary_deposits.3 } # Increase planet max districts
@@ -33,7 +37,11 @@ planet_event = {
 					change_variable = { which = suelg_planetary_deposits_added value = 1 }
 				}
 			}
-			99 = {} # do nothing
+			0 = {
+				modifier = {
+					add = @suelg_planetary_dep_fail_base_weight
+				}
+			}
 		}
 	}
 }

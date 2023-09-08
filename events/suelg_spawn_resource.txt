@@ -11,14 +11,13 @@ planet_event = {
 	}
 
 	immediate = {
-
 		# set_variable = { which = test value = value:suelg_advanced_survey_lvl_factor } # for debug
 		# log = ">> TEST FACTOR. VALUE: [this.test] THIS: [This.GetName]"
 
 		# log = ">> CHECK DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 		random_list = {
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "mineral" ADD = 10 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "mineral" ADD = @suelg_mineral_spawn_base_weight }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector F = 1.05 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector_2 F = 1.10 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector_3 F = 1.15 }
@@ -26,7 +25,7 @@ planet_event = {
 				planet_event = { id = suelg_spawn_resource.2 } # Spawn mineral deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "energy" ADD = 10 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "energy" ADD = @suelg_energy_spawn_base_weight }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector F = 1.05 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector_2 F = 1.10 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector_3 F = 1.15 }
@@ -34,7 +33,7 @@ planet_event = {
 				planet_event = { id = suelg_spawn_resource.3 } # Spawn energy deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "trade" ADD = 10 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "trade" ADD = @suelg_trade_spawn_base_weight }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector F = 1.05 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector_2 F = 1.10 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector_3 F = 1.15 }
@@ -42,20 +41,20 @@ planet_event = {
 				planet_event = { id = suelg_spawn_resource.4 } # Spawn trade deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "alloy" ADD = 3 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "alloy" ADD = @suelg_alloy_spawn_base_weight }
 				planet_event = { id = suelg_spawn_resource.5 } # Spawn alloy deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "zro" ADD = 3 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "zro" ADD = @suelg_zro_spawn_base_weight }
 				planet_event = { id = suelg_spawn_resource.6 } # Spawn zro deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "dark_matter" ADD = 3 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "dark_matter" ADD = @suelg_dark_matter_spawn_base_weight }
 				planet_event = { id = suelg_spawn_resource.7 } # Spawn dark_matter deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "physics" ADD = 10 }
-				modifier = { add = 10 can_have_minor_physics_deposits = yes }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "physics" ADD = @suelg_physics_spawn_base_weight }
+				modifier = { add = @suelg_physics_spawn_base_weight can_have_minor_physics_deposits = yes }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant F = 1.05 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant_2 F = 1.10 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant_3 F = 1.15 }
@@ -63,7 +62,7 @@ planet_event = {
 				planet_event = { id = suelg_spawn_resource.8 } # Spawn physics deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "society" ADD = 10 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "society" ADD = @suelg_society_spawn_base_weight }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant F = 1.05 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant_2 F = 1.10 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant_3 F = 1.15 }
@@ -71,8 +70,8 @@ planet_event = {
 				planet_event = { id = suelg_spawn_resource.9 } # Spawn society deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "engineering" ADD = 10 }
-				modifier = { add = 10 can_have_minor_engineering_deposits = yes }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "engineering" ADD = @suelg_engineering_spawn_base_weight }
+				modifier = { add = @suelg_engineering_spawn_base_weight can_have_minor_engineering_deposits = yes }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant F = 1.05 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant_2 F = 1.10 }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant_3 F = 1.15 }
@@ -80,39 +79,28 @@ planet_event = {
 				planet_event = { id = suelg_spawn_resource.10 } # Spawn engineering deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "volatile_motes" ADD = 2 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "volatile_motes" ADD = @suelg_volatile_motes_spawn_base_weight }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_midas_touch F = 1.10 }
 
 				planet_event = { id = suelg_spawn_resource.11 } # Spawn volatile_motes deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "rare_crystals" ADD = 2 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "rare_crystals" ADD = @suelg_rare_crystals_spawn_base_weight }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_midas_touch F = 1.10 }
 
 				planet_event = { id = suelg_spawn_resource.12 } # Spawn rare_crystals deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "exotic_gases" ADD = 2 }
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "exotic_gases" ADD = @suelg_exotic_gases_spawn_base_weight }
 				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_midas_touch F = 1.10 }
 
 				planet_event = { id = suelg_spawn_resource.13 } # Spawn exotic_gases deposit
 			}
 			0 = {
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "mineral" ADD = 90 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "energy" ADD = 90 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "trade" ADD = 90 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "alloy" ADD = 97 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "zro" ADD = 97 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "dark_matter" ADD = 97 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "physics" ADD = 90 }
-				modifier = { add = 90 can_have_minor_physics_deposits = yes }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "society" ADD = 90 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "engineering" ADD = 90 }
-				modifier = { add = 90 can_have_minor_engineering_deposits = yes }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "volatile_motes" ADD = 98 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "rare_crystals" ADD = 98 }
-				inline_script = { script = suelg_ev_can_resorce_mbase RES = "exotic_gases" ADD = 98 }
-				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 0.9 }
+				modifier = {
+					add = @suelg_orbital_deposit_fail_base_weight
+				}
+				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 0.95 }
 
 				modifier = { factor = value:suelg_advanced_survey_lvl_factor }
 			}

@@ -74,7 +74,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		log = ">> ON SP COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+		# log = ">> ON SP COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 		save_event_target_as = t_ship
 
 		leader = {
@@ -100,11 +100,10 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		log = ">> COMPLETE SP EFFECTS"
+		# log = ">> COMPLETE SP EFFECTS"
 
 		suelg_add_exp_for_leader = yes
 		set_variable = { which = suelg_completed_advanced_survey_lvl value = suelg_started_advanced_survey_lvl }
-		set_planet_flag = has_completed_project # todo: wtf? fix
 		planet_event = { id = suelg_spawn_resource.1 } # Calculate the chance for an orbital deposit to spawn 
 		planet_event = { id = suelg_spawn_archeology.1 } # Calculate the chance for an Archaeological site and spawn 
 		planet_event = { id = suelg_spawn_anomaly.1 } # Calculate the chance for an anomaly to spawn 
@@ -124,12 +123,7 @@ planet_event = {
     is_triggered_only = yes
 
 	immediate = {
-		# prevent creating vanilla "has_completed_project" flag from scan projects
-		if = {
-			limit = { has_planet_flag = suelg_hasnt_completed_project }
-			remove_planet_flag = has_completed_project
-		}
-		remove_planet_flag = suelg_hasnt_completed_project
+		suelg_post_fix_has_scan_projects = yes
 
 		solar_system = {
 			remove_star_flag = suelg_has_scan_projects
@@ -169,10 +163,13 @@ planet_event = {
 				}
 			}
 
+			# if it is an AI, then upon completion of the current system survey, create new projects in the nearest system
 			if = {
 				limit = {
-					# todo: condition: ai = yes
 					NOT = { has_star_flag = suelg_has_scan_projects }
+					solar_system = {
+						owner = { is_ai = yes }
+					}
 				}
 				event_target:t_ship = {
 					if = {
@@ -200,11 +197,6 @@ planet_event = {
 						suelg_update_complete_scan_mod = yes # todo: replace
 					}
 				}
-
-			}
-
-			event_target:t_owner = {
-				country_event = { id = suelg_advanced_survey.9 } # Update scan level
 			}
 		}
 	}
@@ -220,83 +212,32 @@ country_event = {
 		# log = ">> Update scan level"
 		suelg_init_country_vars = yes
 
-		if = { 
-			limit = {
-				check_variable = { which = suelg_max_scan_level value < 3 }
-			}
-			if = {
-				limit = {
-					check_variable = { which = suelg_max_scan_level value = 0 }
-					has_technology = tech_sensors_2
-				}
-				set_variable = { which = suelg_max_scan_level value = 1 }
-				set_country_flag = suelg_has_updated_scan_level
-			} else_if = {
-				limit = {
-					check_variable = { which = suelg_max_scan_level value = 1 }
-					has_technology = tech_sensors_3
-				}
-				set_variable = { which = suelg_max_scan_level value = 2 }
-				set_country_flag = suelg_has_updated_scan_level
-			} else_if = {
-				limit = {
-					check_variable = { which = suelg_max_scan_level value = 2 }
-					has_technology = tech_sensors_4
-				}
-				set_variable = { which = suelg_max_scan_level value = 3 }
-				set_country_flag = suelg_has_updated_scan_level
-			}
-		} else_if = {
-			limit = {
-				check_variable = { which = suelg_max_scan_level value < @suelg_max_possible_advanced_survey_lvl }
-			}
-			set_variable = { which = suelg_scanned_sys_count value = 0 }
-			every_system_within_border = {
-				limit = { 
-					check_variable = { which = suelg_sys_completed_scan_lvl value >= prev.suelg_max_scan_level }
-				}
-				prev = {
-					change_variable = { which = suelg_scanned_sys_count value = 1 }
-				}
-			}
-
-			if = {
-				limit = { controlled_systems < 1 }
-				set_variable = { which = suelg_controlled_systems value = 1 }
-			} else = {
-				set_variable = { which = suelg_controlled_systems value = trigger:controlled_systems }
-			}
-	
-			set_variable = { which = suelg_scanned_sys_percent value = suelg_scanned_sys_count }
-			divide_variable = { which = suelg_scanned_sys_percent value = suelg_controlled_systems }
-	
-			if = {
-				limit = {
-					OR = {
-						check_variable = { which = suelg_scanned_sys_count value > @suelg_upgrade_scanned_systems_num }
-						check_variable = { which = suelg_scanned_sys_percent value >= @suelg_upgrade_scanned_systems_percent }
-					}
-				}
-				change_variable = { which = suelg_max_scan_level value = 1 }
-				set_country_flag = suelg_has_updated_scan_level
-			}
-	
-			clear_variable = suelg_scanned_sys_count
-			clear_variable = suelg_scanned_sys_percent
-			clear_variable = suelg_controlled_systems
-		}
-
-		if = {
-			limit = { has_country_flag = suelg_has_updated_scan_level }
-			
-			suelg_update_country_scan_lvl_mod = yes
-
-			if = {
-				limit = { is_ai = yes }
-				country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
-			}
-		}
-		remove_country_flag = suelg_has_updated_scan_level
+		if = { limit = { always = no } }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 25 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 24 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 23 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 22 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 21 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 20 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 19 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 18 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 17 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 16 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 15 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 14 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 13 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 12 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 11 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 10 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 9 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 8 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 7 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 6 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 5 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 4 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 3 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 2 }
+		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 1 }
 	}
 }
 

@@ -7,19 +7,33 @@ planet_event = {
     is_triggered_only = yes
 
 	immediate = {
+
+		set_variable = { which = suelg_archeology_ch_mod value = 1 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = subclass_scientist_explorer M = 0.1 } # not vanilla modifier
+		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_archaeologist M = 0.1 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_archaeologist_2 M = 0.2 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_collective_wisdom M = 0.05 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_collective_wisdom_2 M = 0.1 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_collective_wisdom_3 M = 0.15 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_frontier_adventurer M = 0.1 }
+
 		random_list = {
-			1 = { # 12.5 (1.25%) is vanilla chance
-				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 1.1 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_archaeologist F = 1.1 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_archaeologist_2 F = 1.2 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_collective_wisdom F = 1.05 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_collective_wisdom_2 F = 1.1 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_collective_wisdom_3 F = 1.15 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_frontier_adventurer F = 1.1 }
+			0 = {
+				modifier = {
+					add = @suelg_archelogy_spawn_base_weight
+				}
+				modifier = {
+					factor = this.suelg_archeology_ch_mod
+				}
 
 				create_archaeological_site = random
 			}
-			1000 = {}
+			0 = {
+				modifier = {
+					add = @suelg_archelogy_fail_base_weight
+				}
+			}
 		}
+		clear_variable = suelg_archeology_ch_mod
 	}
 }

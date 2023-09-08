@@ -1,3 +1,5 @@
+# suelg_ef_subtract_actual_sp_days inline script
+
 limit = {
 	check_variable = { which = suelg_actual_sp_days value > @suelg_sp_check_days_$N$ }
 }

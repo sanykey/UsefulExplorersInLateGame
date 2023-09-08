@@ -62,7 +62,7 @@ suelg_create_system_scan_projects = {
 	}
 }
 
-abort_scan_project = {
+suelg_abort_advanced_survey_SP = {
 	abort_special_project = { type = suelg_advanced_survey_SP_1 location = event_target:t_planet }
 	abort_special_project = { type = suelg_advanced_survey_SP_2 location = event_target:t_planet }
 	abort_special_project = { type = suelg_advanced_survey_SP_3 location = event_target:t_planet }
@@ -106,10 +106,10 @@ suelg_reset_system_projects = {
 			# log = ">> REMOVE PROJECT. PLANET: [this.GetName]"
 			save_event_target_as = t_planet
 			event_target:t_owner = {
-				abort_scan_project = yes
+				suelg_abort_advanced_survey_SP = yes
 			}
 			
-			remove_planet_flag = suelg_hasnt_completed_project
+			suelg_post_fix_has_scan_projects = yes
 		}
 	}
 }
@@ -172,8 +172,7 @@ suelg_update_complete_scan_mod = {
 	}
 }
 
-suelg_update_country_scan_lvl_mod = {
-	# log = ">> update country advanced survey level"
+suelg_remove_country_mod = {
 	remove_modifier = suelg_country_advanced_survey_lvl_1
 	remove_modifier = suelg_country_advanced_survey_lvl_2
 	remove_modifier = suelg_country_advanced_survey_lvl_3
@@ -199,32 +198,6 @@ suelg_update_country_scan_lvl_mod = {
 	remove_modifier = suelg_country_advanced_survey_lvl_23
 	remove_modifier = suelg_country_advanced_survey_lvl_24
 	remove_modifier = suelg_country_advanced_survey_lvl_25
-
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 1 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 2 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 3 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 4 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 5 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 6 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 7 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 8 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 9 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 10 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 11 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 12 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 13 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 14 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 15 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 16 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 17 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 18 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 19 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 20 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 21 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 22 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 23 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 24 }
-	inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 25 }
 }
 
 # this = planet
@@ -278,27 +251,23 @@ suelg_accelerate_ship_after_sp = {
 	clear_variable = suelg_actual_sp_days
 }
 
-# todo: refactor event suelg_advanced_survey.9
-# this = country scope
-suelg_upgrage_country_max_scan_lvl = {
-	change_variable = { which = suelg_max_scan_level value = 1 }
-	suelg_update_country_scan_lvl_mod = yes
-
+# this = planet scope
+# In the vanilla game, such planets have the "has_completed_project" flag set when completing projects on planets.
+#		I don't know what it's for, but the mod assumes that most of the planets will have "advanced survey" projects, and in order not to accidentally break some vanilla mechanics.
+# 	It's necessary to clean up the "has_completed_project" flags that were created by "advanced survey" projects.
+suelg_pre_fix_has_scan_projects = {
 	if = {
-		limit = { is_ai = no }
-		create_message = {
-			type = SUELG_SENSORS_IMPROVED
-			localization = SUELG_SENSORS_IMPROVED_MESSAGE
-			days = @suelg_notification_days
-			target = this.capital_scope
-			variable = {
-				type = variable
-				varname = suelg_max_scan_level
-				localization = LVL
-				scope = this
-			}
-		}
-	} else = {
-		country_event = { id = suelg_auto_creator.1 } # Search systems and create projects for AI's ships and capital system
+		limit = { NOT = { has_planet_flag = has_completed_project } }
+		set_planet_flag = suelg_hasnt_completed_project
 	}
+}
+
+# this = planet scope
+# Second part of the fix "suelg_pre_fix_has_scan_projects". Run when the "advanced survey" project is completed or canceled 
+suelg_post_fix_has_scan_projects = {
+	if = {
+		limit = { has_planet_flag = suelg_hasnt_completed_project }
+		remove_planet_flag = has_completed_project
+	}
+	remove_planet_flag = suelg_hasnt_completed_project
 }

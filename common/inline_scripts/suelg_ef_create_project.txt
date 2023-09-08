@@ -6,9 +6,5 @@ if = {
 		owner = event_target:t_owner
 	}
 
-	# prevent creating vanilla "has_completed_project" flag from scan projects
-	if = {
-		limit = { NOT = { has_planet_flag = has_completed_project } }
-		set_planet_flag = suelg_hasnt_completed_project
-	}
+	suelg_pre_fix_has_scan_projects = yes
 }

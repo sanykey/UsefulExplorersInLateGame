@@ -15,11 +15,15 @@ ship_event = {
 
 		suelg_get_base_sp_days = yes # set variable suelg_base_sp_days
 		suelg_calculate_survey_speed_factor = yes # set variable suelg_survey_speed
+		log = "START. BASE DAYS: [this.suelg_base_sp_days]"
+		log = "START. SURVEY SPEED: [this.suelg_survey_speed]"
 
 		change_variable = { which = suelg_survey_speed value = 1 }
 		set_variable = { which = suelg_actual_sp_days value = suelg_base_sp_days }
 		divide_variable = { which = suelg_actual_sp_days value = suelg_survey_speed }
 		floor_variable = suelg_actual_sp_days
+
+		log = "START. ACTUAL DAYS: [this.suelg_actual_sp_days]"
 
 		# log = ">> START PROJECT. CURRENT: [this.suelg_base_sp_days] ACTUAL: [this.suelg_actual_sp_days] SURVEY SP: [this.suelg_survey_speed]"
 		suelg_remain_or_complete_sp = yes
@@ -46,15 +50,17 @@ ship_event = {
 		save_event_target_as = t_ship
 	
 		suelg_get_base_sp_days = yes # set variable suelg_base_sp_days
-		# log = "BASE DAYS: [this.suelg_base_sp_days]"
 		suelg_calculate_survey_speed_factor = yes # set variable suelg_survey_speed
-		# log = "SURVEY SPEED: [this.suelg_survey_speed]"
+		log = "PROGRESS_25. BASE DAYS: [this.suelg_base_sp_days]"
+		log = "PROGRESS_25. SURVEY SPEED: [this.suelg_survey_speed]"
 		
 	
 		change_variable = { which = suelg_survey_speed value = 1 }
 		set_variable = { which = suelg_actual_sp_days value = suelg_base_sp_days }
 		divide_variable = { which = suelg_actual_sp_days value = suelg_survey_speed }
 		floor_variable = suelg_actual_sp_days
+
+		log = "PROGRESS_25. ACTUAL DAYS: [this.suelg_actual_sp_days]"
 
 		# log = "ACTUAL DAYS: [this.suelg_actual_sp_days]"
 	
@@ -98,7 +104,7 @@ ship_event = {
 			}
 	
 			suelg_subtract_actual_sp_days = yes
-			# log = ">> CHECK SP PROGRESS. FROM: [from.GetName] THIS: [This.GetName] DAYS: [this.suelg_actual_sp_days]"
+			log = ">> CHECK SP PROGRESS. FROM: [from.GetName] THIS: [This.GetName] DAYS: [this.suelg_actual_sp_days]"
 			suelg_remain_or_complete_sp = yes
 		}
 	} 
@@ -161,7 +167,7 @@ planet_event = {
 		# log = ">> ABORT PROJECT. THIS: [This.GetName]"
 		solar_system = {
 			owner = {
-				abort_scan_project = yes # todo: rename ef
+				suelg_abort_advanced_survey_SP = yes
 			}
 		}
 	} 

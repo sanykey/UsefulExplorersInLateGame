@@ -1,52 +1,9 @@
-@suelg_prescan_sp_days = 2
-@suelg_sp_check_days_1 = 400
-@suelg_sp_check_days_2 = 300
-@suelg_sp_check_days_3 = 175
-@suelg_sp_check_days_4 = 100
-@suelg_sp_check_days_5 = 50
-@suelg_sp_check_days_6 = 15
 
-# is used when checking the number of days remaining for a special Advanced Survey project.
-# 	If there are less than the specified number of days left, the project can be terminated:
-@suelg_sp_complete_remain_days = 10
-
-@suelg_spawn_archaeological_site_chance = 0.5 # %
-
-@suelg_spawn_anomaly_basic_chance = 5 # %
-@suelg_leaders_spawn_anomaly_add_chance = 0.5 # %
-
-# anomaly modifiers:
-# use fractional values here (0.01 = 1%):
-@suelg_map_the_start_edict_mod = 0.1 
-
-
-@suelg_spawn_resource_chance = 10 # %
-
-@suelg_spawn_energy_weight = 10
-@suelg_spawn_mineral_weight = 10
-@suelg_spawn_trade_weight = 10
-
-@suelg_spawn_physics_weight = 10
-@suelg_spawn_society_weight = 10
-@suelg_spawn_engineering_weight = 10
-
-@suelg_spawn_alloy_weight = 3
-@suelg_spawn_volatile_motes_weight = 2
-@suelg_spawn_rare_crystals_weight = 2
-@suelg_spawn_exotic_gases_weight = 2
-
-@suelg_max_possible_advanced_survey_lvl = 25 # don't set more than 25
-@suelg_upgrade_scanned_systems_num = 15
-@suelg_upgrade_scanned_systems_percent = 0.8 # use fractional values here (0.01 = 1%)
-
-@suelg_notification_days = 30
-@sueld_ship_speed_boost_days = 20
+####################################
+##### Advanced survey settings #####
+####################################
 @suelg_exp_per_day = 0.4
-
-#####################################
-##### orbital deposit spawning	#####
-#####################################
-@suelg_advanced_survey_lvl_factor = 0.25 # 0.25% increase chance per Advanced survey SP level
+@sueld_ship_speed_boost_days = 20
 
 #######################################
 ##### planetary deposit spawning	#####
@@ -60,9 +17,46 @@
 @suelg_planetary_deposit_chance_low_rare = 0.1
 @suelg_deposit_chance_planet_type_bonus = 1.5
 
-#################################
-##### Advanced survey days	#####
-#################################
+#########################
+##### Spawn chances	#####
+#########################
+
+# anomaly spawn chance:
+@suelg_spawn_anomaly_base_weight = 5 # 5 (5%) is vanilla chance
+@suelg_fail_spawn_anomaly_base_weight = 95
+
+# archelogy site spawn chance:
+@suelg_archelogy_spawn_base_weight = 1 # 0.1%
+@suelg_archelogy_fail_base_weight = 999
+
+# planetary deposit spawn chance:
+@suelg_planetary_dep_spawn_base_weight = 1 # 1%
+@suelg_planetary_dep_fail_base_weight = 99
+@suelg_planetary_size_by_every_deps = 4
+
+
+#####################################
+##### orbital deposit spawning	#####
+#####################################
+@suelg_mineral_spawn_base_weight = 10
+@suelg_energy_spawn_base_weight = 10
+@suelg_trade_spawn_base_weight = 10
+@suelg_alloy_spawn_base_weight = 3
+@suelg_zro_spawn_base_weight = 3
+@suelg_dark_matter_spawn_base_weight = 3
+@suelg_physics_spawn_base_weight = 10
+@suelg_society_spawn_base_weight = 10
+@suelg_engineering_spawn_base_weight = 10
+@suelg_volatile_motes_spawn_base_weight = 2
+@suelg_rare_crystals_spawn_base_weight = 2
+@suelg_exotic_gases_spawn_base_weight = 2
+
+@suelg_orbital_deposit_fail_base_weight = 200
+@suelg_advanced_survey_lvl_factor = 0.25 # 0.25% increase spawn orbital deposit chance per Advanced survey SP level
+
+#################################################
+##### Advanced survey special project days	#####
+#################################################
 # the number of days for each level of the special project "Extended survey". +20% per level:
 @suelg_advanced_survey_sp_days_1 = 40
 @suelg_advanced_survey_sp_days_2 = 48
@@ -89,3 +83,25 @@
 @suelg_advanced_survey_sp_days_23 = 1243
 @suelg_advanced_survey_sp_days_24 = 1333
 @suelg_advanced_survey_sp_days_25 = 1423
+
+############################################
+##### Advanced survey progress timings #####
+############################################
+@suelg_prescan_sp_days = 2
+@suelg_sp_check_days_1 = 400
+@suelg_sp_check_days_2 = 300
+@suelg_sp_check_days_3 = 175
+@suelg_sp_check_days_4 = 100
+@suelg_sp_check_days_5 = 50
+@suelg_sp_check_days_6 = 15
+@suelg_sp_check_days_7 = 7
+
+# is used when checking the number of days remaining for a special Advanced Survey project.
+# 	If there are less than the specified number of days left, the project can be terminated:
+@suelg_sp_complete_remain_days = 10
+
+####################################
+##### Other ########################
+####################################
+@suelg_notification_days = 30
+@suelg_max_possible_advanced_survey_lvl = 25 # don't set more than 25

@@ -2,27 +2,41 @@ namespace = suelg_spawn_anomaly
 
 # Calculate the chance for an anomaly to spawn 
 planet_event = {
-    id = suelg_spawn_anomaly.1
-    hide_window = yes
-    is_triggered_only = yes
+	id = suelg_spawn_anomaly.1
+	hide_window = yes
+	is_triggered_only = yes
 
-    immediate = {
+	immediate = {
 		# log = ">> CHECK ANOMALY. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
-		# init additional leader chance
-		event_target:t_leader = {
-			if = {
-				limit = { 
-					NOT = { is_variable_set = suelg_l_anomaly_add_chance }
-				}
-				set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
-			}
-		}
+
+		set_variable = { which = suelg_anomaly_ch_mod value = 1 }
+		inline_script = { script = suelg_add_by_tOwner V = suelg_anomaly_ch_mod T = has_agenda_selected N = agenda_chart_the_unknown M = 0.05 }
+		inline_script = { script = suelg_add_by_tOwner V = suelg_anomaly_ch_mod T = has_modifier N = agenda_chart_the_unknown_finish M = 0.05 }
+		inline_script = { script = suelg_add_by_tOwner V = suelg_anomaly_ch_mod T = has_edict N = map_the_stars M = 0.1 }
+		inline_script = { script = suelg_add_by_tOwner V = suelg_anomaly_ch_mod T = has_civic N = civic_eager_explorers M = 0.05 }
+		inline_script = { script = suelg_add_by_tOwner V = suelg_anomaly_ch_mod T = has_origin N = origin_fear_of_the_dark M = 0.1 }
+		inline_script = { script = suelg_add_by_tOwner V = suelg_anomaly_ch_mod T = has_technology N = tech_archeology_lab M = 0.1 }
+		inline_script = { script = suelg_add_by_tOwner V = suelg_anomaly_ch_mod T = has_policy_flag N = toxic_knights_questing M = 0.05 }
+
+		inline_script = { script = suelg_add_by_tShip V = suelg_anomaly_ch_mod T = has_modifier N = protege_onboard M = 0.2 }
+
+		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = subclass_scientist_explorer M = 0.1 } # not vanilla modifier
+		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_meticulous M = 0.1 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_meticulous_2 M = 0.15 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_prospector_3 M = 0.25 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_observant_3 M = 0.25 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_insightful_3 M = 0.25 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_scholarium_observer M = 0.05 }
+		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_whisperers_chosen M = 0.5 }
+
+		# log = ">> ANOMALY CHANCE. MOD: [This.suelg_anomaly_ch_mod]"
 
 		random_list = {
-			1 = { # 5 (5%) is vanilla chance
+			0 = {
 				modifier = {
-					add = event_target:t_leader.suelg_l_anomaly_add_chance
+					add = @suelg_spawn_anomaly_base_weight
 				}
+
 				modifier = {
 					factor = 0
 					OR = {
@@ -31,28 +45,20 @@ planet_event = {
 					}
 				}
 				modifier = {
-					factor = 1.1
-					event_target:t_owner = {
-						has_edict = map_the_stars
-					}
+					factor = this.suelg_anomaly_ch_mod
 				}
-				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 1.1 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_meticulous F = 1.1 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_meticulous_2 F = 1.15 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_prospector_3 F = 1.25 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_observant_3 F = 1.25 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_insightful_3 F = 1.25 }
-				inline_script = { script = suelg_add_mfactor_btrait T = leader_trait_scholarium_observer F = 1.05 }
-
+				# log = ">> ANOMALY SPAWN?"
 				planet_event = { id = suelg_spawn_anomaly.2 scopes = { from = event_target:t_ship } } # Spawn planet anomaly
 			}
-			100 = {
-				event_target:t_leader = {
-					change_variable = { which = suelg_l_anomaly_add_chance value = 0.1 }
+			0 = {
+				modifier = {
+					add = @suelg_fail_spawn_anomaly_base_weight
 				}
+				# log = ">> ANOMALY SPAWN FAIL"
 			}
 		}
-    }
+		clear_variable = suelg_anomaly_ch_mod
+	}
 }
 
 # Spawn planet anomaly
