@@ -1,11 +1,12 @@
 # suelg_ef_next_progress_ck inline script
+else_if = {
+	limit = {
+		check_variable = { which = suelg_actual_sp_days value > @suelg_sp_check_days_$N$ }
+	}
 
-limit = {
-	check_variable = { which = suelg_actual_sp_days value > @suelg_sp_check_days_$N$ }
+	ship_event = {
+		id = suelg_advanced_survey_progress.3
+		days = @suelg_sp_check_days_$N$
+		scopes = { from = event_target:t_planet }
+	} # Complete the project after the time calculated by a ship survey speed modifiers
 }
-log = ">> NEXT PROGRESS CHECK, N: $N$, DAYS: [this.suelg_actual_sp_days]"
-ship_event = {
-	id = suelg_advanced_survey_progress.3
-	days = @suelg_sp_check_days_$N$
-	scopes = { from = event_target:t_planet }
-} # Complete the project after the time calculated by a ship survey speed modifiers

@@ -74,7 +74,7 @@ ship_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		# log = ">> ON SP COMPLETE. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
+		# log = ">> ON_SUCCESS. FROM: [from.GetName] FROMFROM: [fromfrom.GetName]"
 		save_event_target_as = t_ship
 
 		leader = {
@@ -88,12 +88,12 @@ ship_event = {
 
 		fromfrom = {
 			save_event_target_as = t_planet
-			planet_event = { id = suelg_advanced_survey.3 } # Run Complete project effects
+			planet_event = { id = suelg_advanced_survey.3 } # Run effects after complete project
 		}
 	}
 }
 
-# Run Complete project effects
+# Run effects after complete project
 planet_event = {
 	id = suelg_advanced_survey.3
 	hide_window = yes
@@ -240,7 +240,6 @@ country_event = {
 		inline_script = { script = suelg_ef_upgrade_country_advanced_survey_lvl LVL = 1 }
 	}
 }
-
 
 # on_system_occupied
 # THIS = System: system being occupied

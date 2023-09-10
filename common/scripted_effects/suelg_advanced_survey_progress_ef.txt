@@ -25,8 +25,6 @@ suelg_get_base_sp_days = {
 	inline_script = { script = suelg_ef_get_base_sp_days LVL = 23 }
 	inline_script = { script = suelg_ef_get_base_sp_days LVL = 24 }
 	inline_script = { script = suelg_ef_get_base_sp_days LVL = 25 }
-
-	# suelg_get_base_sp_days_2 = { LVL = value:suelg_planet_started_advanced_survey_lvl }
 }
 
 # this = ship scope
@@ -77,42 +75,42 @@ suelg_calculate_survey_speed_factor = {
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = gestalt_trait_scientist_mind_wipe_01 F = -0.2 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic F = -0.1 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic_2 F = -0.3 }
+
+	multiply_variable = { which = suelg_survey_speed value = @suelg_survey_speed_factor }
 }
 
 # this = ship scope
-suelg_remain_or_complete_sp = {
-	log = "REMAIN_OR_COMPLETE: [this.suelg_actual_sp_days]"
-	if = {
-		limit = {
-			check_variable = { which = suelg_actual_sp_days value < @suelg_sp_complete_remain_days }
-		}
-		log = "REMAIN_OR_COMPLETE: FINISH"
-		clear_variable = suelg_actual_sp_days
-		ship_event = {
-			id = suelg_advanced_survey_progress.4
-			days = 1
-			scopes = { from = event_target:t_planet }
-		} # Finish the project ahead of time because of the speed modifiers of the ship
+suelg_calculate_actual_sp_days = {
+	suelg_get_base_sp_days = yes # set variable suelg_base_sp_days
+	suelg_calculate_survey_speed_factor = yes # set variable suelg_survey_speed
+	change_variable = { which = suelg_survey_speed value = 1 }
+	set_variable = { which = suelg_actual_sp_days value = suelg_base_sp_days }
 
-	} else = {
-		if = {
-			inline_script = { script = suelg_ef_next_progress_ck N = 1 }
-		} else_if = {
-			inline_script = { script = suelg_ef_next_progress_ck N = 2 }
-		} else_if = {
-			inline_script = { script = suelg_ef_next_progress_ck N = 3 }
-		} else_if = {
-			inline_script = { script = suelg_ef_next_progress_ck N = 4 }
-		} else_if = {
-			inline_script = { script = suelg_ef_next_progress_ck N = 5 }
-		} else = {
-			log = ">> NEXT PROGRESS CHECK, N: 6, 15, DAYS: [this.suelg_actual_sp_days]"
-			ship_event = {
-				id = suelg_advanced_survey_progress.3
-				days = @suelg_sp_check_days_6
-				scopes = { from = event_target:t_planet }
-			} # Complete the project after the time calculated by a ship survey speed modifiers
-		}
+	if = {
+		limit = { check_variable = { which = suelg_survey_speed value = 0 } }
+		set_variable = { which = suelg_survey_speed value = 1 }
+	}
+
+	divide_variable = { which = suelg_actual_sp_days value = suelg_survey_speed }
+	floor_variable = suelg_actual_sp_days
+}
+
+
+# this = ship scope
+suelg_remain_or_complete_sp = {
+	if = { limit = { always = no } }
+	inline_script = { script = suelg_ef_next_progress_ck N = 1 }
+	inline_script = { script = suelg_ef_next_progress_ck N = 2 }
+	inline_script = { script = suelg_ef_next_progress_ck N = 3 }
+	inline_script = { script = suelg_ef_next_progress_ck N = 4 }
+	inline_script = { script = suelg_ef_next_progress_ck N = 5 }
+	inline_script = { script = suelg_ef_next_progress_ck N = 6 }
+	else = {
+		ship_event = {
+			id = suelg_advanced_survey_progress.3
+			days = @suelg_sp_check_days_7
+			scopes = { from = event_target:t_planet }
+		} # Complete the project after the time calculated by a ship survey speed modifiers
 	}
 }
 
@@ -128,8 +126,10 @@ suelg_subtract_actual_sp_days = {
 		inline_script = { script = suelg_ef_subtract_actual_sp_days N = 4 }
 	} else_if = {
 		inline_script = { script = suelg_ef_subtract_actual_sp_days N = 5 }
+	} else_if = {
+		inline_script = { script = suelg_ef_subtract_actual_sp_days N = 6 }
 	} else = {
-		subtract_variable = { which = suelg_actual_sp_days value = @suelg_sp_check_days_6 }
+		subtract_variable = { which = suelg_actual_sp_days value = @suelg_sp_check_days_7 }
 		# log = ">> Subtract sp days, N: 6, DAYS: [this.suelg_actual_sp_days]"
 	}
 }

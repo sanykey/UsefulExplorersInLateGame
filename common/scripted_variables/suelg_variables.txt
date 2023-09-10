@@ -4,6 +4,8 @@
 ####################################
 @suelg_exp_per_day = 0.4
 @sueld_ship_speed_boost_days = 20
+@suelg_survey_speed_factor = 5 # multiply the project research speed by this number for debugging. 1 - default (off)
+@suelg_max_experience_factor = 0.1 # the maximum amount of experience gained from projects relative to the experience required to gain a current level
 
 #######################################
 ##### planetary deposit spawning	#####
@@ -87,14 +89,13 @@
 ############################################
 ##### Advanced survey progress timings #####
 ############################################
-@suelg_prescan_sp_days = 2
 @suelg_sp_check_days_1 = 400
 @suelg_sp_check_days_2 = 300
 @suelg_sp_check_days_3 = 175
 @suelg_sp_check_days_4 = 100
 @suelg_sp_check_days_5 = 50
 @suelg_sp_check_days_6 = 15
-@suelg_sp_check_days_7 = 7
+@suelg_sp_check_days_7 = 6
 
 # is used when checking the number of days remaining for a special Advanced Survey project.
 # 	If there are less than the specified number of days left, the project can be terminated:
@@ -105,3 +106,4 @@
 ####################################
 @suelg_notification_days = 30
 @suelg_max_possible_advanced_survey_lvl = 25 # don't set more than 25
+@suelg_sp_max_distance = 25

@@ -6,5 +6,5 @@ if = {
 		}
 	}
 	set_variable = { which = suelg_base_sp_days value = @suelg_advanced_survey_sp_days_$LVL$ }
-	log = "suelg_base_sp_days [this.suelg_base_sp_days], @suelg_advanced_survey_sp_days_$LVL$"
+	# log = "suelg_base_sp_days [this.suelg_base_sp_days], LVL: $LVL$"
 }
