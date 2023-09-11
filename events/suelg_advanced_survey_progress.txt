@@ -140,7 +140,6 @@ ship_event = {
 					save_event_target_as = t_owner
 				}
 			}
-
 			if = {
 				limit = {
 					distance = {
@@ -155,6 +154,7 @@ ship_event = {
 						suelg_is_researching_any_scan_sp = yes
 					}
 				}
+
 				# log = ">> TRY TO COMPLETE: ABORT AND RUN EFFECTS. FROM: [From.GetName]"
 				planet_event = { id = suelg_advanced_survey_progress.5 } # Abort completed project
 				planet_event = { id = suelg_advanced_survey.3 } # Run Complete project effects

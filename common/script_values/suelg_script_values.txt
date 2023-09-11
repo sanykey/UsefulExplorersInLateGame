@@ -12,3 +12,20 @@ suelg_planet_started_advanced_survey_lvl = {
 	min = 1
 	max = @suelg_max_possible_advanced_survey_lvl
 }
+
+# (lvl + 1) / 2 * lvl * scale_value) for "suelg_max_exp_for_leader"
+suelg_max_exp_for_leader2 = {
+	add = event_target:t_leader.trigger:has_skill
+	add = 1
+	divide = 2
+	mult = event_target:t_leader.trigger:has_skill
+	mult = @suelg_leader_exp_scale
+}
+
+# (lvl * base_value + suelg_max_exp_for_leader2) * max_exp_factor
+suelg_max_exp_for_leader = {
+	add = event_target:t_leader.trigger:has_skill
+	mult = @suelg_leader_exp_base
+	add = value:suelg_max_exp_for_leader2
+	mult = @suelg_max_experience_factor
+}

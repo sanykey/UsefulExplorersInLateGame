@@ -103,6 +103,7 @@ planet_event = {
 		# log = ">> COMPLETE SP EFFECTS"
 
 		suelg_add_exp_for_leader = yes
+
 		set_variable = { which = suelg_completed_advanced_survey_lvl value = suelg_started_advanced_survey_lvl }
 		planet_event = { id = suelg_spawn_resource.1 } # Calculate the chance for an orbital deposit to spawn 
 		planet_event = { id = suelg_spawn_archeology.1 } # Calculate the chance for an Archaeological site and spawn 

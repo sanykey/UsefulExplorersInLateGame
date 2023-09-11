@@ -231,6 +231,20 @@ suelg_add_exp_for_leader = {
 		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 23 }
 		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 24 }
 		inline_script = { script = suelg_ef_add_exp_for_leader LVL = 25 }
+
+		# (lvl * base_value + (lvl + 1) / 2 * lvl * scale_value) * max_exp_factor
+		if = {
+			limit = {
+				check_variable = { which = suelg_leader_exp value > value:suelg_max_exp_for_leader }
+			}
+			set_variable = { which = suelg_leader_exp value = value:suelg_max_exp_for_leader }
+		}
+
+		event_target:t_leader = {
+			add_experience = prev.suelg_leader_exp
+		}
+		clear_variable = suelg_leader_exp
+		clear_variable = suelg_leader_max_exp
 	}
 }
 
