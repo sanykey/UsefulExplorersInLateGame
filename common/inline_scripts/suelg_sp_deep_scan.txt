@@ -10,7 +10,7 @@ requirements = {
 }
 
 on_success = {
-	ship_event = { id = suelg_advanced_survey.2 }
+	ship_event = { id = suelg_advanced_survey_progress.6 }
 }
 on_start = {
 	ship_event = { id = suelg_advanced_survey_progress.1 }

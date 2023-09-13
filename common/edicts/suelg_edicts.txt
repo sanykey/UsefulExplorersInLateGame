@@ -1,0 +1,31 @@
+suelg_clear_projects = {
+	icon = "GFX_suelg_clear_projects_edict"
+	resources = {
+		category = edicts
+	}
+			
+	effect = {hidden_effect = {
+		if = {
+			limit = {
+				NOT = { has_country_flag = suelg_clear_project_started }
+			}
+			country_event = { id = suelg_advanced_survey.12 }
+		}
+	}}
+
+	allow = {
+		NOT = {
+			has_country_flag = suelg_clear_project_started
+		}
+	}
+
+	# potential = {
+	# 	NOT = {
+	# 		has_country_flag = suelg_clear_project_started
+	# 	}
+	# }
+
+	ai_weight = {
+		weight = 0	
+	}	
+}

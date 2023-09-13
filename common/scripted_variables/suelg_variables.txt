@@ -4,7 +4,7 @@
 ####################################
 @suelg_exp_per_day = 0.4
 @sueld_ship_speed_boost_days = 20
-@suelg_survey_speed_factor = 5 # multiply the project research speed by this number for debugging. 1 - default (off)
+@suelg_survey_speed_factor = 5 # 1 - default (off). Multiply the project research speed by this value for debugging. 
 
 #############################################
 ##### Advanced survey leader experience #####
@@ -31,7 +31,7 @@
 
 # anomaly spawn chance:
 @suelg_spawn_anomaly_base_weight = 5 # 5 (5%) is vanilla chance
-@suelg_fail_spawn_anomaly_base_weight = 95
+@suelg_fail_spawn_anomaly_base_weight = 95 # 95 (95%)
 
 # archelogy site spawn chance:
 @suelg_archelogy_spawn_base_weight = 1 # 0.1%

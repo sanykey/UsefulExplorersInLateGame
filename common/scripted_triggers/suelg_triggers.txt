@@ -113,7 +113,7 @@ suelg_can_create_scan_projects_near_ship = {
 }
 
 # this = leader scope
-suelg_is_researching_any_scan_sp = {
+suelg_is_leader_researching_any_sp = {
 	OR = {
 		is_researching_special_project = suelg_advanced_survey_SP_1
 		is_researching_special_project = suelg_advanced_survey_SP_2
@@ -140,5 +140,22 @@ suelg_is_researching_any_scan_sp = {
 		is_researching_special_project = suelg_advanced_survey_SP_23
 		is_researching_special_project = suelg_advanced_survey_SP_24
 		is_researching_special_project = suelg_advanced_survey_SP_25
+	}
+}
+
+suelg_is_ship_researching_any_sp = {
+	exists = event_target:t_ship
+	exists = event_target:t_leader
+	exists = event_target:t_planet
+	event_target:t_planet = {
+		distance = {
+			source = event_target:t_ship
+			max_distance <= @suelg_sp_max_distance
+			type = euclidean
+			same_solar_system = yes
+		}
+	}
+	event_target:t_leader = {
+		suelg_is_leader_researching_any_sp = yes
 	}
 }

@@ -64,35 +64,6 @@ fleet_event = {
     }
 }
 
-#this = Ship scope
-#fromfrom = Planet scope
-#from = Ship scope
-#suelg_advanced_survey_{X}_special_project on_success
-ship_event = {
-	id = suelg_advanced_survey.2
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		# log = ">> ON_SUCCESS. FROM: [from.GetName] FROMFROM: [fromfrom.GetName]"
-		save_event_target_as = t_ship
-
-		leader = {
-			save_event_target_as = t_leader
-			owner = {
-				save_event_target_as = t_owner
-			}
-
-			add_experience = -120 # remove vanilla experience from project
-		}
-
-		fromfrom = {
-			save_event_target_as = t_planet
-			planet_event = { id = suelg_advanced_survey.3 } # Run effects after complete project
-		}
-	}
-}
-
 # Run effects after complete project
 planet_event = {
 	id = suelg_advanced_survey.3
@@ -282,3 +253,24 @@ country_event = {
 	} 
 }
 
+country_event = {
+	id = suelg_advanced_survey.12
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = t_owner
+
+		event_target:t_owner = {
+			every_system_within_border = {
+				suelg_reset_system_projects = yes
+			}
+		}
+	}
+	after = {
+		set_timed_country_flag = {
+			flag = suelg_clear_project_started
+			days = 2
+		}
+	}
+}

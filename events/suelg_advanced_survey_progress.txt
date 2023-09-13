@@ -86,31 +86,43 @@ ship_event = {
 		if = {
 			limit = {  is_variable_set = suelg_actual_sp_days }
 
+			save_event_target_as = t_ship
+			if = {
+				limit = { exists = leader }
+				leader = {
+					save_event_target_as = t_leader
+				}
+			}
 			from = {
 				save_event_target_as = t_planet
 			}
 			owner = {
 				save_event_target_as = t_owner
 			}
-	
-			suelg_subtract_actual_sp_days = yes
-			# log = ">> CHECK SP PROGRESS. DAYS: [this.suelg_actual_sp_days]. FROM: [From.GetName]"
 
 			if = {
-				limit = {
-					check_variable = { which = suelg_actual_sp_days value <= @suelg_sp_complete_remain_days }
-				}
-				# log = ">> CHECK SP PROGRESS. FINISH [this.suelg_actual_sp_days]. FROM: [From.GetName]"
-				clear_variable = suelg_actual_sp_days
-				ship_event = {
-					id = suelg_advanced_survey_progress.4
-					days = 1
-					scopes = { from = event_target:t_planet }
-				} # Finish the project ahead of time because of the speed modifiers of the ship
+				limit = { suelg_is_ship_researching_any_sp = yes }
 
-			} else = {
-				# log = ">> CHECK SP PROGRESS. NEXT [this.suelg_actual_sp_days]. FROM: [From.GetName]"
-				suelg_remain_or_complete_sp = yes
+				suelg_subtract_actual_sp_days = yes
+				# log = ">> CHECK SP PROGRESS. DAYS: [this.suelg_actual_sp_days]. FROM: [From.GetName]"
+	
+				if = {
+					limit = {
+						check_variable = { which = suelg_actual_sp_days value <= @suelg_sp_complete_remain_days }
+					}
+					# log = ">> CHECK SP PROGRESS. FINISH [this.suelg_actual_sp_days]. FROM: [From.GetName]"
+					clear_variable = suelg_actual_sp_days
+					ship_event = {
+						id = suelg_advanced_survey_progress.4
+						days = 1
+						scopes = { from = event_target:t_planet }
+					} # Finish the project ahead of time because of the speed modifiers of the ship
+	
+				} else = {
+					# log = ">> CHECK SP PROGRESS. NEXT [this.suelg_actual_sp_days]. FROM: [From.GetName]"
+					suelg_remain_or_complete_sp = yes
+				}
+
 			}
 		}
 	} 
@@ -141,19 +153,7 @@ ship_event = {
 				}
 			}
 			if = {
-				limit = {
-					distance = {
-						source = event_target:t_ship
-						max_distance <= @suelg_sp_max_distance
-						type = euclidean
-						same_solar_system = yes
-					}
-					exists = event_target:t_ship
-					exists = event_target:t_leader
-					event_target:t_leader = {
-						suelg_is_researching_any_scan_sp = yes
-					}
-				}
+				limit = { suelg_is_ship_researching_any_sp = yes }
 
 				# log = ">> TRY TO COMPLETE: ABORT AND RUN EFFECTS. FROM: [From.GetName]"
 				planet_event = { id = suelg_advanced_survey_progress.5 } # Abort completed project
@@ -178,4 +178,33 @@ planet_event = {
 			}
 		}
 	} 
+}
+
+#this = Ship scope
+#fromfrom = Planet scope
+#from = Ship scope
+#suelg_advanced_survey_{X}_special_project on_success
+ship_event = {
+	id = suelg_advanced_survey_progress.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# log = ">> ON_SUCCESS. FROM: [from.GetName] FROMFROM: [fromfrom.GetName]"
+		save_event_target_as = t_ship
+
+		leader = {
+			save_event_target_as = t_leader
+			owner = {
+				save_event_target_as = t_owner
+			}
+
+			add_experience = -120 # remove vanilla experience from project
+		}
+
+		fromfrom = {
+			save_event_target_as = t_planet
+			planet_event = { id = suelg_advanced_survey.3 } # Run effects after complete project
+		}
+	}
 }
