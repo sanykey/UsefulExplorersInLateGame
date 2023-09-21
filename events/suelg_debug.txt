@@ -103,43 +103,20 @@ event = {
 	is_triggered_only = yes
 
 	immediate = {
-		# event = { id = suelg_debug.3 } # get player country
-		random_playable_country = {
-			limit = {
-				is_ai = no
-			}
+		if = {
+			limit = { is_scope_type = country }
 			save_event_target_as = t_owner
+		} else = {
+			random_playable_country = {
+				limit = {
+					is_ai = no
+				}
+				save_event_target_as = t_owner
+			}
 		}
 
 		event_target:t_owner = {
-			suelg_init_country_vars = yes
-
-			if = { limit = { always = no } }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 1 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 2 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 3 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 4 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 5 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 6 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 7 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 8 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 9 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 10 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 11 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 12 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 13 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 14 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 15 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 16 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 17 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 18 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 19 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 20 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 21 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 22 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 23 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 24 }
-			inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 25 }
+			suelg_debug_upgrade_sp_lvl = yes
 		}
 	}
 }
@@ -151,11 +128,16 @@ event = {
 	is_triggered_only = yes
 
 	immediate = {
-		random_playable_country = {
-			limit = {
-				is_ai = no
-			}
+		if = {
+			limit = { is_scope_type = country }
 			save_event_target_as = t_owner
+		} else = {
+			random_playable_country = {
+				limit = {
+					is_ai = no
+				}
+				save_event_target_as = t_owner
+			}
 		}
 
 		event_target:t_owner = {
@@ -173,15 +155,34 @@ event = {
 	is_triggered_only = yes
 
 	immediate = {
-		random_playable_country = {
-			limit = {
-				is_ai = no
-			}
+		if = {
+			limit = { is_scope_type = country }
 			save_event_target_as = t_owner
+		} else = {
+			random_playable_country = {
+				limit = {
+					is_ai = no
+				}
+				save_event_target_as = t_owner
+			}
 		}
 
 		event_target:t_owner = {
 			suelg_add_scan_project_near_capital = yes
+		}
+	}
+}
+
+# upgrade max scan lvl for all countries
+event = {
+	id = suelg_debug.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_playable_country = {
+			save_event_target_as = t_owner
+			suelg_debug_upgrade_sp_lvl = yes
 		}
 	}
 }

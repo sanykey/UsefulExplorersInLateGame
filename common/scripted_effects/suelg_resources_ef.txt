@@ -178,3 +178,45 @@ suelg_new_rare_dep_message = {
 		}
 	}
 }
+
+suelg_new_science_dep_message = {
+	solar_system = {
+		owner = {
+			if = {
+				limit = { is_ai = no }
+				create_message = {
+					type = SUELG_NEW_SCIENCE_DEPOSIT
+					localization = SUELG_NEW_SCIENCE_DEPOSIT_$TYPE$
+					days = @suelg_notification_days
+					target = FROM
+					variable = {
+						type = name
+						localization = PLANET
+						scope = FROM
+					}
+				}
+			}
+		}
+	}
+}
+
+suelg_new_basic_dep_message = {
+	solar_system = {
+		owner = {
+			if = {
+				limit = { is_ai = no }
+				create_message = {
+					type = SUELG_NEW_BASIC_DEPOSIT
+					localization = SUELG_NEW_BASIC_DEPOSIT_$TYPE$
+					days = @suelg_notification_days
+					target = FROM
+					variable = {
+						type = name
+						localization = PLANET
+						scope = FROM
+					}
+				}
+			}
+		}
+	}
+}

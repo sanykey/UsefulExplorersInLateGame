@@ -196,6 +196,7 @@ planet_event = {
 	immediate = {
 		suelg_update_deposit_10 = { D = d_minerals }
 		suelg_set_habitat_type = { TYPE = mining_habitat }
+		suelg_new_basic_dep_message = { TYPE = d_minerals }
 	}
 }
 
@@ -208,6 +209,7 @@ planet_event = {
 	immediate = {
 		suelg_update_deposit_10 = { D = d_energy }
 		suelg_set_habitat_type = { TYPE = energy_habitat }
+		suelg_new_basic_dep_message = { TYPE = d_energy }
 	}
 }
 
@@ -219,6 +221,7 @@ planet_event = {
 
 	immediate = {
 		suelg_update_deposit_10 = { D = d_trade_value }
+		suelg_new_basic_dep_message = { TYPE = d_trade_value }
 	}
 }
 
@@ -296,6 +299,8 @@ planet_event = {
 	immediate = {
 		suelg_update_deposit_10 = { D = d_physics }
 		suelg_set_habitat_type = { TYPE = research_habitat }
+
+		suelg_new_science_dep_message = { TYPE = d_physics }
 	}
 }
 
@@ -308,6 +313,8 @@ planet_event = {
 	immediate = {
 		suelg_update_deposit_10 = { D = d_society }
 		suelg_set_habitat_type = { TYPE = research_habitat }
+
+		suelg_new_science_dep_message = { TYPE = d_society }
 	}
 }
 
@@ -320,6 +327,8 @@ planet_event = {
 	immediate = {
 		suelg_update_deposit_10 = { D = d_engineering }
 		suelg_set_habitat_type = { TYPE = research_habitat }
+
+		suelg_new_science_dep_message = { TYPE = d_engineering }
 	}
 }
 
