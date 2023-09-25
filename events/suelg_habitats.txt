@@ -1,0 +1,296 @@
+namespace = suelg_habitats
+
+# on_megastructure_built
+# FROM = megastructure scope
+# FromFrom = System
+country_event = {
+	id = suelg_habitats.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		FROM = {
+			if = {
+				limit = {
+					OR = {
+						is_megastructure_type = major_orbital
+						is_megastructure_type = minor_orbital
+					}
+				}
+
+				planet = {
+					planet_event = { id = suelg_habitats.2 }
+				}
+			} else_if = {
+				limit = {
+					is_megastructure_type = habitat_central_complex
+				}
+
+				planet = {
+					solar_system = {
+						suelg_fix_habitat_deps_in_system = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+planet_event = {
+	id = suelg_habitats.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		suelg_can_have_orbital_deposits = yes
+	}
+
+	immediate = {
+		suelg_get_habitat_and_orbital = yes
+
+		if = {
+			limit = { exists = event_target:t_habitat }
+			every_deposit = {
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_minerals
+					DHTYPE = d_hab_minerals
+					ACTION = add
+				}
+	
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_energy
+					DHTYPE = d_hab_energy
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_physics
+					DHTYPE = d_hab_physics
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_society
+					DHTYPE = d_hab_society
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_engineering
+					DHTYPE = d_hab_engineering
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_exotic_gases
+					DHTYPE = d_hab_gas
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_rare_crystals
+					DHTYPE = d_hab_crystal
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_volatile_motes
+					DHTYPE = d_hab_mote
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_alloys
+					DHTYPE = d_hab_alloy
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_zro_deposit
+					DHTYPE = d_hab_zro
+					ACTION = add
+				}
+
+				suelg_check_and_upd_hab_deposits_3fx = {
+					DTYPE = d_dark_matter_deposit
+					DHTYPE = d_hab_dark_matter
+					ACTION = add
+				}
+			}
+			remove_dep_flags = { DTYPE = d_rare_crystals }
+			remove_dep_flags = { DTYPE = d_volatile_motes }
+			remove_dep_flags = { DTYPE = d_exotic_gases }
+			remove_dep_flags = { DTYPE = d_alloys }
+			remove_dep_flags = { DTYPE = d_zro_deposit }
+			remove_dep_flags = { DTYPE = d_dark_matter_deposit }
+		}
+	}
+}
+
+# on_destroying_station
+# This = station
+# From = planet scope it was built on
+ship_event = {
+	id = suelg_habitats.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			is_ship_size = major_orbital_resource
+			is_ship_size = minor_orbital_resource
+		}
+	}
+
+	immediate = {
+		FROM = {
+			planet_event = { id = suelg_habitats.4 }
+		}
+	}
+}
+
+planet_event = {
+	id = suelg_habitats.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		suelg_can_have_orbital_deposits = yes
+	}
+
+	immediate = {
+		suelg_get_habitat_and_orbital = yes
+
+		if = {
+			limit = { exists = event_target:t_habitat }
+			every_deposit = {
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_minerals
+					DHTYPE = d_hab_minerals
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_energy
+					DHTYPE = d_hab_energy
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_physics
+					DHTYPE = d_hab_physics
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_society
+					DHTYPE = d_hab_society
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_engineering
+					DHTYPE = d_hab_engineering
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits = {
+					DTYPE = d_engineering
+					DHTYPE = d_hab_engineering
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_exotic_gases
+					DHTYPE = d_hab_gas
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_rare_crystals
+					DHTYPE = d_hab_crystal
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_volatile_motes
+					DHTYPE = d_hab_mote
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_alloys
+					DHTYPE = d_hab_alloy
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits_5fx = {
+					DTYPE = d_zro_deposit
+					DHTYPE = d_hab_zro
+					ACTION = delete
+				}
+
+				suelg_check_and_upd_hab_deposits_3fx = {
+					DTYPE = d_dark_matter_deposit
+					DHTYPE = d_hab_dark_matter
+					ACTION = delete
+				}
+			}
+			remove_dep_flags = { DTYPE = d_rare_crystals }
+			remove_dep_flags = { DTYPE = d_volatile_motes }
+			remove_dep_flags = { DTYPE = d_exotic_gases }
+			remove_dep_flags = { DTYPE = d_alloys }
+			remove_dep_flags = { DTYPE = d_zro_deposit }
+			remove_dep_flags = { DTYPE = d_dark_matter_deposit }
+		}
+	}
+}
+
+# on_game_start
+# rebuild deposits for habitats in capical star systems at the beginning of the game
+event = {
+	id = suelg_habitats.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_country = {
+			limit = { exists = capital_scope }
+			capital_scope = {
+				solar_system = {
+					if = {
+						limit = { suelg_has_habitat_in_system = yes }
+						suelg_fix_habitat_deps_in_system = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# rebuild deposits for an habitat in the star system in which the selected planet is located
+system_event = {
+	id = suelg_habitats.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		solar_system = {
+			suelg_fix_habitat_deps_in_system = yes
+		}
+	}
+}
+
+# rebuild deposits for all habitats in game 
+event = {
+	id = suelg_habitats.7
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		every_system = {
+			limit = { suelg_has_habitat_in_system = yes }
+			suelg_fix_habitat_deps_in_system = yes
+		}
+	}
+}

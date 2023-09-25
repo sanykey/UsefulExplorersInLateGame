@@ -1,0 +1,6 @@
+# spawn_deposits/suelg_add_deposit inline script
+else_if = {
+	limit = {	has_deposit = $D$_$LVL$ }
+	remove_deposit = $D$_$LVL$
+	add_deposit = $D$_$NEXT_LVL$
+}

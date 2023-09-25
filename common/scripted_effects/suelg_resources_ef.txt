@@ -1,4 +1,102 @@
 # this = planet scope
+suelg_get_habitat_and_orbital = {
+	save_event_target_as = t_planet
+
+	solar_system = {
+		random_system_planet = {
+			limit = {
+				has_planet_flag = habitat
+			}
+			save_event_target_as = t_habitat
+		}
+	}
+
+	if = {
+		limit = {
+			any_fleet_in_orbit = {
+				OR = {
+					is_ship_size = major_orbital_resource
+					is_ship_size = minor_orbital_resource
+				}
+			}
+		}
+		random_fleet_in_orbit = {
+			limit = {
+				OR = {
+					is_ship_size = major_orbital_resource
+					is_ship_size = minor_orbital_resource
+				}
+			}
+			save_event_target_as = t_orbital
+		}
+	} else = {
+		solar_system = {
+			random_system_planet = {
+				limit = {
+					is_planet_class = pc_habitat
+					orbit = {
+						is_same_value = event_target:t_planet
+					}
+				}
+				save_event_target_as = t_orbital_habitat
+			}
+		}
+	}
+}
+
+suelg_add_habitat_deposit_and_flag = {
+	suelg_get_habitat_and_orbital = yes
+
+	if = {
+		limit = {
+			OR = {
+				exists = event_target:t_orbital
+				exists = event_target:t_orbital_habitat
+			}
+			exists = event_target:t_habitat
+		}
+
+		event_target:t_habitat = {
+			suelg_add_deposit_$MAX_DEP_LVL$ = { D = $HAB_DEP_TYPE$ }
+		}
+
+		[[FLAG_TYPE]
+			if = {
+				limit = {
+					exists = event_target:t_orbital
+				}
+				event_target:t_orbital = {
+					set_fleet_flag = $FLAG_TYPE$_orbital
+				}
+			} else_if = {
+				limit = {
+					exists = event_target:t_orbital_habitat
+				}
+				event_target:t_orbital_habitat = {
+					set_planet_flag = $FLAG_TYPE$_habitat
+				}
+			}
+		]
+	}
+}
+
+suelg_add_habitat_deposit = {
+	suelg_find_habitat = yes
+
+	if = {
+		limit = { 
+			exists = event_target:t_orbital
+			exists = event_target:t_habitat
+		}
+
+		last_added_deposit = {
+			suelg_add_districts_flag = yes
+		}
+	}
+}
+
+
+# this = planet scope
 suelg_get_habitat_in_orbit = {
 	save_event_target_as = t_planet
 
@@ -15,93 +113,37 @@ suelg_get_habitat_in_orbit = {
 	}
 }
 
-suelg_update_deposit_10 = {
-	if = {
-		limit = {	has_deposit = $D$_1 }
-		remove_deposit = $D$_1
-		add_deposit = $D$_2
-	}
-	else_if = {
-		limit = { has_deposit = $D$_2 }
-		remove_deposit = $D$_2
-		add_deposit = $D$_3
-	}
-	else_if = {
-		limit = { has_deposit = $D$_3 }
-		remove_deposit = $D$_3
-		add_deposit = $D$_4
-	}
-	else_if = {
-		limit = { has_deposit = $D$_4 }
-		remove_deposit = $D$_4
-		add_deposit = $D$_5
-	}
-	else_if = {
-		limit = { has_deposit = $D$_5 }
-		remove_deposit = $D$_5
-		add_deposit = $D$_6
-	}
-	else_if = {
-		limit = { has_deposit = $D$_6 }
-		remove_deposit = $D$_6
-		add_deposit = $D$_7
-	}
-	else_if = {
-		limit = { has_deposit = $D$_7 }
-		remove_deposit = $D$_7
-		add_deposit = $D$_8
-	}
-	else_if = {
-		limit = { has_deposit = $D$_8 }
-		remove_deposit = $D$_8
-		add_deposit = $D$_9
-	}
-	else_if = {
-		limit = { has_deposit = $D$_9 }
-		remove_deposit = $D$_9
-		add_deposit = $D$_10
-	}
+suelg_add_deposit_10 = {
+	if = { limit = { always = no } }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 1 NEXT_LVL = 2 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 2 NEXT_LVL = 3 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 3 NEXT_LVL = 4 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 4 NEXT_LVL = 5 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 5 NEXT_LVL = 6 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 6 NEXT_LVL = 7 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 7 NEXT_LVL = 8 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 8 NEXT_LVL = 9 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 9 NEXT_LVL = 10 }
 	else = { add_deposit = $D$_1 }
 }
 
-suelg_update_deposit_5 = {
-	if = {
-		limit = { has_deposit = $D$_1 }
-		remove_deposit = $D$_1
-		add_deposit = $D$_2
-	}
-	else_if = {
-		limit = { has_deposit = $D$_2 }
-		remove_deposit = $D$_2
-		add_deposit = $D$_3
-	}
-	else_if = {
-		limit = { has_deposit = $D$_3 }
-		remove_deposit = $D$_3
-		add_deposit = $D$_4
-	}
-	else_if = {
-		limit = { has_deposit = $D$_4 }
-		remove_deposit = $D$_4
-		add_deposit = $D$_5
-	}
+suelg_add_deposit_5 = {
+	if = { limit = { always = no } }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 1 NEXT_LVL = 2 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 2 NEXT_LVL = 3 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 3 NEXT_LVL = 4 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 4 NEXT_LVL = 5 }
 	else = { add_deposit = $D$_1 }
 }
 
-suelg_update_deposit_3 = {
-	if = {
-		limit = { has_deposit = $D$_1 }
-		remove_deposit = $D$_1
-		add_deposit = $D$_2
-	}
-	else_if = {
-		limit = { has_deposit = $D$_2 }
-		remove_deposit = $D$_2
-		add_deposit = $D$_3
-	}
+suelg_add_deposit_3 = {
+	if = { limit = { always = no } }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 1 NEXT_LVL = 2 }
+	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 2 NEXT_LVL = 3 }
 	else = { add_deposit = $D$_1 }
 }
 
+# todo: deprecated?
 # this = planet scope
 suelg_set_habitat_type = {
 	suelg_get_habitat_in_orbit = yes
@@ -220,3 +262,4 @@ suelg_new_basic_dep_message = {
 		}
 	}
 }
+

@@ -55,10 +55,10 @@ planet_event = {
 	immediate = {
 		# log = ">> SPAWN PLANETARY DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 		random_list = {
-			inline_script = suelg_ev_spawn_energy_dep
-			inline_script = suelg_ev_spawn_mineral_dep
-			inline_script = suelg_ev_spawn_food_dep
-			inline_script = suelg_ev_spawn_rare_dep
+			inline_script = spawn_planetary_deposits/suelg_spawn_energy_dep
+			inline_script = spawn_planetary_deposits/suelg_spawn_mineral_dep
+			inline_script = spawn_planetary_deposits/suelg_spawn_food_dep
+			inline_script = spawn_planetary_deposits/suelg_spawn_rare_dep
 		}
 	}
 }

@@ -1,4 +1,4 @@
-# inline script suelg_ev_spawn_rare_dep
+# inline script suelg_spawn_rare_dep
 ####################
 #####	MOTES #####
 ####################

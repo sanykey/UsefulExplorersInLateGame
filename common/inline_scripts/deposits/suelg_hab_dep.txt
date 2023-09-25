@@ -1,0 +1,20 @@
+# deposits/suelg_hab_dep inline script
+icon = "unused/d_space_walk"
+is_for_colonizable = yes
+category = $CAT$
+
+potential = {
+	can_have_habitable_deposits = yes
+	is_planet_class = pc_habitat
+}
+
+resources = {
+	category = $RCAT$
+	produces = {
+		$TYPE$ = $AMOUNT$
+	}
+}
+
+drop_weight = {
+	weight = 0
+}

@@ -1,0 +1,23 @@
+# habitats_ef/suelg_check_and_upd_hab_deposits_fx inline script
+else_if = {
+	limit = { 
+		is_deposit_type = $DTYPE$_$LVL$
+	}
+	if = {
+		limit = {
+			event_target:t_planet = {
+				has_planet_flag = suelg_$DTYPE$_$LVL$
+			}
+		}
+		while = {
+			count = $LVL$
+			event_target:t_habitat = {
+					suelg_$ACTION$_deposit_$MAXLVL$ = { D = $DHTYPE$ }
+			}
+		}
+	} else = {
+		event_target:t_planet = {
+			set_planet_flag = suelg_$DTYPE$_$LVL$
+		}
+	}
+}

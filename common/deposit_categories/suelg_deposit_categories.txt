@@ -1,0 +1,3 @@
+deposit_cat_physics = {}
+deposit_cat_society = {}
+deposit_cat_engineering = {}

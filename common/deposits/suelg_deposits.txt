@@ -1,0 +1,154 @@
+d_hab_energy_1 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 1 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_2 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 2 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_3 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 3 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_4 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 4 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_5 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 5 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_6 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 6 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_7 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 7 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_8 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 8 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_9 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 9 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+d_hab_energy_10 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = energy AMOUNT = 10 RCAT = hab_mining_deposits CAT = deposit_cat_energy }
+}
+
+d_hab_minerals_1 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 1 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_2 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 2 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_3 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 3 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_4 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 4 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_5 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 5 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_6 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 6 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_7 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 7 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_8 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 8 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_9 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 9 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+d_hab_minerals_10 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minerals AMOUNT = 10 RCAT = hab_mining_deposits CAT = deposit_cat_minerals }
+}
+
+d_hab_physics_1 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 1 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_2 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 2 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_3 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 3 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_4 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 4 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_5 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 5 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_6 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 6 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_7 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 7 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_8 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 8 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_9 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 9 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+d_hab_physics_10 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = physics_research AMOUNT = 10 RCAT = hab_research_deposits CAT = deposit_cat_physics }
+}
+
+d_hab_society_1 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 1 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_2 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 2 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_3 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 3 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_4 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 4 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_5 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 5 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_6 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 6 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_7 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 7 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_8 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 8 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_9 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 9 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+d_hab_society_10 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = society_research AMOUNT = 10 RCAT = hab_research_deposits CAT = deposit_cat_society }
+}
+
+d_hab_engineering_1 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 1 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_2 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 2 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_3 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 3 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_4 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 4 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_5 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 5 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_6 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 6 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_7 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 7 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_8 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 8 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_9 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 9 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}
+d_hab_engineering_10 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 10 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
+}

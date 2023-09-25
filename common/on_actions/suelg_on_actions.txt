@@ -6,10 +6,9 @@ on_fleet_enter_orbit = {
 
 on_tech_increased = {
 	events = {
-		suelg_advanced_survey.9
+		suelg_advanced_survey.9 # todo: check wtf?
 	}
 }
-
 
 # on_bi_yearly_pulse
 # on_five_year_pulse
@@ -40,5 +39,23 @@ on_system_lost = {
 suelg_ship_complete_scan = {
 	events = {
 		suelg_advanced_survey_progress.4
+	}
+}
+
+on_megastructure_built = {
+	events = {
+		suelg_habitats.1
+	}
+}
+
+on_destroying_station = {
+	events = {
+		suelg_habitats.3
+	}
+}
+
+on_game_start = {
+	events = {
+		suelg_habitats.5
 	}
 }

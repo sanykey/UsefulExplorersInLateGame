@@ -22,7 +22,7 @@ suelg_spawn_anomaly = {
 }
 
 # this = ship scope
-add_anomaly_notification = {
+add_anomaly_notification = { # todo: name prefix
 	create_message = {
 		type = SUELG_ANOMALY_DETECTED
 		localization = SUELG_ANOMALY_DETECTED_MESSAGE

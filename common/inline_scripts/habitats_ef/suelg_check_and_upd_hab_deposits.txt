@@ -1,0 +1,12 @@
+# habitats_ef/suelg_check_and_upd_hab_deposits inline script
+else_if = {
+	limit = { 
+		is_deposit_type = $DTYPE$_$LVL$
+	}
+	while = {
+		count = $LVL$
+		event_target:t_habitat = {
+				suelg_$ACTION$_deposit_$MAXLVL$ = { D = $DHTYPE$ }
+		}
+	}
+}

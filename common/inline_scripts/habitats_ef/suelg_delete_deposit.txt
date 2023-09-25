@@ -1,0 +1,6 @@
+# habitats_ef/suelg_delete_deposit inline script
+else_if = {
+	limit = { has_deposit = $D$_$LVL$ }
+	remove_deposit = $D$_$LVL$
+	add_deposit = $D$_$LOWER_LVL$
+}

@@ -1,4 +1,4 @@
-# inline script suelg_ev_spawn_energy_dep
+# inline script suelg_spawn_energy_dep
 0 = {
 	modifier = {
 		add = @suelg_planetary_deposit_chance_high

@@ -1,0 +1,87 @@
+suelg_delete_deposit_10 = {
+	if = {
+		limit = { has_deposit = $D$_1 }
+		remove_deposit = $D$_1
+	}
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 2 LOWER_LVL = 1 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 3 LOWER_LVL = 2 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 4 LOWER_LVL = 3 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 5 LOWER_LVL = 4 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 6 LOWER_LVL = 5 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 7 LOWER_LVL = 6 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 8 LOWER_LVL = 7 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 9 LOWER_LVL = 8 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 10 LOWER_LVL = 9 }
+}
+
+suelg_delete_deposit_5 = {
+	if = {
+		limit = { has_deposit = $D$_1 }
+		remove_deposit = $D$_1
+	}
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 2 LOWER_LVL = 1 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 3 LOWER_LVL = 2 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 4 LOWER_LVL = 3 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 5 LOWER_LVL = 4 }
+}
+
+suelg_delete_deposit_3 = {
+	if = {
+		limit = { has_deposit = $D$_1 }
+		remove_deposit = $D$_1
+	}
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 2 LOWER_LVL = 1 }
+	inline_script = { script = habitats_ef/suelg_delete_deposit D = $D$ LVL = 3 LOWER_LVL = 2 }
+}
+
+
+suelg_check_and_upd_hab_deposits_3fx = {
+	if = { limit = { always = no } }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 1 MAXLVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 2 MAXLVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 3 MAXLVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+}
+
+suelg_check_and_upd_hab_deposits_5fx = {
+	if = { limit = { always = no } }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 1 MAXLVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 2 MAXLVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 3 MAXLVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 4 MAXLVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 5 MAXLVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+}
+
+suelg_check_and_upd_hab_deposits = {
+	if = { limit = { always = no } }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 1 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 2 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 3 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 4 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 5 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 6 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 7 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 8 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 9 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits LVL = 10 MAXLVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
+}
+
+remove_dep_flags = {
+	remove_planet_flag = suelg_$DTYPE$_1
+	remove_planet_flag = suelg_$DTYPE$_2
+	remove_planet_flag = suelg_$DTYPE$_3
+	remove_planet_flag = suelg_$DTYPE$_4
+	remove_planet_flag = suelg_$DTYPE$_5
+	remove_planet_flag = suelg_$DTYPE$_6
+	remove_planet_flag = suelg_$DTYPE$_7
+	remove_planet_flag = suelg_$DTYPE$_8
+	remove_planet_flag = suelg_$DTYPE$_9
+	remove_planet_flag = suelg_$DTYPE$_10
+}
+
+# scope = system
+suelg_fix_habitat_deps_in_system = {
+	every_system_planet = {
+		limit = { suelg_has_orbital_in_orbit = yes }
+		planet_event = { id = suelg_habitats.2 }
+	}
+}

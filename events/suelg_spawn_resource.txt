@@ -194,8 +194,14 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_10 = { D = d_minerals }
-		suelg_set_habitat_type = { TYPE = mining_habitat }
+		suelg_add_deposit_10 = { D = d_minerals }
+
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 10
+			HAB_DEP_TYPE = d_hab_minerals
+			FLAG_TYPE = mining
+		}
+
 		suelg_new_basic_dep_message = { TYPE = d_minerals }
 	}
 }
@@ -207,8 +213,14 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_10 = { D = d_energy }
-		suelg_set_habitat_type = { TYPE = energy_habitat }
+		suelg_add_deposit_10 = { D = d_energy }
+
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 10
+			HAB_DEP_TYPE = d_hab_energy
+			FLAG_TYPE = energy
+		}
+
 		suelg_new_basic_dep_message = { TYPE = d_energy }
 	}
 }
@@ -220,7 +232,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_10 = { D = d_trade_value }
+		suelg_add_deposit_10 = { D = d_trade_value }
 		suelg_new_basic_dep_message = { TYPE = d_trade_value }
 	}
 }
@@ -232,13 +244,13 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_5 = { D = d_alloys }
+		suelg_add_deposit_5 = { D = d_alloys }
 
-		suelg_get_habitat_in_orbit = yes
+		suelg_get_habitat_and_orbital = yes
 		if = {
-			limit = { exists = event_target:t_habitat }
+			limit = { exists = event_target:t_orbital }
 			event_target:t_habitat = {
-				suelg_update_deposit_5 = { D = d_hab_alloy }
+				suelg_add_deposit_5 = { D = d_hab_alloy }
 				suelg_new_habitat_dep_message = { TYPE = d_hab_alloy }
 			}
 		} else = {
@@ -254,13 +266,13 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_5 = { D = d_zro_deposit }
+		suelg_add_deposit_5 = { D = d_zro_deposit }
 
-		suelg_get_habitat_in_orbit = yes
+		suelg_get_habitat_and_orbital = yes
 		if = {
-			limit = { exists = event_target:t_habitat }
+			limit = { exists = event_target:t_orbital }
 			event_target:t_habitat = {
-				suelg_update_deposit_5 = { D = d_hab_zro }
+				suelg_add_deposit_5 = { D = d_hab_zro }
 				suelg_new_habitat_dep_message = { TYPE = d_hab_zro }
 			}
 		} else = {
@@ -276,12 +288,12 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_3 = { D = d_dark_matter_deposit }
-		suelg_get_habitat_in_orbit = yes
+		suelg_add_deposit_3 = { D = d_dark_matter_deposit }
+		suelg_get_habitat_and_orbital = yes
 		if = {
-			limit = { exists = event_target:t_habitat }
+			limit = { exists = event_target:t_orbital }
 			event_target:t_habitat = {
-				suelg_update_deposit_3 = { D = d_hab_dark_matter }
+				suelg_add_deposit_3 = { D = d_hab_dark_matter }
 				suelg_new_habitat_dep_message = { TYPE = d_hab_dark_matter }
 			}
 		} else = {
@@ -297,7 +309,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_10 = { D = d_physics }
+		suelg_add_deposit_10 = { D = d_physics }
 		suelg_set_habitat_type = { TYPE = research_habitat }
 
 		suelg_new_science_dep_message = { TYPE = d_physics }
@@ -311,7 +323,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_10 = { D = d_society }
+		suelg_add_deposit_10 = { D = d_society }
 		suelg_set_habitat_type = { TYPE = research_habitat }
 
 		suelg_new_science_dep_message = { TYPE = d_society }
@@ -325,7 +337,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_10 = { D = d_engineering }
+		suelg_add_deposit_10 = { D = d_engineering }
 		suelg_set_habitat_type = { TYPE = research_habitat }
 
 		suelg_new_science_dep_message = { TYPE = d_engineering }
@@ -339,13 +351,13 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_5 = { D = d_volatile_motes }
+		suelg_add_deposit_5 = { D = d_volatile_motes }
 
-		suelg_get_habitat_in_orbit = yes
+		suelg_get_habitat_and_orbital = yes
 		if = {
-			limit = { exists = event_target:t_habitat }
+			limit = { exists = event_target:t_orbital }
 			event_target:t_habitat = {
-				suelg_update_deposit_5 = { D = d_hab_mote }
+				suelg_add_deposit_5 = { D = d_hab_mote }
 				suelg_new_habitat_dep_message = { TYPE = d_hab_mote }
 			}
 		} else = {
@@ -361,13 +373,13 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_5 = { D = d_rare_crystals }
+		suelg_add_deposit_5 = { D = d_rare_crystals }
 
-		suelg_get_habitat_in_orbit = yes
+		suelg_get_habitat_and_orbital = yes
 		if = {
-			limit = { exists = event_target:t_habitat }
+			limit = { exists = event_target:t_orbital }
 			event_target:t_habitat = {
-				suelg_update_deposit_5 = { D = d_hab_crystal }
+				suelg_add_deposit_5 = { D = d_hab_crystal }
 				suelg_new_habitat_dep_message = { TYPE = d_hab_crystal }
 			}
 		} else = {
@@ -383,13 +395,13 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_update_deposit_5 = { D = d_exotic_gases }
+		suelg_add_deposit_5 = { D = d_exotic_gases }
 
-		suelg_get_habitat_in_orbit = yes
+		suelg_get_habitat_and_orbital = yes
 		if = {
-			limit = { exists = event_target:t_habitat }
+			limit = { exists = event_target:t_orbital }
 			event_target:t_habitat = {
-				suelg_update_deposit_5 = { D = d_hab_gas }
+				suelg_add_deposit_5 = { D = d_hab_gas }
 				suelg_new_habitat_dep_message = { TYPE = d_hab_gas }
 			}
 		} else = {
