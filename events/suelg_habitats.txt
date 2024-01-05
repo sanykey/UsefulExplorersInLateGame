@@ -28,6 +28,7 @@ country_event = {
 
 				planet = {
 					solar_system = {
+						# Do the same for all the planets in the system.
 						suelg_fix_habitat_deps_in_system = yes
 					}
 				}
@@ -149,6 +150,9 @@ ship_event = {
 	}
 }
 
+# When destroying the Habitat extension, find all deposits of the planet in the orbit
+#   of which the extension is located and delete all Habitat deposits that are associated
+#   with this planet and previously added by this mod.
 planet_event = {
 	id = suelg_habitats.4
 	hide_window = yes
@@ -163,85 +167,13 @@ planet_event = {
 
 		if = {
 			limit = { exists = event_target:t_habitat }
+
+			# Remove from a Habitat all deposits related to the deposits of this planet
 			every_deposit = {
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_minerals
-					DHTYPE = d_hab_minerals
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_energy
-					DHTYPE = d_hab_energy
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_physics
-					DHTYPE = d_hab_physics
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_society
-					DHTYPE = d_hab_society
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_engineering
-					DHTYPE = d_hab_engineering
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_engineering
-					DHTYPE = d_hab_engineering
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_exotic_gases
-					DHTYPE = d_hab_gas
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_rare_crystals
-					DHTYPE = d_hab_crystal
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_volatile_motes
-					DHTYPE = d_hab_mote
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_alloys
-					DHTYPE = d_hab_alloy
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_zro_deposit
-					DHTYPE = d_hab_zro
-					ACTION = delete
-				}
-
-				suelg_check_and_upd_hab_deposits_3fx = {
-					DTYPE = d_dark_matter_deposit
-					DHTYPE = d_hab_dark_matter
-					ACTION = delete
-				}
+				suelg_delete_hab_deposit = yes
 			}
-			remove_dep_flags = { DTYPE = d_rare_crystals }
-			remove_dep_flags = { DTYPE = d_volatile_motes }
-			remove_dep_flags = { DTYPE = d_exotic_gases }
-			remove_dep_flags = { DTYPE = d_alloys }
-			remove_dep_flags = { DTYPE = d_zro_deposit }
-			remove_dep_flags = { DTYPE = d_dark_matter_deposit }
+
+			remove_all_dep_flags = yes
 		}
 	}
 }
