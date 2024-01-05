@@ -25,7 +25,7 @@ planet_event = {
 		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_meticulous_2 M = 0.15 }
 		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_prospector_3 M = 0.25 }
 		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_observant_3 M = 0.25 }
-		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_insightful_3 M = 0.25 }
+		# inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_insightful_3 M = 0.25 }
 		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_scholarium_observer M = 0.05 }
 		inline_script = { script = suelg_add_by_tLeader V = suelg_anomaly_ch_mod T = has_trait N = leader_trait_whisperers_chosen M = 0.5 }
 

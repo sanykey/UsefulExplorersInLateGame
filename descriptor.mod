@@ -4,4 +4,4 @@ tags={
 }
 name="Repeated Systems Survey"
 picture="thumbnail.png"
-supported_version="3.8.*"
+supported_version="3.10.*"

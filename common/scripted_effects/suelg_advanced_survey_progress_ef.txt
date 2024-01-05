@@ -72,7 +72,7 @@ suelg_calculate_survey_speed_factor = {
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_psionic F = 0.25 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_chosen F = 0.5 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_composer_chosen F = 0.25 }
-	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = gestalt_trait_scientist_mind_wipe_01 F = -0.2 }
+	# inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = gestalt_trait_scientist_mind_wipe_01 F = -0.2 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic F = -0.1 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic_2 F = -0.3 }
 

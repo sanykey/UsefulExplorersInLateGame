@@ -13,8 +13,8 @@ planet_event = {
 		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_archaeologist M = 0.1 }
 		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_archaeologist_2 M = 0.2 }
 		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_collective_wisdom M = 0.05 }
-		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_collective_wisdom_2 M = 0.1 }
-		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_collective_wisdom_3 M = 0.15 }
+		# inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_collective_wisdom_2 M = 0.1 }
+		# inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_collective_wisdom_3 M = 0.15 }
 		inline_script = { script = suelg_add_by_tLeader V = suelg_archeology_ch_mod T = has_trait N = leader_trait_frontier_adventurer M = 0.1 }
 
 		random_list = {
