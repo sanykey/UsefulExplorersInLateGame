@@ -45,6 +45,16 @@ suelg_calculate_survey_speed_factor = {
 		clear_variable = suelg_leader_lvl_bonus
 	}
 
+	# ship modifies
+	if = {
+    limit = { has_modifier = ship_survey_boost }
+    change_variable = { which = suelg_survey_speed value = 0.15 }
+	}
+	if = {
+    limit = { has_modifier = slowed_science_ships }
+    change_variable = { which = suelg_survey_speed value = -0.5 }
+	}
+
 	# owner modifiers
 	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_agenda_selected N = agenda_chart_the_unknown F = 0.25 }
 	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_modifier N = agenda_chart_the_unknown_finish F = 1 }
@@ -56,15 +66,27 @@ suelg_calculate_survey_speed_factor = {
 	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_active_tradition N = tr_discovery_to_boldly_go F = 0.35 }
 	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_technology N = tech_automated_exploration F = 0.25 }
 	inline_script = { script = suelg_ef_add_survey_s_by_owner T = has_technology N = tech_curator_lab F = 0.33 }
+	owner = {
+		random_situation = {
+			limit = { is_situation_type = paragon_origin_promise }
+			if = {
+				limit = { current_situation_approach = situation_origin_first_promise_prospecting }
+				event_target:t_ship = {
+					change_variable = { which = suelg_survey_speed value = -0.5 }
+				}
+			}
+		}
+	}
 
 	# by leader traits
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = subclass_scientist_explorer F = 0.1 }
-	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_roamer F = 0.15 }
-	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_roamer_2 F = 0.35 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_roamer F = 0.10 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_roamer_2 F = 0.20 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_custom_AI_assistant F = 0.1 }
-	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_sapient_AI_assistant F = 0.2 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_sapient_AI_assistant F = 0.15 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_midas_touch F = 0.25 }
-	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_xeno_cataloger F = 0.35 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_xeno_cataloger F = 0.50 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_frontier_adventurer F = 0.25 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_curator F = 0.25 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_towel F = 0.42 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_scholarium_explorer F = 0.2 }
@@ -72,9 +94,10 @@ suelg_calculate_survey_speed_factor = {
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_psionic F = 0.25 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_chosen F = 0.5 }
 	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_composer_chosen F = 0.25 }
-	# inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = gestalt_trait_scientist_mind_wipe_01 F = -0.2 }
-	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic F = -0.1 }
-	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic_2 F = -0.3 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = gestalt_trait_scientist_mind_wipe_02 F = -0.25 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_black_light_blinded F = -0.5 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic F = -0.05 }
+	inline_script = { script = suelg_ef_add_survey_s_by_l_traits T = leader_trait_neurotic_2 F = -0.20 }
 
 	multiply_variable = { which = suelg_survey_speed value = @suelg_survey_speed_factor }
 }
