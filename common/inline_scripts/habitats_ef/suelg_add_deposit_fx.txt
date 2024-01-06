@@ -1,0 +1,22 @@
+# habitats_ef/suelg_add_deposit_fx inline script
+# scope = deposit
+else_if = {
+	limit = { is_deposit_type = $DTYPE$_$LVL$ }
+	if = {
+		limit = {
+			# Some types of deposits vanilla game itself removes from habitats, if you destroy a habitat extension. 
+			#   But it only removes one deposit out of several identical ones. 
+			#   Therefore, this temporary flag is used instead of one deleted deposit
+			event_target:t_planet = {
+				has_planet_flag = suelg_$DTYPE$_$LVL$
+			}
+		}
+		event_target:t_habitat = {
+			add_deposit = $DHTYPE$_$LVL$
+		}
+	} else = {
+		event_target:t_planet = {
+			set_planet_flag = suelg_$DTYPE$_$LVL$
+		}
+	}
+}

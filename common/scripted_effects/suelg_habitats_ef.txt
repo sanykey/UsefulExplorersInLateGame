@@ -1,3 +1,6 @@
+################
+# DELETE methods
+################
 suelg_delete_hab_deposit = {
 	suelg_delete_hab_deposit_10 = { DTYPE = d_minerals DHTYPE = d_hab_minerals }
 	suelg_delete_hab_deposit_10 = { DTYPE = d_energy DHTYPE = d_hab_energy }
@@ -42,7 +45,56 @@ suelg_delete_hab_deposit_3fx = {
 	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 }
 
+#############
+# ADD methods
+#############
+suelg_add_hab_deposit = {
+	suelg_add_hab_deposit_10 = { DTYPE = d_minerals DHTYPE = d_hab_minerals }
+	suelg_add_hab_deposit_10 = { DTYPE = d_energy DHTYPE = d_hab_energy }
+	suelg_add_hab_deposit_10 = { DTYPE = d_physics DHTYPE = d_hab_physics }
+	suelg_add_hab_deposit_10 = { DTYPE = d_society DHTYPE = d_hab_society }
+	suelg_add_hab_deposit_10 = { DTYPE = d_engineering DHTYPE = d_hab_engineering }
+	suelg_add_hab_deposit_5fx = { DTYPE = d_exotic_gases DHTYPE = d_hab_gas }
+	suelg_add_hab_deposit_5fx = { DTYPE = d_rare_crystals DHTYPE = d_hab_crystal }
+	suelg_add_hab_deposit_5fx = { DTYPE = d_volatile_motes DHTYPE = d_hab_mote }
+	suelg_add_hab_deposit_5fx = { DTYPE = d_alloys DHTYPE = d_hab_alloy }
+	suelg_add_hab_deposit_5fx = { DTYPE = d_zro_deposit DHTYPE = d_hab_zro }
+	suelg_add_hab_deposit_3fx = { DTYPE = d_dark_matter_deposit DHTYPE = d_hab_dark_matter }
+}
 
+suelg_add_hab_deposit_10 = {
+	if = { limit = { always = no } }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 4 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 6 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 7 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 8 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 9 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+}
+
+suelg_add_hab_deposit_5fx = {
+	if = { limit = { always = no } }
+	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 4 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+}
+
+suelg_add_hab_deposit_3fx = {
+	if = { limit = { always = no } }
+	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+}
+
+################
+# other methods
+################
 
 suelg_check_and_upd_hab_deposits_3fx = {
 	if = { limit = { always = no } }
@@ -76,15 +128,15 @@ suelg_check_and_upd_hab_deposits = {
 
 # Remove any temporary flags that have been used, such as here:
 #		habitats_ef/suelg_delete_deposit inline script
-remove_all_dep_flags = {
-	remove_dep_flags = { DTYPE = d_rare_crystals }
-	remove_dep_flags = { DTYPE = d_volatile_motes }
-	remove_dep_flags = { DTYPE = d_exotic_gases }
-	remove_dep_flags = { DTYPE = d_alloys }
-	remove_dep_flags = { DTYPE = d_zro_deposit }
-	remove_dep_flags = { DTYPE = d_dark_matter_deposit }
+remove_all_dep_action_flags = {
+	remove_dep_action_flags = { DTYPE = d_rare_crystals }
+	remove_dep_action_flags = { DTYPE = d_volatile_motes }
+	remove_dep_action_flags = { DTYPE = d_exotic_gases }
+	remove_dep_action_flags = { DTYPE = d_alloys }
+	remove_dep_action_flags = { DTYPE = d_zro_deposit }
+	remove_dep_action_flags = { DTYPE = d_dark_matter_deposit }
 }
-remove_dep_flags = {
+remove_dep_action_flags = {
 	remove_planet_flag = suelg_$DTYPE$_1
 	remove_planet_flag = suelg_$DTYPE$_2
 	remove_planet_flag = suelg_$DTYPE$_3

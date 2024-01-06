@@ -27,8 +27,9 @@ country_event = {
 				}
 
 				planet = {
+					planet_event = { id = suelg_habitats.2 }
 					solar_system = {
-						# Do the same for all the planets in the system.
+						# Do the same for all planets in the system.
 						suelg_fix_habitat_deps_in_system = yes
 					}
 				}
@@ -37,6 +38,7 @@ country_event = {
 	}
 }
 
+# Create deposits in the Habitat that correspond to the deposits of this planet.
 planet_event = {
 	id = suelg_habitats.2
 	hide_window = yes
@@ -52,78 +54,9 @@ planet_event = {
 		if = {
 			limit = { exists = event_target:t_habitat }
 			every_deposit = {
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_minerals
-					DHTYPE = d_hab_minerals
-					ACTION = add
-				}
-	
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_energy
-					DHTYPE = d_hab_energy
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_physics
-					DHTYPE = d_hab_physics
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_society
-					DHTYPE = d_hab_society
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits = {
-					DTYPE = d_engineering
-					DHTYPE = d_hab_engineering
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_exotic_gases
-					DHTYPE = d_hab_gas
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_rare_crystals
-					DHTYPE = d_hab_crystal
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_volatile_motes
-					DHTYPE = d_hab_mote
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_alloys
-					DHTYPE = d_hab_alloy
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits_5fx = {
-					DTYPE = d_zro_deposit
-					DHTYPE = d_hab_zro
-					ACTION = add
-				}
-
-				suelg_check_and_upd_hab_deposits_3fx = {
-					DTYPE = d_dark_matter_deposit
-					DHTYPE = d_hab_dark_matter
-					ACTION = add
-				}
+				suelg_add_hab_deposit = yes
 			}
-			remove_dep_flags = { DTYPE = d_rare_crystals }
-			remove_dep_flags = { DTYPE = d_volatile_motes }
-			remove_dep_flags = { DTYPE = d_exotic_gases }
-			remove_dep_flags = { DTYPE = d_alloys }
-			remove_dep_flags = { DTYPE = d_zro_deposit }
-			remove_dep_flags = { DTYPE = d_dark_matter_deposit }
+			remove_all_dep_action_flags = yes
 		}
 	}
 }
@@ -158,10 +91,6 @@ planet_event = {
 	hide_window = yes
 	is_triggered_only = yes
 
-	trigger = {
-		suelg_can_have_orbital_deposits = yes
-	}
-
 	immediate = {
 		suelg_get_habitat_and_orbital = yes
 
@@ -170,10 +99,11 @@ planet_event = {
 
 			# Remove from a Habitat all deposits related to the deposits of this planet
 			every_deposit = {
+				log = ">> Current Deposit [this.GetName]"
 				suelg_delete_hab_deposit = yes
 			}
 
-			remove_all_dep_flags = yes
+			remove_all_dep_action_flags = yes
 		}
 	}
 }
@@ -200,29 +130,32 @@ event = {
 	}
 }
 
-# rebuild deposits for an habitat in the star system in which the selected planet is located
-system_event = {
-	id = suelg_habitats.6
-	hide_window = yes
-	is_triggered_only = yes
 
-	immediate = {
-		solar_system = {
-			suelg_fix_habitat_deps_in_system = yes
-		}
-	}
-}
+# todo: fix or delete code?
+# rebuild deposits for an habitat in the star system in which the selected planet is located
+# for debug
+# system_event = {
+# 	id = suelg_habitats.6
+# 	hide_window = yes
+# 	is_triggered_only = yes
+
+# 	immediate = {
+# 		solar_system = {
+# 			suelg_fix_habitat_deps_in_system = yes
+# 		}
+# 	}
+# }
 
 # rebuild deposits for all habitats in game 
-event = {
-	id = suelg_habitats.7
-	hide_window = yes
-	is_triggered_only = yes
+# event = {
+# 	id = suelg_habitats.7
+# 	hide_window = yes
+# 	is_triggered_only = yes
 
-	immediate = {
-		every_system = {
-			limit = { suelg_has_habitat_in_system = yes }
-			suelg_fix_habitat_deps_in_system = yes
-		}
-	}
-}
+# 	immediate = {
+# 		every_system = {
+# 			limit = { suelg_has_habitat_in_system = yes }
+# 			suelg_fix_habitat_deps_in_system = yes
+# 		}
+# 	}
+# }

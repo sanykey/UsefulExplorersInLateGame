@@ -80,20 +80,21 @@ suelg_add_habitat_deposit_and_flag = {
 	}
 }
 
-suelg_add_habitat_deposit = {
-	suelg_find_habitat = yes
+# todo: deprecated?
+# suelg_add_habitat_deposit = {
+# 	suelg_find_habitat = yes
 
-	if = {
-		limit = { 
-			exists = event_target:t_orbital
-			exists = event_target:t_habitat
-		}
+# 	if = {
+# 		limit = { 
+# 			exists = event_target:t_orbital
+# 			exists = event_target:t_habitat
+# 		}
 
-		last_added_deposit = {
-			suelg_add_districts_flag = yes
-		}
-	}
-}
+# 		last_added_deposit = {
+# 			suelg_add_districts_flag = yes
+# 		}
+# 	}
+# }
 
 
 # this = planet scope
@@ -201,19 +202,27 @@ suelg_new_habitat_dep_message = {
 }
 
 suelg_new_rare_dep_message = {
-	solar_system = {
-		owner = {
-			if = {
-				limit = { is_ai = no }
-				create_message = {
-					type = SUELG_NEW_RARE_DEPOSIT
-					localization = SUELG_NEW_RARE_DEPOSIT_$TYPE$
-					days = @suelg_notification_days
-					target = FROM
-					variable = {
-						type = name
-						localization = PLANET
-						scope = FROM
+	if = {
+		limit = {
+			exists = FROM
+			FROM = {
+				is_scope_type = planet
+			}
+		}
+		solar_system = {
+			owner = {
+				if = {
+					limit = { is_ai = no }
+					create_message = {
+						type = SUELG_NEW_RARE_DEPOSIT
+						localization = SUELG_NEW_RARE_DEPOSIT_$TYPE$
+						days = @suelg_notification_days
+						target = FROM
+						variable = {
+							type = name
+							localization = PLANET
+							scope = FROM
+						}
 					}
 				}
 			}
@@ -243,19 +252,27 @@ suelg_new_science_dep_message = {
 }
 
 suelg_new_basic_dep_message = {
-	solar_system = {
-		owner = {
-			if = {
-				limit = { is_ai = no }
-				create_message = {
-					type = SUELG_NEW_BASIC_DEPOSIT
-					localization = SUELG_NEW_BASIC_DEPOSIT_$TYPE$
-					days = @suelg_notification_days
-					target = FROM
-					variable = {
-						type = name
-						localization = PLANET
-						scope = FROM
+	if = {
+		limit = {
+			exists = FROM
+			FROM = {
+				is_scope_type = planet
+			}
+		}
+		solar_system = {
+			owner = {
+				if = {
+					limit = { is_ai = no }
+					create_message = {
+						type = SUELG_NEW_BASIC_DEPOSIT
+						localization = SUELG_NEW_BASIC_DEPOSIT_$TYPE$
+						days = @suelg_notification_days
+						target = FROM
+						variable = {
+							type = name
+							localization = PLANET
+							scope = FROM
+						}
 					}
 				}
 			}

@@ -1,4 +1,5 @@
 # habitats_ef/suelg_delete_deposit inline script
+# scope = planet (event_target:t_planet)
 else_if = {
 	limit = { is_deposit_type = $DTYPE$_$LVL$ }
 	event_target:t_habitat = {
