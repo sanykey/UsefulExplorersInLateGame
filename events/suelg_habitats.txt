@@ -99,7 +99,6 @@ planet_event = {
 
 			# Remove from a Habitat all deposits related to the deposits of this planet
 			every_deposit = {
-				log = ">> Current Deposit [this.GetName]"
 				suelg_delete_hab_deposit = yes
 			}
 

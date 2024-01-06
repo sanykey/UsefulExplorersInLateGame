@@ -9,18 +9,6 @@ planet_event = {
 	immediate = {
 		suelg_calculate_archeology_factor = yes
 
-		event_target:t_owner = {
-			random_owned_leader = {
-				limit = {
-					is_councilor = yes
-					is_councilor_type = councilor_eager_explorers
-				}
-				event_target:t_planet = {
-					change_variable = { which = suelg_archeology_ch_mod value = 0.05 }
-				}
-			}
-		}
-
 		random_list = {
 			0 = {
 				modifier = {
@@ -30,7 +18,7 @@ planet_event = {
 					factor = this.suelg_archeology_ch_mod
 				}
 
-				create_archaeological_site = random
+				planet_event = { id = suelg_spawn_archeology.2 } # Spawn archaeological site
 			}
 			0 = {
 				modifier = {
@@ -39,5 +27,16 @@ planet_event = {
 			}
 		}
 		clear_variable = suelg_archeology_ch_mod
+	}
+}
+
+# Spawn archaeological site
+planet_event = {
+	id = suelg_spawn_archeology.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		create_archaeological_site = random
 	}
 }

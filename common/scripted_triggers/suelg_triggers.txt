@@ -14,7 +14,11 @@ can_have_zro_deposits = {
 
 # scope = planet
 can_have_artifacts_deposits = {
-	any_archaeological_site = { always = yes }
+	any_archaeological_site = {
+		planet = {
+			is_same_value = event_target:t_planet
+		}
+	}
 }
 
 can_have_dark_matter_deposits = {

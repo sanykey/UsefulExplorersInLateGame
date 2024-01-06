@@ -196,8 +196,7 @@ planet_event = {
 			}
 		}
 
-		# clear var after `suelg_calculate_archeology_factor`
-		clear_variable = suelg_archeology_ch_mod
+		clear_variable = suelg_archeology_ch_mod # clear var after `suelg_calculate_archeology_factor`
 	}
 }
 
@@ -436,7 +435,7 @@ planet_event = {
 		if = {
 			limit = { exists = event_target:t_orbital }
 			event_target:t_habitat = {
-				suelg_add_deposit_5 = { D = d_hab_artifacts }
+				suelg_add_deposit_3 = { D = d_hab_artifacts }
 				suelg_new_habitat_dep_message = { TYPE = d_artifacts }
 			}
 		} else = {
