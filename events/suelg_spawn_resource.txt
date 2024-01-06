@@ -16,6 +16,8 @@ planet_event = {
 
 		# log = ">> CHECK DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 
+		suelg_calculate_archeology_factor = yes
+
 		random_list = {
 			0 = {
 				inline_script = { script = suelg_ev_can_resorce_mbase RES = "mineral" ADD = @suelg_mineral_spawn_base_weight }
@@ -168,6 +170,15 @@ planet_event = {
 				planet_event = { id = suelg_spawn_resource.13 } # Spawn exotic_gases deposit
 			}
 			0 = {
+				inline_script = { script = suelg_ev_can_resorce_mbase RES = "artifacts" ADD = @suelg_artifacts_spawn_base_weight }
+				modifier = {
+					factor = this.suelg_archeology_ch_mod # var from `suelg_calculate_archeology_factor`
+				}
+
+				log = ">> SPAWN artifacts. THIS: [This.GetName]"
+				planet_event = { id = suelg_spawn_resource.14 } # Spawn artifacts deposit
+			}
+			0 = {
 				modifier = { add = @suelg_orbital_deposit_fail_base_weight }
 				inline_script = { script = suelg_add_mfactor_btrait T = subclass_scientist_explorer F = 0.95 }
 				modifier = { factor = value:suelg_advanced_survey_lvl_factor }
@@ -184,6 +195,9 @@ planet_event = {
 				# log = ">> fail spawn. THIS: [This.GetName]"
 			}
 		}
+
+		# clear var after `suelg_calculate_archeology_factor`
+		clear_variable = suelg_archeology_ch_mod
 	}
 }
 
@@ -406,6 +420,27 @@ planet_event = {
 			}
 		} else = {
 			suelg_new_rare_dep_message = { TYPE = d_exotic_gases }
+		}
+	}
+}
+
+# Spawn artifacts deposit
+planet_event = {
+	id = suelg_spawn_resource.14
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		suelg_add_deposit_3 = { D = d_artifacts_mining }
+		suelg_get_habitat_and_orbital = yes
+		if = {
+			limit = { exists = event_target:t_orbital }
+			event_target:t_habitat = {
+				suelg_add_deposit_5 = { D = d_hab_artifacts }
+				suelg_new_habitat_dep_message = { TYPE = d_artifacts }
+			}
+		} else = {
+			suelg_new_rare_dep_message = { TYPE = d_artifacts }
 		}
 	}
 }

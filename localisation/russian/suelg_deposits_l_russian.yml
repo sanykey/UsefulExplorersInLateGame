@@ -103,3 +103,10 @@
  d_hab_engineering_9_desc: "$d_hab_engineering_1_desc$"
  d_hab_engineering_10: "$d_hab_engineering_1$"
  d_hab_engineering_10_desc: "$d_hab_engineering_1_desc$"
+
+ d_hab_artifacts_1: "Источник малых артефактов"
+ d_hab_artifacts_1_desc: "Этот обитаемый комплекс построен рядом с источником малых артефактов, пригодным для добычи."
+ d_hab_artifacts_2: "$d_hab_artifacts_1$"
+ d_hab_artifacts_2_desc: "$d_hab_artifacts_1_desc$"
+ d_hab_artifacts_3: "$d_hab_artifacts_1$"
+ d_hab_artifacts_3_desc: "$d_hab_artifacts_1_desc$"

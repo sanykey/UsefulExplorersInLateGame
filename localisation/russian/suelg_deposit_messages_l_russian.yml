@@ -6,6 +6,7 @@
  SUELG_NEW_RARE_DEPOSIT_d_zro_deposit:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £zro£ §YZro§!."
  SUELG_NEW_RARE_DEPOSIT_d_dark_matter_deposit:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £sr_dark_matter£ §Y$sr_dark_matter$§!."
  SUELG_NEW_RARE_DEPOSIT_d_alloys:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £alloys£ §Y$alloys$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_artifacts:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £minor_artifacts£ §Y$minor_artifacts$§!."
 
  SUELG_NEW_BASIC_DEPOSIT_TITLE:0 "Обнаружены ресурсы"
  SUELG_NEW_BASIC_DEPOSIT_d_minerals:0 "На планете $PLANET|Y$ обнаружен новый источник ресурсов - £minerals£ §Y$minerals$§!."

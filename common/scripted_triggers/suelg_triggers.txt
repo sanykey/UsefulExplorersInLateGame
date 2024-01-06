@@ -7,8 +7,14 @@ can_have_alloy_deposits = {
 	is_planet_class = pc_molten
 }
 
+# scope = planet
 can_have_zro_deposits = {
 	is_planet_class = pc_toxic
+}
+
+# scope = planet
+can_have_artifacts_deposits = {
+	any_archaeological_site = { always = yes }
 }
 
 can_have_dark_matter_deposits = {

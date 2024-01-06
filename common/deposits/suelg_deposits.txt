@@ -152,3 +152,14 @@ d_hab_engineering_9 = {
 d_hab_engineering_10 = {
 	inline_script = { script = deposits/suelg_hab_dep TYPE = engineering_research AMOUNT = 10 RCAT = hab_research_deposits CAT = deposit_cat_engineering }
 }
+
+
+d_hab_artifacts_1 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minor_artifacts AMOUNT = 1 RCAT = hab_research_deposits CAT = deposit_cat_rare }
+}
+d_hab_artifacts_2 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minor_artifacts AMOUNT = 2 RCAT = hab_research_deposits CAT = deposit_cat_rare }
+}
+d_hab_artifacts_3 = {
+	inline_script = { script = deposits/suelg_hab_dep TYPE = minor_artifacts AMOUNT = 3 RCAT = hab_research_deposits CAT = deposit_cat_rare }
+}

@@ -7,12 +7,13 @@ suelg_delete_hab_deposit = {
 	suelg_delete_hab_deposit_10 = { DTYPE = d_physics DHTYPE = d_hab_physics }
 	suelg_delete_hab_deposit_10 = { DTYPE = d_society DHTYPE = d_hab_society }
 	suelg_delete_hab_deposit_10 = { DTYPE = d_engineering DHTYPE = d_hab_engineering }
-	suelg_delete_hab_deposit_5fx = { DTYPE = d_exotic_gases DHTYPE = d_hab_gas }
-	suelg_delete_hab_deposit_5fx = { DTYPE = d_rare_crystals DHTYPE = d_hab_crystal }
-	suelg_delete_hab_deposit_5fx = { DTYPE = d_volatile_motes DHTYPE = d_hab_mote }
-	suelg_delete_hab_deposit_5fx = { DTYPE = d_alloys DHTYPE = d_hab_alloy }
-	suelg_delete_hab_deposit_5fx = { DTYPE = d_zro_deposit DHTYPE = d_hab_zro }
-	suelg_delete_hab_deposit_3fx = { DTYPE = d_dark_matter_deposit DHTYPE = d_hab_dark_matter }
+	suelg_delete_hab_deposit_5 = { DTYPE = d_exotic_gases DHTYPE = d_hab_gas }
+	suelg_delete_hab_deposit_5 = { DTYPE = d_rare_crystals DHTYPE = d_hab_crystal }
+	suelg_delete_hab_deposit_5 = { DTYPE = d_volatile_motes DHTYPE = d_hab_mote }
+	suelg_delete_hab_deposit_5 = { DTYPE = d_alloys DHTYPE = d_hab_alloy }
+	suelg_delete_hab_deposit_5 = { DTYPE = d_zro_deposit DHTYPE = d_hab_zro }
+	suelg_delete_hab_deposit_3 = { DTYPE = d_dark_matter_deposit DHTYPE = d_hab_dark_matter }
+	suelg_delete_hab_deposit_3 = { DTYPE = d_artifacts_mining DHTYPE = d_hab_artifacts }
 }
 
 suelg_delete_hab_deposit_10 = {
@@ -29,20 +30,20 @@ suelg_delete_hab_deposit_10 = {
 	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 }
 
-suelg_delete_hab_deposit_5fx = {
+suelg_delete_hab_deposit_5 = {
 	if = { limit = { always = no } }
-	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
-	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
-	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
-	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 4 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
-	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 4 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 }
 
-suelg_delete_hab_deposit_3fx = {
+suelg_delete_hab_deposit_3 = {
 	if = { limit = { always = no } }
-	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
-	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
-	inline_script = { script = habitats_ef/suelg_delete_deposit_fx LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_delete_deposit LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 }
 
 #############
@@ -60,6 +61,7 @@ suelg_add_hab_deposit = {
 	suelg_add_hab_deposit_5fx = { DTYPE = d_alloys DHTYPE = d_hab_alloy }
 	suelg_add_hab_deposit_5fx = { DTYPE = d_zro_deposit DHTYPE = d_hab_zro }
 	suelg_add_hab_deposit_3fx = { DTYPE = d_dark_matter_deposit DHTYPE = d_hab_dark_matter }
+	suelg_add_hab_deposit_3 = { DTYPE = d_artifacts_mining DHTYPE = d_hab_artifacts }
 }
 
 suelg_add_hab_deposit_10 = {
@@ -90,6 +92,13 @@ suelg_add_hab_deposit_3fx = {
 	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 	inline_script = { script = habitats_ef/suelg_add_deposit_fx LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+}
+
+suelg_add_hab_deposit_3 = {
+	if = { limit = { always = no } }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 }
 
 ################
