@@ -63,31 +63,31 @@ suelg_create_system_scan_projects = {
 }
 
 suelg_abort_advanced_survey_SP = {
-	abort_special_project = { type = suelg_advanced_survey_SP_1 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_2 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_3 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_4 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_5 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_6 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_7 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_8 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_9 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_10 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_11 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_12 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_13 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_14 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_15 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_16 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_17 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_18 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_19 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_20 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_21 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_22 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_23 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_24 location = event_target:t_planet }
-	abort_special_project = { type = suelg_advanced_survey_SP_25 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_1 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_2 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_3 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_4 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_5 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_6 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_7 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_8 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_9 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_10 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_11 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_12 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_13 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_14 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_15 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_16 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_17 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_18 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_19 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_20 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_21 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_22 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_23 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_24 location = event_target:t_planet }
+	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_25 location = event_target:t_planet }
 }
 
 # this = system scope
@@ -116,31 +116,31 @@ suelg_reset_system_projects = {
 
 # this = planes scope
 suelg_update_complete_scan_mod = {
-	remove_modifier = suelg_advanced_surveied_1
-	remove_modifier = suelg_advanced_surveied_2
-	remove_modifier = suelg_advanced_surveied_3
-	remove_modifier = suelg_advanced_surveied_4
-	remove_modifier = suelg_advanced_surveied_5
-	remove_modifier = suelg_advanced_surveied_6
-	remove_modifier = suelg_advanced_surveied_7
-	remove_modifier = suelg_advanced_surveied_8
-	remove_modifier = suelg_advanced_surveied_9
-	remove_modifier = suelg_advanced_surveied_10
-	remove_modifier = suelg_advanced_surveied_11
-	remove_modifier = suelg_advanced_surveied_12
-	remove_modifier = suelg_advanced_surveied_13
-	remove_modifier = suelg_advanced_surveied_14
-	remove_modifier = suelg_advanced_surveied_15
-	remove_modifier = suelg_advanced_surveied_16
-	remove_modifier = suelg_advanced_surveied_17
-	remove_modifier = suelg_advanced_surveied_18
-	remove_modifier = suelg_advanced_surveied_19
-	remove_modifier = suelg_advanced_surveied_20
-	remove_modifier = suelg_advanced_surveied_21
-	remove_modifier = suelg_advanced_surveied_22
-	remove_modifier = suelg_advanced_surveied_23
-	remove_modifier = suelg_advanced_surveied_24
-	remove_modifier = suelg_advanced_surveied_25
+	remove_modifier = suelg_advanced_surveyed_1
+	remove_modifier = suelg_advanced_surveyed_2
+	remove_modifier = suelg_advanced_surveyed_3
+	remove_modifier = suelg_advanced_surveyed_4
+	remove_modifier = suelg_advanced_surveyed_5
+	remove_modifier = suelg_advanced_surveyed_6
+	remove_modifier = suelg_advanced_surveyed_7
+	remove_modifier = suelg_advanced_surveyed_8
+	remove_modifier = suelg_advanced_surveyed_9
+	remove_modifier = suelg_advanced_surveyed_10
+	remove_modifier = suelg_advanced_surveyed_11
+	remove_modifier = suelg_advanced_surveyed_12
+	remove_modifier = suelg_advanced_surveyed_13
+	remove_modifier = suelg_advanced_surveyed_14
+	remove_modifier = suelg_advanced_surveyed_15
+	remove_modifier = suelg_advanced_surveyed_16
+	remove_modifier = suelg_advanced_surveyed_17
+	remove_modifier = suelg_advanced_surveyed_18
+	remove_modifier = suelg_advanced_surveyed_19
+	remove_modifier = suelg_advanced_surveyed_20
+	remove_modifier = suelg_advanced_surveyed_21
+	remove_modifier = suelg_advanced_surveyed_22
+	remove_modifier = suelg_advanced_surveyed_23
+	remove_modifier = suelg_advanced_surveyed_24
+	remove_modifier = suelg_advanced_surveyed_25
 
 	save_event_target_as = t_mod_star
 	solar_system = {

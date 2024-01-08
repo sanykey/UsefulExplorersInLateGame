@@ -1,75 +1,77 @@
 ﻿l_english:
- suelg_advanced_survey_SP_1:0 "Расширенное исследование I"
- suelg_advanced_survey_SP_1_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ suelg_ASSP:0 "Advanced survey"
 
- suelg_advanced_survey_SP_2:0 "Расширенное исследование II"
- suelg_advanced_survey_SP_2_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_1: "$suelg_ASSP$ I"
+ SUELG_ADVANCED_SURVEY_SP_1_DESC: "Detailed survey of some regions on the surface and in the depths of the planet. Exploration may reveal additional resource sources, anomalies, and archaeological sites.\n\nLeader skill, leader traits and other modifiers can reduce the time required to explore a project and increase the chance of discovering resources."
 
- suelg_advanced_survey_SP_3:0 "Расширенное исследование III"
- suelg_advanced_survey_SP_3_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_2:0 "$suelg_ASSP$ II"
+ SUELG_ADVANCED_SURVEY_SP_2_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_4:0 "Расширенное исследование IV"
- suelg_advanced_survey_SP_4_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_3:0 "$suelg_ASSP$ III"
+ SUELG_ADVANCED_SURVEY_SP_3_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_5:0 "Расширенное исследование V"
- suelg_advanced_survey_SP_5_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_4:0 "$suelg_ASSP$ IV"
+ SUELG_ADVANCED_SURVEY_SP_4_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_6:0 "Расширенное исследование VI"
- suelg_advanced_survey_SP_6_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_5:0 "$suelg_ASSP$ V"
+ SUELG_ADVANCED_SURVEY_SP_5_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_7:0 "Расширенное исследование VII"
- suelg_advanced_survey_SP_7_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_6:0 "$suelg_ASSP$ VI"
+ SUELG_ADVANCED_SURVEY_SP_6_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_8:0 "Расширенное исследование VII"
- suelg_advanced_survey_SP_8_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_7:0 "$suelg_ASSP$ VII"
+ SUELG_ADVANCED_SURVEY_SP_7_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_9:0 "Расширенное исследование IX"
- suelg_advanced_survey_SP_9_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_8:0 "$suelg_ASSP$ VII"
+ SUELG_ADVANCED_SURVEY_SP_8_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_10:0 "Расширенное исследование X"
- suelg_advanced_survey_SP_10_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_9:0 "$suelg_ASSP$ IX"
+ SUELG_ADVANCED_SURVEY_SP_9_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_11:0 "Расширенное исследование XI"
- suelg_advanced_survey_SP_11_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_10:0 "$suelg_ASSP$ X"
+ SUELG_ADVANCED_SURVEY_SP_10_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_12:0 "Расширенное исследование XII"
- suelg_advanced_survey_SP_12_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_11:0 "$suelg_ASSP$ XI"
+ SUELG_ADVANCED_SURVEY_SP_11_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_13:0 "Расширенное исследование XIII"
- suelg_advanced_survey_SP_13_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_12:0 "$suelg_ASSP$ XII"
+ SUELG_ADVANCED_SURVEY_SP_12_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_14:0 "Расширенное исследование XIV"
- suelg_advanced_survey_SP_14_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_13:0 "$suelg_ASSP$ XIII"
+ SUELG_ADVANCED_SURVEY_SP_13_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_15:0 "Расширенное исследование XV"
- suelg_advanced_survey_SP_15_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_14:0 "$suelg_ASSP$ XIV"
+ SUELG_ADVANCED_SURVEY_SP_14_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_16:0 "Расширенное исследование XVI"
- suelg_advanced_survey_SP_16_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_15:0 "$suelg_ASSP$ XV"
+ SUELG_ADVANCED_SURVEY_SP_15_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_17:0 "Расширенное исследование XVII"
- suelg_advanced_survey_SP_17_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_16:0 "$suelg_ASSP$ XVI"
+ SUELG_ADVANCED_SURVEY_SP_16_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_18:0 "Расширенное исследование XVIII"
- suelg_advanced_survey_SP_18_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_17:0 "$suelg_ASSP$ XVII"
+ SUELG_ADVANCED_SURVEY_SP_17_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_19:0 "Расширенное исследование XIX"
- suelg_advanced_survey_SP_19_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_18:0 "$suelg_ASSP$ XVIII"
+ SUELG_ADVANCED_SURVEY_SP_18_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_20:0 "Расширенное исследование XX"
- suelg_advanced_survey_SP_20_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_19:0 "$suelg_ASSP$ XIX"
+ SUELG_ADVANCED_SURVEY_SP_19_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_21:0 "Расширенное исследование XXI"
- suelg_advanced_survey_SP_21_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_20:0 "$suelg_ASSP$ XX"
+ SUELG_ADVANCED_SURVEY_SP_20_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_22:0 "Расширенное исследование XXII"
- suelg_advanced_survey_SP_22_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_21:0 "$suelg_ASSP$ XXI"
+ SUELG_ADVANCED_SURVEY_SP_21_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_23:0 "Расширенное исследование XXIII"
- suelg_advanced_survey_SP_23_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_22:0 "$suelg_ASSP$ XXII"
+ SUELG_ADVANCED_SURVEY_SP_22_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_24:0 "Расширенное исследование XXIV"
- suelg_advanced_survey_SP_24_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_23:0 "$suelg_ASSP$ XXIII"
+ SUELG_ADVANCED_SURVEY_SP_23_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
 
- suelg_advanced_survey_SP_25:0 "Расширенное исследование XV"
- suelg_advanced_survey_SP_25_desc:0 "Детальное исследование некоторых регионов на поверности и в глубине планеты. В результате исследования могут быть обнаружены дополнительные источники ресурсов, аномалии, раскопки.\n\nНавык и черты лидера могут сократить время изучения проекта."
+ SUELG_ADVANCED_SURVEY_SP_24:0 "$suelg_ASSP$ XXIV"
+ SUELG_ADVANCED_SURVEY_SP_24_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"
+
+ SUELG_ADVANCED_SURVEY_SP_25:0 "$suelg_ASSP$ XV"
+ SUELG_ADVANCED_SURVEY_SP_25_DESC: "$SUELG_ADVANCED_SURVEY_SP_1_DESC$"

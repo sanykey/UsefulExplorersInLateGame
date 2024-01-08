@@ -4,7 +4,7 @@ namespace = suelg_advanced_survey_progress
 # this = Ship scope
 # fromfrom = Planet scope
 # from = Ship scope
-# suelg_advanced_survey_SP_{x} on_start
+# SUELG_ADVANCED_SURVEY_SP_{x} on_start
 ship_event = {
     id = suelg_advanced_survey_progress.1
     hide_window = yes
@@ -40,7 +40,7 @@ ship_event = {
 # Calculate days for SP (Alternative way. Often on_start does not work)
 # this = event scope (ship or planet)
 # fromfrom = project creation scope (usually equals location)
-#suelg_advanced_survey_SP_{x} on_progress_25
+#SUELG_ADVANCED_SURVEY_SP_{x} on_progress_25
 ship_event = {
     id = suelg_advanced_survey_progress.2
     hide_window = yes

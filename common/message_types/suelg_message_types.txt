@@ -10,17 +10,18 @@ message_type = {
 	category = science
 }
 
-message_type = {
-	key = "SUELG_RATE_RESOURCES_DISCOVERED"
-	icon = "GFX_message_technology_researched"
-	icon_frame = 1
-	name = "SUELG_RATE_RESOURCES_DISCOVERED_TITLE"
-	sound = "advisor_notification_research_complete"
-	sound_is_advisor = yes
-	ping = "ping_notification_green"
+# todo: deprecated
+# message_type = {
+# 	key = "SUELG_RATE_RESOURCES_DISCOVERED"
+# 	icon = "GFX_message_technology_researched"
+# 	icon_frame = 1
+# 	name = "SUELG_RATE_RESOURCES_DISCOVERED_TITLE"
+# 	sound = "advisor_notification_research_complete"
+# 	sound_is_advisor = yes
+# 	ping = "ping_notification_green"
 
-	category = planets
-}
+# 	category = planets
+# }
 
 message_type = {
 	key = "SUELG_NEW_HABITAT_DISTRICT"

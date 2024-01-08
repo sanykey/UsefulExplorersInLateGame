@@ -1,0 +1,10 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_suelg_country_advanced_survey"
+		texturefile = "gfx/interface/icons/modifiers/suelg_country_advanced_survey.dds"
+	}
+	# spriteType = {
+	# 	name = "GFX_suelg_planet_advanced_survey"
+	# 	texturefile = "gfx/interface/icons/modifiers/suelg_planet_advanced_survey.dds"
+	# }
+}

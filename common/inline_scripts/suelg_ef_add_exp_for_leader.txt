@@ -5,6 +5,6 @@ if = {
 		check_variable = { which = suelg_started_advanced_survey_lvl value = $LVL$ }
 	}
 
-	set_variable = { which = suelg_leader_exp value = @suelg_advanced_survey_sp_days_$LVL$ }
+	set_variable = { which = suelg_leader_exp value = @SUELG_ADVANCED_SURVEY_SP_days_$LVL$ }
 	multiply_variable = { which = suelg_leader_exp value = @suelg_exp_per_day }
 }

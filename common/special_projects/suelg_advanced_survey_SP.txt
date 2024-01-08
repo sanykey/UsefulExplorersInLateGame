@@ -1,125 +1,125 @@
 special_project = {
-	key = "suelg_advanced_survey_SP_1"
-	days_to_research = @suelg_advanced_survey_sp_days_1
+	key = "SUELG_ADVANCED_SURVEY_SP_1"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_1
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_2"
-	days_to_research = @suelg_advanced_survey_sp_days_2
+	key = "SUELG_ADVANCED_SURVEY_SP_2"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_2
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_3"
-	days_to_research = @suelg_advanced_survey_sp_days_3
+	key = "SUELG_ADVANCED_SURVEY_SP_3"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_3
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_4"
-	days_to_research = @suelg_advanced_survey_sp_days_4
+	key = "SUELG_ADVANCED_SURVEY_SP_4"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_4
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_5"
-	days_to_research = @suelg_advanced_survey_sp_days_5
+	key = "SUELG_ADVANCED_SURVEY_SP_5"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_5
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_6"
-	days_to_research = @suelg_advanced_survey_sp_days_6
+	key = "SUELG_ADVANCED_SURVEY_SP_6"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_6
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_7"
-	days_to_research = @suelg_advanced_survey_sp_days_7
+	key = "SUELG_ADVANCED_SURVEY_SP_7"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_7
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_8"
-	days_to_research = @suelg_advanced_survey_sp_days_8
+	key = "SUELG_ADVANCED_SURVEY_SP_8"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_8
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_9"
-	days_to_research = @suelg_advanced_survey_sp_days_9
+	key = "SUELG_ADVANCED_SURVEY_SP_9"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_9
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_10"
-	days_to_research = @suelg_advanced_survey_sp_days_10
+	key = "SUELG_ADVANCED_SURVEY_SP_10"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_10
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_11"
-	days_to_research = @suelg_advanced_survey_sp_days_11
+	key = "SUELG_ADVANCED_SURVEY_SP_11"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_11
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_12"
-	days_to_research = @suelg_advanced_survey_sp_days_12
+	key = "SUELG_ADVANCED_SURVEY_SP_12"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_12
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_13"
-	days_to_research = @suelg_advanced_survey_sp_days_13
+	key = "SUELG_ADVANCED_SURVEY_SP_13"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_13
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_14"
-	days_to_research = @suelg_advanced_survey_sp_days_14
+	key = "SUELG_ADVANCED_SURVEY_SP_14"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_14
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_15"
-	days_to_research = @suelg_advanced_survey_sp_days_15
+	key = "SUELG_ADVANCED_SURVEY_SP_15"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_15
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_16"
-	days_to_research = @suelg_advanced_survey_sp_days_16
+	key = "SUELG_ADVANCED_SURVEY_SP_16"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_16
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_17"
-	days_to_research = @suelg_advanced_survey_sp_days_17
+	key = "SUELG_ADVANCED_SURVEY_SP_17"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_17
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_18"
-	days_to_research = @suelg_advanced_survey_sp_days_18
+	key = "SUELG_ADVANCED_SURVEY_SP_18"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_18
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_19"
-	days_to_research = @suelg_advanced_survey_sp_days_19
+	key = "SUELG_ADVANCED_SURVEY_SP_19"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_19
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_20"
-	days_to_research = @suelg_advanced_survey_sp_days_20
+	key = "SUELG_ADVANCED_SURVEY_SP_20"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_20
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_21"
-	days_to_research = @suelg_advanced_survey_sp_days_21
+	key = "SUELG_ADVANCED_SURVEY_SP_21"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_21
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_22"
-	days_to_research = @suelg_advanced_survey_sp_days_22
+	key = "SUELG_ADVANCED_SURVEY_SP_22"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_22
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_23"
-	days_to_research = @suelg_advanced_survey_sp_days_23
+	key = "SUELG_ADVANCED_SURVEY_SP_23"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_23
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_24"
-	days_to_research = @suelg_advanced_survey_sp_days_24
+	key = "SUELG_ADVANCED_SURVEY_SP_24"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_24
 	inline_script = suelg_sp_deep_scan
 }
 special_project = {
-	key = "suelg_advanced_survey_SP_25"
-	days_to_research = @suelg_advanced_survey_sp_days_25
+	key = "SUELG_ADVANCED_SURVEY_SP_25"
+	days_to_research = @SUELG_ADVANCED_SURVEY_SP_days_25
 	inline_script = suelg_sp_deep_scan
 }

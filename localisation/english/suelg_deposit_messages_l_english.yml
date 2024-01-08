@@ -1,0 +1,27 @@
+﻿l_english:
+ SUELG_NEW_RARE_DEPOSIT_TITLE:0 "Rare resources discovered"
+ SUELG_NEW_RARE_DEPOSIT_d_exotic_gases:0 "A new resource source has been discovered on planet $PLANET|Y$ - £exotic_gases£ §Y$exotic_gases$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_rare_crystals:0 "A new resource source has been discovered on planet $PLANET|Y$ - £rare_crystals£ §Y$rare_crystals$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_volatile_motes:0 "A new resource source has been discovered on planet $PLANET|Y$ - £volatile_motes£ §Y$volatile_motes$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_zro_deposit:0 "A new resource source has been discovered on planet $PLANET|Y$ - £zro£ §YZro§!."
+ SUELG_NEW_RARE_DEPOSIT_d_dark_matter_deposit:0 "A new resource source has been discovered on planet $PLANET|Y$ - £sr_dark_matter£ §Y$sr_dark_matter$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_alloys:0 "A new resource source has been discovered on planet $PLANET|Y$ - £alloys£ §Y$alloys$§!."
+ SUELG_NEW_RARE_DEPOSIT_d_artifacts:0 "A new resource source has been discovered on planet $PLANET|Y$ - £minor_artifacts£ §Y$minor_artifacts$§!."
+
+ SUELG_NEW_BASIC_DEPOSIT_TITLE:0 "Resources discovered"
+ SUELG_NEW_BASIC_DEPOSIT_d_minerals:0 "A new resource source has been discovered on planet $PLANET|Y$ - £minerals£ §Y$minerals$§!."
+ SUELG_NEW_BASIC_DEPOSIT_d_energy:0 "A new resource source has been discovered on planet $PLANET|Y$ - £energy£ §Y$energy$§!."
+ SUELG_NEW_BASIC_DEPOSIT_d_trade_value:0 "A new resource source has been discovered on planet $PLANET|Y$ - £trade_value£ §Y$trade_value$§!."
+
+ SUELG_NEW_SCIENCE_DEPOSIT_TITLE:0 "A source for research has been discovered"
+ SUELG_NEW_SCIENCE_DEPOSIT_d_engineering:0 "A new source of engineering research £engineering£ has been discovered on planet $PLANET|Y$"
+ SUELG_NEW_SCIENCE_DEPOSIT_d_society:0 "A new source of society research £society£ has been discovered on planet $PLANET|Y$"
+ SUELG_NEW_SCIENCE_DEPOSIT_d_physics:0 "A new source of physics research £physics£ has been discovered on planet $PLANET|Y$"
+
+ SUELG_NEW_HABITAT_DISTRICT_TITLE:0 "Rare resources for orbital habitation discovered"
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_gas:0 "A new resource source has been discovered in orbit of the $HABITAT|Y$ orbital settlement - £exotic_gases£ §Y$exotic_gases$§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_crystal:0 "A new resource source has been discovered in orbit of the $HABITAT|Y$ orbital settlement - £rare_crystals£ §Y$rare_crystals$§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_mote:0 "A new resource source has been discovered in orbit of the $HABITAT|Y$ orbital settlement - £volatile_motes£ §Y$volatile_motes$§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_zro:0 "A new resource source has been discovered in orbit of the $HABITAT|Y$ orbital settlement - £zro£ §YZro§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_dark_matter:0 "A new resource source has been discovered in orbit of the $HABITAT|Y$ orbital settlement - £sr_dark_matter£ §Y$sr_dark_matter$§!."
+ SUELG_NEW_HABITAT_DISTRICT_d_hab_alloy:0 "A new resource source has been discovered in orbit of the $HABITAT|Y$ orbital settlement - £alloys£ §Y$alloys$§!."

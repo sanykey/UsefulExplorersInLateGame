@@ -58,7 +58,7 @@
 @suelg_volatile_motes_spawn_base_weight = 2
 @suelg_rare_crystals_spawn_base_weight = 2
 @suelg_exotic_gases_spawn_base_weight = 2
-@suelg_artifacts_spawn_base_weight = 0.1
+@suelg_artifacts_spawn_base_weight = 1
 
 @suelg_orbital_deposit_fail_base_weight = 200 # default = 200
 @suelg_advanced_survey_lvl_factor = 0.25 # 0.25% increase spawn orbital deposit chance per Advanced survey SP level
@@ -69,31 +69,31 @@
 ##### Advanced survey special project days	#####
 #################################################
 # the number of days for each level of the special project "Extended survey". +20% per level:
-@suelg_advanced_survey_sp_days_1 = 40
-@suelg_advanced_survey_sp_days_2 = 48
-@suelg_advanced_survey_sp_days_3 = 58
-@suelg_advanced_survey_sp_days_4 = 70
-@suelg_advanced_survey_sp_days_5 = 84
-@suelg_advanced_survey_sp_days_6 = 101
-@suelg_advanced_survey_sp_days_7 = 121
-@suelg_advanced_survey_sp_days_8 = 145
-@suelg_advanced_survey_sp_days_9 = 174
-@suelg_advanced_survey_sp_days_10 = 209
-@suelg_advanced_survey_sp_days_11 = 251
-@suelg_advanced_survey_sp_days_12 = 301
-@suelg_advanced_survey_sp_days_13 = 361 
-@suelg_advanced_survey_sp_days_14 = 433 # add fixed +3 months (90 days) per level after that level
-@suelg_advanced_survey_sp_days_15 = 523 
-@suelg_advanced_survey_sp_days_16 = 613
-@suelg_advanced_survey_sp_days_17 = 703
-@suelg_advanced_survey_sp_days_18 = 793
-@suelg_advanced_survey_sp_days_19 = 883
-@suelg_advanced_survey_sp_days_20 = 973
-@suelg_advanced_survey_sp_days_21 = 1063
-@suelg_advanced_survey_sp_days_22 = 1153
-@suelg_advanced_survey_sp_days_23 = 1243
-@suelg_advanced_survey_sp_days_24 = 1333
-@suelg_advanced_survey_sp_days_25 = 1423
+@SUELG_ADVANCED_SURVEY_SP_days_1 = 40
+@SUELG_ADVANCED_SURVEY_SP_days_2 = 48
+@SUELG_ADVANCED_SURVEY_SP_days_3 = 58
+@SUELG_ADVANCED_SURVEY_SP_days_4 = 70
+@SUELG_ADVANCED_SURVEY_SP_days_5 = 84
+@SUELG_ADVANCED_SURVEY_SP_days_6 = 101
+@SUELG_ADVANCED_SURVEY_SP_days_7 = 121
+@SUELG_ADVANCED_SURVEY_SP_days_8 = 145
+@SUELG_ADVANCED_SURVEY_SP_days_9 = 174
+@SUELG_ADVANCED_SURVEY_SP_days_10 = 209
+@SUELG_ADVANCED_SURVEY_SP_days_11 = 251
+@SUELG_ADVANCED_SURVEY_SP_days_12 = 301
+@SUELG_ADVANCED_SURVEY_SP_days_13 = 361 
+@SUELG_ADVANCED_SURVEY_SP_days_14 = 433 # add fixed +3 months (90 days) per level after that level
+@SUELG_ADVANCED_SURVEY_SP_days_15 = 523 
+@SUELG_ADVANCED_SURVEY_SP_days_16 = 613
+@SUELG_ADVANCED_SURVEY_SP_days_17 = 703
+@SUELG_ADVANCED_SURVEY_SP_days_18 = 793
+@SUELG_ADVANCED_SURVEY_SP_days_19 = 883
+@SUELG_ADVANCED_SURVEY_SP_days_20 = 973
+@SUELG_ADVANCED_SURVEY_SP_days_21 = 1063
+@SUELG_ADVANCED_SURVEY_SP_days_22 = 1153
+@SUELG_ADVANCED_SURVEY_SP_days_23 = 1243
+@SUELG_ADVANCED_SURVEY_SP_days_24 = 1333
+@SUELG_ADVANCED_SURVEY_SP_days_25 = 1423
 
 ############################################
 ##### Advanced survey progress timings #####

@@ -1,0 +1,79 @@
+﻿l_english:
+ suelg_AS:0 "Advanced surveys"
+ suelg_AS_prefix:0 "Minimum level of §YAdvanced surveys§! completed on planets in this system: "
+ suelg_AS_postfix:0 ".\n\nThere may be planets that may have a higher level of completed §YAdvanced survey§! than other planets in the same system."
+
+ suelg_advanced_surveyed_1:0 "$suelg_AS$ I"
+ suelg_advanced_surveyed_1_desc:0 "$suelg_AS_prefix$§Y1§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_2:0 "$suelg_AS$ II"
+ suelg_advanced_surveyed_2_desc:0 "$suelg_AS_prefix$§Y2§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_3:0 "$suelg_AS$ III"
+ suelg_advanced_surveyed_3_desc:0 "$suelg_AS_prefix$§Y3§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_4:0 "$suelg_AS$ IV"
+ suelg_advanced_surveyed_4_desc:0 "$suelg_AS_prefix$§Y4§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_5:0 "$suelg_AS$ V"
+ suelg_advanced_surveyed_5_desc:0 "$suelg_AS_prefix$§Y5§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_6:0 "$suelg_AS$ VI"
+ suelg_advanced_surveyed_6_desc:0 "$suelg_AS_prefix$§Y6§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_7:0 "$suelg_AS$ VII"
+ suelg_advanced_surveyed_7_desc:0 "$suelg_AS_prefix$§Y7§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_8:0 "$suelg_AS$ VIII"
+ suelg_advanced_surveyed_8_desc:0 "$suelg_AS_prefix$§Y8§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_9:0 "$suelg_AS$ IX"
+ suelg_advanced_surveyed_9_desc:0 "$suelg_AS_prefix$§Y9§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_10:0 "$suelg_AS$ X"
+ suelg_advanced_surveyed_10_desc:0 "$suelg_AS_prefix$§Y10§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_11:0 "$suelg_AS$ XI"
+ suelg_advanced_surveyed_11_desc:0 "$suelg_AS_prefix$§Y11§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_12:0 "$suelg_AS$ XII"
+ suelg_advanced_surveyed_12_desc:0 "$suelg_AS_prefix$§Y12§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_13:0 "$suelg_AS$ XIII"
+ suelg_advanced_surveyed_13_desc:0 "$suelg_AS_prefix$§Y13§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_14:0 "$suelg_AS$ XIV"
+ suelg_advanced_surveyed_14_desc:0 "$suelg_AS_prefix$§Y14§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_15:0 "$suelg_AS$ XV"
+ suelg_advanced_surveyed_15_desc:0 "$suelg_AS_prefix$§Y15§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_16:0 "$suelg_AS$ XVI"
+ suelg_advanced_surveyed_16_desc:0 "$suelg_AS_prefix$§Y16§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_17:0 "$suelg_AS$ XVII"
+ suelg_advanced_surveyed_17_desc:0 "$suelg_AS_prefix$§Y17§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_18:0 "$suelg_AS$ XVIII"
+ suelg_advanced_surveyed_18_desc:0 "$suelg_AS_prefix$§Y18§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_19:0 "$suelg_AS$ XIX"
+ suelg_advanced_surveyed_19_desc:0 "$suelg_AS_prefix$§Y19§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_20:0 "$suelg_AS$ XX"
+ suelg_advanced_surveyed_20_desc:0 "$suelg_AS_prefix$§Y20§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_21:0 "$suelg_AS$ XXI"
+ suelg_advanced_surveyed_21_desc:0 "$suelg_AS_prefix$§Y21§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_22:0 "$suelg_AS$ XXII"
+ suelg_advanced_surveyed_22_desc:0 "$suelg_AS_prefix$§Y22§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_23:0 "$suelg_AS$ XXIII"
+ suelg_advanced_surveyed_23_desc:0 "$suelg_AS_prefix$§Y23§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_24:0 "$suelg_AS$ XXIV"
+ suelg_advanced_surveyed_24_desc:0 "$suelg_AS_prefix$§Y24§!$suelg_AS_postfix$"
+
+ suelg_advanced_surveyed_25:0 "$suelg_AS$ XXV"
+ suelg_advanced_surveyed_25_desc:0 "$suelg_AS_prefix$§Y25§!$suelg_AS_postfix$"

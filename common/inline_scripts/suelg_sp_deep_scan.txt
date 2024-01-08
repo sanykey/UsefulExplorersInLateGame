@@ -1,6 +1,7 @@
 # picture = GFX_F_event_001
 location = yes
-# icon = "gfx/interface/icons/situation_log/situation_log_f.dds"
+icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
+
 timelimit = -1
 
 event_scope = ship_event

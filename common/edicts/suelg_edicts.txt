@@ -1,5 +1,5 @@
 suelg_clear_projects = {
-	icon = "GFX_suelg_clear_projects_edict"
+	icon = "GFX_edict_type_time"
 	resources = {
 		category = edicts
 	}

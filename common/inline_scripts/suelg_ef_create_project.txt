@@ -1,7 +1,7 @@
 if = {
 	limit = { check_variable = { which = suelg_started_advanced_survey_lvl value = $LVL$ } }
 	enable_special_project = {
-		name = "suelg_advanced_survey_SP_$LVL$"
+		name = "SUELG_ADVANCED_SURVEY_SP_$LVL$"
 		location = this
 		owner = event_target:t_owner
 	}
