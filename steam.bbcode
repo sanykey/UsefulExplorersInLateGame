@@ -1,15 +1,218 @@
-Compatibility patch between [URL=https://steamcommunity.com/sharedfiles/filedetails/?id=2981450111]Tech Category Focus[/URL] and [URL=https://steamcommunity.com/sharedfiles/filedetails/?id=1623423360]UI Overhaul Dynamic[/URL].
 [img]https://i.imgur.com/fVVaDCS.gif[/img]
 [b]3.8.3✔️[/b]
 
-[h2]Load Order:[/h2]
+[h1]Short Description[/h1].
+Survey all planets and systems with science ships more than once to discover additional new resources, anomalies, and archaeological sites, as well as to gain additional experience for scientists.
+The higher the scientist's
+skill, the higher the chance of finding something useful.
+
+The mod gives the opportunity to use scientists with veteran class "Space Explorer" for their intended purpose (survey star systems and planets)
+in the middle of the game, and possibly even in the late game.
+
+[h1]What problems the mod solves:[/h1]
 [LIST]
-[*] Tech Category Focus
-[*] UI Overhaul Dynamic
-[*] Tech Category Focus + UI Overhaul Dynamic
+[*] Scientists with the veteran class Explorer become useless by the beginning of the middle game. By the time a veteran research scientist
+veteran traits that give bonuses for exploring systems, all systems have already been explored or captured by neighboring countries. With this mod,
+Explorer will be noticeably more useful.
+[*] The closer to the late game, the more useless resource and science deposits on planets become. They provide very few resources/science.
+With this mod, deposits can become noticeably more.
+[*] In the vanilla game, after exploring all systems in the galaxy, scientists have fewer opportunities to get experience for exploring planets.
+This mod can be an additional source of experience for scientists.
+[*] In the vanilla game, if you build an "Habitat" in the orbit of a planet, then almost all resources and science on that planet are no longer
+extractable (mining and science stations disappear). The mod solves this problem as well.
+[/LIST]
+
+[h1]Detailed gameplay description[/h1]
+[h2]Basic Mechanics[/h2]
+To begin surveying planets in the system, you must order a science ship with a scientist to orbit any star in the system. Once the
+science ship enters orbit, an "Advanced survey" project of the appropriate level will appear near each planet available for exploration.
+
+Order the science ships to explore these projects. When these projects are completed, there is a chance of an anomaly, additional resource or scientific
+deposits or archaeological sites. For habitable planets, there is a small chance of a new district appearing.
+
+There are 25 levels of "Advanced survey" planet projects available. Accordingly, each planet can be explored 25 times + 1 survey from the
+vanilla game. After each "Advanced survey" project is completed, the next project on the same planet will be 1 level higher.
+
+Each level of "Advanced survey" project requires a corresponding level of "Advanced planet survey" technology (see Technology section).
+
+Each new level of the "Advanced survey" project takes more and more days to complete. see table:
+https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E/gid=0 .
+
+[h2]Technologies[/h2].
+There are 25 technologies available in the game, each dependent on the previous one. Each technology studied opens the possibility to start a project
+"Advanced survey" of the corresponding level. For example, if you learn 25 levels of "Advanced planetary survey" technologies, you will be able to
+survey each planet 25 times.
+
+The first level of "Advanced planetary survey I" technology (2 tier) will be available only after studying "Subspace Sensors" technology
+(3 tier). Then, the following levels of "Advanced planetary survey" technology will be available. 
+
+All "Advanced planetary survey" technologies belong to the physical research branch.
+
+A list of all technologies of this mod is in this table:
+https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E/edit#gid=1314599674 .
+
+[h2]Discovering deposits on a Planet[/h2]
+Approximate chance of a resource or science deposit appearing on a planet after completing the "Advanced survey" project:
+[LIST]
+[*] with minerals, energy, trade value: 5%;
+[*] with physical, social, engineering research: 5%;
+[*] with dark matter, sprues, zro: 1.5%;
+[*] with rare crystals, explosive dust, exotic gases: 1%;
+[*] with minor artifacts: 0.5% (only if there is an archaeological site on the planet).
+[/LIST]
+
+Keep in mind that only those deposits can appear on planets for which there is a non-zero chance in vanilla planetary exploration. For example,
+you'll only find dark matter in black holes.
+
+With each successive level of "Advanced survey" project, the chance of finding deposits increases by about 0.25%. At level 25,
+the chance is about 6.25% higher than at level 1. 
+
+Having the veteran class "Explorer" increases the chance of all resources appearing by 5%.
+
+If a new deposit was found, its size will always be +1. For optimization purposes, the mod tries not to clutter the game with multiple resource deposits, but rather converts two identical small resource deposits into a single large one whenever possible.
+If possible, it converts two small resource deposits into one large one.
+
+If a new deposit was opened on a planet that has an "Habitat", the resources from that deposit become available to the "Habitat".
+
+If a planet has a resource deposit, the chance of a new resource deposit will increase by 5%, while the chance of a science deposit will be 0.
+Similarly, if a planet has a science deposit, the chance of a new science deposit will increase by 10% and the chance of a resource deposit will be 0.
+will be 0.
+This is done because you cannot mix resource and science deposits on the same planet. A deposit with a trade value can be mixed with any other deposit.
+others.
+
+In this table (https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E/#gid=1572462715), I tried to roughly calculate the
+the chance of opening different resource deposits on different planets and stars in a vanilla game. In this mod, I've tried to build off of those numbers and the
+the same requirements for the planets on which the corresponding resources can appear.
+
+[h2]Experience for completing projects[/h2]
+Leaders receive experience for completing projects, which depends on the level of the planet's "Advanced survey" project.
+
+The amount of experience received for each project level is described in the table:
+https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E/
+
+In order to ensure that low-level leaders are not instantly pumped up, there is a penalty on the experience they receive when completing high-level projects.
+A leader cannot gain more than 5% of the experience required until the next level of that leader. For example, a level 2 leader cannot gain more than
+55 units of experience.
+Limitations in the experience gained are described in the table:
+https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E/#gid=1977577132
+
+Country modifiers on the amount of experience leaders receive are applied after the experience penalty described above.
+
+[h2]Discovering Anomalies[/h2].
+When completing the "Advanced survey" project:
+[LIST]
+[*] Anomalies will not appear in the starting star system.
+[*] Base chance of an anomaly appearing = 5%. 
+[*] Which anomaly will appear is chosen randomly and with the same weights as specified in the vanilla game.
+[*] Unlike in the vanilla game, the chance of an anomaly appearing does not increase with each failed attempt of a science ship. 
+[*] Any vanilla repeatable anomalies may appear. Anomalies with the flag "unique to country" and with the flag "unique to galaxy"
+will not appear.
+[*] The Explorer scientist class gives a +10% chance of an anomaly appearing (there is no such modifier in the vanilla game).
+[*] Anomalies added by other mods will not appear until patches are made for it.
+[/LIST]
+
+The chance of an anomaly appearing after completing the "Extended survey" project is affected by the following modifiers that affect
+the chance of anomalies appearing in vanilla planetary survey.
+
+When an anomaly appears, a notification similar to the vanilla one appears, but clicking on this notification opens the planet
+window instead of the anomaly. This was done due to limitations for game modification.
+
+[h2]Discovering Archaeological sites[/h2]
+When completing the "Advanced survey" project:
+[LIST]
+[*] Base chance of site appearing is 0.1% (in vanilla game chance = 1.25%)
+[*] Random sites from vanilla game and from any mods may appear.
+[*] The same modifiers that affect the rate of research archaeological sites in the vanilla game affect the chance of site appearing.
+[*] The Explorer scientist class gives a +10% chance of site appearing (there is no such modifier in the vanilla game).
+[/LIST]
+
+[h2]Discovering deposits on habitable planets[/h2]
+After completing the "Advanced survey" project, inhabited planets may have one of the resource deposits, which adds a mineral, energy, or
+farming district. Similarly, a strategic resource deposit may appear, adding strategic resource mining jobs.
+
+The chance of any planetary resource deposit appearing = 1%.
+
+Every 4 open deposits on a planet increases the maximum number of districts by +1.
+
+[h2]Orbital Settlements[/h2]
+In the vanilla game, if you build an Habitat on the orbit of a planet, all resources on that planet stop being extracted (mining and
+science stations disappear). Instead, Habitat expand the limit of their respective districts. 
+
+To compensate for this, the mod adds new resource deposits to Habitats, which replace the disabled deposits on the
+planets and passively provide income with relevant resources (even minor artifacts).
+
+Deposits with rare resources work on the same principle as in the vanilla version of the game, but the mod introduces some fixes due to the fact that on the
+planets may have non-standard large deposit sizes (which appear because of the mod).
+
+[h2]Loss of star systems with projects[/h2]
+If a system has been lost (an outpost disassembled, occupied, or taken away), the current "Advanced survey" projects of planets in that system
+are canceled. The occupier or old owner or new owner of the system can then resume the projects.
+
+[h2]Project Research Speed[/h2]
+In the vanilla game, the number of days spent on special projects is fixed and cannot be changed with any modifiers.
+In order to get around this limitation, the mod counts the modifiers, compares this to the duration of "Advanced survey" projects and
+cancels the projects early, even though the projects are considered complete to the mod. This makes the traits of scientists, technology, speed pointers, and
+other modifiers for planetary exploration useful relative to "Advanced survey" projects even in late game. In addition to this,
+you won't be bothered by frequent sound notifications of project completion (and there will be a lot of "Advanced survey" projects).
+
+The "Advanced survey" project study rate is how many days of a project are researched in one day of game time. It can be increased
+with vanilla technology, edicts, scientist traits, and scientist level (all things that affect vanilla planet exploration speed).
+Formula: 
+[code]days = base_special_project_days / (1 + modifier + modifier + modifier + modifier...)[/code].
+Each scientist level adds +10% to the project exploration speed.
+
+Upon completion of the project, the science ship receives a 20-day boost to sublight  speed equal to the total exploration speed modifier
+of planets. For example, if you have a +40% planetary exploration speed, then at the end of the project, the science ship will receive an additional +40% to its sublight  speed for 20 days.
+
+The number of days of the project also has a margin of error of -10 days, i.e. the project can end earlier by a random number of days,
+but no more than 10 days. It does not depend on any modifiers.
+
+The basic number of days required to complete different levels of "Advanced survey" projects can be seen in the table:
+https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E/ .
+
+[h1]Console commands for debugging[/h1]
+[code]
+event suelg_debug.1             # build an outpost on a random nearby free star system
+event suelg_debug.2             # learn the next level of scanning technology
+event suelg_debug.3             # cancel all current projects
+event suelg_debug.4             # create projects on a random nearby captured star system if there is a suitable system and technology level available
+[/code].
+The following commands create +1 deposits of the specified resource. When entering the commands, a planet window should be opened to add the
+the specified deposits:
+[code]
+event suelg_spawn_resource.2    # minerals
+event suelg_spawn_resource.3    # energy credits
+event suelg_spawn_resource.4    # trade value
+event suelg_spawn_resource.5    # alloys
+event suelg_spawn_resource.6    # zroh
+event suelg_spawn_resource.7    # dark matter
+event suelg_spawn_resource.8    # physics research
+event suelg_spawn_resource.9    # social research
+event suelg_spawn_resource.10   # engineering research
+event suelg_spawn_resource.11   # explosive dusts
+event suelg_spawn_resource.12   # rare crystals
+event suelg_spawn_resource.13   # exotic gases
+event suelg_spawn_resource.14   # minor artifacts
+
+event suelg_spawn_archeology.2 # spavn random archeological digs
+[/code]
+
+[h1]Compatibility[/h1]
+[LIST]
+[*] Vanilla game files have not been modified.
+[*] The mod is most likely compatible with any other mods.
+[*] The order of loading does not matter.
+[*] The mod can be added to the game in the middle of the game.
+[*] Removing the mod in the middle of the game will not break the game, but the resources added by the mod on planets and orbital settlements will remain.
+[/LIST]
+
+[h1]Localization[/h1]
+[LIST]
+[*] English
+[*] Русский (Russian)
 [/LIST]
 
 [h2]Making derivative contents:[/h2]
 You can use the code and art mod as you see fit. There is no restriction on copying and publishing. For example, you can make your own version of this mod.
 
-Link to project sources: https://github.com/sanykey/TCF_UOD_patch
+Link to project sources: https://github.com/sanykey/MoreLeadersCapTech
