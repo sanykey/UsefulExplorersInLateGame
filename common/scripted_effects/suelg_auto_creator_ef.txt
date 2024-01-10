@@ -67,6 +67,8 @@ suelg_add_scan_projects_near_ship = {
 		event_target:t_owner = {
 			change_variable = { which = suelg_started_sys_scans value = 1 }
 		}
+
+		save_event_target_as = t_solar_system_with_new_sp
 	}
 }
 

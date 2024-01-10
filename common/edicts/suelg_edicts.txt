@@ -29,3 +29,18 @@ suelg_clear_projects = {
 		weight = 0	
 	}	
 }
+
+suelg_disallow_auto_survey = {
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+	}
+
+	potential = {
+		suelg_can_auto_survey = yes
+	}
+
+	ai_weight = {
+		weight = 0	
+	}	
+}

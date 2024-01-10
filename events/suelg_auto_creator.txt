@@ -24,7 +24,7 @@ country_event = {
 	}
 }
 
-# Create scan projects near ship for AI
+# Create scan projects near ship
 ship_event = {
     id = suelg_auto_creator.2
     hide_window = yes

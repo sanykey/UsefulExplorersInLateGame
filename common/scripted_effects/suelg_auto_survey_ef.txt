@@ -1,0 +1,34 @@
+# scope fleet
+# event_target:t_planet_to_survey should be set
+suelg_fleet_action_research_special_project = {
+	set_variable = { which = suelg_advanced_survey_lvl value = event_target:t_planet_to_survey.suelg_started_advanced_survey_lvl }
+
+	if = { limit = { always = no } }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 1 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 2 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 3 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 4 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 5 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 6 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 7 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 8 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 9 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 10 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 11 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 12 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 13 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 14 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 15 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 16 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 17 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 18 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 19 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 20 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 21 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 22 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 23 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 24 }
+	inline_script = { script = auto_survey/suelg_fleet_research_action LVL = 25 }
+
+	clear_variable = suelg_advanced_survey_lvl
+}

@@ -186,3 +186,14 @@ suelg_has_habitat_in_system = {
 		has_planet_flag = habitat
 	}
 }
+
+# scope = owner
+suelg_can_auto_survey = {
+	OR = {
+		has_technology = suelg_tech_advanced_survey_1
+		AND = {
+			is_variable_set = suelg_max_scan_level
+			check_variable = { which = suelg_max_scan_level value > 0 }
+		}
+	}
+}

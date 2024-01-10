@@ -29,3 +29,17 @@ suelg_max_exp_for_leader = {
 	add = value:suelg_max_exp_for_leader2
 	mult = @suelg_max_experience_factor
 }
+
+# scope = planet
+suelg_fleet_survey_sp_distance = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = distance
+		trigger_scope = this
+		parameters = {
+			source = event_target:t_fleet
+			same_solar_system = yes
+		}
+		mode = add
+	}
+}

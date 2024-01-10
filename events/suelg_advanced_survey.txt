@@ -4,9 +4,9 @@ namespace = suelg_advanced_survey
 #This = Ship scope
 #on_fleet_enter_orbit
 fleet_event = {
-    id = suelg_advanced_survey.1
-    hide_window = yes
-    is_triggered_only = yes
+	id = suelg_advanced_survey.1
+	hide_window = yes
+	is_triggered_only = yes
 	trigger = {
 		# log = ">> CHECK ORBIT FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName]"
 
@@ -18,7 +18,7 @@ fleet_event = {
 				has_owner = yes
 			}
 		}
-		This = { # ship
+		This = { # fleet or ship?
 			OR = {
 				is_scope_type = ship
 				is_scope_type = fleet
@@ -38,16 +38,18 @@ fleet_event = {
 		}
 	}
 
-    immediate = {
+	immediate = {
 		# log = ">> RUN EVENT - FROM: [from.GetName] THIS: [This.GetName]"
 		this = {
 			owner = {
 				save_event_target_as = t_owner
 				suelg_init_country_vars = yes
 			}
+			save_event_target_as = t_fleet
 		}
 
 		from = {
+			save_event_target_as = t_planet
 			solar_system = {
 				if = {
 					limit = {								
@@ -58,10 +60,13 @@ fleet_event = {
 
 					suelg_reset_system_projects = yes
 					suelg_create_system_scan_projects = yes
+					event_target:t_fleet = {
+						fleet_event = { id = suelg_auto_survey.1 } # Check if the fleet should be automatically order to research a next Advanced survey project
+					}
 				}
 			}
 		}
-    }
+	}
 }
 
 # Run effects after complete project
@@ -72,7 +77,7 @@ planet_event = {
 
 	immediate = {
 		# log = ">> COMPLETE SP EFFECTS"
-
+		save_event_target_as = t_planet
 		suelg_add_exp_for_leader = yes
 
 		set_variable = { which = suelg_completed_advanced_survey_lvl value = suelg_started_advanced_survey_lvl }
@@ -84,6 +89,9 @@ planet_event = {
 
 		event_target:t_ship = {
 			suelg_accelerate_ship_after_sp = yes
+			fleet = {
+				fleet_event = { id = suelg_auto_survey.1 } # Check if the fleet should be automatically order to research a next Advanced survey project
+			}
 		}
 	}
 }

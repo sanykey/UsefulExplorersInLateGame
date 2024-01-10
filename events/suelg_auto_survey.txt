@@ -1,0 +1,132 @@
+namespace = suelg_auto_survey
+
+# Check if the fleet should be automatically order to research a next Advanced survey project
+fleet_event = {
+	id = suelg_auto_survey.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		owner = {
+			is_ai = no
+			suelg_can_auto_survey = yes
+			NOT = { has_edict = suelg_disallow_auto_survey }
+		}
+		# If the science ship has received an order from the player, automatic research must be interrupted
+		OR = {
+			is_fleet_idle = yes
+			NOT = {
+				OR = {
+					has_fleet_order = survey_planet_order
+					has_fleet_order = research_anomaly_order
+					has_fleet_order = upgrade_design_at_starbase_fleet_order
+					has_fleet_order = upgrade_design_at_orbitable_fleet_order
+					has_fleet_order = follow_order
+					has_fleet_order = merge_fleet_order
+					has_fleet_order = use_bypass_order
+					has_fleet_order = jumpdrive_order
+					has_fleet_order = jumpdrive_windup
+					has_fleet_order = excavate_archaeological_site_fleet_order
+					has_fleet_order = return_fleet_order
+					has_fleet_order = repair_fleet_order
+					has_fleet_order = auto_patrol_order
+					has_fleet_order = research_discovery_order
+					has_fleet_order = move_to_system_point_order
+					has_fleet_order = orbit_planet_order
+					has_fleet_order = explore_bypass_order
+					has_fleet_order = evade_hostiles_order
+				}
+			}				
+		}	
+	}
+
+	immediate = {
+		save_event_target_as = t_fleet
+		fleet_event = { id = suelg_auto_survey.2 } # Order a fleet to research the nearest "Advanced survey" project
+	}
+}
+
+# Order a fleet to research the nearest "Advanced survey" project
+fleet_event = {
+	id = suelg_auto_survey.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		closest_system = {
+			max_steps = 0
+			system_event = { id = suelg_auto_survey.3 } # Find closest planet "Advanced survey" project
+			save_event_target_as = t_closest_system
+		}
+
+		if = {
+			limit = { exists = event_target:t_planet_to_survey }
+			suelg_fleet_action_research_special_project = yes
+		} else = {
+			random_owned_ship = {
+				suelg_add_scan_projects_near_ship = yes
+			}
+
+			if = {
+				limit = { exists = event_target:t_solar_system_with_new_sp }
+
+				if = {
+					limit = { event_target:t_solar_system_with_new_sp = { is_same_value = event_target:t_closest_system } }
+					event_target:t_solar_system_with_new_sp = {
+						system_event = { id = suelg_auto_survey.3 } # Find closest planet with "Advanced survey" project in same solar system
+					}
+				} else = {
+					event_target:t_solar_system_with_new_sp = {
+						system_event = { id = suelg_auto_survey.4 } # Find random planet with "Advanced survey" project
+					}
+				}
+
+				if = {
+					limit = { exists = event_target:t_planet_to_survey }
+					event_target:t_fleet = {
+						suelg_fleet_action_research_special_project = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# Find closest planet with "Advanced survey" project in same solar system
+system_event = {
+	id = suelg_auto_survey.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		ordered_system_planet = {
+			limit = {
+				is_variable_set = suelg_started_advanced_survey_lvl
+				check_variable = { which = suelg_started_advanced_survey_lvl value > suelg_completed_advanced_survey_lvl }
+			}
+			position = 0
+			order_by = value:suelg_fleet_survey_sp_distance
+			inverse = yes
+
+			save_event_target_as = t_planet_to_survey
+		}
+	}
+}
+
+# Find random planet with "Advanced survey" project
+system_event = {
+	id = suelg_auto_survey.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		random_system_planet = {
+			limit = {
+				is_variable_set = suelg_started_advanced_survey_lvl
+				check_variable = { which = suelg_started_advanced_survey_lvl value > suelg_completed_advanced_survey_lvl }
+			}
+
+			save_event_target_as = t_planet_to_survey
+		}
+	}
+}

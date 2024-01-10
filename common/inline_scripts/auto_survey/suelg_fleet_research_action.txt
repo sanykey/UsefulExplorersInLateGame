@@ -1,0 +1,5 @@
+# inline script suelg_fleet_research_action
+else_if = {
+	limit = { check_variable = { which = suelg_advanced_survey_lvl value = $LVL$ } }
+	fleet_action_research_special_project = { special_project = SUELG_ADVANCED_SURVEY_SP_$LVL$ target = event_target:t_planet_to_survey }
+}
