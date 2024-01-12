@@ -1,0 +1,199 @@
+# SCOPE EVERYWHERE = planet
+
+suelg_can_have_volatile_motes_deposits = {
+	# it's a vanilla trigger, for some reason written in the singular, although other similar ones are written in the plural form
+	can_have_volatile_motes_deposit = yes
+}
+
+suelg_can_have_alloy_deposits = {
+	is_planet_class = pc_asteroid
+	is_planet_class = pc_molten
+}
+
+suelg_can_have_zro_deposits = {
+	is_planet_class = pc_toxic
+}
+
+suelg_can_have_dark_matter_deposits = {
+	is_planet_class = pc_black_hole
+}
+
+suelg_can_have_orbital_deposits = {
+	OR = {
+		can_have_mineral_deposits = yes
+		can_have_energy_deposits = yes
+		can_have_society_deposits = yes
+		can_have_minor_physics_deposits = yes
+		can_have_physics_deposits = yes
+		can_have_minor_engineering_deposits = yes
+		can_have_engineering_deposits = yes
+		can_have_trade_deposits = yes
+		can_have_rare_crystals_deposits = yes
+		can_have_exotic_gases_deposits = yes
+		suelg_can_have_volatile_motes_deposits = yes
+		suelg_can_have_alloy_deposits = yes
+		suelg_can_have_zro_deposits = yes
+		suelg_can_have_dark_matter_deposits = yes
+	}
+}
+
+suelg_can_have_planet_deposits = {
+	OR = {
+		can_have_habitable_deposits = yes
+
+		is_planet_class = "pc_desert"
+		is_planet_class = "pc_savannah"
+		is_planet_class = "pc_arid"
+	
+		is_planet_class = "pc_tropical"
+		is_planet_class = "pc_continental"
+		is_planet_class = "pc_ocean"
+	
+		is_planet_class = "pc_tundra"
+		is_planet_class = "pc_arctic"
+		is_planet_class = "pc_alpine"
+	
+		is_planet_class = "pc_gaia"
+		is_planet_class = "pc_city"
+		is_planet_class = "pc_hive"
+		is_planet_class = "pc_machine"
+		is_planet_class = "pc_relic"
+		is_planet_class = "pc_ai"
+		is_planet_class = "pc_nuked"
+		# is_planet_class = "pc_barren"
+	}
+}
+
+suelg_has_trade_deposits = {
+	OR = {
+		has_deposit = d_trade_value_1
+		has_deposit = d_trade_value_2
+		has_deposit = d_trade_value_3
+		has_deposit = d_trade_value_4
+		has_deposit = d_trade_value_5
+		has_deposit = d_trade_value_6
+		has_deposit = d_trade_value_7
+		has_deposit = d_trade_value_8
+		has_deposit = d_trade_value_9
+		has_deposit = d_trade_value_10
+	}
+}
+
+suelg_can_spawn_minerals = {
+	can_have_mineral_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_research_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+suelg_can_spawn_energy = {
+	can_have_energy_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_research_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+suelg_can_spawn_trade = {
+	can_have_trade_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_research_station
+		has_deposit_for = shipclass_mining_station
+	}
+}
+
+suelg_can_spawn_alloys = {
+	suelg_can_have_alloy_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_research_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_zro = {
+	suelg_can_have_zro_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_mining_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_dark_matter = {
+	suelg_can_have_dark_matter_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_mining_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_physics = {
+	OR = {
+		can_have_physics_deposits = yes
+		can_have_minor_physics_deposits = yes
+	}
+	NOT = {
+		has_deposit_for = shipclass_mining_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_society = {
+	can_have_society_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_mining_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_engineering = {
+	OR = {
+		can_have_engineering_deposits = yes
+		can_have_minor_engineering_deposits = yes
+	}
+	NOT = {
+		has_deposit_for = shipclass_mining_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_volatile_motes = {
+	suelg_can_have_volatile_motes_deposits = yes 
+	NOT = {
+		has_deposit_for = shipclass_research_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_rare_crystals = {
+	can_have_rare_crystals_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_research_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_exotic_gases = {
+	can_have_exotic_gases_deposits = yes
+	NOT = {
+		has_deposit_for = shipclass_research_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+
+suelg_can_spawn_artifacts = {
+	any_archaeological_site = {
+		planet = {
+			is_same_value = event_target:t_planet
+		}
+	}
+}

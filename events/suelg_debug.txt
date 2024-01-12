@@ -186,3 +186,100 @@ event = {
 		}
 	}
 }
+
+# remove all deposits in planet
+planet_event = {
+	id = suelg_debug.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		clear_deposits = yes
+	}
+}
+
+# switch guaranteed deposits spawn on/off
+country_event = {
+	id = suelg_debug.7
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = suelg_guaranteed_deposits_spawn
+			}
+			remove_country_flag = suelg_guaranteed_deposits_spawn
+			create_message = {
+				type = SUELG_DEBUG
+				localization = SUELG_DEBUG_GUARANTEED_DEPOSITS_OFF
+				days = @suelg_debug_notification_days
+			}
+		} else = {
+			set_country_flag = suelg_guaranteed_deposits_spawn
+			create_message = {
+				type = SUELG_DEBUG
+				localization = SUELG_DEBUG_GUARANTEED_DEPOSITS_ON
+				days = @suelg_debug_notification_days
+			}
+		}
+	}
+}
+
+# switch fast projects completion on/off
+country_event = {
+	id = suelg_debug.8
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				has_country_flag = suelg_debug_instant_project_completion
+			}
+			remove_country_flag = suelg_debug_instant_project_completion
+			create_message = {
+				type = SUELG_DEBUG
+				localization = SUELG_DEBUG_INSTANT_PROJECT_COMPLETION_OFF
+				days = @suelg_debug_notification_days
+			}
+		} else = {
+			set_country_flag = suelg_debug_instant_project_completion
+			create_message = {
+				type = SUELG_DEBUG
+				localization = SUELG_DEBUG_INSTANT_PROJECT_COMPLETION_ON
+				days = @suelg_debug_notification_days
+			}
+		}
+	}
+}
+
+# switch anomaly spawn on/always/off
+country_event = {
+	id = suelg_debug.9
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = suelg_debug_anomaly_always_spawn
+					has_country_flag = suelg_debug_anomaly_not_spawn
+				}
+			}
+			remove_country_flag = suelg_debug_anomaly_not_spawn
+			set_country_flag = suelg_debug_anomaly_always_spawn
+			create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_ALWAYS days = @suelg_debug_notification_days }
+		} else_if = {
+			limit = { has_country_flag = suelg_debug_anomaly_always_spawn }
+			remove_country_flag = suelg_debug_anomaly_always_spawn
+			set_country_flag = suelg_debug_anomaly_not_spawn
+			create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_OFF days = @suelg_debug_notification_days }
+		} else = {
+			remove_country_flag = suelg_debug_anomaly_always_spawn
+			remove_country_flag = suelg_debug_anomaly_not_spawn
+			create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_ON days = @suelg_debug_notification_days }
+		}
+	}
+}

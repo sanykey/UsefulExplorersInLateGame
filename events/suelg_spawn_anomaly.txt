@@ -44,6 +44,15 @@ planet_event = {
 						is_preventing_anomaly = yes
 					}
 				}
+
+				# for debug
+				modifier = {
+					factor = 0
+					event_target:t_owner = {
+						has_country_flag = suelg_debug_anomaly_not_spawn
+					}
+				}
+
 				modifier = {
 					factor = this.suelg_anomaly_ch_mod
 				}
@@ -54,6 +63,15 @@ planet_event = {
 				modifier = {
 					add = @suelg_fail_spawn_anomaly_base_weight
 				}
+
+				# for debug
+				modifier = {
+					factor = 0
+					event_target:t_owner = {
+						has_country_flag = suelg_debug_anomaly_always_spawn
+					}
+				}
+
 				# log = ">> ANOMALY SPAWN FAIL"
 			}
 		}

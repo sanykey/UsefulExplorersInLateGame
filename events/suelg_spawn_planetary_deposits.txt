@@ -41,6 +41,13 @@ planet_event = {
 				modifier = {
 					add = @suelg_planetary_dep_fail_base_weight
 				}
+				# for debug
+				modifier = {
+					factor = 0
+					event_target:t_owner = {
+						has_country_flag = suelg_guaranteed_deposits_spawn
+					}
+				}
 			}
 		}
 	}

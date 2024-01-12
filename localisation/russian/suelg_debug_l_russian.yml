@@ -1,0 +1,11 @@
+﻿l_russian:
+ MESSAGE_SUELG_DEBUG_TITLE:0 "Отладка"
+ SUELG_DEBUG_GUARANTEED_DEPOSITS_ON:0 "Гарантированное создание депозитов на планетах §Gвключено§!"
+ SUELG_DEBUG_GUARANTEED_DEPOSITS_OFF:0 "Гарантированное создание депозитов на планетах §Rвыключено§! (по умолчанию)"
+
+ SUELG_DEBUG_INSTANT_PROJECT_COMPLETION_ON:0 "Быстрое завершение проектов §Gвключено§!"
+ SUELG_DEBUG_INSTANT_PROJECT_COMPLETION_OFF:0 "Быстрое завершение проектов §Rвыключено§! (по умолчанию)"
+
+ SUELG_DEBUG_ANOMALY_SPAWN_ON:0 "Создание аномалий §Gвключено§! (по умолчанию)"
+ SUELG_DEBUG_ANOMALY_SPAWN_ALWAYS:0 "Создание аномалий §YВСЕГДА§!"
+ SUELG_DEBUG_ANOMALY_SPAWN_OFF:0 "Создание аномалий §Rвыключено§!"

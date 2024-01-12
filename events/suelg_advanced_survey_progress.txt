@@ -108,7 +108,13 @@ ship_event = {
 	
 				if = {
 					limit = {
-						check_variable = { which = suelg_actual_sp_days value <= @suelg_sp_complete_remain_days }
+						OR = {
+							check_variable = { which = suelg_actual_sp_days value <= @suelg_sp_complete_remain_days }
+							# for debug:
+							event_target:t_owner = {
+								has_country_flag = suelg_debug_instant_project_completion
+							}
+						}
 					}
 					# log = ">> CHECK SP PROGRESS. FINISH [this.suelg_actual_sp_days]. FROM: [From.GetName]"
 					clear_variable = suelg_actual_sp_days

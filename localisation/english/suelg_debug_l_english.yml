@@ -1,0 +1,11 @@
+﻿l_english:
+ MESSAGE_SUELG_DEBUG_TITLE:0 "Debugging"
+ SUELG_DEBUG_GUARANTEED_DEPOSITS_ON:0 "Guaranteed deposits spawning on planets §Genabled§!"
+ SUELG_DEBUG_GUARANTEED_DEPOSITS_OFF:0 "Guaranteed deposits spawning on planets §Rdisabled§! (default)"
+
+ SUELG_DEBUG_INSTANT_PROJECT_COMPLETION_ON:0 "Fast project completion §Genabled§!"
+ SUELG_DEBUG_INSTANT_PROJECT_COMPLETION_OFF:0 "Fast project completion §Rdisabled§! (default)"
+
+ SUELG_DEBUG_ANOMALY_SPAWN_ON:0 "Anomaly spawning §Genabled§! (default)"
+ SUELG_DEBUG_ANOMALY_SPAWN_ALWAYS:0 "Anomaly spawning §YALWAYS§!"
+ SUELG_DEBUG_ANOMALY_SPAWN_OFF:0 "Anomaly spawning §Rdisabled§!"

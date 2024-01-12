@@ -118,10 +118,20 @@ suelg_calculate_actual_sp_days = {
 	floor_variable = suelg_actual_sp_days
 }
 
-
 # this = ship scope
 suelg_remain_or_complete_sp = {
-	if = { limit = { always = no } }
+	if = {
+		limit = { 
+			event_target:t_owner = {
+				has_country_flag = suelg_debug_instant_project_completion
+			}
+		}
+		# Complete the project instantly for debugging:
+		ship_event = {
+			id = suelg_advanced_survey_progress.3
+			scopes = { from = event_target:t_planet }
+		} 
+	}
 	inline_script = { script = suelg_ef_next_progress_ck N = 1 }
 	inline_script = { script = suelg_ef_next_progress_ck N = 2 }
 	inline_script = { script = suelg_ef_next_progress_ck N = 3 }

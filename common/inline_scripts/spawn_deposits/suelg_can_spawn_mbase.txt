@@ -1,0 +1,29 @@
+# spawn_deposits/suelg_can_spawn_mbase inline script
+modifier = {
+	add = @suelg_$D$_spawn_weight_base
+	suelg_can_spawn_$D$ = yes
+
+	NOT = {
+		has_deposit_for = shipclass_research_station
+		has_deposit_for = shipclass_mining_station
+		suelg_has_trade_deposits = yes
+	}
+}
+
+modifier = {
+	add = @suelg_$D$_spawn_weight_trade
+	suelg_can_spawn_$D$ = yes
+	suelg_has_trade_deposits = yes
+}
+
+modifier = {
+	add = @suelg_$D$_spawn_weight_mining
+	suelg_can_spawn_$D$ = yes
+	has_deposit_for = shipclass_mining_station
+}
+
+modifier = {
+	add = @suelg_$D$_spawn_weight_science
+	suelg_can_spawn_$D$ = yes
+	has_deposit_for = shipclass_research_station
+}

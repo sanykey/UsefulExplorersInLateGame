@@ -91,3 +91,17 @@ message_type = {
 
 	category = planets
 }
+
+# for debug messages
+message_type = {
+	key = SUELG_DEBUG
+	icon = "GFX_message_event_generic"
+	icon_frame = 1
+
+	sound = "notification"
+	ping = "ping_notification_green"
+
+	default_toast = yes
+
+	category = other
+}
