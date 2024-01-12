@@ -42,36 +42,6 @@
 @suelg_planetary_dep_fail_base_weight = 99
 @suelg_planetary_size_by_every_deps = 4
 
-#################################################
-##### Advanced survey special project days	#####
-#################################################
-# the number of days for each level of the special project "Extended survey". +20% per level:
-@SUELG_ADVANCED_SURVEY_SP_days_1 = 40
-@SUELG_ADVANCED_SURVEY_SP_days_2 = 48
-@SUELG_ADVANCED_SURVEY_SP_days_3 = 58
-@SUELG_ADVANCED_SURVEY_SP_days_4 = 70
-@SUELG_ADVANCED_SURVEY_SP_days_5 = 84
-@SUELG_ADVANCED_SURVEY_SP_days_6 = 101
-@SUELG_ADVANCED_SURVEY_SP_days_7 = 121
-@SUELG_ADVANCED_SURVEY_SP_days_8 = 145
-@SUELG_ADVANCED_SURVEY_SP_days_9 = 174
-@SUELG_ADVANCED_SURVEY_SP_days_10 = 209
-@SUELG_ADVANCED_SURVEY_SP_days_11 = 251
-@SUELG_ADVANCED_SURVEY_SP_days_12 = 301
-@SUELG_ADVANCED_SURVEY_SP_days_13 = 361 
-@SUELG_ADVANCED_SURVEY_SP_days_14 = 433 # add fixed +3 months (90 days) per level after that level
-@SUELG_ADVANCED_SURVEY_SP_days_15 = 523 
-@SUELG_ADVANCED_SURVEY_SP_days_16 = 613
-@SUELG_ADVANCED_SURVEY_SP_days_17 = 703
-@SUELG_ADVANCED_SURVEY_SP_days_18 = 793
-@SUELG_ADVANCED_SURVEY_SP_days_19 = 883
-@SUELG_ADVANCED_SURVEY_SP_days_20 = 973
-@SUELG_ADVANCED_SURVEY_SP_days_21 = 1063
-@SUELG_ADVANCED_SURVEY_SP_days_22 = 1153
-@SUELG_ADVANCED_SURVEY_SP_days_23 = 1243
-@SUELG_ADVANCED_SURVEY_SP_days_24 = 1333
-@SUELG_ADVANCED_SURVEY_SP_days_25 = 1423
-
 ############################################
 ##### Advanced survey progress timings #####
 ############################################

@@ -55,6 +55,17 @@ suelg_create_system_scan_projects = {
 			inline_script = { script = suelg_ef_create_project LVL = 13 }
 			inline_script = { script = suelg_ef_create_project LVL = 14 }
 			inline_script = { script = suelg_ef_create_project LVL = 15 }
+			inline_script = { script = suelg_ef_create_project LVL = 16 }
+			inline_script = { script = suelg_ef_create_project LVL = 17 }
+			inline_script = { script = suelg_ef_create_project LVL = 18 }
+			inline_script = { script = suelg_ef_create_project LVL = 19 }
+			inline_script = { script = suelg_ef_create_project LVL = 20 }
+			inline_script = { script = suelg_ef_create_project LVL = 21 }
+			inline_script = { script = suelg_ef_create_project LVL = 22 }
+			inline_script = { script = suelg_ef_create_project LVL = 23 }
+			inline_script = { script = suelg_ef_create_project LVL = 24 }
+			inline_script = { script = suelg_ef_create_project LVL = 25 }
+
 			prev = {
 				set_star_flag = suelg_has_scan_projects
 			}

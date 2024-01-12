@@ -2,7 +2,6 @@ suelg_tech_advanced_survey_1 = {
 	tier = 2
 	cost = @tier2cost1
 	weight = @tier2weight1
-	prerequisites = { "tech_sensors_3" }
 
 	inline_script = suelg_tech_advanced_survey
 }
