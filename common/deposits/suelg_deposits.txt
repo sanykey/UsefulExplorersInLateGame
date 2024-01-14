@@ -163,3 +163,38 @@ d_hab_artifacts_2 = {
 d_hab_artifacts_3 = {
 	inline_script = { script = deposits/suelg_hab_dep TYPE = minor_artifacts AMOUNT = 3 RCAT = hab_research_deposits CAT = deposit_cat_rare }
 }
+
+d_suelg_mining_empty_deposit = {
+	resources = {
+		category = orbital_mining_deposits
+		produces = {
+			minerals = 0
+		}
+	}
+	station = shipclass_mining_station
+
+	is_for_colonizable = no
+	drop_weight = { weight = 0 }
+}
+
+d_suelg_science_empty_deposit = {
+	resources = {
+		category = orbital_research_deposits
+		produces = {
+			physics_research = 0
+		}
+	}
+	station = shipclass_research_station
+
+	is_for_colonizable = no
+	drop_weight = { weight = 0 }
+}
+
+d_suelg_trade_empty_deposit = {
+	planet_modifier = {
+		trade_value_add = 0
+	}
+
+	is_for_colonizable = no
+	drop_weight = { weight = 0 }
+}

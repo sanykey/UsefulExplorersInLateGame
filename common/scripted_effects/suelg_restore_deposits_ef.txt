@@ -1,0 +1,18 @@
+# this = planet
+suelg_restore_deposits_by_type = {
+	suelg_restore_deposits_by_type_ws = { D = $D$ MAX_SIZE = @suelg_sizes_$D$ }
+}
+
+suelg_restore_deposits_by_type_ws = {
+	if = { 
+		limit =  {
+			is_variable_set = suelg_count_$D$
+			check_variable = { which = suelg_count_$D$ value > 0 }
+		}
+		while = {
+			count = this.suelg_count_$D$
+			# suelg_add_deposit_10, suelg_add_deposit_5, suelg_add_deposit_3
+			suelg_add_deposit_$MAX_SIZE$ = { D = $D$ }
+		}
+	}
+}

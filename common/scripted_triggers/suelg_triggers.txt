@@ -97,7 +97,7 @@ suelg_is_ship_researching_any_sp = {
 	}
 }
 
-# scope = planet
+# this = planet
 suelg_has_orbital_in_orbit = {
 	any_fleet_in_orbit = {
 		OR = {
@@ -107,20 +107,32 @@ suelg_has_orbital_in_orbit = {
 	}
 }
 
-# scope = system
+# this = system
 suelg_has_habitat_in_system = {
 	any_system_planet = {
 		has_planet_flag = habitat
 	}
 }
 
-# scope = owner
+# this = owner
 suelg_can_auto_survey = {
 	OR = {
 		has_technology = suelg_tech_advanced_survey_1
 		AND = {
 			is_variable_set = suelg_max_scan_level
 			check_variable = { which = suelg_max_scan_level value > 0 }
+		}
+	}
+}
+
+# this = planet
+suelg_has_unexpectedly_deleted_deposits = {
+	has_planet_flag = suelg_has_deposits
+	NOT = { 
+		OR = {
+			has_deposit = d_suelg_mining_empty_deposit
+			has_deposit = d_suelg_science_empty_deposit
+			has_deposit = d_suelg_trade_empty_deposit
 		}
 	}
 }

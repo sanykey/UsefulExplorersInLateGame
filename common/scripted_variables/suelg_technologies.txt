@@ -1,0 +1,5 @@
+@suelg_tech_const_advanced_survey_1 = 30000
+@suelg_tech_const_advanced_survey_2 = 50000
+@suelg_tech_const_advanced_survey_3 = 70000
+@suelg_tech_const_advanced_survey_4 = 90000
+@suelg_tech_const_advanced_survey_5 = 110000

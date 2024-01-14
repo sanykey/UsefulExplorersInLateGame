@@ -80,33 +80,79 @@ planet_event = {
 }
 
 # Spawn planet anomaly
-# From = ship scope
+# FROM = ship (required) - it is important to pass exactly FROM = ship, since many vanilla anomalies use this scope 
 planet_event = {
-    id = suelg_spawn_anomaly.2
-    hide_window = yes
-    is_triggered_only = yes
+	id = suelg_spawn_anomaly.2
+	hide_window = yes
+	is_triggered_only = yes
 
 	immediate = {
 		# log = ">> BEFORE SPAWN ANOMALY! THIS: [This.GetName] FROM: [From.GetName]"
 		suelg_spawn_random_anomaly = yes
 
+		from.owner = {
+			save_event_target_as = t_owner
+		}
+
+		# create message about discovered anomaly
 		if = {
 			limit = {
+				exists = event_target:t_ship
 				has_anomaly = yes
-				has_planet_flag = suelg_planet_has_new_anomaly
-				from = {
-					owner = {
-						is_ai = no
-					}
-				}
+				has_planet_flag = suelg_planet_has_anomaly
+				from.owner = { is_ai = no }
 			} 
 			from = {
 				add_anomaly_notification = yes
-				leader = {
-					set_variable = { which = suelg_l_anomaly_add_chance value = 0 }
+			}
+		}
+	}
+}
+
+# debug: Spawn anomaly
+planet_event = {
+	id = suelg_spawn_anomaly.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		save_event_target_as = t_planet
+
+		solar_system = {
+			if = { 
+				limit = { exists = owner }
+
+				owner = { save_event_target_as = t_owner }
+				random_fleet_in_system = {
+					limit = {
+						exists = leader
+						leader = { leader_class = scientist }
+						owner = { is_same_value = event_target:t_owner }
+					}
+					save_event_target_as = t_ship
 				}
 			}
-			remove_planet_flag = suelg_planet_has_new_anomaly
+		}
+
+		if = {
+			limit = {
+				NOT = { exists = event_target:t_ship }
+				exists = event_target:t_owner
+			}
+			event_target:t_owner = {
+				random_owned_fleet = {
+					limit = {
+						exists = leader
+						leader = { leader_class = scientist }
+					}
+					save_event_target_as = t_ship
+				}
+			}
+		}
+
+		if = {
+			limit = { exists = event_target:t_ship }
+			planet_event = { id = suelg_spawn_anomaly.2 scopes = { from = event_target:t_ship } } # Spawn planet anomaly
 		}
 	}
 }

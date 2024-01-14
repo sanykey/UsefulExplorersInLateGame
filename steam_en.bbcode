@@ -39,17 +39,12 @@ The mod gives the opportunity to use scientists with veteran class "Space Explor
 [h1]Changes in the latest update[/h1]
 [h3]v1.1.2 (2024.01.12)[/h3]
 [LIST]
-[*] bug fixed: Projects above level 15 were not created
-[*] Slightly changed formulas for the chance of creating deposits on planets.
-[*] New [url=https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E#gid=296414474]table[/url] describing the chances of creating deposits on planets.
-[*] Deposits with trade value are incompatible with science and resource deposits.
-[*] Deposits with trade value always appear with +3 units.
-[*] New console commands for debugging:
-[code]
-effect suelg_debug.7   # switch guaranteed deposits spawn on/off
-effect suelg_debug.8   # switch fast projects completion on/off
-effect suelg_debug.9   # switch anomaly spawn on/always/off
-[/code]
+[*] Add new logic with anomalies:
+[spoiler] 
+After some anomalies are completed, events may occur that generate resources or science on the planet. When this happens, old deposits are removed from the planet. Note that this happens after you have selected the appropriate option in the dialog box that appears after completing an anomaly study. Unfortunately, it is not possible to capture events with dialog boxes that appear after an anomaly. But there is another solution: as soon as a science ship finishes exploring an anomaly, several timers are started after 3, 30, 90 days, which activate the check of such planets by this Mod. If during these checks the mod finds that deposits have been deleted, the mod tries to restore them. If for some reason the check failed and the deposits are not restored, order a science ship with a scientist to orbit a star, then all planets in the solar system will be rechecked.
+
+Also keep in mind that science deposits, resource deposits, and deposits with trade value are incompatible. Anomalies can add an incompatible deposit to existing deposits on a planet and this will cause a bug with the deposit display on the planet. I will try to fix this issue in the future.
+[/spoiler] 
 [/LIST]
 
 [h2]Making derivative contents:[/h2]

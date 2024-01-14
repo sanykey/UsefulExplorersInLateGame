@@ -148,7 +148,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_10 = { D = d_minerals }
+		suelg_add_deposit = { D = d_minerals }
 
 		suelg_add_habitat_deposit_and_flag = {
 			MAX_DEP_LVL = 10
@@ -167,7 +167,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_10 = { D = d_energy }
+		suelg_add_deposit = { D = d_energy }
 
 		suelg_add_habitat_deposit_and_flag = {
 			MAX_DEP_LVL = 10
@@ -188,7 +188,7 @@ planet_event = {
 	immediate = {
 		while = { 
 			count = 3
-			suelg_add_deposit_10 = { D = d_trade_value }
+			suelg_add_deposit = { D = d_trade_value }
 		}
 		suelg_new_basic_dep_message = { TYPE = d_trade_value }
 	}
@@ -201,7 +201,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_5 = { D = d_alloys }
+		suelg_add_deposit = { D = d_alloys }
 
 		suelg_get_habitat_and_orbital = yes
 		if = {
@@ -223,7 +223,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_5 = { D = d_zro_deposit }
+		suelg_add_deposit = { D = d_zro_deposit }
 
 		suelg_get_habitat_and_orbital = yes
 		if = {
@@ -245,7 +245,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_3 = { D = d_dark_matter_deposit }
+		suelg_add_deposit = { D = d_dark_matter_deposit }
 		suelg_get_habitat_and_orbital = yes
 		if = {
 			limit = { exists = event_target:t_orbital }
@@ -266,7 +266,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_10 = { D = d_physics }
+		suelg_add_deposit = { D = d_physics }
 		suelg_set_habitat_type = { TYPE = research_habitat }
 
 		suelg_new_science_dep_message = { TYPE = d_physics }
@@ -280,7 +280,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_10 = { D = d_society }
+		suelg_add_deposit = { D = d_society }
 		suelg_set_habitat_type = { TYPE = research_habitat }
 
 		suelg_new_science_dep_message = { TYPE = d_society }
@@ -294,7 +294,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_10 = { D = d_engineering }
+		suelg_add_deposit = { D = d_engineering }
 		suelg_set_habitat_type = { TYPE = research_habitat }
 
 		suelg_new_science_dep_message = { TYPE = d_engineering }
@@ -308,7 +308,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_5 = { D = d_volatile_motes }
+		suelg_add_deposit = { D = d_volatile_motes }
 
 		suelg_get_habitat_and_orbital = yes
 		if = {
@@ -330,7 +330,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_5 = { D = d_rare_crystals }
+		suelg_add_deposit = { D = d_rare_crystals }
 
 		suelg_get_habitat_and_orbital = yes
 		if = {
@@ -352,7 +352,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_5 = { D = d_exotic_gases }
+		suelg_add_deposit = { D = d_exotic_gases }
 
 		suelg_get_habitat_and_orbital = yes
 		if = {
@@ -374,7 +374,7 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit_3 = { D = d_artifacts_mining }
+		suelg_add_deposit = { D = d_artifacts_mining }
 		suelg_get_habitat_and_orbital = yes
 		if = {
 			limit = { exists = event_target:t_orbital }

@@ -1,0 +1,183 @@
+namespace = suelg_restore_deposits
+
+# Track orders for science ships to intercept the anomaly completion event
+# THIS = Ship
+# Root = Ship
+# From = Country
+# on_ship_order
+ship_event = {
+	id = suelg_restore_deposits.1
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = owner
+		exists = leader
+		leader = {
+			leader_class = scientist
+		}
+		# owner = { is_ai = no } # debug trigger for convenient logging
+	}
+
+	immediate = {
+		# log = ">> ON FLEET ORDER THIS: [THIS.GetName] FROM: [FROM.GetName] ROOT: [ROOT.GetName]"
+
+		fleet = {
+			save_event_target_as = t_fleet
+
+			if = {
+				# the ship proceeded to explore a first anomaly. Remember, that ship was given this order
+				limit = {
+					has_fleet_order = research_anomaly_order
+					NOT = { has_fleet_flag = suelg_has_research_anomaly_order }
+				}
+				set_fleet_flag = suelg_has_research_anomaly_order
+				# log = ">> SET FLEET FLAG. THIS: [THIS.GetName]"
+				# The ship obeyed the order to explore the anomaly, but immediately proceeded to the next such order
+			} else_if = {
+				limit = {
+					has_fleet_order = research_anomaly_order
+					has_fleet_flag = suelg_has_research_anomaly_order
+				}
+				# log = ">> CHECK COMPLETED ANOMALY. THIS: [THIS.GetName]"
+				fleet_event = { id = suelg_restore_deposits.2 }
+			} else_if = {
+				limit = {
+					NOT = { has_fleet_order = research_anomaly_order }
+					has_fleet_flag = suelg_has_research_anomaly_order
+				}
+				# log = ">> CHECK COMPLETED ANOMALY AND REMOVE FLAG. THIS: [THIS.GetName]"
+				remove_fleet_flag = suelg_has_research_anomaly_order
+				fleet_event = { id = suelg_restore_deposits.2 }
+			}
+		}
+	}
+}
+
+fleet_event = {
+	id = suelg_restore_deposits.2
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		exists = leader
+		leader = {
+			leader_class = scientist
+		}
+	}
+
+	immediate = {
+		fleet = {
+			save_event_target_as = t_fleet
+
+			closest_system = {
+				max_steps = 0
+				ordered_system_planet = {
+					limit = {
+						has_planet_flag = suelg_planet_has_anomaly
+						NOT = { has_anomaly = yes }
+						distance = {
+							source = event_target:t_fleet
+							max_distance <= @suelg_anomaly_max_distance
+							same_solar_system = yes
+						}
+					}
+					position = 0
+					order_by = value:suelg_fleet_survey_sp_distance
+					inverse = yes
+					save_event_target_as = t_planet
+					remove_planet_flag = suelg_planet_has_anomaly
+					# log = ">> PLANET WITH COMPLETED ANOMALY FOUND! THIS: [THIS.GetName]"
+				}
+			}
+
+			if = {
+				limit = { exists = event_target:t_planet }
+				# log = ">> ANOMALY RESEARCH COMPLETED!! THIS: [THIS.GetName]"
+				event_target:t_planet = {
+					# todo: commented for debug:
+					# planet_event = {
+					# 	id = suelg_restore_deposits.3
+					# 	days = @suelg_restore_deposits_after_days_1
+					# }
+					# planet_event = {
+					# 	id = suelg_restore_deposits.3
+					# 	days = @suelg_restore_deposits_after_days_2
+					# }
+					# planet_event = {
+					# 	id = suelg_restore_deposits.3
+					# 	days = @suelg_restore_deposits_after_days_3
+					# }
+				}
+			}
+		}
+	}
+}
+
+# Checking to see if there was a sudden removal of deposits from the planet. If there was, then try to restore
+planet_event = {
+	id = suelg_restore_deposits.3
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = { suelg_has_unexpectedly_deleted_deposits = yes }
+
+	immediate = {
+		log = ">> DEPOSITS REMOVED! THIS: [THIS.GetName]"
+		planet_event = { id = suelg_restore_deposits.4 } # register new deposits added by an anomaly
+		planet_event = { id = suelg_restore_deposits.5 } # restore deleted deposits to the planet
+	}
+}
+
+# register new deposits added by an anomaly
+planet_event = {
+	id = suelg_restore_deposits.4
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		# todo: scan planet and add deposits to habitat
+	}
+}
+
+# restore deleted deposits to the planet
+planet_event = {
+	id = suelg_restore_deposits.5
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		suelg_restore_deposits_by_type = { D = d_minerals }
+		suelg_restore_deposits_by_type = { D = d_energy }
+		suelg_restore_deposits_by_type = { D = d_trade_value}
+		suelg_restore_deposits_by_type = { D = d_physics }
+		suelg_restore_deposits_by_type = { D = d_society }
+		suelg_restore_deposits_by_type = { D = d_engineering }
+		suelg_restore_deposits_by_type = { D = d_alloys }
+		suelg_restore_deposits_by_type = { D = d_zro_deposit }
+		suelg_restore_deposits_by_type = { D = d_dark_matter_deposit }
+		suelg_restore_deposits_by_type = { D = d_volatile_motes }
+		suelg_restore_deposits_by_type = { D = d_rare_crystals }
+		suelg_restore_deposits_by_type = { D = d_exotic_gases }
+		suelg_restore_deposits_by_type = { D = d_artifacts_mining }
+		suelg_add_tracking_empty_deposit = yes
+		log = ">> DEPOSITS RESTORED! THIS: [THIS.GetName]"
+	}
+}
+
+# 
+system_event = {
+	id = suelg_restore_deposits.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		log = ">> TRY TO RESTORE PLANETS IN SOLAR SYSTEM! THIS: [THIS.GetName]"
+		every_system_planet = {
+			limit = { suelg_has_unexpectedly_deleted_deposits = yes }
+			log = ">> DEPOSITS REMOVED (2)! THIS: [THIS.GetName]"
+			planet_event = { id = suelg_restore_deposits.4 } # register new deposits added by an anomaly
+			planet_event = { id = suelg_restore_deposits.5 } # restore deleted deposits to the planet
+		}
+	}
+}

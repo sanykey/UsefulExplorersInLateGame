@@ -1,5 +1,4 @@
-# this = planet scope
-# from = ship scope
+# this scope = planet
 suelg_spawn_random_anomaly = {
 	random_list = {
 		inline_script = suelg_00_anomaly
@@ -11,14 +10,11 @@ suelg_spawn_random_anomaly = {
 	}
 }
 
-# this = planet scope
-# from = ship scope
+# this scope = planet
 suelg_spawn_anomaly = {
-	this = {
-		add_anomaly = { category = "$CAT$" target = from.owner }
-		log = ">> SPAWN ANOMALY. THIS: [This.GetName] FROM: [From.GetName] NAME: $CAT$"
-		set_planet_flag = suelg_planet_has_new_anomaly
-	}
+	add_anomaly = { category = "$CAT$" target = from.owner }
+	log = ">> SPAWN ANOMALY. THIS: [This.GetName] FROM: [From.GetName] NAME: $CAT$"
+	set_planet_flag = suelg_planet_has_anomaly
 }
 
 # this = ship scope

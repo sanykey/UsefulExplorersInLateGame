@@ -79,6 +79,10 @@ The chance of an anomaly appearing after completing the "Extended survey" projec
 
 When an anomaly appears, a notification similar to the vanilla one appears, but clicking on this notification opens the planet window instead of the anomaly. This was done due to limitations for game modification.
 
+After some anomalies are completed, events may occur that generate resources or science on the planet. When this happens, old deposits are removed from the planet. Note that this happens after you have selected the appropriate option in the dialog box that appears after completing an anomaly study. Unfortunately, it is not possible to capture events with dialog boxes that appear after an anomaly. But there is another solution: as soon as a science ship finishes exploring an anomaly, several timers are started after 3, 30, 90 days, which activate the check of such planets by this Mod. If during these checks the mod finds that deposits have been deleted, the mod tries to restore them. If for some reason the check failed and the deposits are not restored, order a science ship with a scientist to orbit a star, then all planets in the solar system will be rechecked.
+
+Also keep in mind that science deposits, resource deposits, and deposits with trade value are incompatible. Anomalies can add an incompatible deposit to existing deposits on a planet and this will cause a bug with the deposit display on the planet. I will try to fix this issue in the future.
+
 [h2]Discovering Archaeological sites[/h2]
 When completing the "Advanced survey" project:
 [LIST]

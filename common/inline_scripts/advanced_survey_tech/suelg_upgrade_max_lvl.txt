@@ -1,10 +1,8 @@
-# suelg_ef_upgrade_country_advanced_survey_lvl inline script
+# advanced_survey_tech/suelg_upgrade_max_lvl inline script
 else_if = {
-	limit = {
-		has_technology = suelg_tech_advanced_survey_$LVL$
-		check_variable = { which = suelg_max_scan_level value < $LVL$ }
-	}
+	limit = { has_technology = suelg_tech_advanced_survey_$LVL$ }
 	set_variable = { which = suelg_max_scan_level value = $LVL$ }
+	multiple_variable = { which = suelg_max_scan_level value = 5 } # 5 levels per technology level
 	
 	suelg_remove_country_mod = yes
 	add_modifier = {

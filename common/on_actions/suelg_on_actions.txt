@@ -6,7 +6,7 @@ on_fleet_enter_orbit = {
 
 on_tech_increased = {
 	events = {
-		suelg_advanced_survey.9 # todo: check wtf?
+		suelg_advanced_survey_tech.1 # Update scan level
 	}
 }
 
@@ -57,5 +57,11 @@ on_destroying_station = {
 on_game_start = {
 	events = {
 		suelg_habitats.5
+	}
+}
+
+on_ship_order = {
+	events = {
+		suelg_restore_deposits.1
 	}
 }

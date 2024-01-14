@@ -1,3 +1,19 @@
+###########################
+##### Types and enums #####
+###########################
+@suelg_sizes_d_minerals = 10
+@suelg_sizes_d_energy = 10
+@suelg_sizes_d_trade_value = 10
+@suelg_sizes_d_physics = 10
+@suelg_sizes_d_society = 10
+@suelg_sizes_d_engineering = 10
+@suelg_sizes_d_alloys = 5
+@suelg_sizes_d_zro_deposit = 5
+@suelg_sizes_d_volatile_motes = 5
+@suelg_sizes_d_rare_crystals = 5
+@suelg_sizes_d_exotic_gases = 5
+@suelg_sizes_d_dark_matter_deposit = 3
+@suelg_sizes_d_artifacts_mining = 3
 
 ####################################
 ##### Advanced survey settings #####
@@ -64,3 +80,11 @@
 @suelg_debug_notification_days = 3
 @suelg_max_possible_advanced_survey_lvl = 25 # don't set more than 25
 @suelg_sp_max_distance = 25 # 25 - default
+@suelg_anomaly_max_distance = 25 # 25 - default
+
+##########################################
+##### restore deposits after anomaly #####
+##########################################
+@suelg_restore_deposits_after_days_1 = 3
+@suelg_restore_deposits_after_days_2 = 30
+@suelg_restore_deposits_after_days_3 = 90

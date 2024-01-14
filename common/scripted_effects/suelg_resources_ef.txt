@@ -97,7 +97,7 @@ suelg_add_habitat_deposit_and_flag = {
 # }
 
 
-# this = planet scope
+# this = planet
 suelg_get_habitat_in_orbit = {
 	save_event_target_as = t_planet
 
@@ -114,6 +114,56 @@ suelg_get_habitat_in_orbit = {
 	}
 }
 
+# this = planet
+# This deposit is needed to keep track of the point at which events, after learning of the anomaly,
+# 	remove all deposits from the planet and add their deposits.
+# 	It will be needed to recover lost deposits
+suelg_add_tracking_empty_deposit = {
+	if = {
+		limit = {
+			has_deposit_for = shipclass_mining_station
+			NOT = { has_deposit = d_suelg_mining_empty_deposit }
+		}
+		set_planet_flag = suelg_has_deposits
+		add_deposit = d_suelg_mining_empty_deposit
+	} else_if = {
+		limit = {
+			has_deposit_for = shipclass_research_station
+			NOT = { has_deposit = d_suelg_science_empty_deposit }
+		}
+		set_planet_flag = suelg_has_deposits
+		add_deposit = d_suelg_science_empty_deposit
+	} else_if = {
+		limit = {
+			suelg_has_trade_deposits = yes
+			NOT = { has_deposit = d_suelg_trade_empty_deposit }
+		}
+		set_planet_flag = suelg_has_deposits
+		add_deposit = d_suelg_trade_empty_deposit
+	}
+}
+
+# Calculate which deposits have been added to the planet, so that unexpectedly deleted deposits can be restored later on
+# this = planet
+suelg_add_deposit_count_var = {
+	if = {
+		limit = { NOT = { is_variable_set = suelg_count_$D$ } }
+		set_variable = { which = suelg_count_$D$ value = 0 }
+	}
+	change_variable = { which = suelg_count_$D$ value = 1 }
+}
+
+suelg_add_deposit_ws = { suelg_add_deposit_$MAX_SIZE$ = { D = $D$ } }
+
+# this = planet
+suelg_add_deposit = {
+	suelg_add_deposit_count_var = { D = $D$ }
+	suelg_add_deposit_ws = { D = $D$ MAX_SIZE = @suelg_sizes_$D$ }
+
+	suelg_add_tracking_empty_deposit = yes
+}
+
+# this = planet
 suelg_add_deposit_10 = {
 	if = { limit = { always = no } }
 	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 1 NEXT_LVL = 2 }
@@ -128,6 +178,7 @@ suelg_add_deposit_10 = {
 	else = { add_deposit = $D$_1 }
 }
 
+# this = planet
 suelg_add_deposit_5 = {
 	if = { limit = { always = no } }
 	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 1 NEXT_LVL = 2 }
@@ -137,6 +188,7 @@ suelg_add_deposit_5 = {
 	else = { add_deposit = $D$_1 }
 }
 
+# this = planet
 suelg_add_deposit_3 = {
 	if = { limit = { always = no } }
 	inline_script = { script = spawn_deposits/suelg_add_deposit D = $D$ LVL = 1 NEXT_LVL = 2 }

@@ -1,0 +1,20 @@
+namespace = suelg_advanced_survey_tech
+
+# Update scan level
+country_event = {
+	id = suelg_advanced_survey_tech.1
+	hide_window = yes
+	is_triggered_only = yes
+
+immediate = {
+	# log = ">> Update scan level"
+	suelg_init_country_vars = yes
+
+	if = { limit = { always = no } }
+	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 5 }
+	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 4 }
+	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 3 }
+	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 2 }
+	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 1 }
+}
+}
