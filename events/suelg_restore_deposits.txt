@@ -165,7 +165,7 @@ planet_event = {
 	}
 }
 
-# 
+# Check all planets in the system to see if anomalies have removed deposits. If necessary, restore deposits
 system_event = {
 	id = suelg_restore_deposits.6
 	hide_window = yes

@@ -11,10 +11,10 @@ immediate = {
 	suelg_init_country_vars = yes
 
 	if = { limit = { always = no } }
-	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 5 }
-	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 4 }
-	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 3 }
-	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 2 }
-	inline_script = { script = dvanced_survey_tech/suelg_upgrade_max_lvl LVL = 1 }
+	inline_script = { script = advanced_survey_tech/suelg_upgrade_max_lvl LVL = 5 }
+	inline_script = { script = advanced_survey_tech/suelg_upgrade_max_lvl LVL = 4 }
+	inline_script = { script = advanced_survey_tech/suelg_upgrade_max_lvl LVL = 3 }
+	inline_script = { script = advanced_survey_tech/suelg_upgrade_max_lvl LVL = 2 }
+	inline_script = { script = advanced_survey_tech/suelg_upgrade_max_lvl LVL = 1 }
 }
 }

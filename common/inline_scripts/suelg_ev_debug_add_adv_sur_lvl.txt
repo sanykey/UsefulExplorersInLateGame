@@ -1,7 +1,0 @@
-# inline script suelg_ev_debug_add_adv_sur_lvl
-else_if = {
-	limit = {
-		NOT = { has_technology = suelg_tech_advanced_survey_$LVL$ }
-	}
-	give_technology = { tech = suelg_tech_advanced_survey_$LVL$ message = yes }
-}

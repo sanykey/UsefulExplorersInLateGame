@@ -18,15 +18,13 @@ This is done so that the player does not have to do a lot of routine creating pr
 To disable automatic research on projects, go to the "Government" -> "Policies and Edicts" menu and activate the "Disable automatic Advanced Research" edict.
 
 [h2]Technologies[/h2]
-There are 25 technologies available in the game, each dependent on the previous one. Each technology studied opens the possibility to start a project "Advanced survey" of the corresponding level. For example, if you learn 25 levels of "Advanced planetary survey" technologies, you will be able to survey each planet 25 times.
+There are 5 technologies available in the game, each depending on the previous one. Technologies begin to appear starting from the 4th technology tier. Each learned technology opens the possibility to start the next 5 levels of [b]Advanced Survey[/b] projects. For example, if you learn 5 levels of [b]Advanced Exploration[/b] technologies, you will be able to survey each planet 25 times.
 
-The first level of "Advanced planetary survey I" technology (2 tier) will be available only after studying "Subspace Sensors" technology (3 tier). Then, the following levels of "Advanced planetary survey" technology will be available. 
+All [b]Advanced survey[/b] technologies belong to the Physical Survey branch.
 
-All "Advanced planetary survey" technologies belong to the physical research branch.
+A list of all technologies in this mod is provided in [url=https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E/edit#gid=1314599674]table[/url].
 
-A list of all technologies of this mod is in this table: https://docs.google.com/spreadsheets/d/1uGbTwHa0kYYPEEUmYl1fRNXAhlMDTnGO8RHQL6ilM8E/edit#gid=1314599674 .
-
-[h2]Discovering deposits on a Planet[/h2]
+[h2]Discovering deposits on a planet[/h2]
 Approximate chance of a resource or science deposit appearing on a planet after completing the "Advanced survey" project:
 [LIST]
 [*] with minerals, energy, trade value: 5%;
@@ -67,12 +65,14 @@ Country modifiers on the amount of experience leaders receive are applied after 
 When completing the "Advanced survey" project:
 [LIST]
 [*] Anomalies will not appear in the starting star system.
-[*] Base chance of an anomaly appearing = 5%. 
+[*] Base chance of an anomaly appearing = 3%. 
 [*] Which anomaly will appear is chosen randomly and with the same weights as specified in the vanilla game.
 [*] Unlike in the vanilla game, the chance of an anomaly appearing does not increase with each failed attempt of a science ship. 
 [*] Any vanilla repeatable anomalies may appear. Anomalies with the flag "unique to country" and with the flag "unique to galaxy" will not appear.
 [*] The Explorer scientist class gives a +10% chance of an anomaly appearing (there is no such modifier in the vanilla game).
 [*] Anomalies added by other mods will not appear until patches are made for it.
+[*] As long as there is an anomaly on a planet, no new [b]Advanced Survey[/b] projects will be created on that planet. This is to avoid errors.
+[*] As long as there is an anomaly on a planet, existing resource and science deposits will not be visible on that planet.
 [/LIST]
 
 The chance of an anomaly appearing after completing the "Extended survey" project is affected by the following modifiers that affect the chance of anomalies appearing in vanilla planetary survey.
@@ -152,5 +152,6 @@ event suelg_spawn_resource.12   # rare crystals
 event suelg_spawn_resource.13   # exotic gases
 event suelg_spawn_resource.14   # minor artifacts
 
-event suelg_spawn_archeology.2 # spawn random archeological digs
+event suelg_spawn_archeology.2  # spawn random archeological digs
+event suelg_spawn_anomaly.3     # spawn random anomaly 
 [/code]

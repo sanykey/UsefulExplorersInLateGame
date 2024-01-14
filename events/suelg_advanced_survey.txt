@@ -63,6 +63,7 @@ fleet_event = {
 					event_target:t_fleet = {
 						fleet_event = { id = suelg_auto_survey.1 } # Check if the fleet should be automatically order to research a next Advanced survey project
 					}
+					system_event = { id = suelg_restore_deposits.6 } # Check all planets in the system to see if anomalies have removed deposits. If necessary, restore deposits
 				}
 			}
 		}

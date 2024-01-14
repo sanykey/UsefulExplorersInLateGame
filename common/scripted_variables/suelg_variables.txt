@@ -46,8 +46,8 @@
 #########################
 
 # anomaly spawn chance:
-@suelg_spawn_anomaly_base_weight = 5 # 5 (5%) is vanilla chance
-@suelg_fail_spawn_anomaly_base_weight = 95 # 95 (95%)
+@suelg_spawn_anomaly_base_weight = 3 # 5 (5%) is vanilla chance
+@suelg_fail_spawn_anomaly_base_weight = 97 # 97 (95%) is vanilla chance
 
 # archelogy site spawn chance:
 @suelg_archelogy_spawn_base_weight = 1 # 0.1%

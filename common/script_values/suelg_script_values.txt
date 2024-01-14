@@ -43,3 +43,8 @@ suelg_fleet_survey_sp_distance = {
 		mode = add
 	}
 }
+
+suelg_advanced_survey_lvl_per_tech = {
+	base = $LVL$
+	multiply = 5
+}

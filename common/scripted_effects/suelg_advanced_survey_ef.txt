@@ -31,7 +31,8 @@ suelg_create_system_scan_projects = {
 		suelg_init_planet_vars = yes
 
 		if = {
-			limit = {								
+			limit = {
+				has_anomaly = no # It's best not to create projects while there is an anomaly on the planet. This will help avoid problems
 				suelg_can_be_scanned = yes
 				check_variable = { which = suelg_completed_advanced_survey_lvl value < event_target:t_owner.suelg_max_scan_level }
 				check_variable = { which = suelg_completed_advanced_survey_lvl value = suelg_started_advanced_survey_lvl }
@@ -189,26 +190,6 @@ suelg_remove_country_mod = {
 	remove_modifier = suelg_country_advanced_survey_lvl_3
 	remove_modifier = suelg_country_advanced_survey_lvl_4
 	remove_modifier = suelg_country_advanced_survey_lvl_5
-	remove_modifier = suelg_country_advanced_survey_lvl_6
-	remove_modifier = suelg_country_advanced_survey_lvl_7
-	remove_modifier = suelg_country_advanced_survey_lvl_8
-	remove_modifier = suelg_country_advanced_survey_lvl_9
-	remove_modifier = suelg_country_advanced_survey_lvl_10
-	remove_modifier = suelg_country_advanced_survey_lvl_11
-	remove_modifier = suelg_country_advanced_survey_lvl_12
-	remove_modifier = suelg_country_advanced_survey_lvl_13
-	remove_modifier = suelg_country_advanced_survey_lvl_14
-	remove_modifier = suelg_country_advanced_survey_lvl_15
-	remove_modifier = suelg_country_advanced_survey_lvl_16
-	remove_modifier = suelg_country_advanced_survey_lvl_17
-	remove_modifier = suelg_country_advanced_survey_lvl_18
-	remove_modifier = suelg_country_advanced_survey_lvl_19
-	remove_modifier = suelg_country_advanced_survey_lvl_20
-	remove_modifier = suelg_country_advanced_survey_lvl_21
-	remove_modifier = suelg_country_advanced_survey_lvl_22
-	remove_modifier = suelg_country_advanced_survey_lvl_23
-	remove_modifier = suelg_country_advanced_survey_lvl_24
-	remove_modifier = suelg_country_advanced_survey_lvl_25
 }
 
 # this = planet

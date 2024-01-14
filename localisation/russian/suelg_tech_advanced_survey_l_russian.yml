@@ -1,7 +1,7 @@
 ﻿l_russian:
  suelg_tas:0 "Расширенное исследование планет "
  suelg_tech_advanced_survey_1:0 "$suelg_tas$I"
- suelg_tech_advanced_survey_1_desc:0 "Технология детального обследования планет для обнаружения новых ресурсов, аномалий, археологических раскопок.\n\nКаждый новый уровень этой технологии позволяет проводить дополнительные обследование каждой планеты. Для того, чтобы начать проекты по исследованию планет в системе, выйдите научным кораблём с учёным на орбиту любой звезды."
+ suelg_tech_advanced_survey_1_desc:0 "Технология детального обследования планет для обнаружения новых ресурсов, аномалий, археологических раскопок.\n\nКаждый новый уровень этой технологии позволяет проводить 5 дополнительных обследований каждой планеты. Для того, чтобы начать проекты по исследованию планет в системе, выйдите научным кораблём с учёным на орбиту любой звезды."
 
  suelg_tech_advanced_survey_2:0 "$suelg_tas$II"
  suelg_tech_advanced_survey_2_desc:0 "$suelg_tech_advanced_survey_1_desc$"
@@ -14,63 +14,3 @@
 
  suelg_tech_advanced_survey_5:0 "$suelg_tas$V"
  suelg_tech_advanced_survey_5_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_6:0 "$suelg_tas$VI"
- suelg_tech_advanced_survey_6_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_7:0 "$suelg_tas$VII"
- suelg_tech_advanced_survey_7_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_8:0 "$suelg_tas$VIII"
- suelg_tech_advanced_survey_8_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_9:0 "$suelg_tas$IX"
- suelg_tech_advanced_survey_9_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_10:0 "$suelg_tas$X"
- suelg_tech_advanced_survey_10_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_11:0 "$suelg_tas$XI"
- suelg_tech_advanced_survey_11_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_12:0 "$suelg_tas$XII"
- suelg_tech_advanced_survey_12_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_13:0 "$suelg_tas$XIII"
- suelg_tech_advanced_survey_13_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_14:0 "$suelg_tas$XIV"
- suelg_tech_advanced_survey_14_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_15:0 "$suelg_tas$XV"
- suelg_tech_advanced_survey_15_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_16:0 "$suelg_tas$XVI"
- suelg_tech_advanced_survey_16_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_17:0 "$suelg_tas$XVII"
- suelg_tech_advanced_survey_17_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_18:0 "$suelg_tas$XVIII"
- suelg_tech_advanced_survey_18_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_19:0 "$suelg_tas$XIX"
- suelg_tech_advanced_survey_19_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_20:0 "$suelg_tas$XX"
- suelg_tech_advanced_survey_20_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_21:0 "$suelg_tas$XXI"
- suelg_tech_advanced_survey_21_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_22:0 "$suelg_tas$XXII"
- suelg_tech_advanced_survey_22_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_23:0 "$suelg_tas$XXIII"
- suelg_tech_advanced_survey_23_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_24:0 "$suelg_tas$XXIV"
- suelg_tech_advanced_survey_24_desc:0 "$suelg_tech_advanced_survey_1_desc$"
-
- suelg_tech_advanced_survey_25:0 "$suelg_tas$XXV"
- suelg_tech_advanced_survey_25_desc:0 "$suelg_tech_advanced_survey_1_desc$"

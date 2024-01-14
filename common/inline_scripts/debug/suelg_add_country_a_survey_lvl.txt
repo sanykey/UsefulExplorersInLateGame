@@ -1,0 +1,5 @@
+# debug/suelg_add_country_a_survey_lvl inline script
+else_if = {
+	limit = { NOT = { has_technology = suelg_tech_advanced_survey_$LVL$ } }
+	give_technology = { tech = suelg_tech_advanced_survey_$LVL$ message = yes }
+}

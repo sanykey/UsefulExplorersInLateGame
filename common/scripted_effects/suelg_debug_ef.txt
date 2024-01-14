@@ -2,29 +2,9 @@ suelg_debug_upgrade_sp_lvl = {
 	suelg_init_country_vars = yes
 
 	if = { limit = { always = no } }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 1 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 2 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 3 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 4 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 5 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 6 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 7 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 8 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 9 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 10 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 11 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 12 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 13 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 14 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 15 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 16 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 17 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 18 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 19 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 20 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 21 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 22 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 23 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 24 }
-	inline_script = { script = suelg_ev_debug_add_adv_sur_lvl LVL = 25 }
+	inline_script = { script = debug/suelg_add_country_a_survey_lvl LVL = 1 }
+	inline_script = { script = debug/suelg_add_country_a_survey_lvl LVL = 2 }
+	inline_script = { script = debug/suelg_add_country_a_survey_lvl LVL = 3 }
+	inline_script = { script = debug/suelg_add_country_a_survey_lvl LVL = 4 }
+	inline_script = { script = debug/suelg_add_country_a_survey_lvl LVL = 5 }
 }
