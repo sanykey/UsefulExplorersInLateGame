@@ -18,7 +18,7 @@ else_if = {
 		days = -1
 	}
 
-	log = ">> SET COUNTRY LVL"
+	# log = ">> SET COUNTRY LVL"
 
 	if = {
 		limit = { is_ai = yes }

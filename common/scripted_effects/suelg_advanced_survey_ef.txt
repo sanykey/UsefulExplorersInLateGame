@@ -21,7 +21,7 @@ suelg_init_planet_vars = {
 	}
 }
 
-# This = System scope
+# This = solar system
 suelg_create_system_scan_projects = {
 	owner = {
 		save_event_target_as = t_owner

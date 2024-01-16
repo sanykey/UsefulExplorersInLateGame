@@ -16,11 +16,12 @@ suelg_can_be_scanned = {
 # this = system scope
 suelg_can_add_scan_project_system = {
 	has_owner = yes
-	is_owned_by = event_target:t_owner
-	OR = {
-		NOT = { is_variable_set = suelg_min_complete_lvl }
-		owner = {
-			check_variable = { which = suelg_max_scan_level value > prev.suelg_min_complete_lvl }
+	is_owned_by = event_target:t_owner	
+	any_system_planet = {
+		has_anomaly = no
+		OR = {
+			NOT = { is_variable_set = suelg_completed_advanced_survey_lvl }
+			check_variable = { which = suelg_completed_advanced_survey_lvl value < event_target:t_owner.suelg_max_scan_level }
 		}
 	}
 }

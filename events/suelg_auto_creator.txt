@@ -2,9 +2,9 @@ namespace = suelg_auto_creator
 
 # Search systems and create projects for AI's ships and capital system
 country_event = {
-    id = suelg_auto_creator.1
-    hide_window = yes
-    is_triggered_only = yes
+	id = suelg_auto_creator.1
+	hide_window = yes
+	is_triggered_only = yes
 
 	immediate = {
 		save_event_target_as = t_owner
@@ -26,9 +26,9 @@ country_event = {
 
 # Create scan projects near ship
 ship_event = {
-    id = suelg_auto_creator.2
-    hide_window = yes
-    is_triggered_only = yes
+	id = suelg_auto_creator.2
+	hide_window = yes
+	is_triggered_only = yes
 
 	trigger = {
 		is_in_combat = no
