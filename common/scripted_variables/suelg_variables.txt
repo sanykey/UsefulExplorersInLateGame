@@ -27,7 +27,7 @@
 #############################################
 @suelg_leader_exp_base = 100 # should be equal common/00_defines: LEADER_EXPERIENCE_REQUIREMENT_BASE_VALUE
 @suelg_leader_exp_scale = 300 # should be equal common/00_defines: LEADER_EXPERIENCE_REQUIREMENT_SCALE_VALUE
-@suelg_max_experience_factor = 0.05 # a experience gained factor from special projects relative to the experience required to gain a next leader level
+@suelg_max_experience_factor = 0.07 # a experience gained factor from special projects relative to the experience required to gain a next leader level
 
 #######################################
 ##### planetary deposit spawning	#####
