@@ -136,3 +136,21 @@ suelg_has_unexpectedly_deleted_deposits = {
 		}
 	}
 }
+
+# this = fleet/ship
+suelg_is_orbital_station = {
+	OR = {
+		is_ship_size = major_orbital_resource
+		is_ship_size = minor_orbital_resource
+		is_ship_size = major_orbital_generic
+		is_ship_size = minor_orbital_generic
+		is_ship_size = major_orbital_knights
+	}
+}
+
+# this = planet
+suelg_has_orbital_station = {
+	any_fleet_in_orbit = {
+		suelg_is_orbital_station = yes
+	}
+}

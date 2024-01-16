@@ -68,12 +68,8 @@ ship_event = {
 	id = suelg_habitats.3
 	hide_window = yes
 	is_triggered_only = yes
-
 	trigger = {
-		OR = {
-			is_ship_size = major_orbital_resource
-			is_ship_size = minor_orbital_resource
-		}
+		suelg_is_orbital_station = yes
 	}
 
 	immediate = {

@@ -13,19 +13,11 @@ suelg_get_habitat_and_orbital = {
 
 	if = {
 		limit = {
-			any_fleet_in_orbit = {
-				OR = {
-					is_ship_size = major_orbital_resource
-					is_ship_size = minor_orbital_resource
-				}
-			}
+			suelg_has_orbital_station = yes
 		}
 		random_fleet_in_orbit = {
 			limit = {
-				OR = {
-					is_ship_size = major_orbital_resource
-					is_ship_size = minor_orbital_resource
-				}
+				suelg_is_orbital_station = yes
 			}
 			save_event_target_as = t_orbital
 		}
@@ -44,58 +36,138 @@ suelg_get_habitat_and_orbital = {
 	}
 }
 
-suelg_add_habitat_deposit_and_flag = {
-	suelg_get_habitat_and_orbital = yes
+suelg_replace_station = {
+	event_target:t_orbital = {
+		delete_fleet = this
+	}
 
+	event_target:t_planet = {
+		save_event_target_as = target_planet # save event target for vanilla effect set_habitat_planetary_features_effect
+		solar_system = {
+			owner = {
+				save_event_target_as = t_owner
+			}
+		}
+	}
+	create_fleet = {
+		effect = {
+			set_owner = event_target:t_owner
+			create_ship = {
+				random_existing_design = $TYPE$
+				effect = {
+					set_disable_at_health = 0.05
+					set_name = {
+						key = SUELG_TARGET_ORBITAL_NAME
+						variable_string = "\\[t_planet.GetName]"
+					}
+				}
+			}
+			save_event_target_as = target_orbital
+			fleet = {
+				set_location = {
+					target = event_target:target_planet
+				}
+			}
+		}
+	}
+	event_target:target_orbital = {
+		set_name = {
+			key = SUELG_TARGET_ORBITAL_NAME
+			variable_string = "\\[t_planet.GetName]"
+		}
+	}
+
+	# save event target for vanilla effect set_habitat_planetary_features_effect
+	event_target:t_habitat = {
+		save_event_target_as = target_habitat 
+	}
+	# The vanilla effect that triggers the creation of orbital stations
+	set_habitat_planetary_features_effect = yes
 	if = {
 		limit = {
-			OR = {
-				exists = event_target:t_orbital
-				exists = event_target:t_orbital_habitat
+			event_target:target_planet = {
+				has_deposit_for = shipclass_research_station
 			}
-			exists = event_target:t_habitat
 		}
-
-		event_target:t_habitat = {
-			suelg_add_deposit_$MAX_DEP_LVL$ = { D = $HAB_DEP_TYPE$ }
+		event_target:target_orbital = {
+			set_fleet_flag = science_orbital
 		}
-
-		[[FLAG_TYPE]
-			if = {
-				limit = {
-					exists = event_target:t_orbital
-				}
-				event_target:t_orbital = {
-					set_fleet_flag = $FLAG_TYPE$_orbital
-				}
-			} else_if = {
-				limit = {
-					exists = event_target:t_orbital_habitat
-				}
-				event_target:t_orbital_habitat = {
-					set_planet_flag = $FLAG_TYPE$_habitat
-				}
+	}
+	if = {
+		limit = {
+			event_target:target_planet = {
+				has_orbital_mining_deposit = yes
 			}
-		]
+		}
+		event_target:target_orbital = {
+			set_fleet_flag = mining_orbital
+		}
+	}
+	if = {
+		limit = {
+			event_target:target_planet = {
+				has_orbital_energy_deposit = yes
+			}
+		}
+		event_target:target_orbital = {
+			set_fleet_flag = energy_orbital
+		}
 	}
 }
 
-# todo: deprecated?
-# suelg_add_habitat_deposit = {
-# 	suelg_find_habitat = yes
+suelg_add_habitat_deposit_and_flag = {
+	suelg_get_habitat_and_orbital = yes
+	save_event_target_as = t_planet
 
-# 	if = {
-# 		limit = { 
-# 			exists = event_target:t_orbital
-# 			exists = event_target:t_habitat
-# 		}
-
-# 		last_added_deposit = {
-# 			suelg_add_districts_flag = yes
-# 		}
-# 	}
-# }
-
+	if = {
+		limit = {
+			exists = event_target:t_habitat
+			exists = event_target:t_orbital
+		}
+		event_target:t_orbital = {
+			if = {
+				limit = {
+					is_ship_size = major_orbital_generic
+				}
+				suelg_replace_station = { TYPE = major_orbital_resource }
+				[[ALWAYS_ADD]
+					event_target:t_habitat = {
+						suelg_add_deposit_$MAX_DEP_LVL$ = { D = $HAB_DEP_TYPE$ }
+					}
+				]
+			} else_if = {
+				limit = {
+					is_ship_size = minor_orbital_generic
+				}
+				suelg_replace_station = { TYPE = minor_orbital_resource }
+				[[ALWAYS_ADD]
+					event_target:t_habitat = {
+						suelg_add_deposit_$MAX_DEP_LVL$ = { D = $HAB_DEP_TYPE$ }
+					}
+				]
+			} else = {
+				event_target:t_habitat = {
+					suelg_add_deposit_$MAX_DEP_LVL$ = { D = $HAB_DEP_TYPE$ }
+				}
+				[[FLAG_TYPE]
+					event_target:t_orbital = {
+						set_fleet_flag = $FLAG_TYPE$_orbital
+					}
+				]
+			}
+		}
+	}
+	# else_if = {
+	# 	limit = {
+	# 		exists = event_target:t_orbital_habitat
+	# 	}
+	# 	[[FLAG_TYPE]
+	# 		event_target:t_orbital_habitat = {
+	# 			set_planet_flag = $FLAG_TYPE$_habitat
+	# 		}
+	# 	]
+	# }
+}
 
 # this = planet
 suelg_get_habitat_in_orbit = {
@@ -231,50 +303,21 @@ suelg_set_habitat_type = {
 	}
 }
 
-# this = planet scope
-suelg_new_habitat_dep_message = {
+suelg_new_rare_dep_message = {
+	save_event_target_as = t_planet
 	solar_system = {
 		owner = {
 			if = {
 				limit = { is_ai = no }
 				create_message = {
-					type = SUELG_NEW_HABITAT_DISTRICT
-					localization = SUELG_NEW_HABITAT_DISTRICT_$TYPE$
+					type = SUELG_NEW_RARE_DEPOSIT
+					localization = SUELG_NEW_RARE_DEPOSIT_$TYPE$
 					days = @suelg_notification_days
-					target = event_target:t_habitat
+					target = event_target:t_planet
 					variable = {
 						type = name
-						localization = HABITAT
-						scope = event_target:t_habitat
-					}
-				}
-			}
-		}
-	}
-}
-
-suelg_new_rare_dep_message = {
-	if = {
-		limit = {
-			exists = FROM
-			FROM = {
-				is_scope_type = planet
-			}
-		}
-		solar_system = {
-			owner = {
-				if = {
-					limit = { is_ai = no }
-					create_message = {
-						type = SUELG_NEW_RARE_DEPOSIT
-						localization = SUELG_NEW_RARE_DEPOSIT_$TYPE$
-						days = @suelg_notification_days
-						target = FROM
-						variable = {
-							type = name
-							localization = PLANET
-							scope = FROM
-						}
+						localization = PLANET
+						scope = event_target:t_planet
 					}
 				}
 			}
@@ -283,6 +326,7 @@ suelg_new_rare_dep_message = {
 }
 
 suelg_new_science_dep_message = {
+	save_event_target_as = t_planet
 	solar_system = {
 		owner = {
 			if = {
@@ -291,11 +335,11 @@ suelg_new_science_dep_message = {
 					type = SUELG_NEW_SCIENCE_DEPOSIT
 					localization = SUELG_NEW_SCIENCE_DEPOSIT_$TYPE$
 					days = @suelg_notification_days
-					target = FROM
+					target = event_target:t_planet
 					variable = {
 						type = name
 						localization = PLANET
-						scope = FROM
+						scope = event_target:t_planet
 					}
 				}
 			}
@@ -304,27 +348,20 @@ suelg_new_science_dep_message = {
 }
 
 suelg_new_basic_dep_message = {
-	if = {
-		limit = {
-			exists = FROM
-			FROM = {
-				is_scope_type = planet
-			}
-		}
-		solar_system = {
-			owner = {
-				if = {
-					limit = { is_ai = no }
-					create_message = {
-						type = SUELG_NEW_BASIC_DEPOSIT
-						localization = SUELG_NEW_BASIC_DEPOSIT_$TYPE$
-						days = @suelg_notification_days
-						target = FROM
-						variable = {
-							type = name
-							localization = PLANET
-							scope = FROM
-						}
+	save_event_target_as = t_planet
+	solar_system = {
+		owner = {
+			if = {
+				limit = { is_ai = no }
+				create_message = {
+					type = SUELG_NEW_BASIC_DEPOSIT
+					localization = SUELG_NEW_BASIC_DEPOSIT_$TYPE$
+					days = @suelg_notification_days
+					target = event_target:t_planet
+					variable = {
+						type = name
+						localization = PLANET
+						scope = event_target:t_planet
 					}
 				}
 			}

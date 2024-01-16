@@ -31,3 +31,5 @@
 
  edict_suelg_disallow_auto_survey:0 "Disallow automatic §ҮAdvanced survey§!"
  edict_suelg_disallow_auto_survey_desc:0 "Prevent science ships from automatically creating and researching §YAdvanced survey§! projects without a direct order.\n\nAutomatic project exploration starts after a science ship has completed any §YAdvanced survey§! project on your order or when the science ship orbits a star. During automatic research, if the science ship has not found any nearby §YAdvanced survey§! projects, it creates projects automatically."
+
+ SUELG_TARGET_ORBITAL_NAME: "[t_planet.GetName] Orbital"

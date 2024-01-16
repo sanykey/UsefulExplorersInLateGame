@@ -154,6 +154,7 @@ planet_event = {
 			MAX_DEP_LVL = 10
 			HAB_DEP_TYPE = d_hab_minerals
 			FLAG_TYPE = mining
+			ALWAYS_ADD = yes
 		}
 
 		suelg_new_basic_dep_message = { TYPE = d_minerals }
@@ -173,6 +174,7 @@ planet_event = {
 			MAX_DEP_LVL = 10
 			HAB_DEP_TYPE = d_hab_energy
 			FLAG_TYPE = energy
+			ALWAYS_ADD = yes
 		}
 
 		suelg_new_basic_dep_message = { TYPE = d_energy }
@@ -203,16 +205,12 @@ planet_event = {
 	immediate = {
 		suelg_add_deposit = { D = d_alloys }
 
-		suelg_get_habitat_and_orbital = yes
-		if = {
-			limit = { exists = event_target:t_orbital }
-			event_target:t_habitat = {
-				suelg_add_deposit_5 = { D = d_hab_alloy }
-				suelg_new_habitat_dep_message = { TYPE = d_hab_alloy }
-			}
-		} else = {
-			suelg_new_rare_dep_message = { TYPE = d_alloys }
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 5
+			HAB_DEP_TYPE = d_hab_alloy
 		}
+
+		suelg_new_rare_dep_message = { TYPE = d_alloys }
 	}
 }
 
@@ -225,16 +223,13 @@ planet_event = {
 	immediate = {
 		suelg_add_deposit = { D = d_zro_deposit }
 
-		suelg_get_habitat_and_orbital = yes
-		if = {
-			limit = { exists = event_target:t_orbital }
-			event_target:t_habitat = {
-				suelg_add_deposit_5 = { D = d_hab_zro }
-				suelg_new_habitat_dep_message = { TYPE = d_hab_zro }
-			}
-		} else = {
-			suelg_new_rare_dep_message = { TYPE = d_zro_deposit }
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 5
+			HAB_DEP_TYPE = d_hab_zro
+			FLAG_TYPE = science
 		}
+
+		suelg_new_rare_dep_message = { TYPE = d_zro_deposit }
 	}
 }
 
@@ -246,16 +241,14 @@ planet_event = {
 
 	immediate = {
 		suelg_add_deposit = { D = d_dark_matter_deposit }
-		suelg_get_habitat_and_orbital = yes
-		if = {
-			limit = { exists = event_target:t_orbital }
-			event_target:t_habitat = {
-				suelg_add_deposit_3 = { D = d_hab_dark_matter }
-				suelg_new_habitat_dep_message = { TYPE = d_hab_dark_matter }
-			}
-		} else = {
-			suelg_new_rare_dep_message = { TYPE = d_dark_matter_deposit }
+
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 3
+			HAB_DEP_TYPE = d_hab_dark_matter
+			FLAG_TYPE = science
 		}
+
+		suelg_new_rare_dep_message = { TYPE = d_dark_matter_deposit }
 	}
 }
 
@@ -267,7 +260,13 @@ planet_event = {
 
 	immediate = {
 		suelg_add_deposit = { D = d_physics }
-		suelg_set_habitat_type = { TYPE = research_habitat }
+
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 10
+			HAB_DEP_TYPE = d_hab_physics
+			FLAG_TYPE = science
+			ALWAYS_ADD = yes
+		}
 
 		suelg_new_science_dep_message = { TYPE = d_physics }
 	}
@@ -281,7 +280,13 @@ planet_event = {
 
 	immediate = {
 		suelg_add_deposit = { D = d_society }
-		suelg_set_habitat_type = { TYPE = research_habitat }
+
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 10
+			HAB_DEP_TYPE = d_hab_society
+			FLAG_TYPE = science
+			ALWAYS_ADD = yes
+		}
 
 		suelg_new_science_dep_message = { TYPE = d_society }
 	}
@@ -295,7 +300,13 @@ planet_event = {
 
 	immediate = {
 		suelg_add_deposit = { D = d_engineering }
-		suelg_set_habitat_type = { TYPE = research_habitat }
+
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 10
+			HAB_DEP_TYPE = d_hab_engineering
+			FLAG_TYPE = science
+			ALWAYS_ADD = yes
+		}
 
 		suelg_new_science_dep_message = { TYPE = d_engineering }
 	}
@@ -310,16 +321,12 @@ planet_event = {
 	immediate = {
 		suelg_add_deposit = { D = d_volatile_motes }
 
-		suelg_get_habitat_and_orbital = yes
-		if = {
-			limit = { exists = event_target:t_orbital }
-			event_target:t_habitat = {
-				suelg_add_deposit_5 = { D = d_hab_mote }
-				suelg_new_habitat_dep_message = { TYPE = d_hab_mote }
-			}
-		} else = {
-			suelg_new_rare_dep_message = { TYPE = d_volatile_motes }
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 5
+			HAB_DEP_TYPE = d_hab_mote
 		}
+
+		suelg_new_rare_dep_message = { TYPE = d_volatile_motes }
 	}
 }
 
@@ -332,16 +339,12 @@ planet_event = {
 	immediate = {
 		suelg_add_deposit = { D = d_rare_crystals }
 
-		suelg_get_habitat_and_orbital = yes
-		if = {
-			limit = { exists = event_target:t_orbital }
-			event_target:t_habitat = {
-				suelg_add_deposit_5 = { D = d_hab_crystal }
-				suelg_new_habitat_dep_message = { TYPE = d_hab_crystal }
-			}
-		} else = {
-			suelg_new_rare_dep_message = { TYPE = d_rare_crystals }
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 5
+			HAB_DEP_TYPE = d_hab_crystal
 		}
+
+		suelg_new_rare_dep_message = { TYPE = d_rare_crystals }
 	}
 }
 
@@ -354,16 +357,12 @@ planet_event = {
 	immediate = {
 		suelg_add_deposit = { D = d_exotic_gases }
 
-		suelg_get_habitat_and_orbital = yes
-		if = {
-			limit = { exists = event_target:t_orbital }
-			event_target:t_habitat = {
-				suelg_add_deposit_5 = { D = d_hab_gas }
-				suelg_new_habitat_dep_message = { TYPE = d_hab_gas }
-			}
-		} else = {
-			suelg_new_rare_dep_message = { TYPE = d_exotic_gases }
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 5
+			HAB_DEP_TYPE = d_hab_gas
 		}
+
+		suelg_new_rare_dep_message = { TYPE = d_exotic_gases }
 	}
 }
 
@@ -375,15 +374,12 @@ planet_event = {
 
 	immediate = {
 		suelg_add_deposit = { D = d_artifacts_mining }
-		suelg_get_habitat_and_orbital = yes
-		if = {
-			limit = { exists = event_target:t_orbital }
-			event_target:t_habitat = {
-				suelg_add_deposit_3 = { D = d_hab_artifacts }
-				suelg_new_habitat_dep_message = { TYPE = d_artifacts }
-			}
-		} else = {
-			suelg_new_rare_dep_message = { TYPE = d_artifacts }
+
+		suelg_add_habitat_deposit_and_flag = {
+			MAX_DEP_LVL = 3
+			HAB_DEP_TYPE = d_hab_artifacts
 		}
+
+		suelg_new_rare_dep_message = { TYPE = d_artifacts }
 	}
 }
