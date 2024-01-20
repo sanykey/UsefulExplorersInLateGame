@@ -56,7 +56,13 @@ on_destroying_station = {
 
 on_game_start = {
 	events = {
-		suelg_habitats.5
+		suelg_habitats.5 # rebuild deposits for habitats in capical star systems at the beginning of the game
+	}
+}
+
+on_single_player_save_game_load = {
+	events = {
+		suelg_habitats.6 # rebuild deposits for habitats in all systems in galaxy. Starts if the mod was loaded in the middle of the game
 	}
 }
 

@@ -13,6 +13,7 @@ planet_event = {
 	immediate = {
 		# log = ">> CHECK DEPOSIT. FROM: [from.GetName] THIS: [This.GetName] ROOT: [root.GetName] FROMFROM: [fromfrom.GetName]"
 
+		suelg_calculate_deposits_if_need = yes
 		suelg_calculate_archeology_factor = yes
 
 		random_list = {
@@ -378,6 +379,7 @@ planet_event = {
 		suelg_add_habitat_deposit_and_flag = {
 			MAX_DEP_LVL = 3
 			HAB_DEP_TYPE = d_hab_artifacts
+			ALWAYS_ADD = yes
 		}
 
 		suelg_new_rare_dep_message = { TYPE = d_artifacts }

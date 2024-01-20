@@ -16,3 +16,85 @@ suelg_restore_deposits_by_type_ws = {
 		}
 	}
 }
+
+# this = planet
+suelg_calculate_deposits_if_need = {
+	if = { 
+		limit = {
+			NOT = { has_planet_flag = suelg_count_calculated }
+		}
+		every_deposit = {
+			suelg_calculate_deposit = yes
+		}
+		set_planet_flag = suelg_count_calculated
+	}
+}
+
+# this = deposit
+suelg_calculate_deposit = {
+	suelg_calculate_deposit_10 = { DTYPE = d_minerals SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_10 = { DTYPE = d_energy SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_10 = { DTYPE = d_physics SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_10 = { DTYPE = d_society SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_10 = { DTYPE = d_engineering SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_5 = { DTYPE = d_exotic_gases SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_5 = { DTYPE = d_rare_crystals SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_5 = { DTYPE = d_volatile_motes SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_5 = { DTYPE = d_alloys SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_5 = { DTYPE = d_zro_deposit SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_3 = { DTYPE = d_dark_matter_deposit SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_3 = { DTYPE = d_artifacts_mining SCR = $SCR|suelg_calculate$ }
+}
+
+suelg_calculate_deposit_10 = {
+	# restore_deposits/suelg_calculate
+	# restore_deposits/suelg_calculate_tmp
+  if = { limit = { always = no } }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 1 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 2 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 3 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 4 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 5 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 6 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 7 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 8 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 9 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 10 DTYPE = $DTYPE$ }
+}
+
+suelg_calculate_deposit_5 = {
+	# restore_deposits/suelg_calculate
+	# restore_deposits/suelg_calculate_tmp
+  if = { limit = { always = no } }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 1 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 2 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 3 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 4 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 5 DTYPE = $DTYPE$ }
+} 
+
+suelg_calculate_deposit_3 = {
+	# restore_deposits/suelg_calculate
+	# restore_deposits/suelg_calculate_tmp
+  if = { limit = { always = no } }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 1 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 2 DTYPE = $DTYPE$ }
+  inline_script = { script = restore_deposits/$SCR$ LVL = 3 DTYPE = $DTYPE$ }
+}
+
+suelg_merge_deposits_counts = {
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_minerals }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_energy }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_physics }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_society }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_engineering }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_exotic_gases }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_rare_crystals }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_volatile_motes }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_alloys }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_zro_deposit }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_dark_matter_deposit }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_artifacts_mining }
+
+	set_planet_flag = suelg_count_calculated
+}

@@ -19,7 +19,7 @@ country_event = {
 				}
 
 				planet = {
-					planet_event = { id = suelg_habitats.2 }
+					planet_event = { id = suelg_habitats.2 } # Create deposits in the Habitat that correspond to the deposits of this planet.
 				}
 			} else_if = {
 				limit = {
@@ -27,7 +27,7 @@ country_event = {
 				}
 
 				planet = {
-					planet_event = { id = suelg_habitats.2 }
+					# planet_event = { id = suelg_habitats.2 }
 					solar_system = {
 						# Do the same for all planets in the system.
 						suelg_fix_habitat_deps_in_system = yes
@@ -53,8 +53,12 @@ planet_event = {
 
 		if = {
 			limit = { exists = event_target:t_habitat }
+			save_event_target_as = t_planet
+
+			suelg_calculate_deposits_if_need = yes
+			suelg_add_tracking_empty_deposit = yes
 			every_deposit = {
-				suelg_add_hab_deposit = yes
+				suelg_add_hab_deposit_fx = yes
 			}
 			remove_all_dep_action_flags = yes
 		}
@@ -122,9 +126,33 @@ event = {
 				}
 			}
 		}
+		set_global_flag = suelg_started
 	}
 }
 
+# on_single_player_save_game_load
+# rebuild deposits for habitats in all systems in galaxy. Starts if the mod was loaded in the middle of the game
+event = {
+	id = suelg_habitats.6
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = suelg_started }
+	}
+
+	immediate = {
+		every_system = {
+			limit = {
+				exists = owner
+				suelg_has_habitat_in_system = yes
+			}
+
+			suelg_fix_habitat_deps_in_system = yes
+		}
+		set_global_flag = suelg_started
+	}
+}
 
 # todo: fix or delete code?
 # rebuild deposits for an habitat in the star system in which the selected planet is located

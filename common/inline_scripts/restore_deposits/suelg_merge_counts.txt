@@ -1,0 +1,13 @@
+# restore_deposits/suelg_merge_counts inline script
+if = { 
+	limit =  { is_variable_set = suelg_count_$DTYPE$_tmp }
+	if = {
+		limit = {
+			NOT = { is_variable_set = suelg_count_$DTYPE$ }
+		}
+		set_variable = { which = suelg_count_$DTYPE$ value = suelg_count_$DTYPE$_tmp }
+	} else = {
+		change_variable = { which = suelg_count_$DTYPE$ value = suelg_count_$DTYPE$_tmp }
+	}
+	clear_variable = suelg_count_$DTYPE$_tmp
+}

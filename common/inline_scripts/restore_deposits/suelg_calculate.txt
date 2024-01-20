@@ -1,0 +1,14 @@
+# restore_deposits/suelg_calculate inline script
+else_if = {
+	limit = { is_deposit_type = $DTYPE$_$LVL$ }
+	event_target:t_planet = {
+		if = { 
+			limit =  {
+				NOT = { is_variable_set = suelg_count_$DTYPE$ }
+			}
+			set_variable = { which = suelg_count_$DTYPE$ value = $LVL$ }
+		} else = {
+			change_variable = { which = suelg_count_$DTYPE$ value = $LVL$ }
+		}
+	}
+}

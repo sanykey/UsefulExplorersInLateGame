@@ -75,7 +75,7 @@ fleet_event = {
 				ordered_system_planet = {
 					limit = {
 						has_planet_flag = suelg_planet_has_anomaly
-						NOT = { has_anomaly = yes }
+						has_anomaly = no
 						distance = {
 							source = event_target:t_fleet
 							max_distance <= @suelg_anomaly_max_distance
@@ -95,19 +95,18 @@ fleet_event = {
 				limit = { exists = event_target:t_planet }
 				# log = ">> ANOMALY RESEARCH COMPLETED!! THIS: [THIS.GetName]"
 				event_target:t_planet = {
-					# todo: commented for debug:
-					# planet_event = {
-					# 	id = suelg_restore_deposits.3
-					# 	days = @suelg_restore_deposits_after_days_1
-					# }
-					# planet_event = {
-					# 	id = suelg_restore_deposits.3
-					# 	days = @suelg_restore_deposits_after_days_2
-					# }
-					# planet_event = {
-					# 	id = suelg_restore_deposits.3
-					# 	days = @suelg_restore_deposits_after_days_3
-					# }
+					planet_event = {
+						id = suelg_restore_deposits.3
+						days = @suelg_restore_deposits_after_days_1
+					}
+					planet_event = {
+						id = suelg_restore_deposits.3
+						days = @suelg_restore_deposits_after_days_2
+					}
+					planet_event = {
+						id = suelg_restore_deposits.3
+						days = @suelg_restore_deposits_after_days_3
+					}
 				}
 			}
 		}
@@ -123,20 +122,8 @@ planet_event = {
 	trigger = { suelg_has_unexpectedly_deleted_deposits = yes }
 
 	immediate = {
-		log = ">> DEPOSITS REMOVED! THIS: [THIS.GetName]"
-		planet_event = { id = suelg_restore_deposits.4 } # register new deposits added by an anomaly
+		# log = ">> DEPOSITS REMOVED! THIS: [THIS.GetName]"
 		planet_event = { id = suelg_restore_deposits.5 } # restore deleted deposits to the planet
-	}
-}
-
-# register new deposits added by an anomaly
-planet_event = {
-	id = suelg_restore_deposits.4
-	hide_window = yes
-	is_triggered_only = yes
-
-	immediate = {
-		# todo: scan planet and add deposits to habitat
 	}
 }
 
@@ -147,6 +134,19 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
+		# calculate new deposits from anomaly/special project/event
+		every_deposit = {
+			suelg_calculate_deposit = { SCR = suelg_calculate_tmp }
+		}
+		suelg_merge_deposits_counts = yes
+
+		if = {
+			limit = { suelg_has_orbital_station = yes }
+			every_deposit = {
+				suelg_add_hab_deposit = yes
+			}
+		}
+
 		suelg_restore_deposits_by_type = { D = d_minerals }
 		suelg_restore_deposits_by_type = { D = d_energy }
 		suelg_restore_deposits_by_type = { D = d_trade_value}
@@ -161,10 +161,11 @@ planet_event = {
 		suelg_restore_deposits_by_type = { D = d_exotic_gases }
 		suelg_restore_deposits_by_type = { D = d_artifacts_mining }
 		suelg_add_tracking_empty_deposit = yes
-		log = ">> DEPOSITS RESTORED! THIS: [THIS.GetName]"
+		# log = ">> DEPOSITS RESTORED! THIS: [THIS.GetName]"
 	}
 }
 
+# todo: wtf?
 # Check all planets in the system to see if anomalies have removed deposits. If necessary, restore deposits
 system_event = {
 	id = suelg_restore_deposits.6
@@ -172,11 +173,10 @@ system_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		log = ">> TRY TO RESTORE PLANETS IN SOLAR SYSTEM! THIS: [THIS.GetName]"
+		# log = ">> TRY TO RESTORE PLANETS IN SOLAR SYSTEM! THIS: [THIS.GetName]"
 		every_system_planet = {
 			limit = { suelg_has_unexpectedly_deleted_deposits = yes }
-			log = ">> DEPOSITS REMOVED (2)! THIS: [THIS.GetName]"
-			planet_event = { id = suelg_restore_deposits.4 } # register new deposits added by an anomaly
+			# log = ">> DEPOSITS REMOVED (2)! THIS: [THIS.GetName]"
 			planet_event = { id = suelg_restore_deposits.5 } # restore deleted deposits to the planet
 		}
 	}

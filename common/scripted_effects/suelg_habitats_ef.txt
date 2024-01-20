@@ -55,6 +55,21 @@ suelg_add_hab_deposit = {
 	suelg_add_hab_deposit_10 = { DTYPE = d_physics DHTYPE = d_hab_physics }
 	suelg_add_hab_deposit_10 = { DTYPE = d_society DHTYPE = d_hab_society }
 	suelg_add_hab_deposit_10 = { DTYPE = d_engineering DHTYPE = d_hab_engineering }
+	suelg_add_hab_deposit_5 = { DTYPE = d_exotic_gases DHTYPE = d_hab_gas }
+	suelg_add_hab_deposit_5 = { DTYPE = d_rare_crystals DHTYPE = d_hab_crystal }
+	suelg_add_hab_deposit_5 = { DTYPE = d_volatile_motes DHTYPE = d_hab_mote }
+	suelg_add_hab_deposit_5 = { DTYPE = d_alloys DHTYPE = d_hab_alloy }
+	suelg_add_hab_deposit_5 = { DTYPE = d_zro_deposit DHTYPE = d_hab_zro }
+	suelg_add_hab_deposit_3 = { DTYPE = d_dark_matter_deposit DHTYPE = d_hab_dark_matter }
+	suelg_add_hab_deposit_3 = { DTYPE = d_artifacts_mining DHTYPE = d_hab_artifacts }
+}
+
+suelg_add_hab_deposit_fx = {
+	suelg_add_hab_deposit_10 = { DTYPE = d_minerals DHTYPE = d_hab_minerals }
+	suelg_add_hab_deposit_10 = { DTYPE = d_energy DHTYPE = d_hab_energy }
+	suelg_add_hab_deposit_10 = { DTYPE = d_physics DHTYPE = d_hab_physics }
+	suelg_add_hab_deposit_10 = { DTYPE = d_society DHTYPE = d_hab_society }
+	suelg_add_hab_deposit_10 = { DTYPE = d_engineering DHTYPE = d_hab_engineering }
 	suelg_add_hab_deposit_5fx = { DTYPE = d_exotic_gases DHTYPE = d_hab_gas }
 	suelg_add_hab_deposit_5fx = { DTYPE = d_rare_crystals DHTYPE = d_hab_crystal }
 	suelg_add_hab_deposit_5fx = { DTYPE = d_volatile_motes DHTYPE = d_hab_mote }
@@ -76,6 +91,15 @@ suelg_add_hab_deposit_10 = {
 	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 8 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 9 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 10 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+}
+
+suelg_add_hab_deposit_5 = {
+	if = { limit = { always = no } }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 1 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 2 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 4 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
+	inline_script = { script = habitats_ef/suelg_add_deposit LVL = 5 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ }
 }
 
 suelg_add_hab_deposit_5fx = {
@@ -104,7 +128,7 @@ suelg_add_hab_deposit_3 = {
 ################
 # other methods
 ################
-
+# todo: deprecated?
 suelg_check_and_upd_hab_deposits_3fx = {
 	if = { limit = { always = no } }
 	inline_script = { script = habitats_ef/suelg_check_and_upd_hab_deposits_fx LVL = 1 MAXLVL = 3 DTYPE = $DTYPE$ DHTYPE = $DHTYPE$ ACTION = $ACTION$ }
@@ -161,7 +185,7 @@ remove_dep_action_flags = {
 # scope = system
 suelg_fix_habitat_deps_in_system = {
 	every_system_planet = {
-		limit = { suelg_has_orbital_in_orbit = yes }
+		limit = { suelg_has_orbital_station = yes }
 		planet_event = { id = suelg_habitats.2 }
 	}
 }

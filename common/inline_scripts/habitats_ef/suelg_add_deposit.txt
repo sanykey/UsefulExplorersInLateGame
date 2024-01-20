@@ -1,5 +1,5 @@
 # habitats_ef/suelg_add_deposit inline script
-# scope = planet (event_target:t_planet)
+# this = deposit
 else_if = {
 	limit = { is_deposit_type = $DTYPE$_$LVL$ }
 	event_target:t_habitat = {

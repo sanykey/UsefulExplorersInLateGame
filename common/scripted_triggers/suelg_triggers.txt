@@ -98,16 +98,6 @@ suelg_is_ship_researching_any_sp = {
 	}
 }
 
-# this = planet
-suelg_has_orbital_in_orbit = {
-	any_fleet_in_orbit = {
-		OR = {
-			is_ship_size = major_orbital_resource
-			is_ship_size = minor_orbital_resource
-		}
-	}
-}
-
 # this = system
 suelg_has_habitat_in_system = {
 	any_system_planet = {
