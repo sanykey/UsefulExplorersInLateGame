@@ -32,3 +32,37 @@ suelg_fleet_action_research_special_project = {
 
 	clear_variable = suelg_advanced_survey_lvl
 }
+
+# this = fleet
+suelg_call_no_projects_message = {
+	if = {
+		limit = {
+			owner = {
+				is_ai = no
+				NOT = {
+					has_country_flag = suelg_no_projects_message
+				}
+			}
+		}
+
+		create_message = {
+			type = SUELG_NO_PROJECTS
+			localization = SUELG_NO_PROJECTS_MESSAGE
+			days = @suelg_notification_days
+			target = this
+			variable = {
+				type = name
+				localization = SHIP
+				scope = this
+			}
+		}
+		
+		# Don't allow messages to appear too often when multiple ships are exploring projects
+		owner = {
+			set_timed_country_flag = {
+				flag = suelg_no_projects_message
+				months = 3
+			}
+		}
+	}
+}

@@ -87,6 +87,8 @@ fleet_event = {
 						suelg_fleet_action_research_special_project = yes
 					}
 				}
+			} else = {
+				suelg_call_no_projects_message = yes
 			}
 		}
 	}

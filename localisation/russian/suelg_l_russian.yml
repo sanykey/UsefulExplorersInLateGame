@@ -2,6 +2,9 @@
  SUELG_ANOMALY_DETECTED_TITLE:0 "Аномалия"
  SUELG_ANOMALY_DETECTED_MESSAGE:0 "Флотилия $SHIP|Y$ обнаружила §HАномалию§! на планете $PLANET|Y$."
 
+ MESSAGE_SUELG_NO_PROJECTS_TITLE:0 "Расширенное исследование завершено"
+ SUELG_NO_PROJECTS_MESSAGE:0 "$SHIP|Y$ завершил все доступные проекты §YРасширенного исследования§!"
+
 # todo: deprecated
 #  SUELG_RATE_RESOURCES_DISCOVERED_TITLE:0 "Обнаружены редкие ресурсы"
 #  SUELG_RATE_RESOURCES_DISCOVERED_MESSAGE:0 "Глубокое сканирование планете $PLANET|Y$ обнаружило дополнительный источник редких ресурсов."

@@ -44,6 +44,20 @@ suelg_fleet_survey_sp_distance = {
 	}
 }
 
+# this = fleet
+suelg_closest_fleet_2system = {
+	base = 0
+	complex_trigger_modifier = {
+		trigger = distance
+		trigger_scope = this
+		parameters = {
+			source = event_target:t_solar_system
+			# same_solar_system = yes
+		}
+		mode = add
+	}
+}
+
 suelg_advanced_survey_lvl_per_tech = {
 	base = $LVL$
 	multiply = 5
