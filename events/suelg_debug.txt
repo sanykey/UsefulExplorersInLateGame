@@ -1,10 +1,10 @@
 namespace = suelg_debug
 
-# build starbase near capital
+# build starbase near selected ship or selected planet or capital
 event = {
-    id = suelg_debug.1
-    hide_window = yes
-    is_triggered_only = yes
+	id = suelg_debug.1
+	hide_window = yes
+	is_triggered_only = yes
 
 	immediate = {
 		if = {
@@ -158,6 +158,11 @@ event = {
 		if = {
 			limit = { is_scope_type = country }
 			save_event_target_as = t_owner
+		} else_if = {
+			limit = { is_scope_type = planet }
+			solar_system = {
+				suelg_create_system_scan_projects = yes
+			}
 		} else = {
 			random_playable_country = {
 				limit = {
@@ -280,6 +285,97 @@ country_event = {
 			remove_country_flag = suelg_debug_anomaly_always_spawn
 			remove_country_flag = suelg_debug_anomaly_not_spawn
 			create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_ON days = @suelg_debug_notification_days }
+		}
+	}
+}
+
+# Instantly complete projects in the system using the nearest science ship (planet/ship scope)
+event = {
+	id = suelg_debug.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			is_scope_type = planet
+			is_scope_type = fleet
+			is_scope_type = ship
+		}
+		solar_system = {
+			exists = owner
+		}
+	}
+
+	immediate = {
+		solar_system = {
+			save_event_target_as = t_solar_system
+
+			owner = {
+				save_event_target_as = t_owner
+				ordered_owned_fleet = {
+					limit = {
+						exists = leader
+						leader = {
+							leader_class = scientist
+						}
+						exists = owner
+					}
+					position = 0
+					order_by = value:suelg_closest_fleet_2system
+					inverse = yes
+	
+					random_controlled_ship = {
+						save_event_target_as = t_ship
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					exists = event_target:t_ship
+				}
+	
+				every_system_planet = {
+					if = {
+						limit = {
+							is_variable_set = suelg_started_advanced_survey_lvl
+							is_variable_set = suelg_completed_advanced_survey_lvl
+							check_variable = { which = suelg_started_advanced_survey_lvl value > suelg_completed_advanced_survey_lvl }
+						}
+						planet_event = { id = suelg_advanced_survey.3 } # Run effects after complete project
+
+						save_event_target_as = t_planet
+						event_target:t_owner = {
+							suelg_abort_advanced_survey_SP = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+# Create projects in the system where the allocated ship or selected planet is located (planet/ship scope)
+event = {
+	id = suelg_debug.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			is_scope_type = planet
+			is_scope_type = fleet
+			is_scope_type = ship
+		}
+		solar_system = {
+			exists = owner
+		}
+	}
+
+	immediate = {
+		solar_system = {
+			suelg_create_system_scan_projects = yes
 		}
 	}
 }

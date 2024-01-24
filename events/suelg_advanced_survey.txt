@@ -71,6 +71,7 @@ fleet_event = {
 }
 
 # Run effects after complete project
+# event_target:t_ship sould be set
 planet_event = {
 	id = suelg_advanced_survey.3
 	hide_window = yes
@@ -79,6 +80,12 @@ planet_event = {
 	immediate = {
 		# log = ">> COMPLETE SP EFFECTS"
 		save_event_target_as = t_planet
+		event_target:t_ship = {
+			leader = {
+				save_event_target_as = t_leader
+			}
+		}
+
 		suelg_add_exp_for_leader = yes
 
 		set_variable = { which = suelg_completed_advanced_survey_lvl value = suelg_started_advanced_survey_lvl }

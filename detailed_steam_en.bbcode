@@ -127,14 +127,18 @@ The basic number of days required to complete different levels of "Advanced surv
 
 [h1]Console commands for debugging[/h1]
 [code]
-event suelg_debug.1             # build an outpost on a random nearby free star system
-event suelg_debug.2             # learn the next level of scanning technology
-event suelg_debug.3             # cancel all current projects
-event suelg_debug.4             # create projects on a random nearby captured star system if there is a suitable system and technology level available
+event suelg_debug.1             # Build an outpost on a random nearby free star system (country/planet/fleet scope)
+event suelg_debug.2             # Learn the next level of scanning technology
+event suelg_debug.3             # Cancel all current projects
+event suelg_debug.4             # Create projects on a random nearby captured star system if there is a suitable system and technology level available
 
-event suelg_debug.7            # switch guaranteed deposits spawn on/off
-event suelg_debug.8            # switch fast projects completion (to 25%) on/off
-event suelg_debug.9            # switch anomaly spawn on/always/off
+event suelg_debug.7            # Switch guaranteed deposits spawn on/off
+event suelg_debug.8            # Switch fast projects completion (to 25%) on/off
+event suelg_debug.9            # Switch anomaly spawn on/always/off
+
+event suelg_debug.10           # Instantly complete projects in the system using the nearest science ship (planet/fleet scope)
+event suelg_debug.11           # Create projects in the system where the allocated ship or selected planet is located (planet/fleet scope)
+
 [/code].
 The following commands create +1 deposits of the specified resource. When entering the commands, a planet window should be opened to add the
 the specified deposits:
