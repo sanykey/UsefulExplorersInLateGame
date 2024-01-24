@@ -102,7 +102,7 @@ suelg_abort_advanced_survey_SP = {
 	abort_special_project = { type = SUELG_ADVANCED_SURVEY_SP_25 location = event_target:t_planet }
 }
 
-# this = system scope
+# this = solar_system
 suelg_reset_system_projects = {
 	remove_star_flag = suelg_has_scan_projects
 	every_system_planet = {

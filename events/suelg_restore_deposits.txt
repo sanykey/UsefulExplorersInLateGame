@@ -160,6 +160,7 @@ planet_event = {
 		suelg_restore_deposits_by_type = { D = d_rare_crystals }
 		suelg_restore_deposits_by_type = { D = d_exotic_gases }
 		suelg_restore_deposits_by_type = { D = d_artifacts_mining }
+		suelg_restore_deposits_by_type = { D = d_artifacts_research }
 		suelg_add_tracking_empty_deposit = yes
 		# log = ">> DEPOSITS RESTORED! THIS: [THIS.GetName]"
 	}

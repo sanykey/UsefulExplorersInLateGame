@@ -374,7 +374,35 @@ planet_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		suelg_add_deposit = { D = d_artifacts_mining }
+		if = {
+			limit = { has_deposit_for = shipclass_mining_station }
+			suelg_add_deposit = { D = d_artifacts_mining }
+		} else_if = {
+			limit = { has_deposit_for = shipclass_research_station }
+			suelg_add_deposit = { D = d_artifacts_research }
+		} else_if = {
+			limit = {
+				OR = {
+					is_planet_class = pc_toxic # not sure
+					is_planet_class = pc_frozen # not sure
+					# I doubt archaeological sites can appear on stars, but just in case.
+					is_planet_class = pc_a_star
+					is_planet_class = pc_b_star
+					is_planet_class = pc_f_star
+					is_planet_class = pc_g_star
+					is_planet_class = pc_k_star
+					is_planet_class = pc_m_star
+					is_planet_class = pc_m_giant_star
+					is_planet_class = pc_t_star
+					is_planet_class = pc_neutron_star
+					is_planet_class = pc_pulsar
+					is_planet_class = pc_black_hole
+				}
+			}
+			suelg_add_deposit = { D = d_artifacts_research }
+		} else = {
+			suelg_add_deposit = { D = d_artifacts_mining }
+		}
 
 		suelg_add_habitat_deposit_and_flag = {
 			MAX_DEP_LVL = 3

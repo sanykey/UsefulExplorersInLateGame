@@ -14,6 +14,7 @@
 @suelg_sizes_d_exotic_gases = 5
 @suelg_sizes_d_dark_matter_deposit = 3
 @suelg_sizes_d_artifacts_mining = 3
+@suelg_sizes_d_artifacts_research = 3
 
 ####################################
 ##### Advanced survey settings #####

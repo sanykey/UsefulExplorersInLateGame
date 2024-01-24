@@ -44,6 +44,7 @@ suelg_calculate_deposit = {
 	suelg_calculate_deposit_5 = { DTYPE = d_zro_deposit SCR = $SCR|suelg_calculate$ }
 	suelg_calculate_deposit_3 = { DTYPE = d_dark_matter_deposit SCR = $SCR|suelg_calculate$ }
 	suelg_calculate_deposit_3 = { DTYPE = d_artifacts_mining SCR = $SCR|suelg_calculate$ }
+	suelg_calculate_deposit_3 = { DTYPE = d_artifacts_research SCR = $SCR|suelg_calculate$ }
 }
 
 suelg_calculate_deposit_10 = {
@@ -95,6 +96,7 @@ suelg_merge_deposits_counts = {
 	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_zro_deposit }
 	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_dark_matter_deposit }
 	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_artifacts_mining }
+	inline_script = { script = restore_deposits/suelg_merge_counts DTYPE = d_artifacts_research }
 
 	set_planet_flag = suelg_count_calculated
 }

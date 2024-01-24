@@ -14,6 +14,7 @@ suelg_delete_hab_deposit = {
 	suelg_delete_hab_deposit_5 = { DTYPE = d_zro_deposit DHTYPE = d_hab_zro }
 	suelg_delete_hab_deposit_3 = { DTYPE = d_dark_matter_deposit DHTYPE = d_hab_dark_matter }
 	suelg_delete_hab_deposit_3 = { DTYPE = d_artifacts_mining DHTYPE = d_hab_artifacts }
+	suelg_delete_hab_deposit_3 = { DTYPE = d_artifacts_research DHTYPE = d_hab_artifacts }
 }
 
 suelg_delete_hab_deposit_10 = {
@@ -62,6 +63,7 @@ suelg_add_hab_deposit = {
 	suelg_add_hab_deposit_5 = { DTYPE = d_zro_deposit DHTYPE = d_hab_zro }
 	suelg_add_hab_deposit_3 = { DTYPE = d_dark_matter_deposit DHTYPE = d_hab_dark_matter }
 	suelg_add_hab_deposit_3 = { DTYPE = d_artifacts_mining DHTYPE = d_hab_artifacts }
+	suelg_add_hab_deposit_3 = { DTYPE = d_artifacts_research DHTYPE = d_hab_artifacts }
 }
 
 suelg_add_hab_deposit_fx = {
@@ -77,6 +79,7 @@ suelg_add_hab_deposit_fx = {
 	suelg_add_hab_deposit_5fx = { DTYPE = d_zro_deposit DHTYPE = d_hab_zro }
 	suelg_add_hab_deposit_3fx = { DTYPE = d_dark_matter_deposit DHTYPE = d_hab_dark_matter }
 	suelg_add_hab_deposit_3 = { DTYPE = d_artifacts_mining DHTYPE = d_hab_artifacts }
+	suelg_add_hab_deposit_3 = { DTYPE = d_artifacts_research DHTYPE = d_hab_artifacts }
 }
 
 suelg_add_hab_deposit_10 = {
