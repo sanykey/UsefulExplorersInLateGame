@@ -36,6 +36,14 @@ on_system_lost = {
 	}
 }
 
+# THIS = Ship (Starbase)
+# FROM = Former Owner (Country)
+on_starbase_transfer = {
+	events = {
+		suelg_advanced_survey.11
+	}
+}
+
 suelg_ship_complete_scan = {
 	events = {
 		suelg_advanced_survey_progress.4
