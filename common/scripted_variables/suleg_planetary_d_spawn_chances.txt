@@ -1,0 +1,16 @@
+#######################################
+##### planetary deposit spawning	#####
+#######################################
+
+@suelg_planetary_deposit_chance_high = 16
+@suelg_planetary_deposit_chance_med = 8
+@suelg_planetary_deposit_chance_low = 4
+@suelg_planetary_deposit_chance_high_rare = 0.5
+@suelg_planetary_deposit_chance_mid_rare = 0.25
+@suelg_planetary_deposit_chance_low_rare = 0.1
+@suelg_deposit_chance_planet_type_bonus = 1.5
+
+# planetary deposit spawn chance:
+@suelg_planetary_dep_spawn_base_weight = 10
+@suelg_planetary_dep_fail_base_weight = 90
+@suelg_planetary_size_by_every_deps = 4
