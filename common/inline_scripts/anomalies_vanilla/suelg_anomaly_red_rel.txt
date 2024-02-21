@@ -1,3 +1,5 @@
+# inline script anomalies_vanilla/suelg_anomaly_red_rel
+
 0 = {
 	modifier = {
 			add = 2

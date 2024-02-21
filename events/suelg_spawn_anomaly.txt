@@ -103,7 +103,7 @@ planet_event = {
 				from.owner = { is_ai = no }
 			} 
 			from = {
-				add_anomaly_notification = yes
+				suelg_add_anomaly_notification = yes
 			}
 		}
 	}

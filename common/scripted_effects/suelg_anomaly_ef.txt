@@ -1,11 +1,18 @@
 # this scope = planet
 suelg_spawn_random_anomaly = {
 	random_list = {
-		inline_script = suelg_00_anomaly
-		inline_script = suelg_01_anomaly
-		inline_script = suelg_02_anomaly
-		inline_script = suelg_anomaly_red_rel
-		inline_script = suelg_anomaly_distant_start
+		# todo: commented for debug
+		inline_script = anomalies_vanilla/suelg_00_anomaly
+		inline_script = anomalies_vanilla/suelg_01_anomaly
+		inline_script = anomalies_vanilla/suelg_02_anomaly
+		inline_script = anomalies_vanilla/suelg_anomaly_red_rel
+		inline_script = anomalies_vanilla/suelg_anomaly_distant_start
+
+		inline_script = anomalies_vanilla_addon/suelg_00_anomaly_once
+		inline_script = anomalies_vanilla_addon/suelg_01_anomaly_once
+		inline_script = anomalies_vanilla_addon/suelg_02_anomaly_once
+		inline_script = anomalies_vanilla_addon/suelg_anomaly_distant_start_once
+		inline_script = anomalies_vanilla_addon/suelg_anomaly_red_rel_once
 		0 = {}
 	}
 }
@@ -13,12 +20,20 @@ suelg_spawn_random_anomaly = {
 # this scope = planet
 suelg_spawn_anomaly = {
 	add_anomaly = { category = "$CAT$" target = from.owner }
-	log = ">> SPAWN ANOMALY. THIS: [This.GetName] FROM: [From.GetName] NAME: $CAT$"
+
+	[[GLOBAL]
+		suelg_add_anomaly_spawn_flag = { GLOBAL = $CAT$ }
+	]
+	[[COUNTRY]
+		suelg_add_anomaly_spawn_flag = { COUNTRY = $CAT$ }
+	]
+
+	# log = ">> SPAWN ANOMALY. THIS: [This.GetName] FROM: [From.GetName] NAME: $CAT$"
 	set_planet_flag = suelg_planet_has_anomaly
 }
 
 # this = ship scope
-add_anomaly_notification = { # todo: name prefix
+suelg_add_anomaly_notification = {
 	create_message = {
 		type = SUELG_ANOMALY_DETECTED
 		localization = SUELG_ANOMALY_DETECTED_MESSAGE
@@ -35,4 +50,18 @@ add_anomaly_notification = { # todo: name prefix
 			scope = prev
 		}
 	}
+}
+
+# adds flags when spawning one-time anomalies so that anomalies are not re-created with this mod
+suelg_add_anomaly_spawn_flag = {
+	[[GLOBAL]
+		set_global_flag = suelg_anomaly_spawned_$GLOBAL$
+	]
+	[[COUNTRY]
+		FROM = {
+			owner = {
+				set_country_flag = suelg_anomaly_spawned_$COUNTRY$
+			}
+		}
+	]
 }

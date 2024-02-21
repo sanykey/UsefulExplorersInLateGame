@@ -1,0 +1,10 @@
+modifier = {
+	factor = 0
+	from.owner = {
+		has_country_flag = suelg_anomaly_spawned_$CAT$
+	}
+}
+modifier = {
+	factor = 0
+	has_global_flag = suelg_anomaly_spawned_$CAT$
+}

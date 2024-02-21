@@ -3,6 +3,10 @@ suelg_clear_projects = {
 	resources = {
 		category = edicts
 	}
+
+	potential = {
+		suelg_can_survey = yes
+	}
 			
 	effect = {hidden_effect = {
 		if = {
@@ -19,12 +23,6 @@ suelg_clear_projects = {
 		}
 	}
 
-	# potential = {
-	# 	NOT = {
-	# 		has_country_flag = suelg_clear_project_started
-	# 	}
-	# }
-
 	ai_weight = {
 		weight = 0	
 	}	
@@ -37,7 +35,23 @@ suelg_disallow_auto_survey = {
 	}
 
 	potential = {
-		suelg_can_auto_survey = yes
+		suelg_can_survey = yes
+	}
+
+	ai_weight = {
+		weight = 0	
+	}	
+}
+
+suelg_dont_create_projects = {
+	icon = "GFX_edict_type_time"
+	resources = {
+		category = edicts
+	}
+
+	potential = {
+		suelg_can_survey = yes
+		always = no # todo fix
 	}
 
 	ai_weight = {

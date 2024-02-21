@@ -1,5 +1,5 @@
 # https://regex101.com/r/9rsscY/1
-# inline script suelg_00_anomaly
+# inline script anomalies_vanilla/suelg_00_anomaly
 
 0 = { 
 	modifier = {

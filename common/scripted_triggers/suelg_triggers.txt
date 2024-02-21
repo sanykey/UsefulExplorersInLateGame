@@ -106,7 +106,7 @@ suelg_has_habitat_in_system = {
 }
 
 # this = owner
-suelg_can_auto_survey = {
+suelg_can_survey = {
 	OR = {
 		has_technology = suelg_tech_advanced_survey_1
 		AND = {
@@ -143,5 +143,34 @@ suelg_is_orbital_station = {
 suelg_has_orbital_station = {
 	any_fleet_in_orbit = {
 		suelg_is_orbital_station = yes
+	}
+}
+
+suelg_has_owner = {
+	OR = {
+		AND = {
+			is_scope_type = planet
+			solar_system = {
+				exists = owner
+			}
+		}
+		AND = {
+			is_scope_type = fleet
+			exists = owner
+		}
+		is_scope_type = country
+	}
+}
+
+suelg_is_owned_fleet_or_planet = {
+	AND = {
+		is_scope_type = planet
+		solar_system = {
+			exists = owner
+		}
+	}
+	AND = {
+		is_scope_type = fleet
+		exists = owner
 	}
 }

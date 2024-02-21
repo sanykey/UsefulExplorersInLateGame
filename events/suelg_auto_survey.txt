@@ -9,7 +9,7 @@ fleet_event = {
 	trigger = {
 		owner = {
 			is_ai = no
-			suelg_can_auto_survey = yes
+			suelg_can_survey = yes
 			NOT = { has_edict = suelg_disallow_auto_survey }
 		}
 		# If the science ship has received an order from the player, automatic research must be interrupted

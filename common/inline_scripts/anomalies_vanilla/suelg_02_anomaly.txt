@@ -1,4 +1,4 @@
-# inline script suelg_02_anomaly
+# inline script anomalies_vanilla/suelg_02_anomaly
 
 0 = {
 	modifier = {

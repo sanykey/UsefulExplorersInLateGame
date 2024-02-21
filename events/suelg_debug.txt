@@ -28,7 +28,6 @@ event = {
 		} else_if = {
 			limit = {
 				OR = {
-					is_scope_type = ship
 					is_scope_type = fleet
 				}
 				exists = owner
@@ -102,6 +101,10 @@ event = {
 	hide_window = yes
 	is_triggered_only = yes
 
+	trigger = {
+		suelg_has_owner = yes
+	}
+
 	immediate = {
 		if = {
 			limit = { is_scope_type = country }
@@ -126,6 +129,10 @@ event = {
 	id = suelg_debug.3
 	hide_window = yes
 	is_triggered_only = yes
+
+	trigger = {
+		suelg_has_owner = yes
+	}
 
 	immediate = {
 		if = {
@@ -153,6 +160,10 @@ event = {
 	id = suelg_debug.4
 	hide_window = yes
 	is_triggered_only = yes
+
+	trigger = {
+		suelg_has_owner = yes
+	}
 
 	immediate = {
 		if = {
@@ -204,10 +215,14 @@ planet_event = {
 }
 
 # switch guaranteed deposits spawn on/off
-country_event = {
+event = {
 	id = suelg_debug.7
 	hide_window = yes
 	is_triggered_only = yes
+
+	trigger = {
+		suelg_has_owner = yes
+	}
 
 	immediate = {
 		if = {
@@ -232,10 +247,14 @@ country_event = {
 }
 
 # switch fast projects completion on/off
-country_event = {
+event = {
 	id = suelg_debug.8
 	hide_window = yes
 	is_triggered_only = yes
+
+	trigger = {
+		suelg_has_owner = yes
+	}
 
 	immediate = {
 		if = {
@@ -260,31 +279,60 @@ country_event = {
 }
 
 # switch anomaly spawn on/always/off
-country_event = {
+event = {
 	id = suelg_debug.9
 	hide_window = yes
 	is_triggered_only = yes
 
+	trigger = {
+		suelg_has_owner = yes
+	}
+
 	immediate = {
 		if = {
+			limit = { is_scope_type = country }
+			save_event_target_as = t_owner
+		} else_if = {
 			limit = {
-				NOT = {
-					has_country_flag = suelg_debug_anomaly_always_spawn
-					has_country_flag = suelg_debug_anomaly_not_spawn
+				is_scope_type = fleet
+				exists = owner
+			}
+			owner = {
+				save_event_target_as = t_owner
+			}
+		} else_if = {
+			limit = {
+				is_scope_type = planet
+				solar_system = {
+					exists = owner
 				}
 			}
-			remove_country_flag = suelg_debug_anomaly_not_spawn
-			set_country_flag = suelg_debug_anomaly_always_spawn
-			create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_ALWAYS days = @suelg_debug_notification_days }
-		} else_if = {
-			limit = { has_country_flag = suelg_debug_anomaly_always_spawn }
-			remove_country_flag = suelg_debug_anomaly_always_spawn
-			set_country_flag = suelg_debug_anomaly_not_spawn
-			create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_OFF days = @suelg_debug_notification_days }
-		} else = {
-			remove_country_flag = suelg_debug_anomaly_always_spawn
-			remove_country_flag = suelg_debug_anomaly_not_spawn
-			create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_ON days = @suelg_debug_notification_days }
+			solar_system.owner = {
+				save_event_target_as = t_owner
+			}
+		}
+
+		event_target:t_owner = {
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = suelg_debug_anomaly_always_spawn
+						has_country_flag = suelg_debug_anomaly_not_spawn
+					}
+				}
+				remove_country_flag = suelg_debug_anomaly_not_spawn
+				set_country_flag = suelg_debug_anomaly_always_spawn
+				create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_ALWAYS days = @suelg_debug_notification_days }
+			} else_if = {
+				limit = { has_country_flag = suelg_debug_anomaly_always_spawn }
+				remove_country_flag = suelg_debug_anomaly_always_spawn
+				set_country_flag = suelg_debug_anomaly_not_spawn
+				create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_OFF days = @suelg_debug_notification_days }
+			} else = {
+				remove_country_flag = suelg_debug_anomaly_always_spawn
+				remove_country_flag = suelg_debug_anomaly_not_spawn
+				create_message = { type = SUELG_DEBUG localization = SUELG_DEBUG_ANOMALY_SPAWN_ON days = @suelg_debug_notification_days }
+			}
 		}
 	}
 }
@@ -296,14 +344,7 @@ event = {
 	is_triggered_only = yes
 
 	trigger = {
-		OR = {
-			is_scope_type = planet
-			is_scope_type = fleet
-			is_scope_type = ship
-		}
-		solar_system = {
-			exists = owner
-		}
+		suelg_is_owned_fleet_or_planet = yes
 	}
 
 	immediate = {
@@ -363,14 +404,7 @@ event = {
 	is_triggered_only = yes
 
 	trigger = {
-		OR = {
-			is_scope_type = planet
-			is_scope_type = fleet
-			is_scope_type = ship
-		}
-		solar_system = {
-			exists = owner
-		}
+		suelg_is_owned_fleet_or_planet = yes
 	}
 
 	immediate = {
