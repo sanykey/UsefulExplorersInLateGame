@@ -1,22 +1,22 @@
 suelg_tech_advanced_survey_1 = {
-	tier = 4
-	cost = @suelg_tech_cost_advanced_survey_1
-	weight = 30
+	tier = 3
+	cost = @tier3cost3
+	weight = @tier3weight3
 
 	inline_script = suelg_tech_advanced_survey
 }
 suelg_tech_advanced_survey_2 = {
-	tier = 5
-	cost = @suelg_tech_cost_advanced_survey_2
-	weight = 30
+	tier = 4
+	cost = @tier4cost3
+	weight = @tier4weight3
 	prerequisites = { "suelg_tech_advanced_survey_1" }
 
 	inline_script = suelg_tech_advanced_survey
 }
 suelg_tech_advanced_survey_3 = {
 	tier = 5
-	cost = @suelg_tech_cost_advanced_survey_3
-	weight = 30
+	cost = @tier5cost3
+	weight = @tier5weight3
 	prerequisites = { "suelg_tech_advanced_survey_2" }
 
 	inline_script = suelg_tech_advanced_survey
