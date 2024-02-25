@@ -1,3 +1,4 @@
+# suelg_sp_deep_scan inline script
 # picture = GFX_F_event_001
 location = yes
 icon = "gfx/interface/icons/situation_log/situation_log_scanning_beam.dds"
