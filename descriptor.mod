@@ -1,5 +1,6 @@
-version="1.2.2"
+version="1.2.4"
 tags={
+	"Balance"
 	"Events"
 	"Technologies"
 	"Gameplay"
@@ -7,5 +8,5 @@ tags={
 }
 name="Repeated Systems Survey"
 picture="thumbnail.png"
-supported_version="3.10.*"
+supported_version="3.11.*"
 remote_file_id="3134984317"
