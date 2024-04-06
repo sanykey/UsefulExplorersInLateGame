@@ -40,7 +40,7 @@ on_system_lost = {
 # FROM = Former Owner (Country)
 on_starbase_transfer = {
 	events = {
-		suelg_advanced_survey.11
+		suelg_advanced_survey.13
 	}
 }
 

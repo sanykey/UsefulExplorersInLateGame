@@ -218,6 +218,7 @@ system_event = {
 }
 
 # on_system_lost
+# From = system
 # FromFrom = country (new owner)
 # This = country (previous owner)
 country_event = {
@@ -228,6 +229,25 @@ country_event = {
 	immediate = {
 		save_event_target_as = t_owner
 		from = {
+			suelg_reset_system_projects = yes
+		}
+	} 
+}
+
+# on_starbase_transfer
+# THIS = Ship (Starbase)
+# FROM = Former Owner (Country)
+event = {
+	id = suelg_advanced_survey.13
+	hide_window = yes
+	is_triggered_only = yes
+
+
+immediate = {
+		FROM = {
+			save_event_target_as = t_owner
+		}
+		solar_system = {
 			suelg_reset_system_projects = yes
 		}
 	} 
