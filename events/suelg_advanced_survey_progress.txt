@@ -12,28 +12,38 @@ ship_event = {
 
 	immediate = {
 		fromfrom = { save_event_target_as = t_planet }
+		owner = { save_event_target_as = t_owner }
+		save_event_target_as = t_ship
 
-		suelg_calculate_actual_sp_days = yes
-
-		# log = ">> ON_START. BASE DAYS: [this.suelg_base_sp_days]"
-		# log = ">> ON_START. SURVEY SPEED: [this.suelg_survey_speed]"
-		# log = ">> ON_START. ACTUAL DAYS: [this.suelg_actual_sp_days]"
-
-		# sometimes the actual number of days for a project is so small that on_action on_progress_25 becomes irrelevant.
-		# 	Therefore, we run suelg_remain_or_complete_sp at an early stage, assuming that event suelg_advanced_survey_progress.2 will not be run
-		set_variable = { which = suelg_25progress_days value = suelg_base_sp_days }
-		multiply_variable = { which = suelg_25progress_days value = 0.25 }
 		if = {
 			limit = {
-				check_variable = { which = suelg_actual_sp_days value < suelg_25progress_days }
+				# Attempting to fix an unknown scope switching problem
+				is_scope_type = ship
+				is_scope_set = leader
 			}
-			# log = ">> ON_START. SHORT START"
-			suelg_remain_or_complete_sp = yes
-		}
 
-		clear_variable = suelg_base_sp_days
-		clear_variable = suelg_survey_speed
-		clear_variable = suelg_25progress_days
+			suelg_calculate_actual_sp_days = yes
+
+			# log = ">> ON_START. BASE DAYS: [this.suelg_base_sp_days]"
+			# log = ">> ON_START. SURVEY SPEED: [this.suelg_survey_speed]"
+			# log = ">> ON_START. ACTUAL DAYS: [this.suelg_actual_sp_days]"
+	
+			# sometimes the actual number of days for a project is so small that on_action on_progress_25 becomes irrelevant.
+			# 	Therefore, we run suelg_remain_or_complete_sp at an early stage, assuming that event suelg_advanced_survey_progress.2 will not be run
+			set_variable = { which = suelg_25progress_days value = suelg_base_sp_days }
+			multiply_variable = { which = suelg_25progress_days value = 0.25 }
+			if = {
+				limit = {
+					check_variable = { which = suelg_actual_sp_days value < suelg_25progress_days }
+				}
+				# log = ">> ON_START. SHORT START"
+				suelg_remain_or_complete_sp = yes
+			}
+	
+			clear_variable = suelg_base_sp_days
+			clear_variable = suelg_survey_speed
+			clear_variable = suelg_25progress_days
+		}
 	} 
 }
 
@@ -52,24 +62,34 @@ ship_event = {
 		owner = { save_event_target_as = t_owner }
 		save_event_target_as = t_ship
 
-		# In vanilla game, if the ship is far away from the project, often action on_start does not work,
-		#  respectively event suelg_advanced_survey_progress.1 will not work,
-		#  then recalculate the remaining days of the project (action on_progress_25 always works)
-		suelg_calculate_actual_sp_days = yes
 
-		# log = ">> ON_PROGRESS_25. BASE DAYS: [this.suelg_base_sp_days]"
-		# log = ">> ON_PROGRESS_25. SURVEY SPEED: [this.suelg_survey_speed]"
-		# log = ">> ON_PROGRESS_25. ACTUAL DAYS: [this.suelg_actual_sp_days]"
+		if = {
+			limit = {
+				# Attempting to fix an unknown scope switching problem
+				is_scope_type = ship
+				is_scope_set = leader
+			}
 
-		set_variable = { which = suelg_past_sp_days value = suelg_base_sp_days }
-		multiply_variable = { which = suelg_past_sp_days value = 0.25 }
-		subtract_variable  = { which = suelg_actual_sp_days value = suelg_past_sp_days }
-		# log = ">> ON_PROGRESS_25. PAST DAYS: [this.suelg_past_sp_days] REMAINING DAYS : [this.suelg_actual_sp_days]"
+			# In vanilla game, if the ship is far away from the project, often action on_start does not work,
+			#  respectively event suelg_advanced_survey_progress.1 will not work,
+			#  then recalculate the remaining days of the project (action on_progress_25 always works)
+			suelg_calculate_actual_sp_days = yes
 
-		suelg_remain_or_complete_sp = yes
-	
-		clear_variable = suelg_base_sp_days
-		clear_variable = suelg_survey_speed
+			# log = ">> ON_PROGRESS_25. BASE DAYS: [this.suelg_base_sp_days]"
+			# log = ">> ON_PROGRESS_25. SURVEY SPEED: [this.suelg_survey_speed]"
+			# log = ">> ON_PROGRESS_25. ACTUAL DAYS: [this.suelg_actual_sp_days]"
+
+			set_variable = { which = suelg_past_sp_days value = suelg_base_sp_days }
+			multiply_variable = { which = suelg_past_sp_days value = 0.25 }
+			subtract_variable  = { which = suelg_actual_sp_days value = suelg_past_sp_days }
+			# log = ">> ON_PROGRESS_25. PAST DAYS: [this.suelg_past_sp_days] REMAINING DAYS : [this.suelg_actual_sp_days]"
+
+			suelg_remain_or_complete_sp = yes
+		
+			clear_variable = suelg_base_sp_days
+			clear_variable = suelg_survey_speed
+
+		}
 	} 
 }
 

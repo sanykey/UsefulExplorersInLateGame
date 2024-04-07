@@ -6,6 +6,12 @@ planet_event = {
     hide_window = yes
     is_triggered_only = yes
 
+	trigger = {
+		is_scope_set = event_target:t_leader
+		is_scope_set = event_target:t_owner
+		is_scope_set = event_target:t_planet
+	}
+
 	immediate = {
 		suelg_calculate_archeology_factor = yes
 
